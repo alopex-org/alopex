@@ -54,6 +54,8 @@ The recommendation:
 | Mesa | The open-source library of OpenGL and Vulkan drivers, which can replace a vendor's closed GPU driver |
 | NRE | Non-recurring engineering: the one-off cost of adapting a design |
 | ODM | Original design manufacturer: a company that designs and builds devices sold under other companies' brands |
+| RISC-V | An open instruction set for processors, which any chip maker may implement |
+| RVA23 | The RISC-V profile, a required set of extensions, that Android targets on RISC-V |
 | SAR | Specific absorption rate: how much radio energy the body absorbs from a device |
 | Secure boot | The chip starts only firmware signed with a key whose hash is fused into the chip |
 | SEP | Standard-essential patent: a patent that every device using a standard, such as LTE, has to license |
@@ -65,7 +67,7 @@ The recommendation:
 |---|---|---|---|
 | [Existing phones](#existing-phones) | Nothing in hardware | One phone per developer | The baseline |
 | [Partnership](#partnership-with-a-phone-maker) | Brings requirements and an OS to a phone maker | Engineering time | Best route to a product |
-| [Development board](#development-board) | Ports Android to a board | Hundreds of euros | First step, not a product |
+| [Development board](#development-board) | Ports Android to a board | Under a hundred to over a thousand dollars per board | First step, not a product |
 | [ODM phone](#odm-phone) | Has a phone made, and sells it | Tens to hundreds of thousands | Only with funding |
 | [Module-based design](#module-based-design) | Designs a device around a cellular module | Hundreds of thousands | Prototype first |
 | [Chip-vendor design](#chip-vendor-design) | Designs a phone around a chip bought from the vendor | Millions | No |
@@ -129,6 +131,7 @@ It is a place to learn bring-up, or the base of a device without a modem, such a
 
 | Board | Chip | Android | Notes |
 |---|---|---|---|
+| SpacemiT K3 Pico-ITX, Alibaba A210 EVB | SpacemiT K3, Alibaba A210 (RISC-V) | 17, developer release | RISE's release, built by BayLibre; not production-ready |
 | NXP i.MX 8M Plus and i.MX 95 boards | i.MX 8M Plus, i.MX 95 | 17, on kernel 6.18 | NXP's own release |
 | BeaglePlay | TI AM625 | 16, on kernel 6.12 | TI's release; certified open hardware |
 | Raspberry Pi 5 | BCM2712 | 17, community build | One developer's build, not for commercial use |
@@ -138,15 +141,16 @@ It is a place to learn bring-up, or the base of a device without a modem, such a
 | Other RK3588 boards | RK3588 | 14, on kernel 6.1 | For example Advantech's BSP |
 
 - The project writes and maintains a device tree on top of the board maker's BSP.
-  Only NXP's BSP is on the current Android release; the others are one or more releases behind.
+  On Arm, only NXP's BSP is on the current Android release; the others are one or more releases behind.
+  On RISC-V, Android 17 runs as a developer release on a kernel outside Google's GKI, which dropped RISC-V in 2024.
 - None of these boards has a cellular modem.
 - **Cost:** from under a hundred to over a thousand dollars per board, plus the porting work.
 
 **Verdict:** a good first step, not a product.
-A board teaches device-tree, kernel and verified-boot work cheaply, and a spare board can be fused for practice.
+A board teaches device-tree, kernel and verified-boot work cheaply (unsourced), and a spare board can be fused for practice.
 It covers none of a phone's own parts: the modem, cameras, battery and their certification.
 
-Sources: [BOARDS.md](BOARDS.md#sources), [AOSP reference boards][aosp-boards], [Qualcomm: Android on Dragonwing][qc-android-dw], [Qualcomm kernel docs][qc-kernel], [Thundercomm C6490 Development Kit][thundercomm-c6490], [Radxa support matrix][radxa-matrix], [Advantech RK3588 Android 14][advantech-rk3588], [NXP RN00201][nxp-rn00201], [TI Android 11.00.01 release notes][ti-android-1101], [OSHWA certificate for BeaglePlay][oshwa-beagleplay], [KonstaKANG AOSP 17][konstakang-aosp17], [Raspberry Pi Compute Module 5][rpi-cm5], [Raspberry Pi security architecture][rpi-security].
+Sources: [BOARDS.md](BOARDS.md#sources), [RISE Android 17 announcement][rise-android17], [Android Authority on RISC-V][aa-riscv], [AOSP reference boards][aosp-boards], [Qualcomm: Android on Dragonwing][qc-android-dw], [Qualcomm kernel docs][qc-kernel], [Thundercomm C6490 Development Kit][thundercomm-c6490], [Radxa support matrix][radxa-matrix], [Advantech RK3588 Android 14][advantech-rk3588], [NXP RN00201][nxp-rn00201], [TI Android 11.00.01 release notes][ti-android-1101], [OSHWA certificate for BeaglePlay][oshwa-beagleplay], [KonstaKANG AOSP 17][konstakang-aosp17], [Raspberry Pi Compute Module 5][rpi-cm5], [Raspberry Pi security architecture][rpi-security].
 
 ### ODM phone
 
@@ -252,7 +256,7 @@ What vendors offer:
   A current Android release means bringing the BSP forward by several versions.
 - **Rockchip and NXP:** Android BSPs exist (Android 14 on kernel 6.1 for the RK3588; Android 17 on kernel 6.18 for the i.MX 8M Plus and i.MX 95), but these chips have no modem.
   A module maker projects about two years of support for each i.MX BSP version.
-  NXP lists the i.MX 95 in its longevity programme until 2041 ([BOARDS.md](BOARDS.md#nxp-imx-8m-plus-and-imx-95)).
+  NXP lists the i.MX 95 in its longevity programme until 2041, which covers making the chip, not supporting the BSP ([BOARDS.md](BOARDS.md#nxp-imx-8m-plus-and-imx-95)).
 
 Kernels matter too.
 Each GKI branch has an end-of-life date, and the `android12-5.10` and `android13-5.10` branches lose support from Android 17 QPR1.
@@ -500,6 +504,8 @@ All checked on 2026-11-20.
 - [Variscite Android lifecycle][variscite-lifecycle]: about two years of support for each BSP version.
 - [TI Android 11.00.01 release notes][ti-android-1101]: Android 16 on kernel 6.12 for BeaglePlay.
 - [OSHWA certificate for BeaglePlay][oshwa-beagleplay]: BeaglePlay certified as open hardware.
+- [RISE Android 17 announcement][rise-android17]: Android 17 on the SpacemiT K3 Pico-ITX and Alibaba A210 EVB, as a developer release (checked 2026-11-21).
+- [Android Authority on RISC-V][aa-riscv]: RISC-V removed from Android's common kernel and GKI in 2024 (checked 2026-11-21).
 - [KonstaKANG AOSP 17][konstakang-aosp17]: the community Android 17 build for the Raspberry Pi 5, not for commercial use.
 - [Raspberry Pi Compute Module 5][rpi-cm5]: a board from under a hundred dollars.
 - [Raspberry Pi security architecture][rpi-security]: fusing a customer key into a Raspberry Pi.
@@ -580,6 +586,8 @@ All checked on 2026-11-20.
 [variscite-lifecycle]: https://dev.variscite.com/software-and-security/software-lifecycle/android-lifecycle/
 [ti-android-1101]: https://software-dl.ti.com/processor-sdk-android/esd/AM62X/11_00_01/docs/devices/AM62X/android/Release_Specific_Release_Notes.html
 [oshwa-beagleplay]: https://certification.oshwa.org/us002174.html
+[rise-android17]: https://riseproject.dev/2026/10/20/android-17-available-on-rva23-with-rise/
+[aa-riscv]: https://www.androidauthority.com/android-drop-risc-v-kernel-3438330/
 [konstakang-aosp17]: https://konstakang.com/devices/rpi5/AOSP17
 [rpi-cm5]: https://www.raspberrypi.com/products/compute-module-5/
 [rpi-security]: https://www.raspberrypi.com/documentation/security/security-architecture.html

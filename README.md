@@ -27,7 +27,7 @@ It will not design a phone from the chip up with a chip vendor, and it doesn't f
 1. [docs/FEASIBILITY.md](docs/FEASIBILITY.md): the research: the routes to a device, the software work, the rules, earlier phone projects and the risks, with sources.
 2. [docs/ROADMAP.md](docs/ROADMAP.md): open decisions and the next task.
 3. [docs/DESIGN.md](docs/DESIGN.md): how a device would come about, who holds which keys, and why the project is set up this way.
-4. [docs/BOARDS.md](docs/BOARDS.md): the development boards for the bench work, compared, with a proposed choice.
+4. [docs/BOARDS.md](docs/BOARDS.md): the development boards for the bench work, focused on RISC-V and compared with Arm boards, with a proposed choice.
 
 ## Repository layout
 
