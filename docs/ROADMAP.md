@@ -16,7 +16,7 @@ Background: [FEASIBILITY.md](FEASIBILITY.md) for the research, [DESIGN.md](DESIG
   Each one lists the options and a recommendation.
 - **Tasks (T0–T5)** are the work, in order.
   Each one says what it needs, what to do, when it is done, and what to report.
-- **Checks (C1–C8)** are claims to confirm before the task that depends on them.
+- **Checks (C1–C9)** are claims to confirm before the task that depends on them.
   A ⚠ in the other docs usually points to one of them.
 - Each task says who does it:
   - **Code:** a change to files, made in a pull request.
@@ -101,9 +101,9 @@ Done 2026-11-20: this repository, with the research in [FEASIBILITY.md](FEASIBIL
 
 ### T2: development board bring-up
 
-**Hands-on.** Needs T1, and the maintainer to buy the board.
+**Hands-on.** Needs T1 and check C9, and the maintainer to buy the board.
 
-- Pick one board from [FEASIBILITY.md](FEASIBILITY.md#development-board), preferably the one whose BSP is closest to a current Android release.
+- Pick one board from [BOARDS.md](BOARDS.md), which compares the candidates and proposes an NXP i.MX 95 board, with BeaglePlay as the cheaper alternative.
 - Build Android for it in the background, logging to `logs/<date>-<job>.log`, and boot it.
 - Try verified boot with a dev key, never a key that will sign anything published.
 - Practise secure-boot fusing only on a board bought for that purpose, with the maintainer's go-ahead for each step.
@@ -173,11 +173,18 @@ Do it before the task that depends on it, then update the docs that carry the �
    Whether smartphones fall under Delegated Regulation (EU) 2026/1770, or under the durability exemption in Article 11 of the Batteries Regulation.
 4. **C4, module BSPs** (→ T3).
    The current Android version of the Quectel SG560D and similar modules, and the terms for getting the BSP.
-5. **C5, Qualcomm's signing tools** (→ T3).
+5. **C5, Qualcomm's signing tools and BSP** (→ T3).
    What a licence for Qualcomm's SecTools involves, and whether a small buyer can get one.
+   How Qualcomm and the board makers distribute the Android BSP for QCS6490 boards, and on what terms.
 6. **C6, costs** (→ D1).
    Current certification quotes from an accredited lab (FCC, CE, PTCRB, GCF and SAR), and current memory prices.
 7. **C7, EU cybersecurity dates** (→ D3).
    Whether the repeal of RED delegated act 2022/30 was adopted, and whether the Cyber Resilience Act dates changed.
 8. **C8, small makers** (→ T4).
    Whether the Liberux NEXX shipped, and whether Pine64 resumed production.
+9. **C9, board details** (→ T2).
+   Before buying a board, confirm for the boards proposed in [BOARDS.md](BOARDS.md):
+   - their current prices and availability;
+   - where NXP documents AHAB secure boot for the i.MX 95, and whether NXP's source download needs an account;
+   - whether BeaglePlay's AM625 is an HS-FS part that can be fused, and how TI provides its keywriter;
+   - which GPU driver TI's Android build uses.
