@@ -47,11 +47,15 @@ The recommendation:
 |---|---|
 | AVB | Android Verified Boot: the bootloader checks the operating system against a key before starting it |
 | BSP | Board support package: a chip vendor's kernel, drivers and firmware for its chip |
-| Evaluation kit | A board a module maker sells for trying its module before designing a device around it |
+| Evaluation kit | A board a chip or module maker sells for trying its product before designing a device around it |
 | GKI | Generic Kernel Image: Google's common Android kernel, with each vendor's drivers loaded as modules |
+| Mainline kernel | The Linux kernel as its maintainers release it, without a vendor's own patches |
 | Manufacturer | Whoever places a device on the market under its own name, with the legal duties that brings |
+| Mesa | The open-source library of OpenGL and Vulkan drivers, which can replace a vendor's closed GPU driver |
 | NRE | Non-recurring engineering: the one-off cost of adapting a design |
 | ODM | Original design manufacturer: a company that designs and builds devices sold under other companies' brands |
+| RISC-V | An open instruction set for processors, which any chip maker may implement |
+| RVA23 | The RISC-V profile, a required set of extensions, that Android targets on RISC-V |
 | SAR | Specific absorption rate: how much radio energy the body absorbs from a device |
 | Secure boot | The chip starts only firmware signed with a key whose hash is fused into the chip |
 | SEP | Standard-essential patent: a patent that every device using a standard, such as LTE, has to license |
@@ -63,7 +67,7 @@ The recommendation:
 |---|---|---|---|
 | [Existing phones](#existing-phones) | Nothing in hardware | One phone per developer | The baseline |
 | [Partnership](#partnership-with-a-phone-maker) | Brings requirements and an OS to a phone maker | Engineering time | Best route to a product |
-| [Development board](#development-board) | Ports Android to a board | Hundreds of euros | First step, not a product |
+| [Development board](#development-board) | Ports Android to a board | Under a hundred to over a thousand dollars per board | First step, not a product |
 | [ODM phone](#odm-phone) | Has a phone made, and sells it | Tens to hundreds of thousands | Only with funding |
 | [Module-based design](#module-based-design) | Designs a device around a cellular module | Hundreds of thousands | Prototype first |
 | [Chip-vendor design](#chip-vendor-design) | Designs a phone around a chip bought from the vendor | Millions | No |
@@ -123,25 +127,30 @@ Sources: [iFixit on the Fairphone 6][ifixit-fp6], [Fairphone support][fp-support
 
 A single-board computer or reference board that runs Android.
 It is a place to learn bring-up, or the base of a device without a modem, such as a kiosk or a tablet.
+[BOARDS.md](BOARDS.md) compares the boards in detail and proposes one for task T2.
 
 | Board | Chip | Android | Notes |
 |---|---|---|---|
-| DragonBoard 845c, Qualcomm RB5, Khadas VIM3 | Various | From the board maker | AOSP's reference boards, which AOSP says are not supported or tested in AOSP |
-| Qualcomm RB3 Gen 2 | QCS6490 | Listed by Qualcomm for the chip | The documented stack for the board is Qualcomm Linux, on Linux 6.18 |
+| SpacemiT K3 Pico-ITX, Alibaba A210 EVB | SpacemiT K3, Alibaba A210 (RISC-V) | 17, developer release | RISE's release, built by BayLibre; not production-ready |
+| NXP i.MX 8M Plus and i.MX 95 boards | i.MX 8M Plus, i.MX 95 | 17, on kernel 6.18 | NXP's own release |
+| BeaglePlay | TI AM625 | 16, on kernel 6.12 | TI's release; certified open hardware |
+| Raspberry Pi 5 | BCM2712 | 17, community build | One developer's build, not for commercial use |
+| DragonBoard 845c, Qualcomm RB5, Khadas VIM3 | Various | From the board maker | AOSP's reference boards, not supported or tested in AOSP |
+| Qualcomm QCS6490 boards | QCS6490 | 12 | Thundercomm's kit; Qualcomm documents Linux for its RB3 Gen 2 |
 | Radxa Rock 5B | RK3588 | 12 | |
 | Other RK3588 boards | RK3588 | 14, on kernel 6.1 | For example Advantech's BSP |
-| NXP i.MX 95 boards | i.MX 95 | 15 and 16 | A module maker projects about two years of support for each BSP version |
 
 - The project writes and maintains a device tree on top of the board maker's BSP.
-  As the table shows, these BSPs are several Android versions behind the current one.
+  On Arm, only NXP's BSP is on the current Android release; the others are one or more releases behind.
+  On RISC-V, Android 17 runs as a developer release on a kernel outside Google's GKI, which dropped RISC-V in 2024.
 - None of these boards has a cellular modem.
-- **Cost:** hundreds of euros per board (unsourced), plus the porting work.
+- **Cost:** from under a hundred to over a thousand dollars per board, plus the porting work.
 
 **Verdict:** a good first step, not a product.
-A board teaches device-tree, kernel and verified-boot work cheaply, and a spare board can be fused for practice (unsourced).
+A board teaches device-tree, kernel and verified-boot work cheaply (unsourced), and a spare board can be fused for practice.
 It covers none of a phone's own parts: the modem, cameras, battery and their certification.
 
-Sources: [AOSP reference boards][aosp-boards], [Qualcomm: Android on Dragonwing][qc-android-dw], [Qualcomm kernel docs][qc-kernel], [Radxa support matrix][radxa-matrix], [Advantech RK3588 Android 14][advantech-rk3588], [NXP RN00201][nxp-rn00201], [Variscite Android lifecycle][variscite-lifecycle].
+Sources: [BOARDS.md](BOARDS.md#sources), [RISE Android 17 announcement][rise-android17], [Android Authority on RISC-V][aa-riscv], [AOSP reference boards][aosp-boards], [Qualcomm: Android on Dragonwing][qc-android-dw], [Qualcomm kernel docs][qc-kernel], [Thundercomm C6490 Development Kit][thundercomm-c6490], [Radxa support matrix][radxa-matrix], [Advantech RK3588 Android 14][advantech-rk3588], [NXP RN00201][nxp-rn00201], [TI Android 11.00.01 release notes][ti-android-1101], [OSHWA certificate for BeaglePlay][oshwa-beagleplay], [KonstaKANG AOSP 17][konstakang-aosp17], [Raspberry Pi Compute Module 5][rpi-cm5], [Raspberry Pi security architecture][rpi-security].
 
 ### ODM phone
 
@@ -245,8 +254,9 @@ What vendors offer:
   Qualcomm's own support for the chip was reported to end in 2028, with Fairphone taking over after that.
 - **Cellular modules:** a module ships with one Android version and may move to a later one; the Quectel SG560D lists Android 12 or 13.
   A current Android release means bringing the BSP forward by several versions.
-- **Rockchip and NXP:** Android BSPs exist (Android 14 on kernel 6.1 for the RK3588; Android 15 and 16 for the i.MX 95), but these chips have no modem.
+- **Rockchip and NXP:** Android BSPs exist (Android 14 on kernel 6.1 for the RK3588; Android 17 on kernel 6.18 for the i.MX 8M Plus and i.MX 95), but these chips have no modem.
   A module maker projects about two years of support for each i.MX BSP version.
+  NXP lists the i.MX 95 in its longevity programme until 2041, which covers making the chip, not supporting the BSP ([BOARDS.md](BOARDS.md#nxp-imx-8m-plus-and-imx-95)).
 
 Kernels matter too.
 Each GKI branch has an end-of-life date, and the `android12-5.10` and `android13-5.10` branches lose support from Android 17 QPR1.
@@ -255,7 +265,7 @@ A chip whose BSP is stuck on an old kernel shortens the device's life, however g
 The EU requires OS updates for at least five years after the last unit is sold ([EU ecodesign rules](#eu-ecodesign-rules)).
 The chip's support period has to cover that duty before a chip is chosen.
 
-Sources: [Qualcomm on extended support][qc-longevity], [Android Authority on extended support][aa-longevity], [Android Authority on Longevity GRF][aa-grf], [TrustedReviews][tr-fp5], [CNX Software on the Fairphone 5][cnx-fp5], [Quectel SG560D][quectel-sg560d], [Advantech RK3588 Android 14][advantech-rk3588], [NXP RN00201][nxp-rn00201], [Variscite Android lifecycle][variscite-lifecycle], [Android common kernels][aosp-common-kernels].
+Sources: [Qualcomm on extended support][qc-longevity], [Android Authority on extended support][aa-longevity], [Android Authority on Longevity GRF][aa-grf], [TrustedReviews][tr-fp5], [CNX Software on the Fairphone 5][cnx-fp5], [Quectel SG560D][quectel-sg560d], [Advantech RK3588 Android 14][advantech-rk3588], [NXP RN00201][nxp-rn00201], [Variscite Android lifecycle][variscite-lifecycle], [NXP product longevity][nxp-longevity], [Android common kernels][aosp-common-kernels].
 
 ### Root of trust
 
@@ -442,7 +452,7 @@ Sources: [Android Authority on OSOM][aa-osom], [9to5Google on OSOM][9to5-osom].
   The Librem 5 waited for its CPU, and Pine64 stopped for memory.
   Memory prices for phones rose sharply in 2026 because of demand from AI data centres.
 - **Old chips are the norm.**
-  The FLX1s uses a chip from about 2021, and the development boards and modules in this study ship Android BSPs several versions old.
+  The FLX1s uses a chip from about 2021, and the modules and most development boards in this study ship Android BSPs one or more versions old.
 - **The operating systems that reached hardware partnered for it.**
   /e/OS, iodéOS and GrapheneOS did not design phones ([Partnership](#partnership-with-a-phone-maker)).
 
@@ -489,8 +499,17 @@ All checked on 2026-11-20.
 - [Qualcomm kernel docs][qc-kernel]: Qualcomm Linux on Linux 6.18 for the RB3 Gen 2.
 - [Radxa support matrix][radxa-matrix]: Android 12 for the Rock 5B.
 - [Advantech RK3588 Android 14][advantech-rk3588]: Android 14 on kernel 6.1 for the RK3588.
-- [NXP RN00201][nxp-rn00201]: Android 15 and 16 BSPs for the i.MX 95.
+- [NXP RN00201][nxp-rn00201]: Android 17 on kernel 6.18 for the i.MX 8M Plus and i.MX 95.
+- [NXP product longevity][nxp-longevity]: the i.MX 95 listed until 2041.
 - [Variscite Android lifecycle][variscite-lifecycle]: about two years of support for each BSP version.
+- [TI Android 11.00.01 release notes][ti-android-1101]: Android 16 on kernel 6.12 for BeaglePlay.
+- [OSHWA certificate for BeaglePlay][oshwa-beagleplay]: BeaglePlay certified as open hardware.
+- [RISE Android 17 announcement][rise-android17]: Android 17 on the SpacemiT K3 Pico-ITX and Alibaba A210 EVB, as a developer release (checked 2026-11-21).
+- [Android Authority on RISC-V][aa-riscv]: RISC-V removed from Android's common kernel and GKI in 2024 (checked 2026-11-21).
+- [KonstaKANG AOSP 17][konstakang-aosp17]: the community Android 17 build for the Raspberry Pi 5, not for commercial use.
+- [Raspberry Pi Compute Module 5][rpi-cm5]: a board from under a hundred dollars.
+- [Raspberry Pi security architecture][rpi-security]: fusing a customer key into a Raspberry Pi.
+- [Thundercomm C6490 Development Kit][thundercomm-c6490]: Android 12 for a QCS6490 board, over a thousand dollars.
 - [Quectel SG560D][quectel-sg560d] and [CNX Software on the SG560D][cnx-sg560d]: the module's chip, radios and ⚠ Android version.
 - [Qualcomm: set the QFPROM fuses][qc-fuses]: secure boot enabled by blowing fuses, which can't be undone.
 - [Qualcomm: sign and flash the images][qc-sign]: signing with SecTools V2; its guides only for licensed users.
@@ -563,7 +582,16 @@ All checked on 2026-11-20.
 [radxa-matrix]: https://docs.radxa.com/en/software-support-matrix/rockchip
 [advantech-rk3588]: https://docs.aim-linux.advantech.com/docs/bsp/rockchip/Android/Android14/RK3588/
 [nxp-rn00201]: https://www.nxp.com/docs/en/release-note/RN00201.pdf
+[nxp-longevity]: https://www.nxp.com/products/product-information/product-longevity:PRDCT_LONGEVITY_HM
 [variscite-lifecycle]: https://dev.variscite.com/software-and-security/software-lifecycle/android-lifecycle/
+[ti-android-1101]: https://software-dl.ti.com/processor-sdk-android/esd/AM62X/11_00_01/docs/devices/AM62X/android/Release_Specific_Release_Notes.html
+[oshwa-beagleplay]: https://certification.oshwa.org/us002174.html
+[rise-android17]: https://riseproject.dev/2026/10/20/android-17-available-on-rva23-with-rise/
+[aa-riscv]: https://www.androidauthority.com/android-drop-risc-v-kernel-3438330/
+[konstakang-aosp17]: https://konstakang.com/devices/rpi5/AOSP17
+[rpi-cm5]: https://www.raspberrypi.com/products/compute-module-5/
+[rpi-security]: https://www.raspberrypi.com/documentation/security/security-architecture.html
+[thundercomm-c6490]: https://www.thundercomm.com/product/c6490-development-kit
 [quectel-sg560d]: https://www.quectel.com/product/5g-sg560d-smart-module-series/
 [cnx-sg560d]: https://www.cnx-software.com/2022/06/24/quectel-sg560d-5g-wifi-6e-module-runs-android-12-targets-aiot-applications/
 [qc-fuses]: https://dragonwingdocs.qualcomm.com/System/Security/set-the-qfprom-fuses

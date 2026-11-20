@@ -14,6 +14,7 @@ It is separate from the FoxieOS operating system and doesn't follow its plan.
 It is in the research phase: no hardware is designed, bought or ordered, and the repository holds documents only.
 
 - What the research found, with sources: [docs/FEASIBILITY.md](docs/FEASIBILITY.md)
+- Development boards for the bench work, focused on RISC-V: [docs/BOARDS.md](docs/BOARDS.md)
 - How a device would come about, and why: [docs/DESIGN.md](docs/DESIGN.md)
 - What to do next: [docs/ROADMAP.md](docs/ROADMAP.md)
 - How it relates to FoxieOS: [docs/DESIGN.md](docs/DESIGN.md#related-repositories)
