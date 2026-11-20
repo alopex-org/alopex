@@ -8,6 +8,8 @@ The research and sources behind it are in [FEASIBILITY.md](FEASIBILITY.md).
 
 FoxieOS hardware finds out how a small team could get a phone, or a similar device, made for an Android-based operating system, and then works toward one in cheap steps.
 
+A LoRa radio for off-grid mesh messaging is a core feature of any device it works toward ([LoRa mesh radio](#lora-mesh-radio-as-a-core-feature)).
+
 It does **not**:
 
 - follow the plan or device criteria of the FoxieOS operating system ([Related repositories](#related-repositories));
@@ -70,6 +72,18 @@ Decided 2026-11-20, following FoxieOS's decision D3.
 - **Why:** it keeps the FoxieOS repositories together, under one set of owners.
 - **Rejected:** a separate organization.
 
+### LoRa mesh radio as a core feature
+
+Decided 2026-11-21; the network is proposed (roadmap decision D4).
+
+- **What:** the device has a LoRa radio on its own board, for messaging over a mesh network such as Meshtastic or MeshCore with no cellular network or Wi-Fi.
+  The proposed design is a microcontroller with its own LoRa chip, connected to the main processor over UART or USB, running the mesh network's own firmware ([LORA.md](LORA.md#integrating-the-radio)).
+- **Why:** off-grid messaging is the device's main reason to exist next to existing phones, and none of them has the radio on its own board.
+  A separate microcontroller keeps the mesh running while the phone sleeps and can run more than one network's firmware.
+- **Rejected:**
+  - a LoRa node attached over Bluetooth, which existing products already offer;
+  - the LoRa chip driven directly by the main processor, which stops the mesh whenever Android suspends.
+
 ### Requirements first, then bench work, then a route
 
 Proposed (roadmap decision D1).
@@ -107,6 +121,8 @@ Proposed (task T1 writes it into the requirements).
   Blown secure-boot fuses can't be restored, so each fusing step needs the maintainer's go-ahead ([FEASIBILITY.md](FEASIBILITY.md#root-of-trust)).
 - **Volumes and supply.**
   ODMs and chip vendors want minimum orders, and memory prices rose sharply in 2026 ([FEASIBILITY.md](FEASIBILITY.md#odm-phone)).
+- **LoRa band rules.**
+  The LoRa radio needs its own short-range-device certification, and in Europe must keep to each sub-band's duty-cycle limit ([LORA.md](LORA.md#certification-and-band-rules)).
 - **Bench hardware isn't a phone.**
   The development boards in the research have no cellular modem, and none of them has a phone's cameras, battery or certification ([FEASIBILITY.md](FEASIBILITY.md#development-board)).
 

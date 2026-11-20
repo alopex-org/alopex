@@ -12,6 +12,8 @@ This repository holds the research and the plan; the decisions in it are the mai
 - Then cheap bench work: an Android build on a development board, then on a cellular module's evaluation kit.
 - Later, if the maintainer decides so and there is funding, a device.
 
+A LoRa radio for off-grid mesh messaging, over Meshtastic, MeshCore or a similar network, is planned as a core part of the device ([docs/LORA.md](docs/LORA.md)).
+
 It will not design a phone from the chip up with a chip vendor, and it doesn't follow the plan of the FoxieOS operating system.
 [docs/DESIGN.md](docs/DESIGN.md) explains why.
 
@@ -20,6 +22,7 @@ It will not design a phone from the chip up with a chip vendor, and it doesn't f
 - A phone designed from the chip up is out of reach for a small team.
 - Whoever sells a device becomes its manufacturer, with radio certification, patent licences and the EU's duty to supply updates and spare parts for years.
 - Three routes are realistic: a partnership with a phone maker, a phone made by a contract manufacturer under the project's name, or a device designed around a cellular module.
+- No phone has a LoRa mesh radio on its own board yet; the ones sold attach a node over Bluetooth, so built-in LoRa would set the device apart.
 - The first steps are cheap: a list of hardware requirements, then bench work on a development board and a module kit.
 
 ## Where to start
@@ -28,6 +31,7 @@ It will not design a phone from the chip up with a chip vendor, and it doesn't f
 2. [docs/ROADMAP.md](docs/ROADMAP.md): open decisions and the next task.
 3. [docs/DESIGN.md](docs/DESIGN.md): how a device would come about, who holds which keys, and why the project is set up this way.
 4. [docs/BOARDS.md](docs/BOARDS.md): the development boards for the bench work, focused on RISC-V and compared with Arm boards, with a proposed choice.
+5. [docs/LORA.md](docs/LORA.md): the LoRa mesh radio: Meshtastic, MeshCore and Reticulum, how to build the radio in, and its certification.
 
 ## Repository layout
 
