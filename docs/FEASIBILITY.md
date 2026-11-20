@@ -1,6 +1,7 @@
 # FoxieOS hardware feasibility study
 
-The research behind the plan: whether a small team can get a phone, or a similar device, made for an Android-based operating system, which way it could go about it, and what that takes.
+The research behind the plan: whether a small team can build a prototype phone, or a similar device, for an Android-based operating system, which way it could go about it, and what that takes.
+The project builds a prototype for enthusiasts, not a product ([DESIGN.md](DESIGN.md#a-prototype-not-a-product)); the routes to a product are kept here as background.
 The plan built on it is in [ROADMAP.md](ROADMAP.md) and [DESIGN.md](DESIGN.md).
 
 Sources were checked on 2026-11-20.
@@ -8,25 +9,26 @@ Each section ends with the sources behind it, and the [Sources](#sources) sectio
 ⚠ marks a claim that is unconfirmed or disputed; check it before relying on it.
 "(unsourced)" marks a statement from general knowledge that was not checked against a source.
 Costs are orders of magnitude, not quotes.
-Nothing here is legal advice: a lawyer and an accredited test lab must confirm the rules before any device is sold.
+Nothing here is legal advice: a lawyer must confirm the rules before any prototype leaves the maintainers' hands, and a lawyer and an accredited test lab before any device is sold.
 
 ## Summary
 
 | Goal | Feasible? |
 |---|---|
 | A phone designed from the chip up by a small team | No |
-| A phone made together with an existing phone maker | Yes, if a maker agrees |
+| A phone made together with an existing phone maker | Yes, if a maker agrees; a product, so not pursued |
 | An Android build on a development board | Yes, cheaply |
-| A phone made by an ODM, sold under the project's name | Only with a company and funding |
-| A device of the project's own design, around a cellular module | As a prototype; a product needs funding |
-| OS updates for as long as the EU requires | Only with the chip vendor's support |
+| A phone made by an ODM, sold under the project's name | Only with a company and funding; not pursued |
+| A prototype of the project's own design, around a cellular module | Yes, in small numbers |
+| OS updates for as long as the EU requires of a product | Only with the chip vendor's support |
 
 The main findings:
 
 - **Whoever sells the device is its manufacturer.**
   That party maintains the software for the hardware, certifies the radios and pays the cellular patent licences.
   In the EU it must also supply OS updates for at least five years after the last unit is sold, and spare parts for seven.
-  These duties shape every route more than the engineering does.
+  These duties shape every route to a product more than the engineering does, and are why the project builds a prototype and sells nothing.
+  ⚠ Whether handing a prototype to others counts as selling it in this sense is not confirmed (roadmap check C12).
 - **The chip vendor sets the support period.**
   Closed firmware for the modem, the TEE and the GPU gets security fixes only while the vendor ships them.
 - **The operating systems that reached their own hardware did it through partners.**
@@ -37,9 +39,9 @@ The recommendation:
 
 1. Write the hardware requirements first (roadmap task T1).
 2. Learn bring-up cheaply: on a development board, then on a cellular module's evaluation kit (T2, T3).
-3. Survey possible partners at the same time (T4).
-4. Choose a route only after that (decisions D1–D3).
-5. Don't design a phone directly with a chip vendor.
+3. Choose how the prototype is built only after that (decisions D1–D3).
+4. Don't design a phone directly with a chip vendor.
+5. Don't sell devices.
 
 ## Terms
 
@@ -66,10 +68,10 @@ The recommendation:
 | Route | What the project does | Upfront cost | Verdict |
 |---|---|---|---|
 | [Existing phones](#existing-phones) | Nothing in hardware | One phone per developer | The baseline |
-| [Partnership](#partnership-with-a-phone-maker) | Brings requirements and an OS to a phone maker | Engineering time | Best route to a product |
-| [Development board](#development-board) | Ports Android to a board | Under a hundred to over a thousand dollars per board | First step, not a product |
-| [ODM phone](#odm-phone) | Has a phone made, and sells it | Tens to hundreds of thousands | Only with funding |
-| [Module-based design](#module-based-design) | Designs a device around a cellular module | Hundreds of thousands | Prototype first |
+| [Partnership](#partnership-with-a-phone-maker) | Brings requirements and an OS to a phone maker | Engineering time | A product; not pursued |
+| [Development board](#development-board) | Ports Android to a board | Under a hundred to over a thousand dollars per board | First step; can carry a Wi-Fi-only prototype |
+| [ODM phone](#odm-phone) | Has a phone made, and sells it | Tens to hundreds of thousands | A product; not pursued |
+| [Module-based design](#module-based-design) | Designs a device around a cellular module | Prototypes cost far less than a certified product | The prototype's route |
 | [Chip-vendor design](#chip-vendor-design) | Designs a phone around a chip bought from the vendor | Millions | No |
 
 Each section below explains the cost.
@@ -118,8 +120,7 @@ What partners seem to look for, judging from these cases:
 
 **Cost:** mostly engineering time; possibly a share of revenue or support costs, depending on the deal (unsourced).
 
-**Verdict:** the best route to a product, and the least risky.
-The requirements list (task T1) is the first step, and costs nothing.
+**Verdict:** the best route to a product, and the least risky; the project builds a prototype instead, so it doesn't pursue one.
 
 Sources: [iFixit on the Fairphone 6][ifixit-fp6], [Fairphone support][fp-support], [Fairphone /e/OS][fp-eos], [Android Central][ac-murena-fp6], [Murena][murena-shift], [Privacy Guides][pg-shift], [9to5Google on Motorola][9to5-moto], [The Register on Motorola][reg-moto], [Notebookcheck][nbc-moto], [Android Authority on GrapheneOS's plans][aa-moto-plans], [Android Authority on the Signature 27][aa-sig27], [Gigaset blog][gigaset-volla], [Sailfish OS forum][sfos-quintus].
 
@@ -146,7 +147,7 @@ It is a place to learn bring-up, or the base of a device without a modem, such a
 - None of these boards has a cellular modem.
 - **Cost:** from under a hundred to over a thousand dollars per board, plus the porting work.
 
-**Verdict:** a good first step, not a product.
+**Verdict:** a good first step, and enough for a Wi-Fi-only prototype.
 A board teaches device-tree, kernel and verified-boot work cheaply (unsourced), and a spare board can be fused for practice.
 It covers none of a phone's own parts: the modem, cameras, battery and their certification.
 
@@ -180,6 +181,7 @@ Memory prices rose sharply in 2026 because of demand from AI data centres, so th
 
 **Verdict:** possible only with a company, funding for a minimum order, and buyers.
 Even then, the ODM's update pipeline sets the real support period.
+It leads to a product, so the project doesn't pursue it.
 
 Sources: [Alibaba smartphone ODM guide][alibaba-odm], [Alibaba guide to launching a phone brand][alibaba-brand], [IDC][idc-memory], [The Register on memory prices][reg-memory].
 
@@ -198,13 +200,13 @@ What the project does:
 - certifies the finished device; the module's own approvals cover part of it, not all ([Radio and network certification](#radio-and-network-certification));
 - carries every manufacturer duty, as for an ODM phone.
 
-**Cost:** the hardware design, prototypes, certification and tooling for a case reach the hundreds of thousands (unsourced estimate, built from the certification figures and the ODM engineering costs in this document).
-Small volumes are possible, at a high price per unit.
+**Cost:** a certified product, with its hardware design, certification and tooling for a case, reaches the hundreds of thousands (unsourced estimate, built from the certification figures and the ODM engineering costs in this document).
+A few hand-built prototypes cost far less, since they skip the certification and tooling a product needs (unsourced).
 
-**Verdict:** the only route to a device the project designs itself.
-Start with the module's evaluation kit as a prototype (task T3).
-A product needs funding for certification and the EU duties.
-A Wi-Fi-only device, such as a tablet, avoids cellular certification and patent licences, but not the EU ecodesign rules, which also cover slate tablets.
+**Verdict:** the route for the prototype.
+Start with the module's evaluation kit (task T3), then a main board of the project's own, built in small numbers.
+Selling it as a product would need funding for certification and the EU duties, which the project doesn't take on.
+A Wi-Fi-only device, such as a tablet, needs no cellular module or cellular patent licences.
 
 Sources: [Quectel SG560D][quectel-sg560d], [CNX Software on the SG560D][cnx-sg560d], [TrustedReviews][tr-fp5], [CNX Software on the Fairphone 5][cnx-fp5].
 
@@ -262,7 +264,7 @@ Kernels matter too.
 Each GKI branch has an end-of-life date, and the `android12-5.10` and `android13-5.10` branches lose support from Android 17 QPR1.
 A chip whose BSP is stuck on an old kernel shortens the device's life, however good its hardware is.
 
-The EU requires OS updates for at least five years after the last unit is sold ([EU ecodesign rules](#eu-ecodesign-rules)).
+For a product, the EU requires OS updates for at least five years after the last unit is sold ([EU ecodesign rules](#eu-ecodesign-rules)).
 The chip's support period has to cover that duty before a chip is chosen.
 
 Sources: [Qualcomm on extended support][qc-longevity], [Android Authority on extended support][aa-longevity], [Android Authority on Longevity GRF][aa-grf], [TrustedReviews][tr-fp5], [CNX Software on the Fairphone 5][cnx-fp5], [Quectel SG560D][quectel-sg560d], [Advantech RK3588 Android 14][advantech-rk3588], [NXP RN00201][nxp-rn00201], [Variscite Android lifecycle][variscite-lifecycle], [NXP product longevity][nxp-longevity], [Android common kernels][aosp-common-kernels].
@@ -283,7 +285,7 @@ What this means for the project:
   The manufacturer holds the fused key; each operating system signs with its own AVB key ([DESIGN.md](DESIGN.md#each-party-keeps-its-own-keys)).
 - **The fused key is permanent.**
   It can't be replaced.
-  Losing it breaks the firmware update path of every device sold; leaking it lets anyone sign firmware for them.
+  Losing it breaks the firmware update path of every device fused with it; leaking it lets anyone sign firmware for them.
   It needs an offline, backed-up, access-controlled home before the first device is fused.
 - **Fusing steps are irreversible,** so each one needs the maintainer's go-ahead.
 - **Signing tools:** Qualcomm signs images with SecTools V2.
@@ -304,6 +306,8 @@ Sources: [microG wiki][microg-spoofing], [Play Integrity verdict changes][play-i
 
 Everything in this section applies to whoever places the device on the market: the manufacturer, or the brand that sells it under its own name (unsourced).
 In a partnership, that is the partner.
+The project sells nothing, so these duties would reach it only if handing prototypes to others counts as placing them on the market ⚠ (roadmap check C12).
+Rules on operating a radio transmitter still apply to every prototype that is switched on (unsourced).
 
 ### Radio and network certification
 
@@ -354,7 +358,7 @@ Among its requirements:
 
 Regulation (EU) 2025/2006 corrected and amended the rules in December 2025 (check C2).
 
-**For the project:** a device sold for two years commits its manufacturer to OS updates for at least seven years from launch, and to spare parts for nine.
+**For a product:** a device sold for two years commits its manufacturer to OS updates for at least seven years from launch, and to spare parts for nine.
 That matches the support periods of Pixels and Fairphones, which those companies fund from far larger sales.
 
 Sources: [European Commission][ec-ecodesign], [EUR-Lex 2023/1670][eurlex-1670], [EUR-Lex 2025/2006][eurlex-2006], [heise][heise-ecodesign], [iFixit on ecodesign][ifixit-ecodesign].
@@ -377,7 +381,7 @@ Sources: [UL][ul-battery], [EUR-Lex battery guidance][eurlex-battery-guidance].
   Most other obligations, among them a machine-readable software bill of materials, apply from 2027-12-11.
   ⚠ One source mentions pending amendments; check the Official Journal before relying on the dates (check C7).
 
-**For the project:** the manufacturer carries these duties for the whole device, firmware included, and needs a process for reporting exploited vulnerabilities before the first unit is sold.
+**For a product:** the manufacturer carries these duties for the whole device, firmware included, and needs a process for reporting exploited vulnerabilities before the first unit is sold.
 
 Sources: [BSI][bsi-red], [UK government factsheet][gov-uk-red], [Council document][consilium-red-repeal], [Travers Smith][ts-cra], [Hogan Lovells][hl-cra], [Cloud Security Alliance][csa-cra].
 
@@ -466,8 +470,7 @@ Sources: [IDC][idc-memory], [The Register on memory prices][reg-memory].
 | The fused secure-boot key is lost or leaked | Critical | An offline, backed-up key; agents never handle it; a go-ahead for each fusing step |
 | Shortages of memory or chips | High | Keep stock of key parts, as Purism did; avoid parts with a single source |
 | Certification costs more than estimated | Medium to high | Lab quotes before committing (check C6) |
-| Too few buyers for a minimum order | High | Partnership first; an ODM phone only with funding or pre-orders |
-| The manufacturer's duties outlast the project | High | A partner as the manufacturer (decision D3) |
+| Handing out prototypes makes the project a manufacturer | High | Sell nothing; check C12 before any unit leaves the maintainers (decision D3) |
 | A practice board is bricked by fusing | Low | Fuse only boards bought for that purpose |
 
 ## Sources
