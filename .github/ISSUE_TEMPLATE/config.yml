@@ -1,0 +1,8 @@
+blank_issues_enabled: true
+contact_links:
+  - name: Security problem
+    url: https://github.com/alopex-org/foxieos-hardware/blob/main/SECURITY.md
+    about: Don't file security problems as issues. Follow the security policy.
+  - name: Problem with the FoxieOS operating system
+    url: https://github.com/alopex-org/foxieos/issues
+    about: FoxieOS has its own repository and issue tracker.

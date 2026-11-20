@@ -1,0 +1,36 @@
+name: Correction
+description: A claim in the docs is wrong, out of date or missing a source.
+labels: ["documentation"]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Prices, products and laws change quickly, so corrections are welcome.
+        Don't include terms a company gave you in confidence, or anyone's contact details.
+  - type: input
+    id: where
+    attributes:
+      label: Document and section
+      placeholder: "docs/FEASIBILITY.md, ODM phone"
+    validations:
+      required: true
+  - type: textarea
+    id: claim
+    attributes:
+      label: What the doc says
+    validations:
+      required: true
+  - type: textarea
+    id: correction
+    attributes:
+      label: What is correct
+    validations:
+      required: true
+  - type: input
+    id: source
+    attributes:
+      label: Source
+      description: A public link, and the date you checked it.
+      placeholder: "https://… (checked 2026-12-01)"
+    validations:
+      required: true
