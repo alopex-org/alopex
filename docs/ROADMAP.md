@@ -7,16 +7,17 @@ Background: [FEASIBILITY.md](FEASIBILITY.md) for the research, [DESIGN.md](DESIG
 
 - **Done:** task T0, the research and this repository, on 2026-11-20.
 - **Decided:** the project is separate from FoxieOS, and lives in the `alopex-org` GitHub organization ([DESIGN.md](DESIGN.md#key-decisions)).
+  The device has a built-in LoRa mesh radio ([LORA.md](LORA.md)).
 - **Next:** task T1, the hardware requirements.
   It needs no decision and no money.
 
 ## How to read this file
 
-- **Decisions (D1–D3)** are the maintainer's to make.
+- **Decisions (D1–D4)** are the maintainer's to make.
   Each one lists the options and a recommendation.
-- **Tasks (T0–T5)** are the work, in order.
+- **Tasks (T0–T6)** are the work, in order.
   Each one says what it needs, what to do, when it is done, and what to report.
-- **Checks (C1–C9)** are claims to confirm before the task that depends on them.
+- **Checks (C1–C11)** are claims to confirm before the task that depends on them.
   A ⚠ in the other docs usually points to one of them.
 - Each task says who does it:
   - **Code:** a change to files, made in a pull request.
@@ -40,6 +41,7 @@ Background: [FEASIBILITY.md](FEASIBILITY.md) for the research, [DESIGN.md](DESIG
 | [D1](#d1-route-to-a-product) | How does a device get made: partnership, ODM phone or module-based design? | Open | A product |
 | [D2](#d2-cellular-or-wi-fi-only) | Is the first device a cellular phone, or Wi-Fi only? | Open | D1 |
 | [D3](#d3-manufacturer) | Who is the manufacturer: a partner, or a company of the project's own? | Open | T5, D1 |
+| [D4](#d4-lora-mesh-network) | Which LoRa mesh network does the device ship: Meshtastic, MeshCore or both? | Open | T6 |
 
 ### D1: route to a product
 
@@ -73,6 +75,17 @@ Whoever places the device on the market carries the certification, patent and EU
   - a company of the project's own, which needs funding for a minimum order and the means to supply updates and spare parts for the periods the EU requires.
 - **Recommendation:** a partner, unless T4 finds none willing.
 
+### D4: LoRa mesh network
+
+Open; needed by T6.
+
+- **Options** ([LORA.md](LORA.md#the-mesh-networks)):
+  - **Meshtastic:** the largest network, GPL-3.0, with flooding that needs no planning but uses more airtime.
+  - **MeshCore:** MIT, with routing through repeaters that scales better where they exist.
+  - **Both:** hardware either firmware runs on, with one as the default and the other flashable by the user.
+  - **Reticulum:** the most general, but its licence keeps it out of Debian and F-Droid.
+- **Recommendation:** both, with Meshtastic as the default for its larger user base, if check C10 confirms that one LoRa design runs both firmwares.
+
 ## Tasks
 
 Work in order unless the dependencies allow otherwise.
@@ -93,7 +106,8 @@ Done 2026-11-20: this repository, with the research in [FEASIBILITY.md](FEASIBIL
   - a kernel on a supported GKI branch;
   - bootloader unlocking that keeps the warranty;
   - spare parts, repair access and a battery the user can replace, as the EU rules require (C2, C3);
-  - privacy features, such as hardware switches for the microphone, cameras and modem.
+  - privacy features, such as hardware switches for the microphone, cameras, modem and LoRa transmitter;
+  - a LoRa radio on the device's board for 868 MHz and 915 MHz, with the mesh running while the phone sleeps ([LORA.md](LORA.md)).
 - Note which of the conditions in FoxieOS's decision D9 each requirement meets.
 
 **Done when** the list exists, every requirement gives its reason and source, and the maintainer has reviewed it.
@@ -147,9 +161,21 @@ Done 2026-11-20: this repository, with the research in [FEASIBILITY.md](FEASIBIL
 **Done when** the ODM route has real cost ranges in place of the marketplace figures in FEASIBILITY.md.
 **Report** the cost ranges, without confidential details.
 
+### T6: LoRa bench work
+
+**Hands-on.** Needs T1, D4 and checks C10 and C11, and the maintainer to buy a LoRa development board. Can run alongside T2.
+
+- Connect a microcontroller board with an SX1262, such as an nRF52840 or ESP32-S3 board that Meshtastic and MeshCore support, to the T2 board over UART or USB.
+- Flash Meshtastic and MeshCore firmware on it in turn, and message another node from the Android build through each network's app over the wired link.
+- Measure the board's current while relaying with the Android side asleep.
+- Record the work in `docs/bench/lora.md`.
+
+**Done when** messages pass over the wired link with both firmwares, or the record says why not.
+**Report** the results, the current measured and anything the apps lacked over a wired link.
+
 ## Critical path
 
-T1 → T2 → T3, and in parallel T1 → T4 → D3 → T5.
+T1 → T2 → T3, and in parallel T1 → T4 → D3 → T5, and T1 → D4 → T6.
 Both lines end in D2 and then D1.
 
 A willing partner found in T4 can make T5 unnecessary.
@@ -193,3 +219,8 @@ Do it before the task that depends on it, then update the docs that carry the �
    - whether NXP's code-signing tool (CST) download needs an account, and whether the licence of NXP's proprietary source package lets the project publish what it builds;
    - whether BeaglePlay's AM625 is a GP or an HS-FS part, and how TI provides its keywriter.
    - which Android version BayLibre's AOSP SDK for the MediaTek Genio boards is on.
+10. **C10, LoRa hardware and band rules** (→ D4, T6).
+    Confirm that Meshtastic and MeshCore both support the same nRF52840 or ESP32-S3 boards with an SX1262, and which certified LoRa modules would fit a phone's board.
+    Read the current ETSI EN 300 220 for the 868 MHz sub-band edges, power and duty-cycle limits, and FCC Part 15 for 915 MHz.
+11. **C11, mesh apps and licences** (→ D4, T6).
+    Whether the Meshtastic and MeshCore Android apps connect over USB serial as well as Bluetooth, the licences of the MeshCore apps, whether MeshCore has closed parts, and the exact terms of the Reticulum licence.
