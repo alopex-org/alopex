@@ -20,6 +20,8 @@ Background: [FEASIBILITY.md](FEASIBILITY.md) for the research, [DESIGN.md](DESIG
   Each one says what it needs, what to do, when it is done, and what to report.
 - **Checks (C1–C12)** are claims to confirm before the task that depends on them.
   A ⚠ in the other docs usually points to one of them.
+- Each decision, task and check also has an issue, and each phase below is a [milestone](https://github.com/alopex-org/foxieos-hardware/milestones).
+  This file is the plan; the issues track status and discussion ([CONTRIBUTING.md](../CONTRIBUTING.md#issues-and-labels)).
 - Each task says who does it:
   - **Code:** a change to files, made in a pull request.
     Anyone can do it, including a coding agent.

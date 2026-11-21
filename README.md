@@ -39,7 +39,7 @@ It will not sell devices, design a phone from the chip up with a chip vendor, or
 ## Repository layout
 
 - `docs/`: the documents listed above.
-- `.github/`: code owners, issue forms and the pull-request template.
+- `.github/`: code owners, issue forms, the pull-request template, the DCO workflow, the Dependabot configuration and the label list (`labels.sh`).
 - `.pre-commit-config.yaml`: the checks that run on every commit ([CONTRIBUTING.md](CONTRIBUTING.md#before-you-start)).
 
 The requirements and bench notes join `docs/` as the roadmap tasks are done.
