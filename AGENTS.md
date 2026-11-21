@@ -9,7 +9,8 @@ Never copy anything from them into a commit, pull request or issue.
 
 ## The project in brief
 
-FoxieOS hardware researches how a small team could get a phone, or a similar device, made for an Android-based operating system.
+FoxieOS hardware researches how a small team could build a prototype phone, or a similar device, for an Android-based operating system.
+The prototype is for enthusiasts, not a product: the project sells nothing.
 It is separate from the FoxieOS operating system and doesn't follow its plan.
 It is in the research phase: no hardware is designed, bought or ordered, and the repository holds documents only.
 

@@ -6,7 +6,8 @@ The research and sources behind it are in [FEASIBILITY.md](FEASIBILITY.md).
 
 ## Purpose
 
-FoxieOS hardware finds out how a small team could get a phone, or a similar device, made for an Android-based operating system, and then works toward one in cheap steps.
+FoxieOS hardware finds out how a small team could build a prototype phone, or a similar device, for an Android-based operating system, and then works toward one in cheap steps.
+The prototype is for enthusiasts: built in small numbers, not sold, and not a product ([A prototype, not a product](#a-prototype-not-a-product)).
 
 A LoRa radio for off-grid mesh messaging is a core feature of any device it works toward ([LoRa mesh radio](#lora-mesh-radio-as-a-core-feature)).
 
@@ -14,12 +15,14 @@ It does **not**:
 
 - follow the plan or device criteria of the FoxieOS operating system ([Related repositories](#related-repositories));
 - design a phone from the chip up with a chip vendor;
-- take on a manufacturer's legal duties before the maintainer has decided who the manufacturer is (roadmap decision D3).
+- sell devices, take pre-orders or run a production batch;
+- take on a manufacturer's legal duties: how prototypes are shared is roadmap decision D3.
 
 ## How a device comes about
 
-Every route to a device involves the same parties.
+Every route to a device sold as a product involves the same parties.
 What changes from route to route is who plays each part.
+The chain is kept as background: the project builds a prototype, and places nothing on the market.
 
 ```
 Chip vendor, for example Qualcomm or MediaTek
@@ -46,7 +49,8 @@ OS project, such as FoxieOS
 ```
 
 In a partnership, the partner is the manufacturer.
-For an ODM phone or a module-based design, the project's own company would be.
+For an ODM phone or a module-based product, the seller would be.
+For the prototype, the project builds the device and holds its secure-boot key, but sells nothing, so it takes on no manufacturer's duties ⚠ (roadmap check C12).
 The routes are compared in [FEASIBILITY.md](FEASIBILITY.md#routes-to-a-device), and the terms are explained in its [Terms](FEASIBILITY.md#terms) section.
 
 ## Key decisions
@@ -63,6 +67,18 @@ Decided 2026-11-20.
 - **Why:** the routes, costs and legal duties of making a device are the same whichever operating system runs on it.
   FoxieOS's device criteria ask for official LineageOS support, which no new device has, so holding this research to them would rule out everything but existing phones.
 - **Rejected:** a hardware section inside the FoxieOS repository.
+
+### A prototype, not a product
+
+Decided 2026-11-21.
+
+- **What:** the project builds a prototype for its maintainers and other enthusiasts, in small numbers.
+  It sells nothing, takes no pre-orders, and doesn't look for funding or buyers.
+- **Why:** selling a device brings certification, patent licences and years of EU update and spare-part duties, which a small team can't carry ([FEASIBILITY.md](FEASIBILITY.md#certification-patents-and-eu-rules)).
+  A prototype keeps the work to what the team can learn and build.
+- **Rejected:**
+  - a partnership with a phone maker, or a phone made by an ODM, which are routes to a product;
+  - a company of the project's own to sell devices.
 
 ### Hosting on GitHub
 
@@ -88,11 +104,11 @@ Decided 2026-11-21; the network is proposed (roadmap decision D4).
 
 Proposed (roadmap decision D1).
 
-- **What:** write the hardware requirements (task T1), learn bring-up on a development board and a cellular module's evaluation kit (T2, T3), and survey possible partners (T4).
-  Only then choose how a device gets made.
+- **What:** write the hardware requirements (task T1), and learn bring-up on a development board and a cellular module's evaluation kit (T2, T3).
+  Only then choose how the prototype is built.
 - **Why:** every route starts from a list of requirements.
   The bench work is cheap, and shows whether the team can carry a BSP forward.
-  A route, by contrast, commits money and legal duties for years.
+  Building a prototype, by contrast, commits money and time.
 - **Rejected:**
   - choosing a route first;
   - designing a phone directly with a chip vendor, which needs a vendor agreement, large volumes and funding far beyond a small team ([FEASIBILITY.md](FEASIBILITY.md#chip-vendor-design)).
@@ -101,10 +117,10 @@ Proposed (roadmap decision D1).
 
 Proposed (task T1 writes it into the requirements).
 
-- **What:** the manufacturer holds the secure-boot key whose hash is fused into each chip.
+- **What:** whoever builds the device holds the secure-boot key whose hash is fused into each chip; for the prototype, that is the project.
   Each OS project signs its own builds and relocks the bootloader with its own verified-boot (AVB) key, as Pixels allow with `avb_custom_key`.
   Neither holds the other's keys.
-- **Why:** a fused key can't be replaced, so it belongs with the party that answers for the device for its whole life; in the EU that is the manufacturer.
+- **Why:** a fused key can't be replaced, so it belongs with the party that answers for the device for its whole life: the builder, and for a product sold in the EU, the manufacturer.
   A custom AVB key lets more than one operating system run with the bootloader locked, and FoxieOS's decision D9 assumes it.
 - **Rejected:**
   - an OS project holding the fused key, which would tie every device to that OS and make the OS project answer for the device's root of trust;
@@ -112,15 +128,17 @@ Proposed (task T1 writes it into the requirements).
 
 ## Constraints
 
-- **The manufacturer carries the duties.**
-  Whoever places the device on the market certifies it and pays the cellular patent licences.
+- **Selling brings a manufacturer's duties.**
+  Whoever places a device on the market certifies it and pays the cellular patent licences.
   In the EU it must also supply OS updates for at least five years after the last unit is sold, and spare parts for seven ([FEASIBILITY.md](FEASIBILITY.md#certification-patents-and-eu-rules)).
+  The project avoids these by not selling; ⚠ whether handing a prototype to another enthusiast counts as placing it on the market is not confirmed (roadmap check C12).
 - **The chip vendor sets the support period.**
   Closed firmware for the modem, the TEE and the GPU gets fixes only while the vendor ships them ([FEASIBILITY.md](FEASIBILITY.md#the-bsp-sets-the-support-period)).
 - **Fusing is permanent.**
   Blown secure-boot fuses can't be restored, so each fusing step needs the maintainer's go-ahead ([FEASIBILITY.md](FEASIBILITY.md#root-of-trust)).
-- **Volumes and supply.**
-  ODMs and chip vendors want minimum orders, and memory prices rose sharply in 2026 ([FEASIBILITY.md](FEASIBILITY.md#odm-phone)).
+- **Parts in small numbers.**
+  Chip vendors and ODMs favour large orders, and memory prices rose sharply in 2026 ([FEASIBILITY.md](FEASIBILITY.md#odm-phone)).
+  The prototype is built from modules and boards that can be bought one at a time.
 - **LoRa band rules.**
   The LoRa radio needs its own short-range-device certification, and in Europe must keep to each sub-band's duty-cycle limit ([LORA.md](LORA.md#certification-and-band-rules)).
 - **Bench hardware isn't a phone.**

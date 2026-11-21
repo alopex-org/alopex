@@ -77,7 +77,7 @@ A small microcontroller, such as an nRF52840 or ESP32-S3, with an SX1262, on the
   Both Meshtastic and MeshCore support nRF52840 and ESP32 boards with an SX1262, so the device could ship one and let users flash the other (unsourced; check C10).
 - **Android sees it as a companion device** on a serial port, which the existing Meshtastic and MeshCore apps already speak to over USB serial ⚠ (C11).
 - **It isolates the radio's firmware** from the main processor: a fault in the mesh firmware can't reach Android, and the microcontroller can be updated on its own.
-- **Cost:** a second processor and its firmware to maintain and update; the manufacturer would answer for those updates under the EU rules too.
+- **Cost:** a second processor and its firmware to maintain and update; the project would have to keep that firmware updated as well.
 
 ### The LoRa chip on the main processor's SPI bus
 
@@ -89,7 +89,7 @@ The SX1262 connects straight to the main processor, and a Linux daemon such as `
 
 ### What both need
 
-- A sub-GHz antenna and its own RF design, separate from the cellular antennas, for each band the device is sold in: 868 MHz and 915 MHz need different tuning (unsourced).
+- A sub-GHz antenna and its own RF design, separate from the cellular antennas, for each band the device is used in: 868 MHz and 915 MHz need different tuning (unsourced).
 - A hardware switch or software control that turns the LoRa transmitter off, in line with the privacy switches in task T1.
 - An Android app and permissions for the radio; for FoxieOS this would fall under its decision D9.
 
@@ -103,7 +103,7 @@ Sources: [Meshtastic Linux hardware][mt-linux], [Meshtastic Android API][mt-andr
 - **United States:** 902–928 MHz under FCC Part 15, with no duty-cycle limit but frequency-hopping or digital-modulation rules (unsourced).
 - **A certified LoRa module** can reduce the testing, as for cellular modules ([FEASIBILITY.md](FEASIBILITY.md#radio-and-network-certification)), but the finished device is still tested with all its radios together (unsourced).
 - **Duty cycle and the mesh:** firmware that relays others' messages uses the device's own airtime, so the firmware must stay within the limits for the region the user picks.
-  The manufacturer answers for this, so the shipped firmware must enforce the region's limits (unsourced).
+  Whoever operates the transmitter answers for this, so the prototype's firmware must enforce the region's limits (unsourced).
 
 Sources: [TTN EU868 parameters][ttn-eu868], [TTN duty cycle][ttn-duty], [CEPT ERC/REC 70-03 annex 1][cept-srd].
 
