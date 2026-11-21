@@ -83,6 +83,7 @@ A second ruleset covers tags: only the maintainer creates, moves or deletes a ta
 In the pull request, list the sources you checked and the commands you ran, with their results: what passed, what failed (with a log excerpt) and what you skipped.
 
 If a change needs a matching change in another FoxieOS repository, such as [foxieos](https://github.com/alopex-org/foxieos), open a pull request there as well, and link each one from the other.
+FoxieOS depends on this project, not the other way round: a change here can need a matching change in FoxieOS, but a change in FoxieOS never asks this project to adapt.
 
 ## Issues and labels
 

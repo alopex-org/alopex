@@ -18,7 +18,7 @@ It is in the research phase: no hardware is designed, bought or ordered, and the
 - Development boards for the bench work, focused on RISC-V: [docs/BOARDS.md](docs/BOARDS.md)
 - How a device would come about, and why: [docs/DESIGN.md](docs/DESIGN.md)
 - What to do next: [docs/ROADMAP.md](docs/ROADMAP.md)
-- How it relates to FoxieOS: [docs/DESIGN.md](docs/DESIGN.md#related-repositories)
+- How it relates to FoxieOS, which depends on it (not the reverse): [docs/DESIGN.md](docs/DESIGN.md#related-repositories)
 
 Every step in these docs is a plain shell or file step, so any agent can follow it.
 Don't add a step that only one agent's own tools can perform.
@@ -61,6 +61,7 @@ Don't add a step that only one agent's own tools can perform.
 - a step would fuse, flash, unlock, lock or wipe a board or device;
 - a ⚠ step behaves differently from the docs (report what happened, and don't improvise on device-level steps);
 - a change here needs a matching change in another FoxieOS repository, such as `foxieos`: propose one pull request in each, linking the other.
+  FoxieOS depends on this project, not the reverse, so don't change anything here only to suit FoxieOS.
 
 ## Sign-off
 

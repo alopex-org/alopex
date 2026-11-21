@@ -48,6 +48,7 @@ Android source trees and build output are kept outside this repository.
 ## Relation to FoxieOS
 
 This project is separate from the [FoxieOS](https://github.com/alopex-org/foxieos) operating system, and doesn't follow its plan or device criteria.
+FoxieOS depends on this project for a custom device, and the dependency runs one way: this project doesn't depend on FoxieOS, and FoxieOS adapts to its choices.
 FoxieOS decides whether to support a device from this project, and on what terms, in its roadmap decision [D9](https://github.com/alopex-org/foxieos/blob/main/docs/ROADMAP.md#d9-devices-from-the-hardware-project).
 
 ## Contributing

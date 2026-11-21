@@ -147,11 +147,13 @@ Proposed (task T1 writes it into the requirements).
 ## Related repositories
 
 - [foxieos](https://github.com/alopex-org/foxieos): the FoxieOS operating system, a planned Android distribution based on LineageOS.
+  FoxieOS depends on this project for a custom device, and the dependency runs one way: this project doesn't depend on FoxieOS, and FoxieOS adapts to its choices.
   Its roadmap decision [D9](https://github.com/alopex-org/foxieos/blob/main/docs/ROADMAP.md#d9-devices-from-the-hardware-project) decides whether it would support a device from this project.
   The conditions it weighs there, such as a GKI kernel built from source and relocking with FoxieOS's own AVB key, are FoxieOS's own, not requirements on this project.
   Task T1 notes which of them a design would meet.
 
 A change that needs a matching change in FoxieOS gets a pull request in each repository, each linking the other.
+Because the dependency runs one way, a change here can call for a change in FoxieOS, but a change in FoxieOS never asks this project to adapt.
 
 ## Operations (planned)
 
