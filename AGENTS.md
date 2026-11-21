@@ -27,7 +27,8 @@ Don't add a step that only one agent's own tools can perform.
 
 - Build: none yet.
   The bench tasks T2 and T3 add the commands for building Android for a board.
-- Checks: the pre-commit hooks in `.pre-commit-config.yaml` (gitleaks, and blocks on key files and `*.local.md` notes) run on every commit once `pre-commit install` has been run in the clone ([CONTRIBUTING.md](CONTRIBUTING.md#keys-secrets-and-personal-details)).
+- Checks: the pre-commit hooks in `.pre-commit-config.yaml` (gitleaks, blocks on key files and `*.local.md` notes, and a DCO sign-off on the commit message) run on every commit once `pre-commit install` has been run in the clone ([CONTRIBUTING.md](CONTRIBUTING.md#keys-secrets-and-personal-details)).
+  On pull requests, the DCO workflow checks the sign-off again.
   If pre-commit isn't installed or set up in the clone, tell the maintainer rather than committing without the hooks.
 
 ## Hard rules
@@ -60,6 +61,12 @@ Don't add a step that only one agent's own tools can perform.
 - a step would fuse, flash, unlock, lock or wipe a board or device;
 - a ⚠ step behaves differently from the docs (report what happened, and don't improvise on device-level steps);
 - a change here needs a matching change in another FoxieOS repository, such as `foxieos`: propose one pull request in each, linking the other.
+
+## Sign-off
+
+Commit with `git commit -s` only when the person directing you asked for the commit: the sign-off is theirs, in their name ([CONTRIBUTING.md](CONTRIBUTING.md#sign-off)).
+Never add a `Signed-off-by:` line for yourself or for anyone who didn't ask for the commit.
+Add your own `Co-Authored-By:` trailer as well.
 
 ## Don't
 
