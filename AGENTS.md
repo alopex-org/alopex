@@ -55,7 +55,7 @@ Don't add a step that only one agent's own tools can perform.
 
 ## Stop and ask when…
 
-- a roadmap decision (D1–D3) is needed and not yet recorded;
+- a roadmap decision (D1–D4) is needed and not yet recorded;
 - a finding would change the recommendation in [docs/FEASIBILITY.md](docs/FEASIBILITY.md#summary);
 - a step would spend money, contact a company, accept terms or create an account;
 - a step would fuse, flash, unlock, lock or wipe a board or device;
