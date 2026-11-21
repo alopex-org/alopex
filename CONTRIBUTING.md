@@ -76,6 +76,8 @@ A ruleset protects `main`:
 - the maintainer can bypass these rules on a pull request, for example to merge their own change to a code-owned path once another reviewer has read it.
   Bypasses are recorded in the ruleset's history.
 
+A second ruleset covers tags: only the maintainer creates, moves or deletes a tag, so only the maintainer publishes a release.
+
 In the pull request, list the sources you checked and the commands you ran, with their results: what passed, what failed (with a log excerpt) and what you skipped.
 
 If a change needs a matching change in another FoxieOS repository, such as [foxieos](https://github.com/alopex-org/foxieos), open a pull request there as well, and link each one from the other.
