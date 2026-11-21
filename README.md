@@ -55,6 +55,7 @@ FoxieOS decides whether to support a device from this project, and on what terms
 ## Contributing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md).
+Ask questions on the [Alopex Discord](https://discord.gg/REPLACE_WITH_INVITE); issues and pull requests remain the record.
 AI coding agents also follow [AGENTS.md](AGENTS.md).
 Report security problems as described in [SECURITY.md](SECURITY.md), not in public issues.
 

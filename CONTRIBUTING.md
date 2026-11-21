@@ -16,7 +16,10 @@ Everyone in the `alopex-org` organization also follows its [code of conduct][coc
   If you set up your clone before the sign-off hook was added, run `pre-commit install` again.
 - Pick work from [docs/ROADMAP.md](docs/ROADMAP.md), or from its [issues](#issues-and-labels).
   Decisions marked open there are the maintainers' to make; ask before building on one.
+- Ask questions and talk the work over on the [Alopex Discord][discord].
+  Discord is for conversation, not the record: put anything that should be kept, such as a correction, a source or an argument for a decision, in an issue or a pull request.
 - Report security problems as described in [SECURITY.md](SECURITY.md), never in a public issue.
+  Don't post them, or code-of-conduct reports, on Discord either.
 - To fix a claim that is wrong or out of date, use the correction issue form, or open a pull request with the new source.
 
 ## Branches
@@ -122,6 +125,7 @@ FoxieOS depends on this project, not the other way round: a change here can need
 [coc]: https://github.com/alopex-org/.github/blob/main/CODE_OF_CONDUCT.md
 [governance]: https://github.com/alopex-org/.github/blob/main/GOVERNANCE.md
 [dco]: https://developercertificate.org/
+[discord]: https://discord.gg/REPLACE_WITH_INVITE
 
 ## Licensing and trademarks
 
