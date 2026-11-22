@@ -1,4 +1,4 @@
-# FoxieOS hardware feasibility study
+# Alopex feasibility study
 
 The research behind the plan: whether a small team can build a prototype phone, or a similar device, for an Android-based operating system, which way it could go about it, and what that takes.
 Whether the project builds only a prototype or aims at a product is open ([DESIGN.md](DESIGN.md#prototype-or-product), roadmap decision D5), so this file covers the routes to both.
