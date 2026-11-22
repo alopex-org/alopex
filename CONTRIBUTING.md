@@ -21,6 +21,9 @@ Everyone in the `alopex-org` organization also follows its [code of conduct][coc
 
 ## Branches
 
+Until the founding meeting on 2026-11-24 ([governance][governance]), members have read access to this repository, like everyone else.
+Push your branch to your own fork and open the pull request from there.
+
 Use a fresh branch for each change, named by what it changes:
 
 - `docs/<topic>`, `fix/<topic>`
@@ -60,6 +63,7 @@ The agent still names itself in a `Co-Authored-By:` trailer.
 Every change is reviewed by someone other than its author.
 Until the members choose the founding maintainers on 2026-11-24 ([governance][governance]), only the interim maintainer's approval lets a pull request merge: `.github/CODEOWNERS` makes them a code owner of every file.
 Members still review each other's changes and the maintainer's own, and their comments are answered before merging.
+With read access, a member's approval doesn't count toward merging, but it is still recorded on the pull request.
 For research and docs, the reviewer may have a different coding agent read the change, and answers for it as for their own review.
 
 A person must review changes to:
@@ -73,7 +77,7 @@ A person must review changes to:
 A ruleset protects `main`:
 
 - every change arrives through a pull request, and no one pushes to `main` directly;
-- a member with write access other than the author approves the pull request, and pushing new commits dismisses earlier approvals;
+- someone with write access other than the author approves the pull request (until the founding meeting, only the interim maintainer has write access), and pushing new commits dismisses earlier approvals;
 - review threads are resolved before merging;
 - the DCO check must pass;
 - history stays linear: pull requests are merged by rebasing, so each commit lands on `main` as written, and force pushes and deleting the branch are blocked;
@@ -95,6 +99,7 @@ FoxieOS depends on this project, not the other way round: a change here can need
 - Issue types say what an issue is: Decision, Task, Check, Bug or Feature.
 - Labels say who does the work (`who:`), what it touches (`area:`) and what it waits on.
   The list lives in `.github/labels.sh`; change it there, not by hand on GitHub.
+  Until the founding meeting, only the maintainer sets labels, types and milestones; suggest them in a comment.
 
 ## Keys, secrets and personal details
 
