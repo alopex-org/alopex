@@ -21,14 +21,32 @@ Technical words are explained in the [glossary](GLOSSARY.md).
 | Goal | Possible? |
 |---|---|
 | A phone designed from the chip up by a small team | No |
-| A phone made together with an existing phone maker | Yes, if a maker agrees |
+| A phone made together with an existing phone maker | Yes, if a maker agrees; this is a product (decision D5) |
+| An Android build on a development board | Yes, cheaply |
+| A phone made by an ODM and sold under the project's name | Only with a company and funding; this is a product (decision D5) |
+| A prototype of the project's own design, built around a cellular module | Yes, in small numbers |
+| System updates for as long as the EU requires of a product | Only with the chip maker's support |
 
 The main findings:
 
+- **Whoever sells the device is its manufacturer.**
+  That party keeps the software for the hardware up to date, certifies the radios and pays the mobile-network patent licences.
+  In the EU it must also supply system updates for at least five years after the last device is sold, and spare parts for seven.
+  These duties shape every route to a product more than the engineering does, and are the main reason to consider a prototype that isn't sold (decision D5).
+  ⚠ Whether handing a prototype to others counts as selling it in this sense is not confirmed (roadmap check C12).
 - **The chip maker decides how long the device gets fixes.**
   Closed firmware for the modem, the secure area (TEE) and the graphics chip (GPU) gets security fixes only while the chip maker ships them.
 - **The operating systems that got hardware of their own did it through partners.**
   /e/OS, iodéOS and GrapheneOS didn't design phones themselves ([Partnership](#partnership-with-a-phone-maker)).
+  Most small companies that built their own phones shipped late, stopped or closed ([Earlier phone projects](#earlier-phone-projects)).
+
+The recommendation:
+
+1. Write down the hardware requirements first (roadmap task T1).
+2. Learn to get Android running cheaply: on a development board, then on a cellular module's evaluation kit (tasks T2 and T3).
+3. Only then choose how the prototype is built (decisions D1–D3).
+4. Don't design a phone directly with a chip maker.
+5. Decide whether to aim at a product before taking on a manufacturer's duties (decision D5).
 
 ## Terms
 
