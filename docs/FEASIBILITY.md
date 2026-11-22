@@ -16,32 +16,16 @@ Nothing here is legal advice: a lawyer must confirm the rules before any prototy
 | Goal | Feasible? |
 |---|---|
 | A phone designed from the chip up by a small team | No |
-| A phone made together with an existing phone maker | Yes, if a maker agrees; a product (decision D5) |
-| An Android build on a development board | Yes, cheaply |
-| A phone made by an ODM, sold under the project's name | Only with a company and funding; a product (decision D5) |
-| A prototype of the project's own design, around a cellular module | Yes, in small numbers |
-| OS updates for as long as the EU requires of a product | Only with the chip vendor's support |
+| A phone made together with an existing phone maker | Yes, if a maker agrees |
+
 
 The main findings:
 
-- **Whoever sells the device is its manufacturer.**
-  That party maintains the software for the hardware, certifies the radios and pays the cellular patent licences.
-  In the EU it must also supply OS updates for at least five years after the last unit is sold, and spare parts for seven.
-  These duties shape every route to a product more than the engineering does, and are the main argument for a prototype that isn't sold (decision D5).
-  ⚠ Whether handing a prototype to others counts as selling it in this sense is not confirmed (roadmap check C12).
 - **The chip vendor sets the support period.**
   Closed firmware for the modem, the TEE and the GPU gets security fixes only while the vendor ships them.
 - **The operating systems that reached their own hardware did it through partners.**
   /e/OS, iodéOS and GrapheneOS did not design phones ([Partnership](#partnership-with-a-phone-maker)).
-  Most small makers that built their own phones shipped late, stopped or closed ([Earlier phone projects](#earlier-phone-projects)).
-
-The recommendation:
-
-1. Write the hardware requirements first (roadmap task T1).
-2. Learn bring-up cheaply: on a development board, then on a cellular module's evaluation kit (T2, T3).
-3. Choose how the prototype is built only after that (decisions D1–D3).
-4. Don't design a phone directly with a chip vendor.
-5. Decide whether to aim at a product before taking on a manufacturer's duties (decision D5).
+  
 
 ## Terms
 
@@ -74,12 +58,6 @@ The recommendation:
 | [Module-based design](#module-based-design) | Designs a device around a cellular module | Prototypes cost far less than a certified product | The prototype's route |
 | [Chip-vendor design](#chip-vendor-design) | Designs a phone around a chip bought from the vendor | Millions | No |
 
-Each section below explains the cost.
-
-### Existing phones
-
-The operating system runs on phones that other companies make and sell.
-The project makes no hardware.
 
 - The phone maker decides the firmware, the support period and whether the bootloader can be relocked with a custom key.
 - Pixels can be relocked with a custom key and get seven years of updates.
