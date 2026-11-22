@@ -1,6 +1,7 @@
 # Alopex
 
-Research into how a small team could build its own phone, or a similar device, for an operating system based on Android.
+Alopex is the hardware project of the Alopex student organization, in the `alopex` repository.
+It researches how a small team could build its own phone, or a similar device, for an operating system based on Android.
 Whether the project stops at a prototype or aims at a product it sells is open: the maintainers decide it at their founding meeting on 2026-11-24 (roadmap decision D5).
 
 **Status: research.**

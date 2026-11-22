@@ -9,9 +9,10 @@ Never copy anything from them into a commit, pull request or issue.
 
 ## The project in brief
 
-FoxieOS hardware researches how a small team could build a prototype phone, or a similar device, for an Android-based operating system.
+Alopex, the hardware project in this repository (`alopex`), researches how a small team could build a prototype phone, or a similar device, for an Android-based operating system.
 Whether the project builds only a prototype or aims at a product it sells is open (roadmap decision D5): don't write either as decided.
 It is separate from the FoxieOS operating system and doesn't follow its plan.
+The student organization is also called Alopex, so write "the Alopex student organization" when you mean it.
 It is in the research phase: no hardware is designed, bought or ordered, and the repository holds documents only.
 
 - What the research found, with sources: [docs/FEASIBILITY.md](docs/FEASIBILITY.md)
@@ -60,7 +61,7 @@ Don't add a step that only one agent's own tools can perform.
 - a step would spend money, contact a company, accept terms or create an account;
 - a step would fuse, flash, unlock, lock or wipe a board or device;
 - a ⚠ step behaves differently from the docs (report what happened, and don't improvise on device-level steps);
-- a change here needs a matching change in another FoxieOS repository, such as `foxieos`: propose one pull request in each, linking the other.
+- a change here needs a matching change in another repository, such as `foxieos`: propose one pull request in each, linking the other.
   FoxieOS depends on this project, not the reverse, so don't change anything here only to suit FoxieOS.
 
 ## Sign-off
@@ -94,7 +95,7 @@ The docs are written for members who aren't technical; follow [CONTRIBUTING.md](
 - Give a roadmap code its name the first time a section uses it: "decision D5 (prototype or product)".
 - Keep instructions addressed to coding agents in this file.
   The people docs mention agents only to say that the person who directs an agent is responsible for its work.
-- When you rename a heading, search all three FoxieOS repositories and the issue forms for links to its old anchor, and update them.
+- When you rename a heading, search all three repositories in the organization (`foxieos`, `alopex` and `.github`) and the issue forms for links to its old anchor, and update them.
 
 ## Don't
 

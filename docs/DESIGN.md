@@ -1,4 +1,4 @@
-# FoxieOS hardware design
+# Alopex design
 
 **Status: research.**
 This page describes how the project is set up and how a device would come about; no hardware is designed yet.
@@ -101,8 +101,8 @@ Tasks T1–T3 are the same under every option, so they go ahead in the meantime.
 
 Decided 2026-11-20, following FoxieOS's decision D3.
 
-- **What:** the repository is `alopex-org/foxieos-hardware`, in the same GitHub organization as FoxieOS.
-- **Why:** it keeps the FoxieOS repositories together, with the same owners.
+- **What:** the repository is `alopex-org/alopex` (named `foxieos-hardware` until 2026-11-23), in the same GitHub organization as FoxieOS.
+- **Why:** it keeps the organization's repositories together, with the same owners.
 - **Turned down:** a separate organization.
 
 ### LoRa mesh radio as a core feature
