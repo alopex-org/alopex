@@ -67,6 +67,7 @@ A person must review changes to:
 - any procedure for fusing, flashing, unlocking or relocking hardware, or for handling keys.
 
 `.github/CODEOWNERS` requests these reviews automatically where it can, and the ruleset on `main` requires a code owner's approval before a change to those paths is merged.
+The `Review request` workflow also requests the maintainer's review on every other pull request; that request adds no required approval.
 
 A ruleset protects `main`:
 
