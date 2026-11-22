@@ -1,7 +1,7 @@
 # FoxieOS hardware feasibility study
 
 The research behind the plan: whether a small team can build a prototype phone, or a similar device, for an Android-based operating system, which way it could go about it, and what that takes.
-The project builds a prototype for enthusiasts, not a product ([DESIGN.md](DESIGN.md#a-prototype-not-a-product)); the routes to a product are kept here as background.
+Whether the project builds only a prototype or aims at a product is open ([DESIGN.md](DESIGN.md#prototype-or-product), roadmap decision D5), so this file covers the routes to both.
 The plan built on it is in [ROADMAP.md](ROADMAP.md) and [DESIGN.md](DESIGN.md).
 
 Sources were checked on 2026-11-20.
@@ -16,9 +16,9 @@ Nothing here is legal advice: a lawyer must confirm the rules before any prototy
 | Goal | Feasible? |
 |---|---|
 | A phone designed from the chip up by a small team | No |
-| A phone made together with an existing phone maker | Yes, if a maker agrees; a product, so not pursued |
+| A phone made together with an existing phone maker | Yes, if a maker agrees; a product (decision D5) |
 | An Android build on a development board | Yes, cheaply |
-| A phone made by an ODM, sold under the project's name | Only with a company and funding; not pursued |
+| A phone made by an ODM, sold under the project's name | Only with a company and funding; a product (decision D5) |
 | A prototype of the project's own design, around a cellular module | Yes, in small numbers |
 | OS updates for as long as the EU requires of a product | Only with the chip vendor's support |
 
@@ -27,7 +27,7 @@ The main findings:
 - **Whoever sells the device is its manufacturer.**
   That party maintains the software for the hardware, certifies the radios and pays the cellular patent licences.
   In the EU it must also supply OS updates for at least five years after the last unit is sold, and spare parts for seven.
-  These duties shape every route to a product more than the engineering does, and are why the project builds a prototype and sells nothing.
+  These duties shape every route to a product more than the engineering does, and are the main argument for a prototype that isn't sold (decision D5).
   ⚠ Whether handing a prototype to others counts as selling it in this sense is not confirmed (roadmap check C12).
 - **The chip vendor sets the support period.**
   Closed firmware for the modem, the TEE and the GPU gets security fixes only while the vendor ships them.
@@ -41,7 +41,7 @@ The recommendation:
 2. Learn bring-up cheaply: on a development board, then on a cellular module's evaluation kit (T2, T3).
 3. Choose how the prototype is built only after that (decisions D1–D3).
 4. Don't design a phone directly with a chip vendor.
-5. Don't sell devices.
+5. Decide whether to aim at a product before taking on a manufacturer's duties (decision D5).
 
 ## Terms
 
@@ -68,9 +68,9 @@ The recommendation:
 | Route | What the project does | Upfront cost | Verdict |
 |---|---|---|---|
 | [Existing phones](#existing-phones) | Nothing in hardware | One phone per developer | The baseline |
-| [Partnership](#partnership-with-a-phone-maker) | Brings requirements and an OS to a phone maker | Engineering time | A product; not pursued |
+| [Partnership](#partnership-with-a-phone-maker) | Brings requirements and an OS to a phone maker | Engineering time | A product (decision D5) |
 | [Development board](#development-board) | Ports Android to a board | Under a hundred to over a thousand dollars per board | First step; can carry a Wi-Fi-only prototype |
-| [ODM phone](#odm-phone) | Has a phone made, and sells it | Tens to hundreds of thousands | A product; not pursued |
+| [ODM phone](#odm-phone) | Has a phone made, and sells it | Tens to hundreds of thousands | A product (decision D5) |
 | [Module-based design](#module-based-design) | Designs a device around a cellular module | Prototypes cost far less than a certified product | The prototype's route |
 | [Chip-vendor design](#chip-vendor-design) | Designs a phone around a chip bought from the vendor | Millions | No |
 
@@ -120,7 +120,7 @@ What partners seem to look for, judging from these cases:
 
 **Cost:** mostly engineering time; possibly a share of revenue or support costs, depending on the deal (unsourced).
 
-**Verdict:** the best route to a product, and the least risky; the project builds a prototype instead, so it doesn't pursue one.
+**Verdict:** the best route to a product, and the least risky; whether the project pursues a product is decision D5.
 
 Sources: [iFixit on the Fairphone 6][ifixit-fp6], [Fairphone support][fp-support], [Fairphone /e/OS][fp-eos], [Android Central][ac-murena-fp6], [Murena][murena-shift], [Privacy Guides][pg-shift], [9to5Google on Motorola][9to5-moto], [The Register on Motorola][reg-moto], [Notebookcheck][nbc-moto], [Android Authority on GrapheneOS's plans][aa-moto-plans], [Android Authority on the Signature 27][aa-sig27], [Gigaset blog][gigaset-volla], [Sailfish OS forum][sfos-quintus].
 
@@ -181,7 +181,7 @@ Memory prices rose sharply in 2026 because of demand from AI data centres, so th
 
 **Verdict:** possible only with a company, funding for a minimum order, and buyers.
 Even then, the ODM's update pipeline sets the real support period.
-It leads to a product, so the project doesn't pursue it.
+It leads to a product, so the project pursues it only if decision D5 chooses one.
 
 Sources: [Alibaba smartphone ODM guide][alibaba-odm], [Alibaba guide to launching a phone brand][alibaba-brand], [IDC][idc-memory], [The Register on memory prices][reg-memory].
 
@@ -205,7 +205,7 @@ A few hand-built prototypes cost far less, since they skip the certification and
 
 **Verdict:** the route for the prototype.
 Start with the module's evaluation kit (task T3), then a main board of the project's own, built in small numbers.
-Selling it as a product would need funding for certification and the EU duties, which the project doesn't take on.
+Selling it as a product would need funding for certification and the EU duties; decision D5 settles whether the project takes them on.
 A Wi-Fi-only device, such as a tablet, needs no cellular module or cellular patent licences.
 
 Sources: [Quectel SG560D][quectel-sg560d], [CNX Software on the SG560D][cnx-sg560d], [TrustedReviews][tr-fp5], [CNX Software on the Fairphone 5][cnx-fp5].
@@ -306,7 +306,7 @@ Sources: [microG wiki][microg-spoofing], [Play Integrity verdict changes][play-i
 
 Everything in this section applies to whoever places the device on the market: the manufacturer, or the brand that sells it under its own name (unsourced).
 In a partnership, that is the partner.
-The project sells nothing, so these duties would reach it only if handing prototypes to others counts as placing them on the market ⚠ (roadmap check C12).
+While the project sells nothing, these duties would reach it only if handing prototypes to others counts as placing them on the market ⚠ (roadmap check C12).
 Rules on operating a radio transmitter still apply to every prototype that is switched on (unsourced).
 
 ### Radio and network certification
