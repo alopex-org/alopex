@@ -80,6 +80,9 @@ Decided 2026-11-20.
 
 ### Prototype or product
 
+<!-- Keeps links to this section's earlier title, "A prototype, not a product", working. -->
+<a id="a-prototype-not-a-product"></a>
+
 Open (roadmap decision D5), for the maintainers' founding meeting on 2026-11-24.
 An earlier version of this page recorded "a prototype, not a product" as decided on 2026-11-21.
 That was written down before the team had agreed on it, so it goes back to the maintainers.
