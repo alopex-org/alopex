@@ -6,6 +6,3 @@ contact_links:
   - name: Problem with the FoxieOS operating system
     url: https://github.com/alopex-org/foxieos/issues
     about: FoxieOS has its own repository and issue tracker.
-  - name: Questions and chat
-    url: https://discord.gg/REPLACE_WITH_INVITE
-    about: Ask questions on the Alopex Discord. Corrections and research still go in issues.

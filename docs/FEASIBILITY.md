@@ -1,53 +1,42 @@
 # Alopex feasibility study
 
-The research behind the plan: whether a small team can build a prototype phone, or a similar device, for an Android-based operating system, which way it could go about it, and what that takes.
-Whether the project builds only a prototype or aims at a product is open ([DESIGN.md](DESIGN.md#prototype-or-product), roadmap decision D5), so this file covers the routes to both.
-The plan built on it is in [ROADMAP.md](ROADMAP.md) and [DESIGN.md](DESIGN.md).
+This is the research behind the plan.
+It asks whether a small team can build a prototype phone, or a similar device, for an operating system based on Android, which way it could go about it, and what that takes.
+Whether the project builds only a prototype or aims at a product is open ([DESIGN.md](DESIGN.md#prototype-or-product), roadmap decision D5), so this page covers the routes to both.
+The plan that follows from it is in [ROADMAP.md](ROADMAP.md) and [DESIGN.md](DESIGN.md).
+Technical words are explained in the [glossary](GLOSSARY.md).
 
-Sources were checked on 2026-11-20.
-Each section ends with the sources behind it, and the [Sources](#sources) section lists every source with what it supports.
-⚠ marks a claim that is unconfirmed or disputed; check it before relying on it.
-"(unsourced)" marks a statement from general knowledge that was not checked against a source.
-Costs are orders of magnitude, not quotes.
-Nothing here is legal advice: a lawyer must confirm the rules before any prototype leaves the maintainers' hands, and a lawyer and an accredited test lab before any device is sold.
+**How to read it:**
+
+- Sources were checked on 2026-11-20.
+- Each section ends with the sources behind it, and the [Sources](#sources) section lists every source with what it supports.
+- ⚠ marks a claim that isn't confirmed, or that sources disagree on; check it before relying on it.
+- "(unsourced)" marks a statement from general knowledge that wasn't checked against a source.
+- Costs are rough sizes ("tens of thousands"), not quotes.
+- Nothing here is legal advice.
+  A lawyer must confirm the rules before any prototype leaves the maintainers' hands, and a lawyer and an accredited test lab before any device is sold.
 
 ## Summary
 
-| Goal | Feasible? |
+| Goal | Possible? |
 |---|---|
 | A phone designed from the chip up by a small team | No |
 | A phone made together with an existing phone maker | Yes, if a maker agrees |
 
-
 The main findings:
 
-- **The chip vendor sets the support period.**
-  Closed firmware for the modem, the TEE and the GPU gets security fixes only while the vendor ships them.
-- **The operating systems that reached their own hardware did it through partners.**
-  /e/OS, iodéOS and GrapheneOS did not design phones ([Partnership](#partnership-with-a-phone-maker)).
-  
+- **The chip maker decides how long the device gets fixes.**
+  Closed firmware for the modem, the secure area (TEE) and the graphics chip (GPU) gets security fixes only while the chip maker ships them.
+- **The operating systems that got hardware of their own did it through partners.**
+  /e/OS, iodéOS and GrapheneOS didn't design phones themselves ([Partnership](#partnership-with-a-phone-maker)).
 
 ## Terms
 
-| Term | Meaning |
-|---|---|
-| AVB | Android Verified Boot: the bootloader checks the operating system against a key before starting it |
-| BSP | Board support package: a chip vendor's kernel, drivers and firmware for its chip |
-| Evaluation kit | A board a chip or module maker sells for trying its product before designing a device around it |
-| GKI | Generic Kernel Image: Google's common Android kernel, with each vendor's drivers loaded as modules |
-| Mainline kernel | The Linux kernel as its maintainers release it, without a vendor's own patches |
-| Manufacturer | Whoever places a device on the market under its own name, with the legal duties that brings |
-| Mesa | The open-source library of OpenGL and Vulkan drivers, which can replace a vendor's closed GPU driver |
-| NRE | Non-recurring engineering: the one-off cost of adapting a design |
-| ODM | Original design manufacturer: a company that designs and builds devices sold under other companies' brands |
-| RISC-V | An open instruction set for processors, which any chip maker may implement |
-| RVA23 | The RISC-V profile, a required set of extensions, that Android targets on RISC-V |
-| SAR | Specific absorption rate: how much radio energy the body absorbs from a device |
-| Secure boot | The chip starts only firmware signed with a key whose hash is fused into the chip |
-| SEP | Standard-essential patent: a patent that every device using a standard, such as LTE, has to license |
-| TEE | Trusted execution environment: a protected part of the chip that holds keys and secrets |
+The technical terms used here (AVB, BSP, evaluation kit, GKI, ODM, NRE, RISC-V, SAR, secure boot, SEP, TEE and more) are explained in the [glossary](GLOSSARY.md).
 
 ## Routes to a device
+
+The ways the project could get a device, from doing no hardware at all to designing a phone around a chip.
 
 | Route | What the project does | Upfront cost | Verdict |
 |---|---|---|---|
@@ -58,6 +47,11 @@ The main findings:
 | [Module-based design](#module-based-design) | Designs a device around a cellular module | Prototypes cost far less than a certified product | The prototype's route |
 | [Chip-vendor design](#chip-vendor-design) | Designs a phone around a chip bought from the vendor | Millions | No |
 
+Each section below explains the cost.
+
+### Existing phones
+
+The operating system runs on phones that other companies make and sell; the project makes no hardware.
 
 - The phone maker decides the firmware, the support period and whether the bootloader can be relocked with a custom key.
 - Pixels can be relocked with a custom key and get seven years of updates.
@@ -70,47 +64,47 @@ Sources: [AOSP device state][aosp-device-state], [Pixel update policy][pixel-upd
 
 ### Partnership with a phone maker
 
-A company that already makes phones sells one with the project's operating system preinstalled, or builds a model to the project's requirements.
+A company that already makes phones sells one with the project's operating system already installed, or builds a model to the project's requirements.
 The partner stays the manufacturer, with the duties described under [Certification, patents and EU rules](#certification-patents-and-eu-rules).
 
 What has been done before:
 
 - **Fairphone and Murena.**
-  Fairphone supports bootloader unlocking officially, and keeps the warranty after it.
-  Murena sells the Fairphone (Gen. 6) with /e/OS preinstalled, and is its US distributor; it is sold there only with /e/OS.
+  Fairphone officially lets owners unlock the bootloader, and keeps the warranty afterwards.
+  Murena sells the Fairphone (Gen. 6) with /e/OS already installed, and is its US distributor; it is sold there only with /e/OS.
 - **SHIFT, Murena and NovaCustom.**
   Murena sells SHIFT's SHIFTphone 8 with /e/OS and a hardware switch for the camera and microphone.
-  NovaCustom sells a SHIFTphone 8.1 with iodéOS, a choice privacy and security reviewers raised concerns about.
+  NovaCustom sells a SHIFTphone 8.1 with iodéOS, a choice that privacy and security reviewers raised concerns about.
   One phone design carries two operating systems, each sold by a different partner.
 - **Motorola and GrapheneOS.**
   Motorola announced a long-term partnership with GrapheneOS at MWC on 2026-03-02.
-  GrapheneOS set the hardware requirements, among them seven years of updates, memory tagging, secure-element integration and a top-end Snapdragon chip.
-  ⚠ Secondary reports say the Motorola Signature 27, announced in September 2026, is the first supported phone; GrapheneOS had not published an official build at the time.
+  GrapheneOS set the hardware requirements, among them seven years of updates, memory tagging, use of a secure element and a top-end Snapdragon chip.
+  ⚠ Secondary reports say the Motorola Signature 27, announced in September 2026, is the first supported phone; GrapheneOS hadn't published an official build at the time.
 - **Volla and its makers.**
   Volla sells phones that partners build: Gigaset made the earlier models, and the Quintus comes from a maker Volla doesn't name.
 
 What partners seem to look for, judging from these cases:
 
-- an operating system that is already shipping and has users;
-- clear hardware requirements: GrapheneOS's list set the specification for Motorola's devices;
+- an operating system that already ships and has users;
+- clear hardware requirements: GrapheneOS's list set the specification for Motorola's phones;
 - a security process the partner can rely on (unsourced);
 - a niche the partner doesn't already serve with /e/OS, iodéOS, CalyxOS or GrapheneOS (unsourced).
 
-**Cost:** mostly engineering time; possibly a share of revenue or support costs, depending on the deal (unsourced).
+**Cost:** mostly engineering time; possibly a share of revenue or of support costs, depending on the deal (unsourced).
 
-**Verdict:** the best route to a product, and the least risky; whether the project pursues a product is decision D5.
+**Verdict:** the best and least risky route to a product; whether the project pursues a product is decision D5.
 
 Sources: [iFixit on the Fairphone 6][ifixit-fp6], [Fairphone support][fp-support], [Fairphone /e/OS][fp-eos], [Android Central][ac-murena-fp6], [Murena][murena-shift], [Privacy Guides][pg-shift], [9to5Google on Motorola][9to5-moto], [The Register on Motorola][reg-moto], [Notebookcheck][nbc-moto], [Android Authority on GrapheneOS's plans][aa-moto-plans], [Android Authority on the Signature 27][aa-sig27], [Gigaset blog][gigaset-volla], [Sailfish OS forum][sfos-quintus].
 
 ### Development board
 
-A single-board computer or reference board that runs Android.
-It is a place to learn bring-up, or the base of a device without a modem, such as a kiosk or a tablet.
+A small computer board, or a chip maker's reference board, that runs Android.
+It is a place to learn how to get Android running on new hardware, or the base of a device without a modem, such as a kiosk or a tablet.
 [BOARDS.md](BOARDS.md) compares the boards in detail and proposes one for task T2.
 
 | Board | Chip | Android | Notes |
 |---|---|---|---|
-| SpacemiT K3 Pico-ITX, Alibaba A210 EVB | SpacemiT K3, Alibaba A210 (RISC-V) | 17, developer release | RISE's release, built by BayLibre; not production-ready |
+| SpacemiT K3 Pico-ITX, Alibaba A210 EVB | SpacemiT K3, Alibaba A210 (RISC-V) | 17, developer release | RISE's release, built by BayLibre; not ready for products |
 | NXP i.MX 8M Plus and i.MX 95 boards | i.MX 8M Plus, i.MX 95 | 17, on kernel 6.18 | NXP's own release |
 | BeaglePlay | TI AM625 | 16, on kernel 6.12 | TI's release; certified open hardware |
 | Raspberry Pi 5 | BCM2712 | 17, community build | One developer's build, not for commercial use |
@@ -119,53 +113,53 @@ It is a place to learn bring-up, or the base of a device without a modem, such a
 | Radxa Rock 5B | RK3588 | 12 | |
 | Other RK3588 boards | RK3588 | 14, on kernel 6.1 | For example Advantech's BSP |
 
-- The project writes and maintains a device tree on top of the board maker's BSP.
+- **The project would write and maintain the device's files** (its device tree) on top of the board maker's software package (BSP).
   On Arm, only NXP's BSP is on the current Android release; the others are one or more releases behind.
-  On RISC-V, Android 17 runs as a developer release on a kernel outside Google's GKI, which dropped RISC-V in 2024.
-- None of these boards has a cellular modem.
-- **Cost:** from under a hundred to over a thousand dollars per board, plus the porting work.
+  On RISC-V, Android 17 runs as a developer release on a kernel outside Google's shared kernel (GKI), which dropped RISC-V in 2024.
+- **None of these boards has a mobile-network modem.**
+- **Cost:** from under a hundred to over a thousand dollars per board, plus the work of getting Android onto it.
 
 **Verdict:** a good first step, and enough for a Wi-Fi-only prototype.
-A board teaches device-tree, kernel and verified-boot work cheaply (unsourced), and a spare board can be fused for practice.
+A board teaches device-file, kernel and verified-boot work cheaply (unsourced), and a spare board can be fused for practice.
 It covers none of a phone's own parts: the modem, cameras, battery and their certification.
 
 Sources: [BOARDS.md](BOARDS.md#sources), [RISE Android 17 announcement][rise-android17], [Android Authority on RISC-V][aa-riscv], [AOSP reference boards][aosp-boards], [Qualcomm: Android on Dragonwing][qc-android-dw], [Qualcomm kernel docs][qc-kernel], [Thundercomm C6490 Development Kit][thundercomm-c6490], [Radxa support matrix][radxa-matrix], [Advantech RK3588 Android 14][advantech-rk3588], [NXP RN00201][nxp-rn00201], [TI Android 11.00.01 release notes][ti-android-1101], [OSHWA certificate for BeaglePlay][oshwa-beagleplay], [KonstaKANG AOSP 17][konstakang-aosp17], [Raspberry Pi Compute Module 5][rpi-cm5], [Raspberry Pi security architecture][rpi-security].
 
 ### ODM phone
 
-An ODM builds an existing or lightly changed phone design, which the project sells under its own name, with its own software.
+An ODM, a factory that makes phones for other brands, builds an existing or slightly changed phone design, which the project sells under its own name with its own software.
 
 What the project does:
 
 - negotiates the contract, the minimum order and the price;
-- ports its operating system to the ODM's BSP and kernel, which usually cover one Android version (unsourced);
+- gets its operating system running on the ODM's software package (BSP) and kernel, which usually cover one Android version (unsourced);
 - arranges the certifications that the ODM's existing approvals don't cover;
 - becomes the manufacturer in the EU, with every duty that brings.
 
 What the contract should give the project (unsourced; these follow from the manufacturer's duties and the [software work](#software-work)):
 
-- the kernel source, which the GPL requires anyway, and the device-specific BSP source;
+- the kernel source code, which the GPL requires anyway, and the source code of the device's BSP;
 - control of the secure-boot and verified-boot keys, or at least a documented way to relock with the project's own key;
-- firmware and security updates for the modem, TEE and GPU for as long as the project must supply OS updates;
+- firmware and security updates for the modem, secure area (TEE) and graphics chip for as long as the project must supply system updates;
 - the right to keep supplying spare parts for seven years after sales end.
 
 **Cost:** ⚠ the only published figures come from marketplace buying guides, which sell to the same buyers:
 
-- minimum orders from about 1,000 units for white-label phones, about 5,000 for semi-custom work and 10,000 or more for full ODM projects; large ODMs reportedly want 50,000 or more;
+- minimum orders from about 1,000 devices for white-label phones, about 5,000 for partly custom work and 10,000 or more for full ODM projects; large ODMs reportedly want 50,000 or more;
 - one-off engineering (NRE) from about $15,000 to $350,000;
-- unit prices from about $85 for a basic 4G white-label phone to over $300 for a 5G phone developed together.
+- prices per phone from about $85 for a basic 4G white-label phone to over $300 for a 5G phone developed together.
 
 Memory prices rose sharply in 2026 because of demand from AI data centres, so these figures are probably low.
 
-**Verdict:** possible only with a company, funding for a minimum order, and buyers.
-Even then, the ODM's update pipeline sets the real support period.
+**Verdict:** possible only with a company, money for a minimum order, and buyers.
+Even then, the ODM's update process decides the real support period.
 It leads to a product, so the project pursues it only if decision D5 chooses one.
 
 Sources: [Alibaba smartphone ODM guide][alibaba-odm], [Alibaba guide to launching a phone brand][alibaba-brand], [IDC][idc-memory], [The Register on memory prices][reg-memory].
 
 ### Module-based design
 
-The project designs its own main board and case around a "smart module": a small board with an application processor, memory, storage and a cellular modem, sold with an Android BSP.
+The project designs its own main board and case around a "smart module": a small ready-made board with a processor, memory, storage and a mobile-network modem, sold with an Android software package (BSP).
 
 Example: Quectel's SG560D uses the Qualcomm QCM6490 or QCS6490, the chip family of the Fairphone 5, with 5G and Wi-Fi 6E.
 ⚠ Quectel lists Android 12 on its product page and Android 12 or 13 in its specification.
@@ -178,23 +172,23 @@ What the project does:
 - certifies the finished device; the module's own approvals cover part of it, not all ([Radio and network certification](#radio-and-network-certification));
 - carries every manufacturer duty, as for an ODM phone.
 
-**Cost:** a certified product, with its hardware design, certification and tooling for a case, reaches the hundreds of thousands (unsourced estimate, built from the certification figures and the ODM engineering costs in this document).
-A few hand-built prototypes cost far less, since they skip the certification and tooling a product needs (unsourced).
+**Cost:** a certified product, with its hardware design, certification and moulds for a case, reaches the hundreds of thousands (unsourced estimate, built from the certification figures and the ODM engineering costs in this document).
+A few hand-built prototypes cost far less, since they skip the certification and moulds a product needs (unsourced).
 
 **Verdict:** the route for the prototype.
 Start with the module's evaluation kit (task T3), then a main board of the project's own, built in small numbers.
-Selling it as a product would need funding for certification and the EU duties; decision D5 settles whether the project takes them on.
-A Wi-Fi-only device, such as a tablet, needs no cellular module or cellular patent licences.
+Selling it as a product would need money for certification and the EU duties; decision D5 settles whether the project takes them on.
+A Wi-Fi-only device, such as a tablet, needs no cellular module or mobile-network patent licences.
 
 Sources: [Quectel SG560D][quectel-sg560d], [CNX Software on the SG560D][cnx-sg560d], [TrustedReviews][tr-fp5], [CNX Software on the Fairphone 5][cnx-fp5].
 
 ### Chip-vendor design
 
-The project designs a phone around a Qualcomm or MediaTek chip that it buys from the vendor directly.
+The project designs a phone around a Qualcomm or MediaTek chip that it buys from the chip maker directly.
 That needs:
 
-- a commercial agreement with the vendor for the chip, the BSP and the secure-boot signing tools; Qualcomm makes its signing-tool guides available only to licensed users;
-- volumes that interest a chip vendor (unsourced);
+- a business agreement with the chip maker for the chip, the BSP and the secure-boot signing tools; Qualcomm makes its signing-tool guides available only to licensed users;
+- order sizes that interest a chip maker (unsourced);
 - everything the ODM and module routes need.
 
 **Verdict:** out of reach for a small project.
@@ -204,92 +198,94 @@ Sources: [Qualcomm: sign and flash the images][qc-sign].
 
 ## Software work
 
-Hardware made by or for the project brings software work that a phone bought off the shelf doesn't.
+Hardware made by or for the project brings software work that a phone bought in a shop doesn't.
 This applies whatever operating system ends up on the device.
 
 ### Someone has to maintain the device
 
-A new device has no maintainer in any Android distribution.
+No Android distribution looks after a new device until someone does the work.
 Before it can ship, someone writes and maintains:
 
-- **the device tree:** `device/<vendor>/<codename>` and the matching `vendor/` files, which describe the hardware to the Android build;
-- **the kernel:** the vendor's kernel, brought forward to each new Android release, or kept on a GKI branch with vendor modules;
+- **the device tree:** `device/<vendor>/<codename>` and the matching `vendor/` files, which describe the hardware to Android's build;
+- **the kernel:** the chip maker's kernel, brought forward to each new Android release, or kept on a Google shared-kernel (GKI) version with the chip maker's add-ons;
 - **the forward port:** each new Android release, and each release of the distribution built on it, needs the device brought forward again.
 
 A distribution takes on a device only under its own rules.
-LineageOS, for example, requires among other things a maintainer who owns the device, SELinux enforcing and a kernel built from source.
+LineageOS, for example, requires among other things a maintainer who owns the device, Android's security rules (SELinux) switched on, and a kernel built from source code.
 
 Sources: [AOSP GKI][aosp-gki], [LineageOS charter][lineage-charter].
 
 ### The BSP sets the support period
 
-The BSP includes closed firmware for the modem, the TEE, the GPU and the camera pipeline.
-Anyone can patch the open layers above it; the closed firmware gets security fixes only while the vendor ships them (unsourced).
+The chip maker's software package (BSP) includes closed firmware for the modem, the secure area (TEE), the graphics chip and the camera.
+Anyone can fix the open layers above it; the closed firmware gets security fixes only while the chip maker ships them (unsourced).
 
-What vendors offer:
+What chip makers offer:
 
-- **Qualcomm's flagship and new mid-range chips:** since February 2025, up to eight years of Android and security updates for the Snapdragon 8 Elite and new 8- and 7-series chips, but only for manufacturers that opt in.
-  It builds on Google's Longevity GRF programme, which lets a chip's vendor software serve seven Android versions instead of three.
+- **Qualcomm's top and new mid-range chips:** since February 2025, up to eight years of Android and security updates for the Snapdragon 8 Elite and new 8- and 7-series chips, but only for phone makers that sign up.
+  It builds on Google's Longevity GRF programme, which lets a chip's software serve seven Android versions instead of three.
 - **Qualcomm QCM6490, an industrial chip:** the Fairphone 5 uses it to promise updates until 2031.
   Qualcomm's own support for the chip was reported to end in 2028, with Fairphone taking over after that.
-- **Cellular modules:** a module ships with one Android version and may move to a later one; the Quectel SG560D lists Android 12 or 13.
+- **Cellular modules:** a module comes with one Android version and may move to a later one; the Quectel SG560D lists Android 12 or 13.
   A current Android release means bringing the BSP forward by several versions.
 - **Rockchip and NXP:** Android BSPs exist (Android 14 on kernel 6.1 for the RK3588; Android 17 on kernel 6.18 for the i.MX 8M Plus and i.MX 95), but these chips have no modem.
-  A module maker projects about two years of support for each i.MX BSP version.
+  A module maker expects to support each i.MX BSP version for about two years.
   NXP lists the i.MX 95 in its longevity programme until 2041, which covers making the chip, not supporting the BSP ([BOARDS.md](BOARDS.md#nxp-imx-8m-plus-and-imx-95)).
 
 Kernels matter too.
-Each GKI branch has an end-of-life date, and the `android12-5.10` and `android13-5.10` branches lose support from Android 17 QPR1.
+Each GKI version has an end-of-support date, and the `android12-5.10` and `android13-5.10` versions lose support from Android 17 QPR1.
 A chip whose BSP is stuck on an old kernel shortens the device's life, however good its hardware is.
 
-For a product, the EU requires OS updates for at least five years after the last unit is sold ([EU ecodesign rules](#eu-ecodesign-rules)).
+For a product, the EU requires system updates for at least five years after the last device is sold ([EU ecodesign rules](#eu-ecodesign-rules)).
 The chip's support period has to cover that duty before a chip is chosen.
 
 Sources: [Qualcomm on extended support][qc-longevity], [Android Authority on extended support][aa-longevity], [Android Authority on Longevity GRF][aa-grf], [TrustedReviews][tr-fp5], [CNX Software on the Fairphone 5][cnx-fp5], [Quectel SG560D][quectel-sg560d], [Advantech RK3588 Android 14][advantech-rk3588], [NXP RN00201][nxp-rn00201], [Variscite Android lifecycle][variscite-lifecycle], [NXP product longevity][nxp-longevity], [Android common kernels][aosp-common-kernels].
 
 ### Root of trust
 
+How a device decides which software to trust, starting inside the chip.
+
 Secure boot starts in the chip.
-The manufacturer burns the hash of its secure-boot public key into the chip's one-time-programmable fuses; on Qualcomm chips these are the QFPROM fuses.
-Secure boot is on once the fuses are blown, and blowing them can't be undone.
+The manufacturer burns the fingerprint (hash) of its secure-boot key into the chip's one-time fuses; on Qualcomm chips these are the QFPROM fuses.
+Secure boot is on once the fuses are set ("blown"), and that can't be undone.
 From then on the chip starts only firmware signed with that key.
 
-Android Verified Boot builds on top: the bootloader checks the operating system against an AVB key.
-On Pixels, the owner can load their own AVB key (`avb_custom_key`) and relock the bootloader, so an operating system signed by someone else still boots with the bootloader locked.
+Android Verified Boot (AVB) builds on top: the bootloader checks the operating system against an AVB key.
+On Pixels, the owner can load their own AVB key (`avb_custom_key`) and relock the bootloader, so an operating system signed by someone else still starts with the bootloader locked.
 
 What this means for the project:
 
 - **Two keys, two holders.**
-  The manufacturer holds the fused key; each operating system signs with its own AVB key ([DESIGN.md](DESIGN.md#each-party-keeps-its-own-keys)).
-- **The fused key is permanent.**
+  The manufacturer holds the key burned into the chip; each operating system signs with its own AVB key ([DESIGN.md](DESIGN.md#each-party-keeps-its-own-keys)).
+- **The chip key is permanent.**
   It can't be replaced.
-  Losing it breaks the firmware update path of every device fused with it; leaking it lets anyone sign firmware for them.
-  It needs an offline, backed-up, access-controlled home before the first device is fused.
-- **Fusing steps are irreversible,** so each one needs the maintainer's go-ahead.
-- **Signing tools:** Qualcomm signs images with SecTools V2.
+  Losing it breaks the firmware updates of every device fused with it; leaking it lets anyone sign firmware for them.
+  It needs a safe home before the first device is fused: offline, backed up, and with access controlled.
+- **Fusing can't be undone,** so each fusing step needs the maintainer's go-ahead.
+- **Signing tools:** Qualcomm signs firmware with SecTools V2.
   ⚠ Its guides are available only to licensed users; what the licence involves is check C5.
 
 Sources: [Qualcomm: set the QFPROM fuses][qc-fuses], [Qualcomm: sign and flash the images][qc-sign], [AOSP device state][aosp-device-state].
 
 ### Apps and Google services
 
-- Google's apps can't be shipped without a Google Mobile Services licence.
-- Play Integrity's *device* verdict needs a locked bootloader, an operating system image certified for the device, and a hardware-backed, positive verified-boot result.
-  Its *strong* verdict also needs security updates from the last year.
-- A device or operating system that Google hasn't certified gets at most the *basic* verdict, so banking apps and Google Wallet tap-to-pay may not work on it.
+- Google's apps can't be included without a licence for Google Mobile Services.
+- Play Integrity's *device* level needs a locked bootloader, an operating system certified for the device, and a start-up confirmed by the security hardware as unmodified.
+  Its *strong* level also needs security updates from the last year.
+- A device or operating system that Google hasn't certified gets at most the *basic* level, so banking apps and Google Wallet's tap-to-pay may not work on it.
 
 Sources: [microG wiki][microg-spoofing], [Play Integrity verdict changes][play-integrity].
 
 ## Certification, patents and EU rules
 
-Everything in this section applies to whoever places the device on the market: the manufacturer, or the brand that sells it under its own name (unsourced).
+Everything in this section applies to whoever puts the device on the market: the manufacturer, or the brand that sells it under its own name (unsourced).
 In a partnership, that is the partner.
-While the project sells nothing, these duties would reach it only if handing prototypes to others counts as placing them on the market ⚠ (roadmap check C12).
-Rules on operating a radio transmitter still apply to every prototype that is switched on (unsourced).
+While the project sells nothing, these duties would reach it only if handing prototypes to others counts as putting them on the market ⚠ (roadmap check C12).
+Rules on using a radio transmitter still apply to every prototype that is switched on (unsourced).
 
 ### Radio and network certification
 
-A phone needs radio approval in each market, and network certification before carriers accept it:
+A phone needs radio approval in each market, and network certification before mobile networks accept it:
 
 | Market | Radio approval | Network certification |
 |---|---|---|
@@ -298,11 +294,11 @@ A phone needs radio approval in each market, and network certification before ca
 
 - **Body exposure (SAR)** is measured on the finished device; the result depends on its antennas and case, so a certified module doesn't cover it (unsourced).
 - **A certified module helps, but doesn't finish the job.**
-  An end product that uses a module exactly as its FCC grant allows can rely on the module's FCC ID, with no further FCC testing of the cellular radio.
-  PTCRB also lets a product build on a certified module, but its lab decides which parts of the end product must be tested again.
+  A product that uses a module exactly as its FCC approval allows can rely on the module's FCC ID, with no further FCC testing of the mobile-network radio.
+  PTCRB also lets a product build on a certified module, but its lab decides which parts of the product must be tested again.
 
-**Cost:** ⚠ published figures are old and vary widely: about $10,000–$50,000 for PTCRB on an end device, $2,000–$10,000 for FCC testing, and up to $70,000 for LTE in an older estimate.
-A phone with several radios, bands and markets costs more than the IoT devices these figures describe.
+**Cost:** ⚠ published figures are old and vary widely: about $10,000–$50,000 for PTCRB on a finished device, $2,000–$10,000 for FCC testing, and up to $70,000 for LTE in an older estimate.
+A phone with several radios, bands and markets costs more than the small connected devices these figures describe.
 Ask an accredited lab for quotes (check C6).
 
 Sources: [dev.to certification guide][devto-cert], [ECN][ecn-carrier], [Taoglas][taoglas-cert], [PTCRB][ptcrb-10steps], [Cetecom][cetecom-ptcrb], [Circuit Cellar][cc-cert], [Hologram community][hologram-cert].
@@ -312,67 +308,67 @@ Sources: [dev.to certification guide][devto-cert], [ECN][ecn-carrier], [Taoglas]
 A phone that connects to LTE or 5G networks uses standard-essential patents (SEPs).
 Their owners expect a licence on fair, reasonable and non-discriminatory (FRAND) terms.
 
-| Licensor | Published rate per handset |
+| Licensor | Published rate per phone |
 |---|---|
-| Qualcomm | 3.25% of the net selling price, for a 5G phone, cellular-only licence |
+| Qualcomm | 3.25% of the net selling price, for a 5G phone, mobile-network-only licence |
 | Ericsson | $5.00, or as low as $2.50 in exceptional cases (2024 analysis) |
 | Nokia | About €3 for a 5G phone (announced 2018) |
 
-- Estimates of the total across all licensors range from a few percent to about 11% of the handset price.
-- ⚠ Whether a module's price includes any handset licence is a contract question; assume it doesn't (unsourced).
-- A Wi-Fi-only device avoids cellular SEPs, though Wi-Fi and video codecs have patent pools of their own (unsourced).
+- Estimates of the total across all patent owners range from a few percent to about 11% of the phone's price.
+- ⚠ Whether a module's price includes any licence for the finished phone is a contract question; assume it doesn't (unsourced).
+- A Wi-Fi-only device avoids mobile-network SEPs, though Wi-Fi and video formats have patent pools of their own (unsourced).
 
 Sources: [Qualcomm 5G licensing][qc-5g-licensing], [WiseHarbor via ip-finance][wiseharbor], [TechRadar][techradar-nokia], [Stout][stout-sep].
 
 ### EU ecodesign rules
 
-Regulation (EU) 2023/1670 applies to smartphones, other mobile phones, cordless phones and slate tablets placed on the EU market from 2025-06-20.
+Regulation (EU) 2023/1670 applies to smartphones, other mobile phones, cordless phones and tablets put on the EU market from 2025-06-20.
 Among its requirements:
 
-- **OS updates** for at least five years after the last unit of a model is placed on the market.
-- **Spare parts,** such as batteries, cameras and displays, for seven years after the end of sales, delivered within 5–10 working days.
-- **Repair access:** professional repairers get non-discriminatory access to the software and firmware needed for repairs.
-- **An energy label** with a repairability class, under the companion labelling regulation.
+- **System updates** for at least five years after the last device of a model is put on the market.
+- **Spare parts,** such as batteries, cameras and displays, for seven years after sales end, delivered within 5–10 working days.
+- **Repair access:** professional repairers get fair access to the software and firmware needed for repairs.
+- **An energy label** with a repairability class, under the matching labelling regulation.
 
-Regulation (EU) 2025/2006 corrected and amended the rules in December 2025 (check C2).
+Regulation (EU) 2025/2006 corrected and changed the rules in December 2025 (check C2).
 
-**For a product:** a device sold for two years commits its manufacturer to OS updates for at least seven years from launch, and to spare parts for nine.
-That matches the support periods of Pixels and Fairphones, which those companies fund from far larger sales.
+**For a product:** a device sold for two years commits its manufacturer to system updates for at least seven years from launch, and to spare parts for nine.
+That matches the support periods of Pixels and Fairphones, which those companies pay for from far larger sales.
 
 Sources: [European Commission][ec-ecodesign], [EUR-Lex 2023/1670][eurlex-1670], [EUR-Lex 2025/2006][eurlex-2006], [heise][heise-ecodesign], [iFixit on ecodesign][ifixit-ecodesign].
 
 ### EU battery rules
 
-From 2027-02-18, Article 11 of the Batteries Regulation (EU) 2023/1542 requires portable batteries in products to be removable and replaceable by the end user.
+From 2027-02-18, Article 11 of the Batteries Regulation (EU) 2023/1542 requires batteries in portable products to be removable and replaceable by the user.
 
 - Delegated Regulation (EU) 2026/1770, published 2026-10-22, lets some products have batteries that only independent professionals replace.
-- ⚠ Whether smartphones fall under that derogation, or under the existing exemption for batteries that meet strict durability criteria, is not confirmed from the regulation's text (check C3).
+- ⚠ Whether smartphones fall under that exception, or under the existing exemption for batteries that meet strict durability criteria, isn't confirmed from the regulation's text (check C3).
 
 Sources: [UL][ul-battery], [EUR-Lex battery guidance][eurlex-battery-guidance].
 
 ### EU cybersecurity rules
 
-- **RED delegated act 2022/30:** since 2025-08-01, internet-connected radio equipment, phones included, must meet requirements for network protection, personal data and fraud protection.
-  The harmonised standards EN 18031-1, -2 and -3 give one way to show this.
-  ⚠ A Commission draft of 2026-02-16 proposes repealing the act from 2027-12-11, when the Cyber Resilience Act takes over; its adoption is not confirmed (check C7).
-- **Cyber Resilience Act, Regulation (EU) 2024/2847:** from 2026-09-11, manufacturers must report actively exploited vulnerabilities and severe incidents through ENISA's single reporting platform.
-  Most other obligations, among them a machine-readable software bill of materials, apply from 2027-12-11.
-  ⚠ One source mentions pending amendments; check the Official Journal before relying on the dates (check C7).
+- **RED delegated act 2022/30:** since 2025-08-01, radio equipment that connects to the internet, phones included, must meet requirements for protecting networks, personal data and against fraud.
+  The standards EN 18031-1, -2 and -3 give one way to show this.
+  ⚠ A European Commission draft of 2026-02-16 proposes repealing the act from 2027-12-11, when the Cyber Resilience Act takes over; whether it was adopted isn't confirmed (check C7).
+- **Cyber Resilience Act, Regulation (EU) 2024/2847:** from 2026-09-11, manufacturers must report security holes that are being exploited, and severe incidents, through the reporting platform of ENISA, the EU's cybersecurity agency.
+  Most other duties, among them a machine-readable list of every software part (a software bill of materials), apply from 2027-12-11.
+  ⚠ One source mentions planned changes; check the EU's Official Journal before relying on the dates (check C7).
 
-**For a product:** the manufacturer carries these duties for the whole device, firmware included, and needs a process for reporting exploited vulnerabilities before the first unit is sold.
+**For a product:** the manufacturer carries these duties for the whole device, firmware included, and needs a process for reporting exploited security holes before the first device is sold.
 
 Sources: [BSI][bsi-red], [UK government factsheet][gov-uk-red], [Council document][consilium-red-repeal], [Travers Smith][ts-cra], [Hogan Lovells][hl-cra], [Cloud Security Alliance][csa-cra].
 
 ### Trademarks
 
-- "Android" may be used only as a descriptor, never as the product name, with the attribution "Android is a trademark of Google LLC".
+- "Android" may be used only to describe something, never as the product's name, with the line "Android is a trademark of Google LLC".
 - A device sold under a brand needs a trademark search for that brand in each market first (unsourced).
 
 Sources: [Android brand guidelines][android-brand].
 
 ## Earlier phone projects
 
-Small makers that built their own phones, and what happened to them.
+Small companies that built their own phones, and what happened to them.
 Most of these reports are press coverage or the companies' own posts, not independent reviews.
 
 | Project | Approach | What happened |
@@ -386,41 +382,41 @@ Most of these reports are press coverage or the companies' own posts, not indepe
 ### Purism Librem 5
 
 - Built on NXP's i.MX 8M Quad.
-- A silicon bug in that chip, which drained the battery, moved the first batch from January to April 2019.
-- In 2022 Purism named CPU supply as one of its biggest roadblocks, amid worldwide chip shortages.
-  It made large investments in components and other supplies to keep enough stock.
+- A fault in that chip, which drained the battery, moved the first batch from January to April 2019.
+- In 2022 Purism named the supply of processors as one of its biggest obstacles, during worldwide chip shortages.
+  It invested heavily in parts and other supplies to keep enough stock.
 
 Sources: [Purism][purism-where], [Notebookcheck on the Librem 5][nbc-librem].
 
 ### Pine64 PinePhone Pro
 
 - Discontinued in August 2025 because it didn't sell well enough.
-- ⚠ In August 2026 Pine64 reportedly halted production of all its Linux devices, because of DRAM and eMMC shortages, until at least mid-2027 (check C8).
+- ⚠ In August 2026 Pine64 reportedly stopped making all its Linux devices, because of shortages of memory and storage chips (DRAM and eMMC), until at least mid-2027 (check C8).
 
 Sources: [Pine64][pine64-aug2025], [The Register on the PinePhone Pro][reg-pinephone], [Tom's Hardware][toms-pine64], [Linux Magazine][linuxmag-pine64].
 
 ### Liberux NEXX
 
-- A Linux phone on the Rockchip RK3588S, crowdfunded on Indiegogo from mid-2025, with a goal of about $1.6 million and a target of shipping by July 2026.
+- A Linux phone on the Rockchip RK3588S, crowdfunded on Indiegogo from mid-2025, aiming for about $1.6 million and to ship by July 2026.
 - At launch it was still a concept, shown on a development board that carried the main parts.
-- ⚠ Whether it reached its goal or shipped was not found (check C8).
+- ⚠ Whether it reached its goal or shipped wasn't found (check C8).
 
 Sources: [CNX Software on the NEXX][cnx-nexx], [Notebookcheck on the NEXX][nbc-nexx].
 
 ### FuriLabs FLX1s
 
-- A Debian-based phone at $550, on a MediaTek Dimensity 900 from about 2021.
+- A Debian-based phone at $550, on a MediaTek Dimensity 900 chip from about 2021.
 - Hardware switches cut power to the microphone, the cameras and the modem.
 
 Sources: [It's FOSS][itsfoss-flx1s], [Liliputing][lili-flx1s].
 
 ### OSOM
 
-- Formed by former Essential staff after Essential disbanded, and made the Solana Saga phone together with Solana.
+- Started by former Essential staff after Essential closed, and made the Solana Saga phone together with Solana.
 - Reported in September 2024 to be shutting down.
   Android Authority reports several causes:
   - Solana reportedly didn't choose OSOM again for the Saga's successor;
-  - attempts to pivot to an AI-powered camera and to sell the company to HP didn't work out;
+  - attempts to switch to an AI-powered camera and to sell the company to HP didn't work out;
   - it failed to raise more money;
   - a former executive sued over the company's spending, which the founder denies.
 
@@ -429,27 +425,27 @@ Sources: [Android Authority on OSOM][aa-osom], [9to5Google on OSOM][9to5-osom].
 ### What the cases have in common
 
 - **Hardware takes years.**
-  The self-built phones above shipped late, stopped, or have not been confirmed as shipped.
+  The self-built phones above shipped late, stopped, or haven't been confirmed as shipped.
 - **Supply decides.**
-  The Librem 5 waited for its CPU, and Pine64 stopped for memory.
+  The Librem 5 waited for its processor, and Pine64 stopped for lack of memory chips.
   Memory prices for phones rose sharply in 2026 because of demand from AI data centres.
-- **Old chips are the norm.**
-  The FLX1s uses a chip from about 2021, and the modules and most development boards in this study ship Android BSPs one or more versions old.
-- **The operating systems that reached hardware partnered for it.**
-  /e/OS, iodéOS and GrapheneOS did not design phones ([Partnership](#partnership-with-a-phone-maker)).
+- **Old chips are normal.**
+  The FLX1s uses a chip from about 2021, and the modules and most development boards in this study come with Android software one or more versions old.
+- **The operating systems that got hardware did it through partners.**
+  /e/OS, iodéOS and GrapheneOS didn't design phones ([Partnership](#partnership-with-a-phone-maker)).
 
 Sources: [IDC][idc-memory], [The Register on memory prices][reg-memory].
 
 ## Risks
 
-| Risk | Impact | Mitigation |
+| Risk | Impact | What reduces it |
 |---|---|---|
-| The chip vendor ends support before the EU's update period does | High | Choose chips with long published support; put the period in the contract |
-| The fused secure-boot key is lost or leaked | Critical | An offline, backed-up key; agents never handle it; a go-ahead for each fusing step |
-| Shortages of memory or chips | High | Keep stock of key parts, as Purism did; avoid parts with a single source |
+| The chip maker stops support before the EU's update period ends | High | Choose chips with long published support; put the period in the contract |
+| The chip key is lost or leaked | Critical | An offline, backed-up key that only the maintainer handles; a go-ahead for each fusing step |
+| Shortages of memory or chips | High | Keep stock of key parts, as Purism did; avoid parts that only one company makes |
 | Certification costs more than estimated | Medium to high | Lab quotes before committing (check C6) |
-| Handing out prototypes makes the project a manufacturer | High | Sell nothing; check C12 before any unit leaves the maintainers (decision D3) |
-| A practice board is bricked by fusing | Low | Fuse only boards bought for that purpose |
+| Handing out prototypes makes the project a manufacturer | High | Sell nothing; check C12 before any device leaves the maintainers (decision D3) |
+| A practice board is made unusable by fusing | Low | Fuse only boards bought for that purpose |
 
 ## Sources
 

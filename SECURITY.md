@@ -1,15 +1,15 @@
 # Security policy
 
-FoxieOS hardware holds research documents only.
-There is no device, firmware or software of its own to report against yet.
+This project holds research documents only.
+It has no device, firmware or software of its own yet, so there is nothing in use to report a problem against.
 
-- Report a problem in the FoxieOS operating system under [FoxieOS's security policy](https://github.com/alopex-org/foxieos/blob/main/SECURITY.md).
-- If a document here could lead someone to damage a device or expose a key, for example through a wrong fusing or relocking step, report it privately through GitHub's [private vulnerability reporting](https://github.com/alopex-org/foxieos-hardware/security/advisories/new) (the repository's Security tab, then "Report a vulnerability").
+- **A problem in the FoxieOS operating system:** report it under [FoxieOS's security policy](https://github.com/alopex-org/foxieos/blob/main/SECURITY.md).
+- **A document here that could lead someone to damage a device or expose a key,** for example a wrong fusing or relocking step: report it privately through GitHub's [private vulnerability reporting](https://github.com/alopex-org/foxieos-hardware/security/advisories/new) (open the repository's Security tab, then "Report a vulnerability").
   Only the maintainer sees the report.
-  Don't describe it in a public issue.
+  Don't describe it in a public issue or on Discord.
 
-**Planned before any prototype from this project leaves the maintainers' hands:**
+## Planned before any prototype leaves the maintainers' hands
 
-- A dedicated contact address may be added here, alongside private vulnerability reporting.
-- A process for coordinated disclosure.
-  The project sells nothing so far, but the EU's Cyber Resilience Act would require it to report actively exploited vulnerabilities if it became a device's manufacturer ([docs/FEASIBILITY.md](docs/FEASIBILITY.md#eu-cybersecurity-rules)).
+- A dedicated contact address may be added here, next to private vulnerability reporting.
+- A process for coordinated disclosure: keeping a problem private until it is fixed.
+  The project sells nothing so far, but if it became a device's manufacturer, the EU's Cyber Resilience Act would require it to report security holes that are being exploited ([docs/FEASIBILITY.md](docs/FEASIBILITY.md#eu-cybersecurity-rules)).
