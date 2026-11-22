@@ -24,6 +24,7 @@ Words about Android itself (AOSP, LineageOS, kernel, bootloader, OTA) are explai
 - **Main board:** the device's central circuit board, which holds the processor and connects everything else.
 - **Bring-up:** getting an operating system to start and work on new hardware for the first time.
 - **Bench work:** trying things out on boards and kits on a workbench, before building a device.
+- **Handheld, cyberdeck:** a portable computer built by hobbyists from a development board, a screen and a battery in a case of their own; thicker than a phone.
 
 ## Chips and boards
 
@@ -42,6 +43,13 @@ Words about Android itself (AOSP, LineageOS, kernel, bootloader, OTA) are explai
 - **Mesa:** free graphics drivers that can replace a chip vendor's closed ones.
 - **Single source:** a part that only one company makes, so a shortage there stops production.
 - **eMMC and DRAM:** the storage and the working memory chips in a device.
+- **Compute Module:** a Raspberry Pi made as a small plug-in board, for a carrier board designed by someone else.
+- **GNSS (global navigation satellite system):** satellite positioning, such as GPS and Galileo; a GNSS receiver tells the device where it is.
+- **Wi-Fi adapter (USB):** a small plug-in Wi-Fi radio that can be removed from the device.
+- **SMA connector:** a screw-on connector for an external antenna.
+- **Hardware switch (kill switch):** a physical switch that cuts the power to a part, such as a radio or the microphone, so software can't turn it back on.
+- **18650 cell:** a common cylindrical lithium-ion battery cell, 18 mm wide and 65 mm long; a *protected* cell has a small circuit against over-charging and short circuits.
+- **Power path, ideal diode:** the circuit that chooses which battery or charger powers the device; an ideal-diode controller lets power flow from whichever source is available, so a battery can be swapped without a restart.
 
 ## Software for hardware
 
@@ -58,6 +66,7 @@ Words about Android itself (AOSP, LineageOS, kernel, bootloader, OTA) are explai
 - **Distribution:** a ready-to-install version of an operating system, such as LineageOS or FoxieOS.
 - **AOSP:** the free, public part of Android that Google publishes.
 - **Developer release:** an early version for developers, not ready for everyday use.
+- **Alpine Linux, Buildroot:** a small Linux distribution built for security, and a tool that builds a small Linux system from source for one device.
 
 ## Security and keys
 
@@ -75,6 +84,11 @@ Words about Android itself (AOSP, LineageOS, kernel, bootloader, OTA) are explai
 - **Signing tools:** a chip vendor's programs for signing firmware; Qualcomm's are called SecTools.
 - **Play Integrity:** Google's check that apps such as banking apps use to decide whether they trust a device.
 - **Google Mobile Services (GMS):** Google's own apps and services, which need a licence from Google.
+- **Disk encryption, LUKS:** scrambling the stored data so it can't be read without a passphrase; LUKS is the standard way to do it on Linux.
+  Android encrypts each user's files instead (file-based encryption).
+- **MAC address:** the hardware address a Wi-Fi radio shows to networks; a random one for each network makes the device harder to track.
+- **Tor, onion routing:** sending traffic through several relays so that no single one knows both who sends it and where it goes.
+- **Forward secrecy:** a property of encryption under which a stolen key can't unlock messages sent earlier.
 
 ## Radios and certification
 

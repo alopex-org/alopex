@@ -12,16 +12,18 @@ Technical words are explained in the [glossary](GLOSSARY.md).
 - **Founding meeting, 2026-11-24:** the members choose the maintainers, who decide the project's foundations together ([governance](https://github.com/alopex-org/.github/blob/main/GOVERNANCE.md#founding-maintainers)).
   One interim maintainer decided everything marked decided here, so the meeting confirms or changes it.
   The meeting also takes decision D5: a prototype only, or a product.
+- **Proposed:** a Raspberry Pi handheld as the first prototype, Wi-Fi only, with a LoRa radio, hardware switches and a swappable battery ([HANDHELD.md](HANDHELD.md)).
+  It runs Linux rather than Android, so it raises a new decision, D6.
 - **Next:** task T1, the hardware requirements.
   It needs no decision and no money.
 
 ## How to read this page
 
-- **Decisions (D1–D5)** are questions the maintainers answer.
+- **Decisions (D1–D6)** are questions the maintainers answer.
   Each one lists the options and a recommendation.
-- **Tasks (T0–T6)** are the pieces of work, in order.
+- **Tasks (T0–T7)** are the pieces of work, in order.
   Each one says what it needs first, what to do, when it is finished, and what to share afterwards.
-- **Checks (C1–C12)** are facts to confirm before the task that relies on them.
+- **Checks (C1–C14)** are facts to confirm before the task that relies on them.
   A ⚠ in the other docs usually points to one of them.
 - **On GitHub,** each decision, task and check also has an issue, and each phase below is a [milestone](https://github.com/alopex-org/alopex/milestones).
   This page is the plan; the issues track progress and discussion ([CONTRIBUTING.md](../CONTRIBUTING.md#issues-and-labels)).
@@ -49,6 +51,7 @@ Technical words are explained in the [glossary](GLOSSARY.md).
 | [D3](#d3-sharing-prototypes) | Do prototypes stay with the maintainers, or reach other enthusiasts, and how? | Open | D1 |
 | [D4](#d4-lora-mesh-network) | Which LoRa mesh network does the device come with: Meshtastic, MeshCore or both? | Open | T6 |
 | [D5](#d5-prototype-or-product) | Does the project stop at a prototype, or aim at a product it sells? | Open: founding meeting | D1, D3, T4, T5 |
+| [D6](#d6-operating-system-of-the-first-prototype) | Does the first prototype run Android, or a plain Linux system? | Open | D1, T7 |
 
 ### D1: route to a prototype
 
@@ -58,6 +61,7 @@ Open; needed before a prototype is built.
 - **Options:** the routes in [FEASIBILITY.md](FEASIBILITY.md#routes-to-a-device) that suit a prototype:
   - a main board of the project's own, around a cellular module;
   - a development board in a case of the project's own, for a Wi-Fi-only prototype.
+    [HANDHELD.md](HANDHELD.md) works this option out as a Raspberry Pi handheld (proposed).
 - Working with a phone maker, and having an ODM build a phone, are routes to a product, and become options only if decision D5 chooses one ([DESIGN.md](DESIGN.md#prototype-or-product)).
 - **Recommendation:** decide after tasks T1–T3.
   - Around a cellular module, if task T3 finds that it can work.
@@ -73,6 +77,7 @@ Open; needed by D1.
 - A **mobile phone** is what most people mean by a phone, and costs more at every step.
 - **Recommendation:** decide on what tasks T2 and T3 show.
   A Wi-Fi-only device is the cheaper first prototype.
+  The proposed [handheld](HANDHELD.md) is Wi-Fi only.
 
 ### D3: sharing prototypes
 
@@ -117,6 +122,23 @@ That was written down before the team had agreed on it, so it is open again ([DE
 - **Recommendation:** none; the maintainers decide this together.
   Tasks T1–T3 serve every option, so they go ahead in the meantime.
 
+### D6: operating system of the first prototype
+
+Whether the first prototype runs Android or a plain Linux system.
+Open; needed by D1 and T7.
+
+The project was set up to build hardware for an operating system based on Android.
+The proposed [handheld](HANDHELD.md#operating-system) runs a small Linux system built for privacy instead, such as Alpine Linux or a Buildroot system.
+
+- **Options:**
+  - **Android,** as the project was set up for.
+    On a Raspberry Pi only a community build exists, with its security rules (SELinux) off and no encryption of user data ([BOARDS.md](BOARDS.md#raspberry-pi-5-and-compute-module-5)).
+  - **A plain Linux system,** as the handheld proposes.
+    `meshtasticd`, disk encryption and the proposed messaging apps run on it today, but the project would keep an operating system of its own updated, and FoxieOS couldn't use the device.
+  - **Linux first, then Android:** Linux to try the handheld's parts on the bench, and Android once a board supports it well.
+- **Recommendation:** none; it changes what the project is for, so the maintainers decide it together.
+  Task T7 works under every option, since it tests the hardware.
+
 ## Tasks
 
 Work in this order, unless a task's needs allow another.
@@ -137,8 +159,8 @@ The list of what a device must offer.
   - how many years the modem, secure-area (TEE) and graphics firmware get fixes, counted from the chip's launch;
   - a kernel on a GKI version that still gets updates;
   - bootloader unlocking and relocking that the project controls;
-  - repair access and a battery the user can replace;
-  - privacy features, such as hardware switches for the microphone, cameras, modem and LoRa transmitter;
+  - repair access and a battery the user can replace, ideally without switching the device off ([HANDHELD.md](HANDHELD.md#battery));
+  - privacy features, such as hardware switches for the microphone, cameras, modem, Wi-Fi, GNSS receiver and LoRa transmitter ([HANDHELD.md](HANDHELD.md#hardware-switches));
   - a LoRa radio on the device's board for 868 MHz and 915 MHz, with the mesh running while the phone sleeps ([LORA.md](LORA.md)).
 - Note which of the conditions in FoxieOS's decision D9 each requirement meets.
 
@@ -197,21 +219,38 @@ Can run alongside task T2.
 **Finished when** messages pass over the cable with both networks' software, or the record says why not.
 **Share** the results, the current measured, and anything the apps couldn't do over a cable.
 
+### T7: handheld test build
+
+Building one proposed [handheld](HANDHELD.md) on the bench, to see whether its parts work together before decision D1.
+**Hands-on.** Needs task T1 and checks C13 and C14, and the maintainer to buy the parts.
+Can run alongside task T2; decision D6 sets which operating system it runs, and Linux is enough to test the hardware.
+
+- Connect an SX1262 LoRa board to a Raspberry Pi 5 over SPI, run `meshtasticd`, and send messages to another Meshtastic device on 868 MHz, with the antenna always connected.
+- Add a USB Wi-Fi adapter and a GNSS receiver, and share the device's position over the mesh.
+- Wire one hardware switch for each part, and check with a meter that a switched-off part draws no current, including through its data lines.
+- Run the Pi from an 18650 cell through a converter and an ideal-diode power path with a backup cell, swap the cell while it runs, and measure the current drawn when idle, when sending over LoRa and when using Wi-Fi.
+- Record the work in `docs/bench/handheld.md`, with the parts used, a wiring diagram and the measurements.
+
+**Finished when** messages and positions pass over LoRa, every switch cuts its part fully, and a battery swap doesn't restart the device, or the record says why not.
+**Share** the measurements, the battery life they imply, and what would change for a case of the project's own.
+
 ## Order of the critical work
 
 The longest chains of work, where each step waits for the one before:
 
 - T1 → T2 → T3;
 - at the same time, T1 → D4 → T6;
+- at the same time, T1 → C13 and C14 → T7, with D6 deciding what T7's device runs;
 - check C12 → D3, and D5 → D1 and D3.
 
-They come together in D2, D3 and then D1.
+They come together in D2, D3, D6 and then D1.
 
 ## Not planned
 
 - **A phone designed directly with a chip maker** ([FEASIBILITY.md](FEASIBILITY.md#chip-vendor-design)).
 - **Work on a particular operating system.**
   Supporting a device is each operating-system project's own work; for FoxieOS, it is decided in its decision D9.
+  Decision D6 asks whether the first prototype is an exception, with a Linux system of the project's own.
 
 ## Checks
 
@@ -253,3 +292,9 @@ Do it before the task that relies on it (shown by →), then update the docs tha
 12. **C12, prototypes and the market rules** (→ D3, D5).
     Whether building prototypes for the maintainers' own use, publishing the design files, or handing devices to other enthusiasts for free or at cost counts as putting them on the EU market under the Radio Equipment Directive, the ecodesign and battery rules and the Cyber Resilience Act.
     Start from the European Commission's Blue Guide on EU product rules, and confirm the result with a lawyer before any device leaves the maintainers' hands.
+13. **C13, handheld power** (→ T7).
+    Read the power-supply section of Raspberry Pi's hardware documentation for the Pi 5's exact supply needs and USB current limits, and whether it can sleep.
+    Then pick a converter from an 18650 cell to 5 V that meets them, and an ideal-diode power-path controller for the backup cell.
+14. **C14, handheld switches and position** (→ T7).
+    How to cut a part fully, including its data lines, so it isn't powered through them, for the SPI LoRa radio, a USB adapter, a GNSS receiver and a microphone.
+    Whether `meshtasticd` on Linux can read a GNSS receiver and share its position.

@@ -10,11 +10,13 @@ The research and sources behind it are in [FEASIBILITY.md](FEASIBILITY.md), and 
 - Whether it stops at a prototype or aims at a product is for the maintainers to decide (decision D5).
 - A LoRa radio for messaging without a mobile network is a core feature.
 - The first steps are the same either way: a list of requirements, then trying Android on boards and kits.
+- A Raspberry Pi handheld with privacy switches and a swappable battery is proposed as the first prototype; it runs Linux, so whether the first prototype runs Android is open (decision D6).
 - Whoever builds the device keeps its permanent chip key; each operating system keeps its own signing key.
 
 ## Purpose
 
 The project finds out how a small team could build a prototype phone, or a similar device, for an operating system based on Android, and then works toward one in cheap steps.
+Whether the first prototype runs Android or a plain Linux system is open (roadmap decision D6).
 Whether that stays a prototype, built in small numbers and not sold, or leads to a product is open: the maintainers decide it at their founding meeting on 2026-11-24 ([Prototype or product](#prototype-or-product)).
 
 A LoRa radio for messaging without a mobile network, over a mesh of other devices, is a core feature of any device the project works toward ([LoRa mesh radio](#lora-mesh-radio-as-a-core-feature)).
@@ -129,6 +131,19 @@ Proposed (roadmap decision D1).
 - **Turned down:**
   - choosing a route first;
   - designing a phone directly with a chip maker, which needs a contract with them, large orders and far more money than a small team has ([FEASIBILITY.md](FEASIBILITY.md#chip-vendor-design)).
+
+### A Raspberry Pi handheld as the first prototype
+
+Proposed (roadmap decisions D1, D2 and D6; task T7 tries it on the bench).
+
+- **What:** a rugged handheld around a Raspberry Pi, Wi-Fi only through a removable USB adapter, with a LoRa radio and external antenna, a GNSS receiver, hardware switches that cut power to the Wi-Fi, LoRa, GNSS and microphone, and a battery that can be swapped while it runs ([HANDHELD.md](HANDHELD.md)).
+  It is proposed to run a small Linux system built for privacy, such as Alpine Linux.
+- **Why:** every part can be bought one at a time, it needs no cellular module, certification of a modem or mobile-network patent licences, and it puts the LoRa radio and the privacy switches in people's hands early.
+- **Open points:**
+  - a Linux system differs from the Android-based operating system the project was set up for, and FoxieOS couldn't use it (decision D6);
+  - the LoRa chip on the Pi's own pins differs from the separate small processor proposed above, which saves battery on a device carried every day;
+  - Meshtastic already encrypts LoRa messages, so the proposal's own encryption script is left out ([HANDHELD.md](HANDHELD.md#the-proposed-software)).
+- **Turned down:** nothing yet; the alternative is the module-based route after tasks T2 and T3.
 
 ### Each party keeps its own keys
 

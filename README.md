@@ -19,6 +19,9 @@ Unfamiliar words are explained in two glossaries: [hardware, radios and rules](d
 
 A LoRa radio, for sending messages without a mobile network over Meshtastic, MeshCore or a similar mesh network, is planned as a core part of the device ([docs/LORA.md](docs/LORA.md)).
 
+A first prototype is proposed: a rugged Raspberry Pi handheld, Wi-Fi only, with a LoRa radio, hardware switches that cut its radios and microphone, and a battery that can be swapped while it runs ([docs/HANDHELD.md](docs/HANDHELD.md)).
+It runs a plain Linux system rather than Android, so the maintainers decide which the first prototype runs (decision D6).
+
 The project won't follow the plan of the FoxieOS operating system.
 [docs/DESIGN.md](docs/DESIGN.md) explains why.
 
@@ -39,6 +42,7 @@ The project won't follow the plan of the FoxieOS operating system.
 3. [docs/DESIGN.md](docs/DESIGN.md): the case for a prototype and for a product (decision D5), how a device would come about, who holds which keys, and why the project is set up this way.
 4. [docs/BOARDS.md](docs/BOARDS.md): the development boards for the bench work, mainly RISC-V boards compared with Arm boards, with a proposed choice.
 5. [docs/LORA.md](docs/LORA.md): the LoRa mesh radio: the Meshtastic, MeshCore and Reticulum networks, how to build the radio in, and its certification.
+6. [docs/HANDHELD.md](docs/HANDHELD.md): the proposed Raspberry Pi handheld: its parts, its software, and what it costs the user.
 
 ## What's in this repository
 
