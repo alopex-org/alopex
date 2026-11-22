@@ -6,6 +6,7 @@ body:
     attributes:
       value: |
         Prices, products and laws change quickly, so corrections are welcome.
+        Tell us where the claim is, what is correct, and a public link that shows it.
         Don't include terms a company gave you in confidence, or anyone's contact details.
   - type: input
     id: where

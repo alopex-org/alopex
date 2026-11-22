@@ -1,46 +1,58 @@
 # Development boards
 
 **Status: research.**
-A comparison of development boards for the bench work in roadmap task [T2](ROADMAP.md#t2-development-board-bring-up), with a proposed choice.
-The focus is on RISC-V boards: boards whose processor uses the open RISC-V instruction set.
-Arm boards are covered for comparison, because their Android support is older and more complete.
+A development board is a small computer board sold for trying out a chip.
+This page compares boards for the bench work in roadmap task [T2](ROADMAP.md#t2-development-board-bring-up), where the project first gets Android running on hardware, and proposes which to buy.
+The focus is on RISC-V boards: boards whose processor uses the open RISC-V design, which any chip maker may use.
+Arm boards, the kind almost all phones use, are covered for comparison, because their Android support is older and more complete.
 This expands the [Development board](FEASIBILITY.md#development-board) section of the feasibility study.
+Technical words are explained in the [glossary](GLOSSARY.md).
 
-Sources were checked on 2026-11-20 and 2026-11-21.
-Each section ends with the sources behind it, and the [Sources](#sources) section lists them all.
-⚠ marks a claim that is unconfirmed or disputed; check it before relying on it.
-"(unsourced)" marks a statement from general knowledge that was not checked against a source.
-Prices are list prices on the day they were checked, not quotes.
+**How to read it:**
+
+- Sources were checked on 2026-11-20 and 2026-11-21.
+- Each section ends with the sources behind it, and the [Sources](#sources) section lists them all.
+- ⚠ marks a claim that isn't confirmed, or that sources disagree on; check it before relying on it.
+- "(unsourced)" marks a statement from general knowledge that wasn't checked against a source.
+- Prices are list prices on the day they were checked, not quotes.
+
+## In short
+
+- Android 17 now runs on two RISC-V boards, but only as an early version for developers.
+- Google itself has stepped back from RISC-V for now, and no RISC-V chip with a mobile-network modem was found, so a RISC-V device would start as Wi-Fi only.
+- Among Arm boards, NXP's are the most up to date and the best documented for security.
+- The proposal: buy a SpacemiT K3 Pico-ITX (RISC-V) to get Android running, and an NXP i.MX 95 board to practise the security steps.
 
 ## Summary
 
 - **Android 17 runs on two RISC-V boards,** the SpacemiT K3 Pico-ITX and Alibaba's A210 EVB.
-  BayLibre built it for the RISE project and released it in October 2026, with source, images and an open graphics stack.
-  RISE calls it a developer release, not a production-ready or certified build.
+  The company BayLibre built it for the RISE project and released it in October 2026, with source code, ready-made images and open graphics drivers.
+  RISE calls it a developer release, not ready for products or certified.
 - **Google's own RISC-V support in Android is incomplete.**
-  Its common kernel and GKI dropped RISC-V in 2024, and its last published status, from 2025, runs Android on RISC-V only in virtual devices.
-  A RISC-V device therefore needs a kernel kept outside GKI, as the RISE release does.
+  Google's shared Android kernel (GKI) dropped RISC-V in 2024, and Google's last published status, from 2025, runs Android on RISC-V only in virtual devices.
+  So a RISC-V device needs a kernel kept outside GKI, as the RISE release does.
 - **No public secure-boot documentation was found for any RISC-V board,** and the RISE release turns verified boot off on the A210.
-- **No RISC-V chip with a cellular modem and an Android BSP was found,** so a RISC-V device would start as Wi-Fi only ([decision D2](ROADMAP.md#d2-cellular-or-wi-fi-only)).
-- **Among Arm boards, only NXP ships a chip vendor's Android release on Android 17,** on kernel 6.18, with public secure-boot guides for its chips.
+- **No RISC-V chip with a mobile-network modem and an Android software package (BSP) was found,** so a RISC-V device would start as Wi-Fi only ([decision D2](ROADMAP.md#d2-cellular-or-wi-fi-only)).
+- **Among Arm boards, only NXP ships its own Android 17 release,** on kernel 6.18, with public secure-boot guides for its chips.
   TI and MediaTek ship Android 16, and the Rockchip and Qualcomm boards list Android 12 to 15.
 - **Proposed for T2:** the SpacemiT K3 Pico-ITX for the Android bring-up, with an NXP i.MX 95 board alongside for verified-boot and secure-boot practice ([Recommendation](#recommendation-for-t2)).
 
 ## What "open-source ready" means here
 
-A board suits the bench work when it meets most of these:
+What makes a board suitable for the project's bench work.
+A board suits it when it meets most of these:
 
-1. **Android builds from published source.**
-   The kernel, the device tree and the Android layers can be downloaded and built without an agreement that keeps the result private.
+1. **Android builds from published source code.**
+   The kernel, the device files and the Android layers can be downloaded and built without an agreement that keeps the result private.
    Closed firmware is common; what matters is that the build itself needs nothing private.
-2. **The Android release is close to the current one,** on a kernel that is maintained.
-   Android 17 is the current release; on Arm its GKI branch is `android17-6.18`.
-3. **The [mainline kernel](FEASIBILITY.md#terms) supports the board and its GPU,** with an open driver in the kernel and in [Mesa](FEASIBILITY.md#terms).
-   The board can then outlive its vendor's BSP, as the Fairphone 5 is starting to ([Phones as development devices](#phones-as-development-devices)).
-4. **Secure boot is documented publicly,** with tools anyone can get, so fusing can be practised without a vendor licence.
-5. **The chip stays available for years,** ideally with a published longevity commitment.
+2. **Its Android version is close to the current one,** on a kernel that still gets updates.
+   Android 17 is the current release; on Arm its GKI version is `android17-6.18`.
+3. **The [mainline kernel](GLOSSARY.md#software-for-hardware), Linux as its own developers release it, supports the board and its graphics chip,** with an open driver in the kernel and in [Mesa](GLOSSARY.md#chips-and-boards).
+   The board can then outlive its maker's software package (BSP), as the Fairphone 5 is starting to ([Phones as development devices](#phones-as-development-devices)).
+4. **Secure boot is documented publicly,** with tools anyone can get, so fusing can be practised without a licence from the chip maker.
+5. **The chip stays on sale for years,** ideally with a published promise of how long.
 
-For a RISC-V board, the chip should also implement [RVA23](FEASIBILITY.md#terms), the RISC-V profile that both Android 17 and Alibaba's Android 16 work target.
+For a RISC-V board, the chip should also support [RVA23](GLOSSARY.md#chips-and-boards), the set of RISC-V features that both Android 17 and Alibaba's Android 16 work expect.
 
 Sources: [Android common kernels][aosp-common-kernels], [RISE Android 17 announcement][rise-android17], [The Register on Alibaba][reg-alibaba].
 
@@ -61,15 +73,22 @@ Sources: [Android common kernels][aosp-common-kernels], [RISE Android 17 announc
 | [Khadas VIM3](#aosp-reference-boards) | Amlogic A311D | 16, kernel 6.12 | Board and GPU | Not checked |
 | [Qualcomm QCS6490 boards](#qualcomm-qcs6490-boards) | QCS6490 | 12 to ⚠ 15 | Boards and GPU | Licensed users only |
 
-"Mainline Linux" means the board has a device tree in the mainline kernel (Linux 7.4-rc3 on 2026-11-21), and its GPU an open driver there.
-"GPU binding only" means the kernel's device-tree rules name the GPU, but the chip's device tree doesn't enable it yet.
-None of these boards has a cellular modem.
+How to read the columns:
+
+- **Android:** the newest Android version available for the board, and who made it.
+- **Mainline Linux:** whether the board is described in the mainline Linux kernel (Linux 7.4-rc3 on 2026-11-21), and whether its graphics chip (GPU) has an open driver there.
+  "GPU binding only" means the kernel knows the graphics chip, but the chip's description doesn't switch it on yet.
+- **Secure-boot guide:** whether instructions for turning on secure boot are public.
+
+None of these boards has a mobile-network modem.
 
 Sources: the sections below.
 
 ## RISC-V boards
 
 ### Android on RISC-V
+
+Where Android on RISC-V stands, from Google and from others.
 
 - **Google's position:**
   - In 2024 Google removed RISC-V support from its Android common kernel and GKI.
@@ -96,6 +115,8 @@ Sources: [Android Authority on RISC-V][aa-riscv], [Google android-riscv64][googl
 
 ### SpacemiT K3 Pico-ITX
 
+The RISC-V board with the newest Android, and the one the Android 17 release was tested on.
+
 - **Chip:** the SpacemiT K3, an RVA23 chip with SpacemiT X100 cores.
 - **Android:** RISE's Android 17 release, the board RISE tested on hardware.
   The release's flashing flow over USB was tested on the board; recovery through a second copy of the first-stage loader is unverified.
@@ -106,12 +127,14 @@ Sources: [Android Authority on RISC-V][aa-riscv], [Google android-riscv64][googl
 - ⚠ **Secure boot:** no public documentation found for the K3 (check C9).
 - ⚠ **Price and availability:** not found (check C9).
 
-**Verdict:** the most current Android on any RISC-V board, built from open source and tested on hardware, with mainline Linux support under way.
+**Verdict:** the newest Android on any RISC-V board, built from open source code and tested on real hardware, with mainline Linux support under way.
 It is a developer release on a kernel outside GKI, and its secure boot is undocumented.
 
 Sources: [RISE Android manifest][rise-manifest], [BayLibre on Android 17][baylibre-android17], [Linux: SpacemiT device trees][linux-spacemit], [Linux: PowerVR binding][linux-powervr], [Mesa PowerVR driver][mesa-powervr].
 
 ### Alibaba A210 EVB
+
+Alibaba's RISC-V evaluation board, the second board in the Android 17 release.
 
 - **Android:** RISE's Android 17 release.
   RISE's own notes say a full hardware validation report for current A210 boards is still pending, and that page rendering in the browser still needs a test on the board.
@@ -126,6 +149,8 @@ Sources: [RISE Android manifest][rise-manifest], [RISE Android 17 announcement][
 
 ### Older RISC-V ports
 
+Earlier RISC-V boards with older or less complete Android versions.
+
 - **SpacemiT K1** (Banana Pi BPI-F3, MusePi Pro):
   - ⚠ A BayLibre Android 16 BSP for both boards, found only in a third party's copy of BayLibre's manifests (check C9).
   - Mainline Linux has device trees for both boards, and the K1's PowerVR BXE-2-32 GPU in the binding.
@@ -137,6 +162,8 @@ Sources: [RISE Android manifest][rise-manifest], [RISE Android 17 announcement][
 Sources: [K1 Android manifest copy][k1-manifest], [XuanTie AOSP port][thead-aosp], [StarFive AOSP device][starfive-aosp], [Linux: SpacemiT device trees][linux-spacemit], [Linux: T-Head device trees][linux-thead], [Linux: PowerVR binding][linux-powervr].
 
 ## Arm boards, for comparison
+
+Arm boards have older and more complete Android support, so they show what a finished chip maker's release looks like.
 
 ### NXP i.MX 8M Plus and i.MX 95
 
@@ -223,6 +250,8 @@ Sources: [KonstaKANG AOSP 17][konstakang-aosp17], [Linux device trees][linux-dts
 
 ### Rockchip RK3588 boards
 
+Popular, powerful Arm boards from several makers, such as Radxa, with good mainline Linux support but old Android versions.
+
 - **Android:** Radxa lists Android 12 for the Rock 5B and 5B+, Android 12 and 14 for the Rock 5C, and Android 14 for its RK3576 boards.
   Other vendors ship Android 14 on kernel 6.1 for the RK3588, for example Advantech.
 - **Mainline Linux:** device trees for the Rock 5B and 5B+, with the Mali GPU bound to the open Panthor driver (`rockchip,rk3588-mali`).
@@ -241,6 +270,8 @@ Sources: [Radxa support matrix][radxa-matrix], [Advantech RK3588 Android 14][adv
 
 ### MediaTek Genio boards
 
+MediaTek's Arm boards for connected devices, whose Android needs agreements with MediaTek.
+
 - **Android from MediaTek:** its IoT Android 16 release covers the Genio 360, 420, 510, 520, 700, 720 and 1200.
   - Kernels: 6.6 on the Genio 360; 6.1 on the 420, 520 and 720; 5.15 on the 510, 700 and 1200.
   - These are "vendor freeze" builds: Android 16 on a vendor layer based on Android 14.
@@ -258,6 +289,8 @@ Sources: [Radxa support matrix][radxa-matrix], [Advantech RK3588 Android 14][adv
 Sources: [MediaTek IoT Android 16 release notes][genio-android16], [Genio AOSP SDK][genio-aosp], [Linux device trees][linux-dts], [CNX Software on Genio mainline][cnx-genio].
 
 ### AOSP reference boards
+
+Boards that Google's Android project names as examples, without supporting them.
 
 - AOSP lists the DragonBoard 845c, the Qualcomm RB5 and the Khadas VIM3 as reference boards, but says they are not supported or tested in AOSP.
   The board makers provide the BSPs.
@@ -291,8 +324,9 @@ Sources: [Thundercomm C6490 Development Kit][thundercomm-c6490], [Thundercomm RU
 
 ## Phones as development devices
 
+Could the project use a phone instead of a board?
 A phone has the parts a board lacks: a modem, cameras and a battery.
-The project can't practise fusing on one, because its maker holds the secure-boot key.
+But the project can't practise fusing on one, because its maker already holds the secure-boot key.
 
 - **Fairphone 5:**
   - An official LineageOS device on LineageOS 24.0, built on the vendor's 5.4 kernel for the QCM6490.
@@ -309,19 +343,20 @@ Sources: [LineageOS wiki data for the FP5][lineage-fp5], [LineageOS build target
 
 ## Recommendation for T2
 
-Proposed; the maintainer decides when buying the board.
+Which boards to buy for task T2.
+Proposed; the maintainer decides when buying the boards.
 Check C9 confirms the details first.
 
-1. **Android bring-up: the SpacemiT K3 Pico-ITX.**
-   - The current Android release on RISC-V, from open source, tested on this board, with continuous testing planned.
+1. **Getting Android running: the SpacemiT K3 Pico-ITX.**
+   - The current Android release on RISC-V, built from open source code, tested on this board, with regular automatic testing planned.
    - Its GPU is one Mesa lists as conformant, and mainline Linux already has the board's device tree.
    - Weak points: a developer release, a kernel outside GKI, no public secure-boot documentation, and an unknown price and availability (check C9).
    - The A210 EVB is the alternative if it can be bought, though it is less tested and runs with verified boot off.
-2. **Verified boot and secure boot: an NXP i.MX 95 board,** the 19x19 EVK or the FRDM-IMX95.
-   - The Arm board on the same Android release, with public AHAB guides and examples, listed until May 2041.
-   - It shows what a finished vendor BSP looks like, as a reference for the RISC-V port.
+2. **Practising verified boot and secure boot: an NXP i.MX 95 board,** the 19x19 EVK or the FRDM-IMX95.
+   - The Arm board on the same Android release, with public secure-boot (AHAB) guides and examples, and on sale until May 2041.
+   - It shows what a finished chip maker's software package looks like, as a reference for the RISC-V work.
    - BeaglePlay is a cheaper Arm alternative, one release behind, if check C9 shows its chip can be fused.
-3. **Fusing practice:** a second unit of the i.MX 95 board, or a Raspberry Pi 5, which its provisioner fuses over USB without extra hardware.
+3. **Fusing practice:** a second i.MX 95 board, or a Raspberry Pi 5, which Raspberry Pi's own tool fuses over USB without extra hardware.
    As task T2 says, fuse only a board bought for that purpose, with the maintainer's go-ahead for each step.
 4. **Before task T3:** a QCS6490 board only if check C5 shows that Qualcomm's signing tools and Android BSP are within reach of a small buyer.
 
