@@ -10,7 +10,7 @@ Each item is explained in CONTRIBUTING.md.
 - [ ] Every new fact has a source and the date it was checked; anything unconfirmed carries ⚠ and a check in `docs/ROADMAP.md`.
 - [ ] No terms a company gave in confidence, no contact details, no keys, and no personal or computer-specific details.
 - [ ] Does it change the recommendation, a decision, or a fusing, flashing or key procedure? Say so here; a person reviews it.
-- [ ] Does it need a matching change in another FoxieOS repository? Link that pull request here.
+- [ ] Does it need a matching change in another repository, such as foxieos? Link that pull request here.
 
 ## Sources and checks
 

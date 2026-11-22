@@ -1,4 +1,4 @@
-# FoxieOS hardware roadmap
+# Alopex roadmap
 
 This page lists what is decided, what is still open, and the work in the order it should happen.
 Background: [FEASIBILITY.md](FEASIBILITY.md) for the research, [DESIGN.md](DESIGN.md) for how the project is set up.
@@ -23,7 +23,7 @@ Technical words are explained in the [glossary](GLOSSARY.md).
   Each one says what it needs first, what to do, when it is finished, and what to share afterwards.
 - **Checks (C1–C12)** are facts to confirm before the task that relies on them.
   A ⚠ in the other docs usually points to one of them.
-- **On GitHub,** each decision, task and check also has an issue, and each phase below is a [milestone](https://github.com/alopex-org/foxieos-hardware/milestones).
+- **On GitHub,** each decision, task and check also has an issue, and each phase below is a [milestone](https://github.com/alopex-org/alopex/milestones).
   This page is the plan; the issues track progress and discussion ([CONTRIBUTING.md](../CONTRIBUTING.md#issues-and-labels)).
 - **Who does each task:**
   - **Code:** a change to files, made in a pull request.

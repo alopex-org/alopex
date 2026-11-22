@@ -1,4 +1,4 @@
-# Contributing to FoxieOS hardware
+# Contributing to Alopex
 
 Thank you for helping.
 This page explains how to suggest a change and the rules every change follows.
@@ -114,14 +114,14 @@ A second ruleset covers tags: only the maintainer creates, moves or deletes a ta
 In the pull request, list the sources you checked and the commands you ran, and what happened: what passed, what failed (with a short excerpt of the output) and what you skipped.
 
 **Changes that touch another repository.**
-If a change needs a matching change in another FoxieOS repository, such as [foxieos](https://github.com/alopex-org/foxieos), open a pull request there as well, and link each one from the other.
+If a change needs a matching change in another repository in the organization, such as [foxieos](https://github.com/alopex-org/foxieos), open a pull request there as well, and link each one from the other.
 FoxieOS depends on this project, not the other way round.
 A change here can need a matching change in FoxieOS, but a change in FoxieOS never asks this project to adapt.
 
 ## Issues and labels
 
 - **Every roadmap item has an issue.**
-  Every decision (D), task (T) and check (C) in [docs/ROADMAP.md](docs/ROADMAP.md) has one, and each roadmap phase is a [milestone](https://github.com/alopex-org/foxieos-hardware/milestones).
+  Every decision (D), task (T) and check (C) in [docs/ROADMAP.md](docs/ROADMAP.md) has one, and each roadmap phase is a [milestone](https://github.com/alopex-org/alopex/milestones).
   The roadmap stays the plan; the issues track progress and discussion.
   When an item changes, update the roadmap in a pull request and link the issue.
 - **Issue types** say what an issue is: Decision, Task, Check, Bug or Feature.
