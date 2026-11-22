@@ -18,6 +18,7 @@ It is in the research phase: no hardware is designed, bought or ordered, and the
 - What the research found, with sources: [docs/FEASIBILITY.md](docs/FEASIBILITY.md)
 - Development boards for the bench work, focused on RISC-V: [docs/BOARDS.md](docs/BOARDS.md)
 - How a device would come about, and why: [docs/DESIGN.md](docs/DESIGN.md)
+- The proposed first prototype, a Raspberry Pi handheld: [docs/HANDHELD.md](docs/HANDHELD.md)
 - What to do next: [docs/ROADMAP.md](docs/ROADMAP.md)
 - How it relates to FoxieOS, which depends on it (not the reverse): [docs/DESIGN.md](docs/DESIGN.md#related-repositories)
 
@@ -56,7 +57,7 @@ Don't add a step that only one agent's own tools can perform.
 
 ## Stop and ask when…
 
-- a roadmap decision (D1–D5) is needed and not yet recorded;
+- a roadmap decision (D1–D6) is needed and not yet recorded;
 - a finding would change the recommendation in [docs/FEASIBILITY.md](docs/FEASIBILITY.md#summary);
 - a step would spend money, contact a company, accept terms or create an account;
 - a step would fuse, flash, unlock, lock or wipe a board or device;
