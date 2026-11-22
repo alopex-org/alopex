@@ -12,4 +12,4 @@ There is no device, firmware or software of its own to report against yet.
 
 - A dedicated contact address may be added here, alongside private vulnerability reporting.
 - A process for coordinated disclosure.
-  The project sells nothing, but the EU's Cyber Resilience Act would require it to report actively exploited vulnerabilities if it became a device's manufacturer ([docs/FEASIBILITY.md](docs/FEASIBILITY.md#eu-cybersecurity-rules)).
+  The project sells nothing so far, but the EU's Cyber Resilience Act would require it to report actively exploited vulnerabilities if it became a device's manufacturer ([docs/FEASIBILITY.md](docs/FEASIBILITY.md#eu-cybersecurity-rules)).

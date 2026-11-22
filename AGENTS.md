@@ -10,7 +10,7 @@ Never copy anything from them into a commit, pull request or issue.
 ## The project in brief
 
 FoxieOS hardware researches how a small team could build a prototype phone, or a similar device, for an Android-based operating system.
-The prototype is for enthusiasts, not a product: the project sells nothing.
+Whether the project builds only a prototype or aims at a product it sells is open (roadmap decision D5): don't write either as decided.
 It is separate from the FoxieOS operating system and doesn't follow its plan.
 It is in the research phase: no hardware is designed, bought or ordered, and the repository holds documents only.
 
@@ -55,7 +55,7 @@ Don't add a step that only one agent's own tools can perform.
 
 ## Stop and ask when…
 
-- a roadmap decision (D1–D4) is needed and not yet recorded;
+- a roadmap decision (D1–D5) is needed and not yet recorded;
 - a finding would change the recommendation in [docs/FEASIBILITY.md](docs/FEASIBILITY.md#summary);
 - a step would spend money, contact a company, accept terms or create an account;
 - a step would fuse, flash, unlock, lock or wipe a board or device;

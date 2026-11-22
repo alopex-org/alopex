@@ -7,7 +7,7 @@ The research and sources behind it are in [FEASIBILITY.md](FEASIBILITY.md).
 ## Purpose
 
 FoxieOS hardware finds out how a small team could build a prototype phone, or a similar device, for an Android-based operating system, and then works toward one in cheap steps.
-The prototype is for enthusiasts: built in small numbers, not sold, and not a product ([A prototype, not a product](#a-prototype-not-a-product)).
+Whether that stays a prototype, built in small numbers and not sold, or leads to a product is open: the maintainers decide it at their founding meeting on 2026-11-24 ([Prototype or product](#prototype-or-product)).
 
 A LoRa radio for off-grid mesh messaging is a core feature of any device it works toward ([LoRa mesh radio](#lora-mesh-radio-as-a-core-feature)).
 
@@ -15,14 +15,13 @@ It does **not**:
 
 - follow the plan or device criteria of the FoxieOS operating system ([Related repositories](#related-repositories));
 - design a phone from the chip up with a chip vendor;
-- sell devices, take pre-orders or run a production batch;
-- take on a manufacturer's legal duties: how prototypes are shared is roadmap decision D3.
+- take on a manufacturer's legal duties before decision D5 says it aims at a product; how prototypes are shared is roadmap decision D3.
 
 ## How a device comes about
 
 Every route to a device sold as a product involves the same parties.
 What changes from route to route is who plays each part.
-The chain is kept as background: the project builds a prototype, and places nothing on the market.
+A prototype that isn't sold places nothing on the market; if decision D5 chooses a product, the chain shows who would play each part.
 
 ```
 Chip vendor, for example Qualcomm or MediaTek
@@ -35,7 +34,7 @@ Module maker or ODM, depending on the route
   - the certifications that module or design already has
         │
         ▼
-Manufacturer: a partner, or a company of the project's own (decision D3)
+Manufacturer: a partner, or a company of the project's own (decision D5)
   - places the device on the market under its name
   - certifies the finished device and pays the patent licences
   - EU duties: OS updates and spare parts for years
@@ -50,13 +49,14 @@ OS project, such as FoxieOS
 
 In a partnership, the partner is the manufacturer.
 For an ODM phone or a module-based product, the seller would be.
-For the prototype, the project builds the device and holds its secure-boot key, but sells nothing, so it takes on no manufacturer's duties ⚠ (roadmap check C12).
+For a prototype that isn't sold, the project builds the device and holds its secure-boot key, but takes on no manufacturer's duties ⚠ (roadmap check C12).
 The routes are compared in [FEASIBILITY.md](FEASIBILITY.md#routes-to-a-device), and the terms are explained in its [Terms](FEASIBILITY.md#terms) section.
 
 ## Key decisions
 
 Decided items carry their date.
-The others are proposed: they are the plan's recommendation until the maintainer decides them through the roadmap item they name.
+The others are proposed: they are the plan's recommendation until the maintainers decide them through the roadmap item they name.
+Everything decided before the founding meeting on 2026-11-24 was decided by one interim maintainer, and the meeting confirms or changes it ([governance](https://github.com/alopex-org/.github/blob/main/GOVERNANCE.md#founding-maintainers)).
 
 ### A separate project
 
@@ -68,17 +68,18 @@ Decided 2026-11-20.
   FoxieOS's device criteria ask for official LineageOS support, which no new device has, so holding this research to them would rule out everything but existing phones.
 - **Rejected:** a hardware section inside the FoxieOS repository.
 
-### A prototype, not a product
+### Prototype or product
 
-Decided 2026-11-21.
+Open (roadmap decision D5), for the maintainers' founding meeting on 2026-11-24.
+An earlier version of this file recorded "a prototype, not a product" as decided on 2026-11-21.
+It was recorded before the team had agreed on it, so it goes back to the maintainers.
 
-- **What:** the project builds a prototype for its maintainers and other enthusiasts, in small numbers.
-  It sells nothing, takes no pre-orders, and doesn't look for funding or buyers.
-- **Why:** selling a device brings certification, patent licences and years of EU update and spare-part duties, which a small team can't carry ([FEASIBILITY.md](FEASIBILITY.md#certification-patents-and-eu-rules)).
-  A prototype keeps the work to what the team can learn and build.
-- **Rejected:**
-  - a partnership with a phone maker, or a phone made by an ODM, which are routes to a product;
-  - a company of the project's own to sell devices.
+- **A prototype only:** the project builds devices for its maintainers and other enthusiasts, in small numbers, and sells nothing.
+  It avoids certification, patent licences and years of EU update and spare-part duties ([FEASIBILITY.md](FEASIBILITY.md#certification-patents-and-eu-rules)), and keeps the work to what the team can learn and build.
+- **A product:** the project, through a company of its own or a partner, sells devices.
+  It reaches people beyond the team and can pay for the work, but needs a company, funding, certification, and the manufacturer's duties for years after the last sale ([FEASIBILITY.md](FEASIBILITY.md#routes-to-a-device)).
+- **A prototype first, then a product:** the bench work and a prototype prove the design before the team commits to the costs of a product.
+- Tasks T1–T3 are the same under every option, so they go ahead in the meantime.
 
 ### Hosting on GitHub
 
@@ -131,7 +132,7 @@ Proposed (task T1 writes it into the requirements).
 - **Selling brings a manufacturer's duties.**
   Whoever places a device on the market certifies it and pays the cellular patent licences.
   In the EU it must also supply OS updates for at least five years after the last unit is sold, and spare parts for seven ([FEASIBILITY.md](FEASIBILITY.md#certification-patents-and-eu-rules)).
-  The project avoids these by not selling; ⚠ whether handing a prototype to another enthusiast counts as placing it on the market is not confirmed (roadmap check C12).
+  A prototype that isn't sold avoids these; ⚠ whether handing a prototype to another enthusiast counts as placing it on the market is not confirmed (roadmap check C12).
 - **The chip vendor sets the support period.**
   Closed firmware for the modem, the TEE and the GPU gets fixes only while the vendor ships them ([FEASIBILITY.md](FEASIBILITY.md#the-bsp-sets-the-support-period)).
 - **Fusing is permanent.**

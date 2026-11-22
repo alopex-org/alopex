@@ -7,14 +7,16 @@ Background: [FEASIBILITY.md](FEASIBILITY.md) for the research, [DESIGN.md](DESIG
 
 - **Done:** task T0, the research and this repository, on 2026-11-20.
 - **Decided:** the project is separate from FoxieOS, and lives in the `alopex-org` GitHub organization ([DESIGN.md](DESIGN.md#key-decisions)).
-  The project builds a prototype for enthusiasts, not a product, and sells nothing ([DESIGN.md](DESIGN.md#a-prototype-not-a-product)).
   The device has a built-in LoRa mesh radio ([LORA.md](LORA.md)).
+- **Founding meeting, 2026-11-24:** the members choose the maintainers, who decide the project's foundations together ([governance](https://github.com/alopex-org/.github/blob/main/GOVERNANCE.md#founding-maintainers)).
+  One interim maintainer decided everything marked decided here, so the meeting confirms or changes it.
+  It also takes decision D5: a prototype only, or a product.
 - **Next:** task T1, the hardware requirements.
   It needs no decision and no money.
 
 ## How to read this file
 
-- **Decisions (D1–D4)** are the maintainer's to make.
+- **Decisions (D1–D5)** are the maintainers' to make.
   Each one lists the options and a recommendation.
 - **Tasks (T0–T6)** are the work, in order.
   Each one says what it needs, what to do, when it is done, and what to report.
@@ -34,7 +36,8 @@ Background: [FEASIBILITY.md](FEASIBILITY.md) for the research, [DESIGN.md](DESIG
 
 1. **Requirements:** what a device must offer (T1).
 2. **Bench work:** an Android build on a development board, then on a cellular module's evaluation kit (T2, T3).
-3. **A prototype:** decisions D1–D3, taken on the evidence from the first two phases, then a prototype built in small numbers for enthusiasts.
+3. **A prototype:** decisions D1–D3, taken on the evidence from the first two phases, then a prototype built in small numbers.
+   Whether a product follows is decision D5.
 
 ## Decisions
 
@@ -44,15 +47,16 @@ Background: [FEASIBILITY.md](FEASIBILITY.md) for the research, [DESIGN.md](DESIG
 | [D2](#d2-cellular-or-wi-fi-only) | Is the first device a cellular phone, or Wi-Fi only? | Open | D1 |
 | [D3](#d3-sharing-prototypes) | Do prototypes stay with the maintainers, or reach other enthusiasts, and how? | Open | D1 |
 | [D4](#d4-lora-mesh-network) | Which LoRa mesh network does the device ship: Meshtastic, MeshCore or both? | Open | T6 |
+| [D5](#d5-prototype-or-product) | Does the project stay with a prototype, or aim at a product it sells? | Open: founding meeting | D1, D3, T4, T5 |
 
 ### D1: route to a prototype
 
 Open; needed before a prototype is built.
 
-- **Options:** the routes in [FEASIBILITY.md](FEASIBILITY.md#routes-to-a-device) that don't lead to a product:
+- **Options:** the routes in [FEASIBILITY.md](FEASIBILITY.md#routes-to-a-device) that suit a prototype:
   - a main board of the project's own around a cellular module;
   - a development board in a case of the project's own, for a Wi-Fi-only prototype.
-- A partnership and an ODM phone are routes to a product, so they aren't options ([DESIGN.md](DESIGN.md#a-prototype-not-a-product)).
+- A partnership and an ODM phone are routes to a product, and become options only if decision D5 chooses one ([DESIGN.md](DESIGN.md#prototype-or-product)).
 - **Recommendation:** decide after tasks T1–T3.
   - Around a cellular module, if T3 finds it technically viable.
   - Otherwise around a development board.
@@ -71,7 +75,7 @@ Open; needed by D1.
 
 Open; needed by D1.
 
-The project sells nothing, but whoever places a device on the market carries the certification, patent and EU duties ([FEASIBILITY.md](FEASIBILITY.md#certification-patents-and-eu-rules)).
+Unless decision D5 chooses a product, the project sells nothing, but whoever places a device on the market carries the certification, patent and EU duties ([FEASIBILITY.md](FEASIBILITY.md#certification-patents-and-eu-rules)).
 ⚠ Whether handing a prototype to someone counts as placing it on the market is not confirmed (check C12).
 
 - **Options:**
@@ -90,6 +94,21 @@ Open; needed by T6.
   - **Both:** hardware either firmware runs on, with one as the default and the other flashable by the user.
   - **Reticulum:** the most general, but its licence keeps it out of Debian and F-Droid.
 - **Recommendation:** both, with Meshtastic as the default for its larger user base, if check C10 confirms that one LoRa design runs both firmwares.
+
+### D5: prototype or product
+
+Open; for the maintainers' founding meeting on 2026-11-24, and needed by D1 and D3.
+
+An earlier version of this roadmap recorded "a prototype, not a product" as decided on 2026-11-21.
+It was recorded before the team had agreed on it, so it is open again ([DESIGN.md](DESIGN.md#prototype-or-product)).
+
+- **Options:**
+  - a prototype only, for the maintainers and other enthusiasts, and nothing sold;
+  - a prototype first, then a product, once the prototype proves the design;
+  - a product from the start, through a partnership with a phone maker or an ODM phone (tasks T4 and T5).
+- A product means a company of the project's own or a partner, funding, certification, patent licences and the EU's update and spare-part duties ([FEASIBILITY.md](FEASIBILITY.md#certification-patents-and-eu-rules)).
+- **Recommendation:** none; the maintainers decide this together.
+  Tasks T1–T3 serve every option, so they go ahead in the meantime.
 
 ## Tasks
 
@@ -147,11 +166,11 @@ Done 2026-11-20: this repository, with the research in [FEASIBILITY.md](FEASIBIL
 
 ### T4: partner survey
 
-Dropped 2026-11-21: a partnership with a phone maker is a route to a product ([DESIGN.md](DESIGN.md#a-prototype-not-a-product)).
+On hold until decision D5: a partnership with a phone maker is a route to a product ([DESIGN.md](DESIGN.md#prototype-or-product)).
 
 ### T5: ODM quotes
 
-Dropped 2026-11-21: an ODM phone is a route to a product ([DESIGN.md](DESIGN.md#a-prototype-not-a-product)).
+On hold until decision D5: an ODM phone is a route to a product ([DESIGN.md](DESIGN.md#prototype-or-product)).
 
 ### T6: LoRa bench work
 
@@ -167,14 +186,12 @@ Dropped 2026-11-21: an ODM phone is a route to a product ([DESIGN.md](DESIGN.md#
 
 ## Critical path
 
-T1 → T2 → T3, and in parallel T1 → D4 → T6, with check C12 → D3.
+T1 → T2 → T3, and in parallel T1 → D4 → T6, with check C12 → D3 and D5 → D1, D3.
 The lines end in D2, D3 and then D1.
 
 ## Not planned
 
 - **A phone designed directly with a chip vendor** ([FEASIBILITY.md](FEASIBILITY.md#chip-vendor-design)).
-- **Selling devices:** no production runs, pre-orders, crowdfunding or company of the project's own ([DESIGN.md](DESIGN.md#a-prototype-not-a-product)).
-- **A partnership with a phone maker, or an ODM phone,** which are routes to a product.
 - **Work on a particular operating system.**
   Supporting a device is each OS project's own work; for FoxieOS, it is decided in its decision D9.
 
@@ -215,6 +232,6 @@ Do it before the task that depends on it, then update the docs that carry the �
     Read the current ETSI EN 300 220 for the 868 MHz sub-band edges, power and duty-cycle limits, and FCC Part 15 for 915 MHz.
 11. **C11, mesh apps and licences** (→ D4, T6).
     Whether the Meshtastic and MeshCore Android apps connect over USB serial as well as Bluetooth, the licences of the MeshCore apps, whether MeshCore has closed parts, and the exact terms of the Reticulum licence.
-12. **C12, prototypes and the market rules** (→ D3).
+12. **C12, prototypes and the market rules** (→ D3, D5).
     Whether building prototypes for the maintainers' own use, publishing the design files, or handing units to other enthusiasts free or at cost counts as placing them on the EU market under the Radio Equipment Directive, the ecodesign and battery rules and the Cyber Resilience Act.
     Start from the European Commission's Blue Guide on the implementation of EU product rules, and confirm the result with a lawyer before any unit leaves the maintainers' hands.
