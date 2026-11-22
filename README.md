@@ -1,7 +1,6 @@
-# FoxieOS hardware
+# Alopex
 
-Research into how a small team could build a prototype phone, or a similar device, for an Android-based operating system.
-The prototype is for enthusiasts: the project doesn't make a product and sells nothing.
+Prototype phone research for an Android-based operating system.
 
 **Status: research.**
 No hardware is designed, bought or ordered.
@@ -11,20 +10,15 @@ This repository holds the research and the plan; the decisions in it are the mai
 
 - A study of the ways to get a device made: with an existing phone maker, through a contract manufacturer, or as a design of the project's own around a cellular module.
 - Then cheap bench work: an Android build on a development board, then on a cellular module's evaluation kit.
-- Later, if the maintainer decides so, a prototype device built in small numbers for the maintainers and other enthusiasts, not sold.
+- Later, if the maintainer decides so, product will be sold.
 
 A LoRa radio for off-grid mesh messaging, over Meshtastic, MeshCore or a similar network, is planned as a core part of the device ([docs/LORA.md](docs/LORA.md)).
-
-It will not sell devices, design a phone from the chip up with a chip vendor, or follow the plan of the FoxieOS operating system.
-[docs/DESIGN.md](docs/DESIGN.md) explains why.
 
 ## The findings in brief
 
 - A phone designed from the chip up is out of reach for a small team.
 - Whoever sells a device becomes its manufacturer, with radio certification, patent licences and the EU's duty to supply updates and spare parts for years.
   A prototype that isn't sold stays clear of most of that ⚠ (roadmap check C12).
-- A partnership with a phone maker and a phone made by a contract manufacturer are routes to a product, so the project doesn't pursue them.
-  A prototype designed around a cellular module, after bench work on a development board, is the route that fits.
 - No phone has a LoRa mesh radio on its own board yet; the ones sold attach a node over Bluetooth, so built-in LoRa would set the device apart.
 - The first steps are cheap: a list of hardware requirements, then bench work on a development board and a module kit.
 
