@@ -2,12 +2,11 @@
 
 **Status: research.**
 A development board is a small computer board sold for trying out a chip.
-This page compared boards for getting Android running on hardware, when the project planned a phone.
-With the move to a [cyber-deck](CYBERDECK.md) running Linux, the same boards are candidates for its main board (roadmap decision [D1](ROADMAP.md#d1-route-to-a-prototype)), tried in task [T2](ROADMAP.md#t2-development-board-bring-up).
-For that choice, the columns on mainline Linux and secure boot matter more than the Android column.
+This page compares boards for the bench work in roadmap task [T2](ROADMAP.md#t2-development-board-bring-up), where the project first gets Android running on hardware, and proposes which to buy.
 The focus is on RISC-V boards: boards whose processor uses the open RISC-V design, which any chip maker may use.
 Arm boards, the kind almost all phones use, are covered for comparison, because their Android support is older and more complete.
 This expands the [Development board](FEASIBILITY.md#development-board) section of the feasibility study.
+It was written for the earlier phone plan; the cyber-deck's main board, and what it runs, are open (roadmap decisions [D1](ROADMAP.md#d1-route-to-a-prototype) and [D6](ROADMAP.md#d6-operating-system-of-the-first-prototype)), so these boards are candidates for the bench, not a choice.
 Technical words are explained in the [glossary](GLOSSARY.md).
 
 **How to read it:**
@@ -345,8 +344,7 @@ Sources: [LineageOS wiki data for the FP5][lineage-fp5], [LineageOS build target
 
 ## Recommendation for T2
 
-Which boards to buy for task T2, as first proposed for a phone running Android.
-With the cyber-deck, task T2 compares candidate main boards for Linux instead (decision D1); the choice below applies only if an Android device comes back.
+Which boards to buy for task T2.
 Proposed; the maintainer decides when buying the boards.
 Check C9 confirms the details first.
 

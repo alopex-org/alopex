@@ -4,7 +4,7 @@ Plain explanations of the technical words in this project's docs.
 Look a word up when you meet it; you don't need to read this page from top to bottom.
 
 Words about GitHub and how the project works (branch, pull request, sign-off, roadmap codes such as D5 or T1) are in the [organization's glossary](https://github.com/alopex-org/.github/blob/main/GLOSSARY.md).
-Words about Linux and the cyber-deck's software (kernel, base system, A/B updates, secure boot) are explained in [FoxieOS's glossary](https://github.com/alopex-org/foxieos/blob/main/docs/GLOSSARY.md).
+Words about operating systems are explained in more depth in [FoxieOS's glossary](https://github.com/alopex-org/foxieos/blob/main/docs/GLOSSARY.md).
 
 ## Making a device
 
@@ -24,21 +24,9 @@ Words about Linux and the cyber-deck's software (kernel, base system, A/B update
 - **Main board:** the device's central circuit board, which holds the processor and connects everything else.
 - **Bring-up:** getting an operating system to start and work on new hardware for the first time.
 - **Bench work:** trying things out on boards and kits on a workbench, before building a device.
-- **Cyber-deck:** a custom-built, portable computer, often made for one purpose, with a keyboard, a screen and a rugged or "cyberpunk" look; usually thicker than a phone.
+- **Cyber-deck (cyberdeck):** a custom-built, portable computer, often made for one purpose, nominally with a keyboard and a screen; the device this project works toward ([CYBERDECK.md](CYBERDECK.md)).
   The word comes from William Gibson's 1984 novel *Neuromancer*.
-  This project's device is a hand-held cyber-deck ([CYBERDECK.md](CYBERDECK.md)).
-- **Concept render:** a computer-drawn picture of how a device should look, before it is engineered.
-- **Mock-up:** a model of a device's shape, without working electronics, for trying how it feels and fits.
-- **Carrier board:** the board a compute module plugs into, which connects it to everything else in the device.
-- **Compute Module 5 (CM5):** a Raspberry Pi 5 on a small module, made to plug into a carrier board; one candidate for the cyber-deck's main board.
-- **Single-board computer (SBC):** a whole computer on one board, such as a Raspberry Pi 5, ready to use without a carrier board.
-- **Main board (of the cyber-deck):** the computer inside it, still to choose (roadmap decision D1).
-- **Slide-out keyboard:** a keyboard hidden under the screen until the screen slides aside; the cyber-deck's screen slides sideways.
-- **Rotary encoder:** a knob that turns without end, in clicks, and tells the computer which way and how far.
-- **Moving-coil meter:** a gauge with a real needle, moved by a small coil and magnet.
-- **18650:** a common size of rechargeable lithium-ion cell, 18 mm across and 65 mm long.
-- **Hot swap:** replacing a battery or part while the device keeps running.
-- **Power path ("ideal diode"):** the circuit that takes power from whichever battery is present, so one can be pulled without the device switching off.
+- **Handheld:** a portable computer held in the hands, such as one built by hobbyists from a development board, a screen and a battery in a case of their own.
 
 ## Chips and boards
 
@@ -57,7 +45,9 @@ Words about Linux and the cyber-deck's software (kernel, base system, A/B update
 - **Mesa:** free graphics drivers that can replace a chip vendor's closed ones.
 - **Single source:** a part that only one company makes, so a shortage there stops production.
 - **eMMC and DRAM:** the storage and the working memory chips in a device.
-- **Compute Module:** a Raspberry Pi made as a small plug-in board, for a carrier board designed by someone else.
+- **Single-board computer (SBC):** a whole computer on one board, ready to use.
+- **Compute module:** a computer made as a small plug-in board, for a carrier board designed by someone else; Raspberry Pi's is called the Compute Module.
+- **Carrier board:** the board a compute module plugs into, which connects it to everything else in the device.
 - **GNSS (global navigation satellite system):** satellite positioning, such as GPS and Galileo; a GNSS receiver tells the device where it is.
 - **Wi-Fi adapter (USB):** a small plug-in Wi-Fi radio that can be removed from the device.
 - **SMA connector:** a screw-on connector for an external antenna.

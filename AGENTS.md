@@ -9,9 +9,10 @@ Never copy anything from them into a commit, pull request or issue.
 
 ## The project in brief
 
-Alopex, the hardware project in this repository (`alopex`), designs a cyber-deck: a hand-held computer with a slide-out keyboard and a LoRa mesh radio, running FoxieOS, a Linux system.
-Its main board is open (roadmap decision D1): a Raspberry Pi compute module is one candidate among other single-board computers and modules, so don't write any board as chosen.
-It set out to build a phone for an Android-based system; the move to a cyber-deck is a proposal for the maintainers to confirm, so don't write it as settled.
+Alopex, the hardware project in this repository (`alopex`), works toward a cyber-deck: a portable computer of its own.
+The cyber-deck is a proposal for the maintainers, and everything about it is undecided: its purpose, form, main board, radios, power and software.
+Don't write any of these as decided, or assume one from earlier documents or drafts; list options instead.
+The project started out researching a phone for an Android-based operating system, and that research stays as background.
 Whether the project builds only a prototype or aims at a product it sells is open (roadmap decision D5): don't write either as decided.
 It is separate from the FoxieOS operating system and doesn't follow its plan.
 The student organization is also called Alopex, so write "the Alopex student organization" when you mean it.
@@ -20,7 +21,8 @@ It is in the research phase: no hardware is designed, bought or ordered, and the
 - What the research found, with sources: [docs/FEASIBILITY.md](docs/FEASIBILITY.md)
 - Development boards for the bench work, focused on RISC-V: [docs/BOARDS.md](docs/BOARDS.md)
 - How a device would come about, and why: [docs/DESIGN.md](docs/DESIGN.md)
-- The proposed cyber-deck, from the concept renders: [docs/CYBERDECK.md](docs/CYBERDECK.md)
+- The cyber-deck, the ones that already exist, and what is undecided: [docs/CYBERDECK.md](docs/CYBERDECK.md)
+- An earlier proposal, a Raspberry Pi handheld, now one option: [docs/HANDHELD.md](docs/HANDHELD.md)
 - What to do next: [docs/ROADMAP.md](docs/ROADMAP.md)
 - How it relates to FoxieOS, which depends on it (not the reverse): [docs/DESIGN.md](docs/DESIGN.md#related-repositories)
 
@@ -30,7 +32,7 @@ Don't add a step that only one agent's own tools can perform.
 ## Commands
 
 - Build: none yet.
-  The bench tasks T2, T6 and T7 add any commands they need.
+  The bench tasks T2 and T3 add the commands for starting an operating system on a board.
 - Checks: the pre-commit hooks in `.pre-commit-config.yaml` (gitleaks, blocks on key files and `*.local.md` notes, and a DCO sign-off on the commit message) run on every commit once `pre-commit install` has been run in the clone ([CONTRIBUTING.md](CONTRIBUTING.md#keys-secrets-and-personal-details)).
   On pull requests, the DCO workflow checks the sign-off again.
   If pre-commit isn't installed or set up in the clone, tell the maintainer rather than committing without the hooks.
@@ -42,14 +44,13 @@ Don't add a step that only one agent's own tools can perform.
    Write the procedure; the maintainer handles the keys.
    Bench work uses dev keys that never sign anything published.
 2. **No action on hardware without a go-ahead for that action.**
-   This covers blowing secure-boot fuses (for example, on a Raspberry Pi, writing a key into its one-time-programmable memory), writing an image to a board or device, `fastboot flash`, unlocking and locking a bootloader, and wiping a board or device.
+   This covers blowing secure-boot fuses, `fastboot flash`, unlocking and locking a bootloader, erasing or flashing `avb_custom_key`, and wiping a board or device.
    Blown fuses can't be restored, and relocking a device that isn't proven relockable can brick it.
-   Never transmit on a LoRa radio without its antenna connected, or outside the band allowed where it is used (868 MHz in Europe), and never pull the last battery from a running board to test the power path.
 3. **Nothing outward-facing without the maintainer.**
    That includes contacting a company, asking for a quote, signing up for a vendor portal, accepting terms, buying hardware, pushing to any remote and posting anything.
    You may draft messages for the maintainer to send.
 4. **Run long jobs in the background.**
-   A build for a board can take hours.
+   A build of an operating system for a board can take hours.
    Log its output to `logs/<date>-<job>.log`, don't wait on it in the foreground, and report what ran and its exit status.
 5. **Check ⚠ claims before building on them**, then update the doc where you found the claim and the check in [docs/ROADMAP.md](docs/ROADMAP.md#checks).
 6. **Report honestly.**
@@ -60,7 +61,7 @@ Don't add a step that only one agent's own tools can perform.
 
 ## Stop and ask when…
 
-- a roadmap decision (D1–D8) is needed and not yet recorded;
+- a roadmap decision (D1–D6) is needed and not yet recorded;
 - a finding would change the recommendation in [docs/FEASIBILITY.md](docs/FEASIBILITY.md#summary);
 - a step would spend money, contact a company, accept terms or create an account;
 - a step would fuse, flash, unlock, lock or wipe a board or device;
@@ -99,7 +100,6 @@ The docs are written for members who aren't technical; follow [CONTRIBUTING.md](
 - Give a roadmap code its name the first time a section uses it: "decision D5 (prototype or product)".
 - Keep instructions addressed to coding agents in this file.
   The people docs mention agents only to say that the person who directs an agent is responsible for its work.
-- Don't write the move to a cyber-deck, or any other foundational choice, as settled until the maintainers confirm it.
 - When you rename a heading, search all three repositories in the organization (`foxieos`, `alopex` and `.github`) and the issue forms for links to its old anchor, and update them.
 
 ## Don't
@@ -108,4 +108,4 @@ The docs are written for members who aren't technical; follow [CONTRIBUTING.md](
 - Skip the pre-commit hooks with `git commit --no-verify` or `SKIP=`.
   Report a finding you think is a false positive instead.
 - Present an estimate as a quote, or a secondary report as confirmed.
-- Put a source tree, build output or a vendor document under a confidentiality agreement inside this repository.
+- Put an operating system's source tree, build output or a vendor document under a confidentiality agreement inside this repository.
