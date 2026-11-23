@@ -2,6 +2,8 @@
 
 This is the research behind the plan.
 It asks whether a small team can build a prototype phone, or a similar device, for an operating system based on Android, which way it could go about it, and what that takes.
+The project now proposes a Wi-Fi-only cyber-deck running Linux instead ([CYBERDECK.md](CYBERDECK.md)); that design, and the cyber-decks it is compared with, are on its own page.
+The research below still holds for the rules, the keys and the earlier projects, and the routes to a phone apply again if a later device adds a mobile network (roadmap decision D2).
 Whether the project builds only a prototype or aims at a product is open ([DESIGN.md](DESIGN.md#prototype-or-product), roadmap decision D5), so this page covers the routes to both.
 The plan that follows from it is in [ROADMAP.md](ROADMAP.md) and [DESIGN.md](DESIGN.md).
 Technical words are explained in the [glossary](GLOSSARY.md).
@@ -40,13 +42,15 @@ The main findings:
   /e/OS, iodéOS and GrapheneOS didn't design phones themselves ([Partnership](#partnership-with-a-phone-maker)).
   Most small companies that built their own phones shipped late, stopped or closed ([Earlier phone projects](#earlier-phone-projects)).
 
-The recommendation:
+The recommendation, as first written for a phone:
 
 1. Write down the hardware requirements first (roadmap task T1).
 2. Learn to get Android running cheaply: on a development board, then on a cellular module's evaluation kit (tasks T2 and T3).
 3. Only then choose how the prototype is built (decisions D1–D3).
 4. Don't design a phone directly with a chip maker.
 5. Decide whether to aim at a product before taking on a manufacturer's duties (decision D5).
+
+With the move to a Wi-Fi-only cyber-deck, steps 1, 4 and 5 stand; step 2 becomes bench work on a Raspberry Pi Compute Module 5, and the cellular module waits on decision D2 ([ROADMAP.md](ROADMAP.md)).
 
 ## Terms
 

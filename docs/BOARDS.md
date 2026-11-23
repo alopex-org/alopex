@@ -2,7 +2,8 @@
 
 **Status: research.**
 A development board is a small computer board sold for trying out a chip.
-This page compares boards for the bench work in roadmap task [T2](ROADMAP.md#t2-development-board-bring-up), where the project first gets Android running on hardware, and proposes which to buy.
+This page compared boards for getting Android running on hardware, when the project planned a phone.
+With the move to a [cyber-deck](CYBERDECK.md) running Linux, roadmap task [T2](ROADMAP.md#t2-development-board-bring-up) uses the [Raspberry Pi Compute Module 5](#raspberry-pi-5-and-compute-module-5); the rest of the page stays as research, in case a later device needs another board.
 The focus is on RISC-V boards: boards whose processor uses the open RISC-V design, which any chip maker may use.
 Arm boards, the kind almost all phones use, are covered for comparison, because their Android support is older and more complete.
 This expands the [Development board](FEASIBILITY.md#development-board) section of the feasibility study.
@@ -343,7 +344,8 @@ Sources: [LineageOS wiki data for the FP5][lineage-fp5], [LineageOS build target
 
 ## Recommendation for T2
 
-Which boards to buy for task T2.
+Which boards to buy for task T2, as first proposed for a phone running Android.
+With the cyber-deck, task T2 uses a Compute Module 5 on Raspberry Pi's IO board instead; the boards below apply only if an Android device comes back.
 Proposed; the maintainer decides when buying the boards.
 Check C9 confirms the details first.
 

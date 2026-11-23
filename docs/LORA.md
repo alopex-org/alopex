@@ -21,10 +21,10 @@ Technical words are explained in the [glossary](GLOSSARY.md).
 - **Three mesh networks run on the same LoRa chips:** Meshtastic, MeshCore and Reticulum.
   They can't talk to each other, so the device either picks one or lets the user switch.
 - **No phone was found with a LoRa radio built into its own circuit board.**
-  The phones and handhelds sold with LoRa so far attach a separate radio that talks to the phone over Bluetooth.
-  A device with the radio built in would be new, and a reason to choose it.
-- **The proposed design is a small separate processor (a microcontroller) with its own LoRa chip,** connected to the phone's main processor by UART or USB.
-  It runs the mesh network's software itself, keeps the mesh working while the phone sleeps, and can run Meshtastic's or MeshCore's software ([Integrating the radio](#integrating-the-radio)).
+  The phones sold with LoRa so far attach a separate radio that talks to the phone over Bluetooth.
+  Some cyber-decks and hand-helds do have one inside, such as the LILYGO T-Deck, or the uConsole with an add-on board ([CYBERDECK.md](CYBERDECK.md#cyber-decks-that-already-exist)).
+- **Two designs are compared:** the LoRa chip on the main processor's SPI pins, run by Meshtastic's Linux service, as the [cyber-deck](CYBERDECK.md) proposes; or a small separate processor (a microcontroller) with its own LoRa chip, connected by UART or USB, which keeps the mesh working while the main processor sleeps ([Integrating the radio](#integrating-the-radio)).
+  Roadmap task T6 tries both.
 - **The LoRa radio needs its own certification for short-range devices:** ETSI EN 300 220 under the Radio Equipment Directive in Europe, and FCC Part 15 in the United States.
   In Europe it may also transmit only for a limited share of the time, the duty cycle ([Certification](#certification-and-band-rules)).
 - **It costs little on its own,** and doesn't depend on decision D2 (mobile phone or Wi-Fi only): a Wi-Fi-only device with LoRa can still send messages without a network.
@@ -74,7 +74,7 @@ Sources: [Hackster on the Spectre Pro][hackster-spectre], [CNX Software on the S
 How the LoRa radio could be connected inside the device.
 Two designs were considered.
 
-### A microcontroller with its own LoRa chip (proposed)
+### A microcontroller with its own LoRa chip
 
 A small, low-power processor (a microcontroller such as an nRF52840 or ESP32-S3) with an SX1262 LoRa chip, on the device's board and connected to the main processor by UART or USB (unsourced).
 
@@ -86,19 +86,20 @@ A small, low-power processor (a microcontroller such as an nRF52840 or ESP32-S3)
 - **It keeps the radio's software apart** from the main processor: a fault in the mesh software can't reach Android, and the small processor can be updated on its own.
 - **Cost:** a second processor and its software, which the project would also have to keep updated.
 
-### The LoRa chip on the main processor's SPI bus
+### The LoRa chip on the main processor's SPI bus (proposed for the cyber-deck)
 
 The SX1262 connects straight to the main processor, and a background program such as `meshtasticd` runs it.
 
 - Simpler hardware, with one processor fewer.
-- The mesh stops whenever Android puts the processor to sleep, unless it is kept awake, which costs battery (unsourced).
-- `meshtasticd` is made for Linux, not Android, so it would need adapting; nothing similar was found for MeshCore.
+- On a Linux device such as the cyber-deck, `meshtasticd` runs it directly; the main processor stays awake for the mesh, which costs battery (unsourced).
+- On Android, the mesh would stop whenever Android puts the processor to sleep, and `meshtasticd`, made for Linux, would need adapting (unsourced).
+- Nothing similar was found for MeshCore.
 
 ### What both need
 
-- Its own antenna for the LoRa band, separate from the mobile-network antennas, tuned for each band the device is used in: 868 MHz and 915 MHz need different tuning (unsourced).
+- Its own antenna for the LoRa band, separate from any other radio's, tuned for each band the device is used in: 868 MHz and 915 MHz need different tuning (unsourced).
 - A hardware switch or a software setting that turns the LoRa transmitter off, like the privacy switches in task T1.
-- An Android app and permissions for the radio; for FoxieOS this would fall under its decision D9.
+- Software on the operating system's side to show the mesh and send messages; for FoxieOS, its roadmap task T5.
 
 Sources: [Meshtastic Linux hardware][mt-linux], [Meshtastic Android API][mt-android-api], [lupyuen's Linux SX1262 driver][lupyuen-sx1262].
 

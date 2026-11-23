@@ -9,21 +9,21 @@ Technical words are explained in the [glossary](GLOSSARY.md).
 - **Done:** task T0, the research and this repository, on 2026-11-20.
 - **Decided:** the project is separate from FoxieOS, and lives in the `alopex-org` GitHub organization ([DESIGN.md](DESIGN.md#key-decisions)).
   The device has a built-in LoRa mesh radio ([LORA.md](LORA.md)).
+- **Proposed 2026-11-23:** the device is a cyber-deck, Wi-Fi only, built around a Raspberry Pi Compute Module 5 and running FoxieOS, a Linux system, instead of a phone for an Android-based system ([CYBERDECK.md](CYBERDECK.md), [DESIGN.md](DESIGN.md#a-cyber-deck-as-the-device)).
+  Decisions D1, D2 and D6 below carry it as their recommendation, and two new decisions, D7 and D8, follow from its design.
 - **Founding meeting, 2026-11-24:** the members choose the maintainers, who decide the project's foundations together ([governance](https://github.com/alopex-org/.github/blob/main/GOVERNANCE.md#founding-maintainers)).
   One interim maintainer decided everything marked decided here, so the meeting confirms or changes it.
   The meeting also takes decision D5: a prototype only, or a product.
-- **Proposed:** a Raspberry Pi handheld as the first prototype, Wi-Fi only, with a LoRa radio, hardware switches and a swappable battery ([HANDHELD.md](HANDHELD.md)).
-  It runs Linux rather than Android, so it raises a new decision, D6.
 - **Next:** task T1, the hardware requirements.
   It needs no decision and no money.
 
 ## How to read this page
 
-- **Decisions (D1–D6)** are questions the maintainers answer.
+- **Decisions (D1–D8)** are questions the maintainers answer.
   Each one lists the options and a recommendation.
-- **Tasks (T0–T7)** are the pieces of work, in order.
+- **Tasks (T0–T9)** are the pieces of work, in order.
   Each one says what it needs first, what to do, when it is finished, and what to share afterwards.
-- **Checks (C1–C14)** are facts to confirm before the task that relies on them.
+- **Checks (C1–C17)** are facts to confirm before the task that relies on them.
   A ⚠ in the other docs usually points to one of them.
 - **On GitHub,** each decision, task and check also has an issue, and each phase below is a [milestone](https://github.com/alopex-org/alopex/milestones).
   This page is the plan; the issues track progress and discussion ([CONTRIBUTING.md](../CONTRIBUTING.md#issues-and-labels)).
@@ -37,21 +37,23 @@ Technical words are explained in the [glossary](GLOSSARY.md).
 
 ## Phases
 
-1. **Requirements:** what a device must offer (T1).
-2. **Bench work:** getting Android running on a development board, then on a cellular module's evaluation kit (T2, T3).
-3. **A prototype:** decisions D1–D3, taken on what the first two phases show, then a prototype built in small numbers.
+1. **Requirements:** what the cyber-deck must offer (T1).
+2. **Bench work:** the electronics on a Raspberry Pi board, the LoRa radio, and the case and sliding screen as a mock-up (T2, T6, T7, T8).
+3. **A prototype:** decisions D1–D3, D7 and D8, taken on what the first two phases show, then a board of the project's own (T9) and a few devices built by hand.
    Whether a product follows is decision D5.
 
 ## Decisions
 
 | ID | Question | Status | Needed by |
 |---|---|---|---|
-| [D1](#d1-route-to-a-prototype) | How is the prototype built: around a cellular module, or around a development board? | Open | A prototype |
+| [D1](#d1-route-to-a-prototype) | How is the prototype built: around a cellular module, or around a compute module? | Open | T9 |
 | [D2](#d2-cellular-or-wi-fi-only) | Is the first device a mobile phone, or Wi-Fi only? | Open | D1 |
 | [D3](#d3-sharing-prototypes) | Do prototypes stay with the maintainers, or reach other enthusiasts, and how? | Open | D1 |
 | [D4](#d4-lora-mesh-network) | Which LoRa mesh network does the device come with: Meshtastic, MeshCore or both? | Open | T6 |
 | [D5](#d5-prototype-or-product) | Does the project stop at a prototype, or aim at a product it sells? | Open: founding meeting | D1, D3, T4, T5 |
-| [D6](#d6-operating-system-of-the-first-prototype) | Does the first prototype run Android, or a plain Linux system? | Open | D1, T7 |
+| [D6](#d6-operating-system-of-the-first-prototype) | Does the first prototype run Android, or a Linux system (FoxieOS)? | Open | D1, T7 |
+| [D7](#d7-signal-gauges) | Are the signal gauges real needles or small screens? | Open | T8 |
+| [D8](#d8-case) | How is the case made? | Open | T8 |
 
 ### D1: route to a prototype
 
@@ -60,13 +62,12 @@ Open; needed before a prototype is built.
 
 - **Options:** the routes in [FEASIBILITY.md](FEASIBILITY.md#routes-to-a-device) that suit a prototype:
   - a main board of the project's own, around a cellular module;
-  - a development board in a case of the project's own, for a Wi-Fi-only prototype.
-    [HANDHELD.md](HANDHELD.md) works this option out as a Raspberry Pi handheld (proposed).
+  - a compute module or development board in a case of the project's own, for a Wi-Fi-only prototype.
+    [CYBERDECK.md](CYBERDECK.md) works this option out as a cyber-deck around a Raspberry Pi Compute Module 5 (proposed).
 - Working with a phone maker, and having an ODM build a phone, are routes to a product, and become options only if decision D5 chooses one ([DESIGN.md](DESIGN.md#prototype-or-product)).
-- **Recommendation:** decide after tasks T1–T3.
-  - Around a cellular module, if task T3 finds that it can work.
-  - Otherwise around a development board.
-  - Never a phone designed directly with a chip maker.
+- **Recommendation:** the cyber-deck around a Compute Module 5, on a carrier board of the project's own, once tasks T7 and T8 show that its parts and mechanics work.
+  A cellular module comes back only if decision D2 chooses a mobile phone for a later device.
+  Never a phone designed directly with a chip maker.
 
 ### D2: cellular or Wi-Fi only
 
@@ -75,9 +76,8 @@ Open; needed by D1.
 
 - A **Wi-Fi-only device**, such as a tablet, needs no cellular module, no approval from mobile networks and no mobile-network patent licences.
 - A **mobile phone** is what most people mean by a phone, and costs more at every step.
-- **Recommendation:** decide on what tasks T2 and T3 show.
-  A Wi-Fi-only device is the cheaper first prototype.
-  The proposed [handheld](HANDHELD.md) is Wi-Fi only.
+- **Recommendation:** Wi-Fi only for the first device, as the proposed [cyber-deck](CYBERDECK.md) is.
+  A mobile network can be weighed again for a later device, with task T3.
 
 ### D3: sharing prototypes
 
@@ -124,20 +124,41 @@ That was written down before the team had agreed on it, so it is open again ([DE
 
 ### D6: operating system of the first prototype
 
-Whether the first prototype runs Android or a plain Linux system.
+Whether the first prototype runs Android or a Linux system.
 Open; needed by D1 and T7.
 
 The project was set up to build hardware for an operating system based on Android.
-The proposed [handheld](HANDHELD.md#operating-system) runs a small Linux system built for privacy instead, such as Alpine Linux or a Buildroot system.
+The proposed [cyber-deck](CYBERDECK.md#operating-system) runs [FoxieOS](https://github.com/alopex-org/foxieos), now proposed as a Linux system for it.
 
 - **Options:**
   - **Android,** as the project was set up for.
     On a Raspberry Pi only a community build exists, with its security rules (SELinux) off and no encryption of user data ([BOARDS.md](BOARDS.md#raspberry-pi-5-and-compute-module-5)).
-  - **A plain Linux system,** as the handheld proposes.
-    `meshtasticd`, disk encryption and the proposed messaging apps run on it today, but the project would keep an operating system of its own updated, and FoxieOS couldn't use the device.
-  - **Linux first, then Android:** Linux to try the handheld's parts on the bench, and Android once a board supports it well.
-- **Recommendation:** none; it changes what the project is for, so the maintainers decide it together.
-  Task T7 works under every option, since it tests the hardware.
+  - **A Linux system, FoxieOS:** `meshtasticd`, disk encryption and the proposed messaging apps run on Linux today.
+    FoxieOS is a separate project, and adapts to this one's hardware.
+- **Recommendation:** FoxieOS, as proposed with the cyber-deck; it changes what the project is for, so the maintainers confirm it together.
+  Task T7 works under either option, since it tests the hardware.
+
+### D7: signal gauges
+
+Whether the two round gauges on top of the cyber-deck, for the strength (RSSI) and clarity (SNR) of the LoRa signal, are real needles or small screens.
+Open; needed by T8.
+
+- **Options** ([CYBERDECK.md](CYBERDECK.md#signal-gauges)):
+  - moving-coil meters with real needles, as the renders look;
+  - small round screens that draw the needles;
+  - printed dials with no gauges behind them, the signal shown on the main screen instead.
+- **Recommendation:** small round screens for the first prototype, which survive drops and can be changed in software; try one moving-coil meter on the bench in task T7 to compare.
+
+### D8: case
+
+How the cyber-deck's case is made.
+Open; needed by T8.
+
+- **Options:**
+  - 3D-printed, which is cheap to change between versions;
+  - machined aluminium, closer to the renders and stronger, but costly in small numbers (unsourced);
+  - 3D-printed for the mock-up and the first devices, metal later.
+- **Recommendation:** 3D-printed for task T8 and the first devices; decide on metal once the shape stops changing.
 
 ## Tasks
 
@@ -149,19 +170,17 @@ Done 2026-11-20: this repository, with the research in [FEASIBILITY.md](FEASIBIL
 
 ### T1: hardware requirements
 
-The list of what a device must offer.
+The list of what the cyber-deck must offer.
 **Code.** Can start now.
 
-- Write `docs/REQUIREMENTS.md`: what a device must offer, each requirement with its reason and source.
-  GrapheneOS's published device requirements are a model (check C1).
+- Write `docs/REQUIREMENTS.md`: what the device must offer, each requirement with its reason and source.
 - Cover at least:
-  - secure boot with the builder's own key, and relocking with an owner-installed AVB key, documented by the maker ([DESIGN.md](DESIGN.md#each-party-keeps-its-own-keys));
-  - how many years the modem, secure-area (TEE) and graphics firmware get fixes, counted from the chip's launch;
-  - a kernel on a GKI version that still gets updates;
-  - bootloader unlocking and relocking that the project controls;
-  - repair access and a battery the user can replace, ideally without switching the device off ([HANDHELD.md](HANDHELD.md#battery));
-  - privacy features, such as hardware switches for the microphone, cameras, modem, Wi-Fi, GNSS receiver and LoRa transmitter ([HANDHELD.md](HANDHELD.md#hardware-switches));
-  - a LoRa radio on the device's board for 868 MHz and 915 MHz, with the mesh running while the phone sleeps ([LORA.md](LORA.md)).
+  - secure boot that the owner controls, and what the builder and the operating system each hold ([DESIGN.md](DESIGN.md#each-party-keeps-its-own-keys));
+  - how long the compute module is made and supported (the CM5 until at least January 2036);
+  - repair access, and batteries the user swaps one at a time without switching the device off ([CYBERDECK.md](CYBERDECK.md#batteries));
+  - hardware switches for the Wi-Fi, GNSS receiver, LoRa transmitter and microphone ([CYBERDECK.md](CYBERDECK.md#hardware-switches));
+  - a LoRa radio on the device's board for 868 MHz, with its antenna ([LORA.md](LORA.md));
+  - the screen, keyboard, knobs and gauges, and how long the slide must last.
 - Note which of the conditions in FoxieOS's decision D9 each requirement meets.
 
 **Finished when** the list exists, every requirement gives its reason and source, and the maintainer has reviewed it.
@@ -169,23 +188,22 @@ The list of what a device must offer.
 
 ### T2: development board bring-up
 
-Getting Android running on a development board.
-**Hands-on.** Needs task T1 and check C9, and the maintainer to buy the boards.
+Getting the cyber-deck's compute module running on the bench.
+**Hands-on.** Needs task T1, and the maintainer to buy the boards.
 
-- Pick the boards from [BOARDS.md](BOARDS.md), which compares the candidates, mainly RISC-V boards.
-  It proposes the SpacemiT K3 Pico-ITX for getting Android running, and an NXP i.MX 95 board alongside it to practise verified boot and secure boot.
-- Build Android for it and start it.
-  A build takes hours, so keep the build log.
-- Try verified boot with a dev key, never a key that will sign anything published.
-- Practise secure-boot fusing only on a board bought for that purpose, with the maintainer's go-ahead for each step.
-- Record the work in `docs/bench/<board>.md`: how long it took, the Android and kernel versions of the chip maker's software (BSP), and what got in the way.
+- A Raspberry Pi Compute Module 5 on Raspberry Pi's IO board ([BOARDS.md](BOARDS.md#raspberry-pi-5-and-compute-module-5)), running Raspberry Pi OS until FoxieOS has an image for it.
+- Connect a touchscreen and check the touch, the screen turning a quarter, and the brightness control.
+- Check the pins the cyber-deck needs: SPI for the LoRa radio, I2C or UART for the GNSS receiver, and spare pins for the knobs and switches.
+- Practise secure-boot fusing only on a board bought for that purpose, with the maintainer's go-ahead for each step (check C17 first).
+- Record the work in `docs/bench/cm5.md`: what worked, what didn't, and the current drawn when idle and under load.
 
-**Finished when** the board starts an Android build made by the project, and the record is committed.
-**Share** a summary of the build log, the start-up result and the record.
+**Finished when** the module starts with the screen and the pins above working, and the record is committed.
+**Share** the record and the measurements.
 
 ### T3: cellular module evaluation kit
 
-Trying a cellular module on its evaluation kit.
+On hold until decision D2 chooses a mobile network for a later device; the cyber-deck is Wi-Fi only.
+When it resumes:
 **Hands-on.** Needs task T2 and checks C4 and C5, and the maintainer to buy the kit and sign up for any supplier website.
 
 - Try one cellular module that comes with an Android BSP, on its evaluation kit.
@@ -208,49 +226,74 @@ On hold until decision D5: having an ODM build a phone is a route to a product (
 ### T6: LoRa bench work
 
 Trying the LoRa radio design on the bench.
-**Hands-on.** Needs task T1, decision D4 and checks C10 and C11, and the maintainer to buy a LoRa development board.
-Can run alongside task T2.
+**Hands-on.** Needs tasks T1 and T2, decision D4 and checks C10 and C11, and the maintainer to buy the LoRa boards.
 
-- Connect a small board with an SX1262 LoRa chip, such as an nRF52840 or ESP32-S3 board that Meshtastic and MeshCore support, to the task T2 board by UART or USB.
-- Install Meshtastic and MeshCore on it in turn, and send messages to another device from the Android build, through each network's app, over the cable.
-- Measure how much current the LoRa board draws while passing on messages with the Android side asleep.
+- Connect an SX1262 LoRa board to the task T2 board's SPI pins, run `meshtasticd`, and send messages to another Meshtastic device on 868 MHz, with the antenna always connected.
+- Then connect a small board with an SX1262, such as an nRF52840 or ESP32-S3 board that Meshtastic and MeshCore support, by UART or USB, and do the same with each network.
+- Measure the current the whole device draws while it passes on messages, in each design, with the compute module idle.
 - Record the work in `docs/bench/lora.md`.
 
-**Finished when** messages pass over the cable with both networks' software, or the record says why not.
-**Share** the results, the current measured, and anything the apps couldn't do over a cable.
+**Finished when** messages pass in both designs, or the record says why not.
+**Share** the results, the current measured in each design, and which the record recommends for the cyber-deck.
 
-### T7: handheld test build
+### T7: cyber-deck bench build
 
-Building one proposed [handheld](HANDHELD.md) on the bench, to see whether its parts work together before decision D1.
-**Hands-on.** Needs task T1 and checks C13 and C14, and the maintainer to buy the parts.
-Can run alongside task T2; decision D6 sets which operating system it runs, and Linux is enough to test the hardware.
+Wiring the proposed [cyber-deck](CYBERDECK.md)'s electronics together on the bench, to see whether they work before a board of the project's own is designed.
+**Hands-on.** Needs tasks T2 and T6 and checks C13, C14 and C16, and the maintainer to buy the parts.
+Decision D6 sets which operating system it runs; Linux is enough to test the hardware.
 
-- Connect an SX1262 LoRa board to a Raspberry Pi 5 over SPI, run `meshtasticd`, and send messages to another Meshtastic device on 868 MHz, with the antenna always connected.
 - Add a USB Wi-Fi adapter and a GNSS receiver, and share the device's position over the mesh.
 - Wire one hardware switch for each part, and check with a meter that a switched-off part draws no current, including through its data lines.
-- Run the Pi from an 18650 cell through a converter and an ideal-diode power path with a backup cell, swap the cell while it runs, and measure the current drawn when idle, when sending over LoRa and when using Wi-Fi.
-- Record the work in `docs/bench/handheld.md`, with the parts used, a wiring diagram and the measurements.
+- Wire two 18650 bays through a power-path controller, pull each cell in turn while the board runs, and measure the current drawn when idle, when sending over LoRa and when using Wi-Fi.
+- Wire two rotary knobs, a keyboard grid read by a small microcontroller, and one signal gauge of each kind (decision D7).
+- Record the work in `docs/bench/cyberdeck.md`, with the parts used, a wiring diagram and the measurements.
 
-**Finished when** messages and positions pass over LoRa, every switch cuts its part fully, and a battery swap doesn't restart the device, or the record says why not.
-**Share** the measurements, the battery life they imply, and what would change for a case of the project's own.
+**Finished when** messages and positions pass over LoRa, every switch cuts its part fully, and pulling either battery doesn't restart the board, or the record says why not.
+**Share** the measurements, the battery life they imply, and what would change on a board of the project's own.
+
+### T8: case and slide mock-up
+
+Building the case and the sliding screen without electronics, to see whether the shape works in the hand.
+**Hands-on.** Needs task T1 and decisions D7 and D8; can run alongside task T7.
+
+- Model the case from the concept renders, with the screen, keyboard, battery bays, antenna, knobs, gauges and handles at their real sizes.
+- Print it, fit a dummy screen on rails, and slide it at least a few hundred times with a flat cable of the kind the screen would use (check C15).
+- Weigh it with two cells in, and let members who didn't design it hold it, type on it and swap a battery.
+- Place the hardware switches.
+
+**Finished when** the mock-up slides, locks in both positions, takes both cells, and members can use it with one hand upright and two hands sideways.
+**Share** the model files, photos, the weight, the cable's state after the slides, and what members found awkward.
+
+### T9: carrier board
+
+Designing the cyber-deck's own board around the Compute Module 5.
+**Code and hands-on.** Needs tasks T7 and T8, decision D1, and the maintainer's approval to order boards.
+
+- Start from Raspberry Pi's published IO-board design, and the uConsole's published files where their licence allows ([CYBERDECK.md](CYBERDECK.md#cyber-decks-that-already-exist)).
+- Put the LoRa radio, GNSS receiver, power path for two cells, charger, switches, keyboard controller and gauge drivers on it, shaped to the mock-up's case.
+- Order a few boards, and repeat task T7's measurements on them.
+
+**Finished when** the board runs the bench build's tests in the mock-up's case.
+**Share** the design files, the measurements, and the cost of one board.
 
 ## Order of the critical work
 
 The longest chains of work, where each step waits for the one before:
 
-- T1 → T2 → T3;
-- at the same time, T1 → D4 → T6;
-- at the same time, T1 → C13 and C14 → T7, with D6 deciding what T7's device runs;
+- T1 → T2 → T6 → T7;
+- at the same time, T1 → D7 and D8 → T8;
+- T7 and T8 → D1 → T9;
 - check C12 → D3, and D5 → D1 and D3.
 
-They come together in D2, D3, D6 and then D1.
+Task T3 waits on decision D2; tasks T4 and T5 on decision D5.
 
 ## Not planned
 
 - **A phone designed directly with a chip maker** ([FEASIBILITY.md](FEASIBILITY.md#chip-vendor-design)).
 - **Work on a particular operating system.**
-  Supporting a device is each operating-system project's own work; for FoxieOS, it is decided in its decision D9.
-  Decision D6 asks whether the first prototype is an exception, with a Linux system of the project's own.
+  Supporting the device is each operating-system project's own work; for FoxieOS, it is decided in its decision D9.
+- **A phone, for now.**
+  Decision D2 keeps the question open for a later device; the research stays in [FEASIBILITY.md](FEASIBILITY.md).
 
 ## Checks
 
@@ -275,8 +318,8 @@ Do it before the task that relies on it (shown by →), then update the docs tha
    Whether the repeal of the radio-equipment cybersecurity rule (RED delegated act 2022/30) was adopted, and whether the Cyber Resilience Act's dates changed.
 8. **C8, small makers** (background).
    Whether the Liberux NEXX shipped, and whether Pine64 restarted production.
-9. **C9, board details** (→ T2).
-   Before buying a board, confirm for the boards proposed in [BOARDS.md](BOARDS.md):
+9. **C9, board details** (→ only if a RISC-V or other Arm board is bought).
+   Before buying such a board, confirm for the boards in [BOARDS.md](BOARDS.md):
    - their current prices and availability, and whether anyone can buy the Alibaba A210 EVB;
    - whether SpacemiT and Alibaba document secure boot for the K3 and the A210, and whether that documentation is public;
    - what works in RISE's Android 17 release beyond what it states: audio, video, the camera, Android's security rules (SELinux) switched on, and a secure area (TEE);
@@ -285,16 +328,22 @@ Do it before the task that relies on it (shown by →), then update the docs tha
    - whether BeaglePlay's AM625 chip is a GP or an HS-FS version, and how TI provides its key-writing tool;
    - which Android version BayLibre's AOSP kit for the MediaTek Genio boards is on.
 10. **C10, LoRa hardware and band rules** (→ D4, T6).
-    Confirm that Meshtastic and MeshCore both support the same nRF52840 or ESP32-S3 boards with an SX1262, and which certified LoRa modules would fit a phone's board.
+    Confirm that Meshtastic and MeshCore both support the same nRF52840 or ESP32-S3 boards with an SX1262, and which certified LoRa modules would fit the device's board.
     Read the current ETSI EN 300 220 for the 868 MHz sub-band edges, power and duty-cycle limits, and FCC Part 15 for 915 MHz.
 11. **C11, mesh apps and licences** (→ D4, T6).
     Whether the Meshtastic and MeshCore Android apps connect over a USB cable as well as Bluetooth, the licences of the MeshCore apps, whether MeshCore has closed parts, and the exact terms of the Reticulum licence.
 12. **C12, prototypes and the market rules** (→ D3, D5).
     Whether building prototypes for the maintainers' own use, publishing the design files, or handing devices to other enthusiasts for free or at cost counts as putting them on the EU market under the Radio Equipment Directive, the ecodesign and battery rules and the Cyber Resilience Act.
     Start from the European Commission's Blue Guide on EU product rules, and confirm the result with a lawyer before any device leaves the maintainers' hands.
-13. **C13, handheld power** (→ T7).
-    Read the power-supply section of Raspberry Pi's hardware documentation for the Pi 5's exact supply needs and USB current limits, and whether it can sleep.
-    Then pick a converter from an 18650 cell to 5 V that meets them, and an ideal-diode power-path controller for the backup cell.
-14. **C14, handheld switches and position** (→ T7).
+13. **C13, cyber-deck power** (→ T7).
+    Read the power-supply section of Raspberry Pi's hardware documentation for the Pi 5's and the CM5's exact supply needs and USB current limits, and whether they can sleep.
+    Then pick a converter from an 18650 cell to 5 V that meets them.
+14. **C14, cyber-deck switches and position** (→ T7).
     How to cut a part fully, including its data lines, so it isn't powered through them, for the SPI LoRa radio, a USB adapter, a GNSS receiver and a microphone.
     Whether `meshtasticd` on Linux can read a GNSS receiver and share its position.
+15. **C15, the sliding screen's cable** (→ T8).
+    Which flat cables, or flexible circuits, screens of the chosen size use, how many bends they are rated for, and how sliding phones with a keyboard routed theirs.
+16. **C16, two-cell power path** (→ T7).
+    A power-path controller that runs the device from either of two 18650 cells and lets one be pulled without a restart, a charger for each cell, and protection against a cell put in backwards.
+17. **C17, the secure-boot key on a CM5** (→ T2).
+    From Raspberry Pi's security documentation: what exactly the key written into the chip signs, whether a second key can ever be added, and what an owner can still change on a fused board.
