@@ -6,32 +6,33 @@ The research and sources behind it are in [FEASIBILITY.md](FEASIBILITY.md), and 
 
 ## In short
 
-- The project designs a cyber-deck, a rugged hand-held computer with a slide-out keyboard, and works toward it in cheap steps ([CYBERDECK.md](CYBERDECK.md)).
-- Whether it stops at a prototype or aims at a product is for the maintainers to decide (decision D5).
-- A LoRa radio for messaging without a mobile network is a core feature.
-- The first steps are the same either way: a list of requirements, then the electronics on the bench and the case as a mock-up.
-- The cyber-deck runs FoxieOS, a Linux system (decision D6); its main board is still to choose, from Raspberry Pi compute modules, other single-board computers and modules, or something else (decision D1).
-- Whoever holds the key written into the chip decides what the device starts; who that is, is still open.
+- The project works toward a cyber-deck, a portable computer of its own, in cheap steps (proposed for the maintainers to confirm).
+- What the cyber-deck is for, what it has, what it is built from and what it runs are all undecided ([CYBERDECK.md](CYBERDECK.md)).
+- Whether the project stops at a prototype or aims at a product is for the maintainers to decide (decision D5).
+- The first steps are the same either way: a list of requirements, then bench work on development boards.
+- The earlier research into a phone, a LoRa radio and a Raspberry Pi handheld stays as background and options, not as plans.
+- If the device has secure boot, whoever builds it keeps its permanent chip key, and each operating system keeps its own signing key (proposed).
 
 ## Purpose
 
-The project designs a cyber-deck for private messaging with and without a network, and works toward it in cheap steps ([CYBERDECK.md](CYBERDECK.md)).
-It set out to build a phone, or a similar device, for an operating system based on Android; the move to a cyber-deck running Linux is proposed for the maintainers to confirm ([A cyber-deck as the device](#a-cyber-deck-as-the-device)).
-Whether the device stays a prototype, built in small numbers and not sold, or leads to a product is open: the maintainers decide it at their founding meeting on 2026-11-24 ([Prototype or product](#prototype-or-product)).
+The project works toward a cyber-deck: a portable computer of its own ([A cyber-deck as the device](#a-cyber-deck-as-the-device)).
+Everything about the device is still open: what it is for, its form, its parts, and the software it runs (roadmap decision D6).
+Whether it stays a prototype, built in small numbers and not sold, or leads to a product is open: the maintainers decide it at their founding meeting on 2026-11-24 ([Prototype or product](#prototype-or-product)).
 
-A LoRa radio for messaging without a mobile network, over a mesh of other devices, is a core feature of any device the project works toward ([LoRa mesh radio](#lora-mesh-radio-as-a-core-feature)).
+The project started out researching a phone for an operating system based on Android.
+That research, with the work on a LoRa mesh radio and a Raspberry Pi handheld, stays as background for the cyber-deck's decisions.
 
 The project does **not**:
 
-- follow the plan of the FoxieOS operating system, or its rules for devices ([Related repositories](#related-repositories));
-- design a phone from the chip up together with a chip maker, or build a phone at all for now (decision D2);
+- follow the plan of FoxieOS, the operating-system project ([Related repositories](#related-repositories));
+- design a device from the chip up together with a chip maker;
 - take on a manufacturer's legal duties before decision D5 says it aims at a product; how prototypes are shared is roadmap decision D3.
 
 ## How a device comes about
 
 Every route to a device sold as a product involves the same parties; what changes from route to route is who plays each part.
 A prototype that isn't sold is never "placed on the market", so the chain below matters only if decision D5 chooses a product.
-The chain is drawn for a phone; for the Wi-Fi-only cyber-deck, the chip and module come from whichever board decision D1 chooses, and there is no mobile network to certify.
+It was written for a phone; for the cyber-deck, the parts about modules and mobile networks apply only if decision D2 chooses a cellular device.
 
 ```
 Chip maker, for example Qualcomm or MediaTek
@@ -71,14 +72,23 @@ Everything decided before the founding meeting on 2026-11-24 was decided by one 
 
 Each decision says what was chosen, why, and what was turned down.
 
+### A cyber-deck as the device
+
+Proposed 2026-11-24, for the founding meeting to confirm.
+
+- **What:** the device the project works toward is a cyber-deck, a portable computer of the project's own ([CYBERDECK.md](CYBERDECK.md)).
+  Nothing else about it is decided: its purpose, form, main board, radios, power and software are open, through task T1 and decisions D1–D6.
+- **Why:** the direction proposed for the maintainers; the meeting records its reasons when it decides.
+- **Turned down:** a phone as the device, the project's earlier aim; its research stays as background ([FEASIBILITY.md](FEASIBILITY.md)).
+
 ### A separate project
 
 Decided 2026-11-20.
 
-- **What:** this project doesn't follow the FoxieOS plan or its rules for devices.
+- **What:** this project doesn't follow the FoxieOS plan or its rules for choosing phones.
   FoxieOS decides on its side whether, and on what terms, it would support a device from here (FoxieOS roadmap decision D9).
-- **Why:** the routes, costs and legal duties of making a device are the same whichever operating system runs on it, and the hardware's choices shouldn't wait on an operating system's plans.
-  FoxieOS, now proposed as the cyber-deck's operating system, adapts to this project's choices.
+- **Why:** the routes, costs and legal duties of making a device are the same whichever operating system runs on it.
+  FoxieOS then accepted only phones that LineageOS already supported, which no new device is, so holding this research to FoxieOS's rules would have ruled out everything except existing phones.
 - **Turned down:** a hardware section inside the FoxieOS repository.
 
 ### Prototype or product
@@ -110,50 +120,51 @@ Decided 2026-11-20, following FoxieOS's decision D3.
 
 ### LoRa mesh radio as a core feature
 
-Decided 2026-11-21; which network to use is proposed (roadmap decision D4).
+Open again (roadmap decision D4).
+An earlier version of this page recorded a built-in LoRa radio as decided on 2026-11-21, for a phone.
+With the move to a cyber-deck, every part of the device is open, so whether it has a LoRa radio goes back to the maintainers.
+What was recorded then, for reference:
 
 - **What:** the device has a LoRa radio on its own circuit board, for messaging over a mesh network such as Meshtastic or MeshCore, with no mobile network or Wi-Fi.
-  Two designs are compared on the bench (task T6): the LoRa chip on the main processor's SPI pins, run by Meshtastic's Linux service, as the cyber-deck proposes; or a small separate processor (a microcontroller) with its own LoRa chip, connected by UART or USB ([LORA.md](LORA.md#integrating-the-radio)).
-- **Why:** messaging without a network is the device's main reason to exist, and no phone has the radio built in.
-  The chip on the SPI pins is the simplest; a separate small processor keeps the mesh running while the main processor sleeps, and can run more than one network's software.
-- **Turned down:** a separate LoRa radio connected over Bluetooth, which products already on sale offer.
+  The proposed design is a small separate processor (a microcontroller) with its own LoRa chip, connected to the main processor by a cable-like link (UART or USB), running the mesh network's own software ([LORA.md](LORA.md#integrating-the-radio)).
+- **Why:** messaging without a network is the device's main reason to exist next to existing phones, and none of them has the radio built in.
+  A separate small processor keeps the mesh running while the phone sleeps, and can run more than one network's software.
+- **Turned down:**
+  - a separate LoRa radio connected over Bluetooth, which products already on sale offer;
+  - the LoRa chip run directly by the main processor, which stops the mesh whenever Android goes to sleep.
 
 ### Requirements first, then bench work, then a route
 
 Proposed (roadmap decision D1).
 
-- **What:** write the hardware requirements (task T1), try candidate boards and wire the cyber-deck's electronics to them on the bench (T2, T7), and build the case and the sliding screen as a mock-up (T8).
-  Only then design the board and the case of the project's own.
+- **What:** write the cyber-deck's requirements (task T1), and try candidate hardware on development boards (T2), and on a cellular module's evaluation kit only if decision D2 chooses a cellular device (T3).
+  Only then choose how the prototype is built.
 - **Why:** every route starts from a list of requirements.
-  The bench work is cheap, and shows what works before money goes into a custom board and case.
+  The bench work is cheap, and shows whether the team can keep a board's software up to date.
+  Building a prototype, by contrast, commits money and time.
 - **Turned down:**
   - choosing a route first;
   - designing a phone directly with a chip maker, which needs a contract with them, large orders and far more money than a small team has ([FEASIBILITY.md](FEASIBILITY.md#chip-vendor-design)).
 
-### A cyber-deck as the device
+### An earlier proposal: a Raspberry Pi handheld
 
-Proposed 2026-11-23 (roadmap decisions D1, D2 and D6), for the founding meeting to confirm.
+<!-- Keeps links to this section's earlier title, "A Raspberry Pi handheld as the first prototype", working. -->
+<a id="a-raspberry-pi-handheld-as-the-first-prototype"></a>
 
-- **What:** the project's device is a cyber-deck: an upright hand-held with a touchscreen that slides over a physical keyboard, a LoRa radio with a telescopic antenna, signal gauges, knobs, hardware switches and two batteries swapped one at a time ([CYBERDECK.md](CYBERDECK.md)).
-  It is Wi-Fi only and runs FoxieOS, a Linux system; its main board is open (decision D1).
-  It grows out of the Raspberry Pi handheld proposed earlier, and replaces the phone the project set out to build.
-- **Why:**
-  - every part can be bought one at a time, and the device needs no cellular module, no modem certification and no mobile-network patent licences;
-  - it puts the LoRa radio and the privacy switches in people's hands early;
-  - the software it needs runs on Linux today, on many boards; Android on small boards is often a community or developer build, for example on a Raspberry Pi, where its security rules are off and there is no encryption ([BOARDS.md](BOARDS.md#raspberry-pi-5-and-compute-module-5));
-  - hobbyists and small companies already build similar devices, so there is prior work to learn from ([CYBERDECK.md](CYBERDECK.md#cyber-decks-that-already-exist)).
+Proposed 2026-11-23 as the first prototype; with the move to a cyber-deck, it is one option among others, not a plan (roadmap decisions D1, D2 and D6; task T7 can try it on the bench).
+
+- **What:** a rugged handheld around a Raspberry Pi, Wi-Fi only through a removable USB adapter, with a LoRa radio and external antenna, a GNSS receiver, hardware switches that cut power to the Wi-Fi, LoRa, GNSS and microphone, and a battery that can be swapped while it runs ([HANDHELD.md](HANDHELD.md)).
+  It is proposed to run a small Linux system built for privacy, such as Alpine Linux.
+- **Why:** every part can be bought one at a time, it needs no cellular module, certification of a modem or mobile-network patent licences, and it puts the LoRa radio and the privacy switches in people's hands early.
 - **Open points:**
-  - which main board goes inside (decision D1);
-  - how the signal gauges and the case are made (decisions D7 and D8);
-  - whether the sliding screen and the double battery bay can be built at a hand-held size (task T8);
-  - Meshtastic already encrypts LoRa messages, so no encryption of the project's own is added.
-- **Turned down:**
-  - a phone as the first device, for now: it needs a cellular module, certification and patent licences (decision D2 keeps the question open for a later device);
-  - Android as the first device's system, until a board the device uses supports it with its security rules on.
+  - a Linux system differs from the Android-based operating system the project was set up for (decision D6);
+  - the LoRa chip on the Pi's own pins differs from the separate small processor proposed above, which saves battery on a device carried every day;
+  - Meshtastic already encrypts LoRa messages, so the proposal's own encryption script is left out ([HANDHELD.md](HANDHELD.md#the-proposed-software)).
+- **Turned down:** nothing yet; the alternative is the module-based route after tasks T2 and T3.
 
 ### Each party keeps its own keys
 
-Proposed (task T1 writes it into the requirements).
+Proposed (task T1 writes it into the requirements); it applies if the device has secure boot.
 
 - **What:** whoever builds the device holds the secure-boot key, whose fingerprint is burned into each chip; for the prototype, that is the project.
   Each operating-system project signs its own updates and relocks the bootloader with its own verified-boot (AVB) key, as Pixels allow with `avb_custom_key`.
@@ -163,10 +174,6 @@ Proposed (task T1 writes it into the requirements).
 - **Turned down:**
   - an operating-system project holding the chip key, which would tie every device to that operating system and make it answer for the device's security;
   - a device that can't be relocked with an owner's key, which leaves every other operating system running with the bootloader unlocked.
-- **Open point for the cyber-deck:** many boards have no separate owner key like a phone's AVB key.
-  On a Raspberry Pi, for example, the one key whose fingerprint is written into the chip also signs what the board starts, so whoever holds it decides what the device will ever run ([BOARDS.md](BOARDS.md#raspberry-pi-5-and-compute-module-5)); other chips differ, so the main board's secure-boot design is part of decision D1.
-  The proposal is to ship devices without secure boot turned on, so each owner can turn it on with a key of their own; FoxieOS weighs the same question in its decision D9.
-  ⚠ What the key signs on the chosen board, and what an owner can still change on a fused board, needs checking first (check C17).
 
 ## Limits the project has to live with
 
@@ -181,19 +188,17 @@ Proposed (task T1 writes it into the requirements).
 - **Parts in small numbers are hard to get.**
   Chip makers and ODMs prefer large orders, and memory prices rose sharply in 2026 ([FEASIBILITY.md](FEASIBILITY.md#odm-phone)).
   The prototype is built from modules and boards that can be bought one at a time.
-- **LoRa has its own band rules.**
-  The LoRa radio needs its own certification for short-range devices, and in Europe must keep to each sub-band's limit on how long it may transmit ([LORA.md](LORA.md#certification-and-band-rules)).
-- **A moving screen is a weak point.**
-  The sliding screen's cable bends at every slide, and the rails take every knock the device does (unsourced; task T8).
-- **The device is thick.**
-  Two 18650 cells are 18 mm across, before the board, the keyboard and the screen ([CYBERDECK.md](CYBERDECK.md#case-and-size)).
+- **LoRa has its own band rules,** if the device has a LoRa radio.
+  The radio needs its own certification for short-range devices, and in Europe must keep to each sub-band's limit on how long it may transmit ([LORA.md](LORA.md#certification-and-band-rules)).
+- **Bench hardware isn't a finished device.**
+  The development boards in the research have no mobile-network modem, and none has a finished device's case, battery or certification ([FEASIBILITY.md](FEASIBILITY.md#development-board)).
 
 ## Related repositories
 
-- [foxieos](https://github.com/alopex-org/foxieos): the FoxieOS operating system, now proposed as a Linux system for the cyber-deck.
-  FoxieOS depends on this project, and only in that direction: this project doesn't depend on FoxieOS, and FoxieOS adapts to its choices.
-  Its roadmap decision [D9](https://github.com/alopex-org/foxieos/blob/main/docs/ROADMAP.md#d9-devices-from-the-hardware-project) sets the terms on which it supports a device from this project.
-  The conditions it weighs there, such as a kernel built from source and a secure-boot key under the owner's control, are FoxieOS's own, not requirements on this project.
+- [foxieos](https://github.com/alopex-org/foxieos): FoxieOS, the operating-system project for the cyber-deck; what it is built on is undecided.
+  FoxieOS depends on this project for a device of its own, and only in that direction: this project doesn't depend on FoxieOS, and FoxieOS adapts to its choices.
+  Its roadmap decision [D9](https://github.com/alopex-org/foxieos/blob/main/docs/ROADMAP.md#d9-devices-from-the-hardware-project) decides whether it would support a device from this project.
+  The conditions it weighs there are FoxieOS's own, not requirements on this project.
   Task T1 notes which of them a design would meet.
 
 A change that needs a matching change in FoxieOS gets a pull request in each repository, each linking the other.
@@ -202,7 +207,7 @@ Because the dependency runs one way, a change here can call for a change in Foxi
 ## Running the project (planned)
 
 - **Research:** sources are checked again, and their dates updated, before each decision that rests on them.
-- **Bench hardware:** the maintainer buys boards, parts and kits; fusing is practised only on a board bought for that purpose.
+- **Bench hardware:** the maintainer buys boards and kits; fusing is practised only on a board bought for that purpose.
 - **Keys:** before any device is fused, the maintainer sets up an offline, backed-up home for the secure-boot key.
 
 ## Open questions
