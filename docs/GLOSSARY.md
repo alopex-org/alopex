@@ -4,7 +4,7 @@ Plain explanations of the technical words in this project's docs.
 Look a word up when you meet it; you don't need to read this page from top to bottom.
 
 Words about GitHub and how the project works (branch, pull request, sign-off, roadmap codes such as D5 or T1) are in the [organization's glossary](https://github.com/alopex-org/.github/blob/main/GLOSSARY.md).
-Words about Android itself (AOSP, LineageOS, kernel, bootloader, OTA) are explained in more depth in [FoxieOS's glossary](https://github.com/alopex-org/foxieos/blob/main/docs/GLOSSARY.md).
+Words about Linux and the cyber-deck's software (kernel, base system, A/B updates, secure boot) are explained in [FoxieOS's glossary](https://github.com/alopex-org/foxieos/blob/main/docs/GLOSSARY.md).
 
 ## Making a device
 
@@ -24,7 +24,19 @@ Words about Android itself (AOSP, LineageOS, kernel, bootloader, OTA) are explai
 - **Main board:** the device's central circuit board, which holds the processor and connects everything else.
 - **Bring-up:** getting an operating system to start and work on new hardware for the first time.
 - **Bench work:** trying things out on boards and kits on a workbench, before building a device.
-- **Handheld, cyberdeck:** a portable computer built by hobbyists from a development board, a screen and a battery in a case of their own; thicker than a phone.
+- **Cyber-deck:** a custom-built, portable computer, often made for one purpose, with a keyboard, a screen and a rugged or "cyberpunk" look; usually thicker than a phone.
+  The word comes from William Gibson's 1984 novel *Neuromancer*.
+  This project's device is a hand-held cyber-deck ([CYBERDECK.md](CYBERDECK.md)).
+- **Concept render:** a computer-drawn picture of how a device should look, before it is engineered.
+- **Mock-up:** a model of a device's shape, without working electronics, for trying how it feels and fits.
+- **Carrier board:** the board a compute module plugs into, which connects it to everything else in the device.
+- **Compute Module 5 (CM5):** a Raspberry Pi 5 on a small module, made to plug into a carrier board.
+- **Slide-out keyboard:** a keyboard hidden under the screen until the screen slides aside; the cyber-deck's screen slides sideways.
+- **Rotary encoder:** a knob that turns without end, in clicks, and tells the computer which way and how far.
+- **Moving-coil meter:** a gauge with a real needle, moved by a small coil and magnet.
+- **18650:** a common size of rechargeable lithium-ion cell, 18 mm across and 65 mm long.
+- **Hot swap:** replacing a battery or part while the device keeps running.
+- **Power path ("ideal diode"):** the circuit that takes power from whichever battery is present, so one can be pulled without the device switching off.
 
 ## Chips and boards
 

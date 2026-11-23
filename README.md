@@ -1,48 +1,48 @@
 # Alopex
 
 Alopex is the hardware project of the Alopex student organization, in the `alopex` repository.
-It researches how a small team could build its own phone, or a similar device, for an operating system based on Android.
+It designs a cyber-deck: a rugged, hand-held computer with a slide-out keyboard and a LoRa radio for messaging without a mobile network.
 Whether the project stops at a prototype or aims at a product it sells is open: the maintainers decide it at their founding meeting on 2026-11-24 (roadmap decision D5).
 
 **Status: research.**
 No hardware is designed, bought or ordered.
 This repository holds the research and the plan.
-Its decisions belong to the maintainers, who are chosen at the founding meeting ([governance](https://github.com/alopex-org/.github/blob/main/GOVERNANCE.md#founding-maintainers)).
+The project set out to build a phone for an Android-based system; the proposal in these docs turns it to a cyber-deck running Linux.
+Its decisions belong to the maintainers, who are chosen at the founding meeting and confirm or change that direction ([governance](https://github.com/alopex-org/.github/blob/main/GOVERNANCE.md#founding-maintainers)).
 
 Unfamiliar words are explained in two glossaries: [hardware, radios and rules](docs/GLOSSARY.md), and [GitHub and how we work](https://github.com/alopex-org/.github/blob/main/GLOSSARY.md).
 
 ## What this project will be
 
-- **First, a study** of the ways to get a device made: with an existing phone maker, through a factory that builds phones for other brands, or as a design of the project's own around a ready-made cellular module.
-- **Then cheap bench work:** getting Android running on a development board, then on a cellular module's evaluation kit.
-- **Later, if the maintainers decide so,** a prototype device built in small numbers, and possibly a product after it (decision D5).
+- **A cyber-deck prototype** ([docs/CYBERDECK.md](docs/CYBERDECK.md)), proposed from a set of concept renders:
+  - an upright touchscreen that slides sideways to uncover a physical keyboard;
+  - a LoRa mesh radio with a telescopic antenna, and two gauges that show the signal received;
+  - knobs on the sides, and hardware switches that cut the radios and the microphone;
+  - two 18650 batteries at the back, swapped one at a time while it runs;
+  - a Raspberry Pi Compute Module 5 inside, Wi-Fi only.
+- **First, cheap bench work:** the electronics wired up on a Raspberry Pi board, and the case and sliding screen as a mock-up.
+- **Later, if the maintainers decide so,** a few devices built by hand, and possibly a product after it (decision D5).
 
-A LoRa radio, for sending messages without a mobile network over Meshtastic, MeshCore or a similar mesh network, is planned as a core part of the device ([docs/LORA.md](docs/LORA.md)).
-
-A first prototype is proposed: a rugged Raspberry Pi handheld, Wi-Fi only, with a LoRa radio, hardware switches that cut its radios and microphone, and a battery that can be swapped while it runs ([docs/HANDHELD.md](docs/HANDHELD.md)).
-It runs a plain Linux system rather than Android, so the maintainers decide which the first prototype runs (decision D6).
-
-The project won't follow the plan of the FoxieOS operating system.
-[docs/DESIGN.md](docs/DESIGN.md) explains why.
+The cyber-deck runs [FoxieOS](https://github.com/alopex-org/foxieos), a Linux system for it (decision D6).
+The project doesn't follow FoxieOS's plan; [docs/DESIGN.md](docs/DESIGN.md) explains why.
 
 ## The findings in brief
 
-- A phone designed from the chip up is out of reach for a small team.
-- Whoever sells a device becomes its manufacturer, with radio certification, patent licences and the EU's duty to supply updates and spare parts for years.
+- A cyber-deck built from a Raspberry Pi compute module, ready-made radio boards and a case of the project's own is within a small team's reach; hobbyists and small companies already make similar devices ([docs/CYBERDECK.md](docs/CYBERDECK.md#cyber-decks-that-already-exist)).
+- None of the cyber-decks compared has a screen that slides over its keyboard, hardware switches for its radios, or batteries swapped while it runs; with the signal gauges, those would set this one apart.
+- A Wi-Fi-only device needs no cellular module, no approval from mobile networks and no mobile-network patent licences.
+- Whoever sells a device becomes its manufacturer, with radio certification and EU duties for years.
   A prototype that isn't sold stays clear of most of that ⚠ (roadmap check C12).
-- Working with an existing phone maker, or having a factory build a phone, are routes to a product; decision D5 settles whether the project pursues one.
-  For a prototype, the route that fits is a design around a cellular module, after bench work on a development board.
-- No phone has a LoRa mesh radio on its own circuit board yet; the ones on sale attach a separate radio over Bluetooth, so a built-in one would set the device apart.
-- The first steps cost little: a list of hardware requirements, then bench work on a development board and a module kit.
+- The research into phones, which this project started with, stays in [docs/FEASIBILITY.md](docs/FEASIBILITY.md): it applies if a later device adds a mobile network (decision D2).
 
 ## Where to start
 
-1. [docs/FEASIBILITY.md](docs/FEASIBILITY.md): the research, with sources: the routes to a device, the software work, the rules, earlier phone projects and the risks.
+1. [docs/CYBERDECK.md](docs/CYBERDECK.md): the proposed cyber-deck: its design, its parts, the cyber-decks that already exist, and what it costs the user.
 2. [docs/ROADMAP.md](docs/ROADMAP.md): the open decisions and the next piece of work.
-3. [docs/DESIGN.md](docs/DESIGN.md): the case for a prototype and for a product (decision D5), how a device would come about, who holds which keys, and why the project is set up this way.
-4. [docs/BOARDS.md](docs/BOARDS.md): the development boards for the bench work, mainly RISC-V boards compared with Arm boards, with a proposed choice.
-5. [docs/LORA.md](docs/LORA.md): the LoRa mesh radio: the Meshtastic, MeshCore and Reticulum networks, how to build the radio in, and its certification.
-6. [docs/HANDHELD.md](docs/HANDHELD.md): the proposed Raspberry Pi handheld: its parts, its software, and what it costs the user.
+3. [docs/DESIGN.md](docs/DESIGN.md): the case for a prototype and for a product (decision D5), who holds which keys, and why the project is set up this way.
+4. [docs/LORA.md](docs/LORA.md): the LoRa mesh radio: the Meshtastic, MeshCore and Reticulum networks, how to build the radio in, and its band rules.
+5. [docs/BOARDS.md](docs/BOARDS.md): development boards, including the Raspberry Pi Compute Module 5.
+6. [docs/FEASIBILITY.md](docs/FEASIBILITY.md): the research, with sources: the routes to a device, the rules, earlier phone projects and the risks.
 
 ## What's in this repository
 
@@ -50,14 +50,14 @@ The project won't follow the plan of the FoxieOS operating system.
 - `.github/`: GitHub settings: who reviews what, issue forms, the pull-request template, the automatic sign-off check, Dependabot, and the list of labels (`labels.sh`).
 - `.pre-commit-config.yaml`: the checks that run on your computer before every commit ([CONTRIBUTING.md](CONTRIBUTING.md#before-you-start)).
 
-The requirements and the notes from bench work will join `docs/` as the roadmap's tasks are done.
-Android source code and build output are kept outside this repository.
+The requirements, the notes from bench work and, later, the design files will join this repository as the roadmap's tasks are done.
 
 ## Relation to FoxieOS
 
-This project is separate from the [FoxieOS](https://github.com/alopex-org/foxieos) operating system, and doesn't follow its plan or its rules for choosing phones.
-FoxieOS depends on this project for a device of its own, and only in that direction: this project doesn't depend on FoxieOS, and FoxieOS adapts to its choices.
-FoxieOS decides whether to support a device from this project, and on what terms, in its roadmap decision [D9](https://github.com/alopex-org/foxieos/blob/main/docs/ROADMAP.md#d9-devices-from-the-hardware-project).
+[FoxieOS](https://github.com/alopex-org/foxieos) is the operating system planned for the cyber-deck.
+It is a separate project, and this project doesn't follow its plan or its rules.
+FoxieOS depends on this project, and only in that direction: this project doesn't depend on FoxieOS, and FoxieOS adapts to its choices.
+FoxieOS sets the terms on which it supports a device from here in its roadmap decision [D9](https://github.com/alopex-org/foxieos/blob/main/docs/ROADMAP.md#d9-devices-from-the-hardware-project).
 
 ## Contributing
 
@@ -69,7 +69,7 @@ AI coding agents also follow [AGENTS.md](AGENTS.md).
 ## License
 
 Apache License 2.0; see [LICENSE](LICENSE).
-The license gives no rights to the FoxieOS name or logo.
+The license gives no rights to the Alopex or FoxieOS names or logos.
 
-Android is a trademark of Google LLC.
-This project is not affiliated with Google, the LineageOS project or any company named in these documents.
+Raspberry Pi is a trademark of Raspberry Pi Ltd.
+This project is not affiliated with Raspberry Pi Ltd, the Meshtastic project or any company named in these documents.
