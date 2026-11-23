@@ -2,7 +2,7 @@
 
 Alopex is the hardware project of the Alopex student organization, in the `alopex` repository.
 It works toward a cyber-deck: a portable computer of the project's own ([docs/CYBERDECK.md](docs/CYBERDECK.md)).
-What the cyber-deck is for, what it has, what it is built from and what software it runs are all undecided.
+It has a built-in LoRa mesh radio, for messaging without a mobile network ([docs/LORA.md](docs/LORA.md)); apart from that, what the cyber-deck is for, what it has, what it is built from and what software it runs are all undecided.
 The move to a cyber-deck is a proposal for the maintainers to confirm; the project started out researching a phone for an operating system based on Android, and that research stays as background.
 Whether the project stops at a prototype or aims at a product it sells is open: the maintainers decide it at their founding meeting on 2026-11-24 (roadmap decision D5).
 
@@ -19,8 +19,9 @@ Unfamiliar words are explained in two glossaries: [hardware, radios and rules](d
 - **Then cheap bench work:** trying candidate hardware on development boards.
 - **Later, if the maintainers decide so,** a prototype built in small numbers, and possibly a product after it (decision D5).
 
-Earlier work looked at a LoRa mesh radio for messaging without a mobile network ([docs/LORA.md](docs/LORA.md)), and proposed a Raspberry Pi handheld ([docs/HANDHELD.md](docs/HANDHELD.md)).
-Whether the cyber-deck has a LoRa radio, or looks anything like that handheld, is undecided.
+A LoRa radio, for sending messages without a mobile network over Meshtastic, MeshCore or a similar mesh network, is a core part of the device (decided 2026-11-21; [docs/LORA.md](docs/LORA.md)).
+
+Earlier work also proposed a Raspberry Pi handheld ([docs/HANDHELD.md](docs/HANDHELD.md)); whether the cyber-deck looks anything like it is undecided.
 
 The project won't follow the plan of the FoxieOS operating system.
 [docs/DESIGN.md](docs/DESIGN.md) explains why.

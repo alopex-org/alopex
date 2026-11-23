@@ -6,7 +6,7 @@ Whether the project builds only a prototype or aims at a product is open ([DESIG
 The plan that follows from it is in [ROADMAP.md](ROADMAP.md) and [DESIGN.md](DESIGN.md).
 Technical words are explained in the [glossary](GLOSSARY.md).
 
-**Since 2026-11-24** the project is proposed to work toward a cyber-deck, whose purpose, parts and software are all undecided ([CYBERDECK.md](CYBERDECK.md)).
+**Since 2026-11-24** the project is proposed to work toward a cyber-deck, whose purpose, parts and software, apart from its LoRa radio, are all undecided ([CYBERDECK.md](CYBERDECK.md)).
 This research was done for a phone; it applies to the cyber-deck wherever the cyber-deck would share a part, a route or a rule with a phone.
 
 **How to read it:**

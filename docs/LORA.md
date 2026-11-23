@@ -1,11 +1,11 @@
 # LoRa mesh radio
 
 **Status: research.**
-This research was done when a LoRa radio was planned as a core part of a phone.
-Whether the cyber-deck has one is open (roadmap decision [D4](ROADMAP.md#d4-lora-mesh-network)).
+A LoRa radio is a core part of the device, decided on 2026-11-21 and kept for the cyber-deck.
+Some of this research was done for a phone, and applies to the cyber-deck where the two are alike.
 It lets people send short messages with no mobile network or Wi-Fi: each device passes messages on to the next, forming a mesh network such as Meshtastic or MeshCore.
 This page covers the mesh networks, how a LoRa radio could be built into the device, and what it adds to certification.
-Whether to have the radio, and which network, is roadmap decision [D4](ROADMAP.md#d4-lora-mesh-network), informed by the requirements in task [T1](ROADMAP.md#t1-hardware-requirements).
+Which network to use is roadmap decision [D4](ROADMAP.md#d4-lora-mesh-network), and the radio is a requirement in task [T1](ROADMAP.md#t1-hardware-requirements).
 Technical words are explained in the [glossary](GLOSSARY.md).
 
 **How to read it:**
