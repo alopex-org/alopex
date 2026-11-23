@@ -50,7 +50,7 @@ The recommendation, as first written for a phone:
 4. Don't design a phone directly with a chip maker.
 5. Decide whether to aim at a product before taking on a manufacturer's duties (decision D5).
 
-With the move to a Wi-Fi-only cyber-deck, steps 1, 4 and 5 stand; step 2 becomes bench work on a Raspberry Pi Compute Module 5, and the cellular module waits on decision D2 ([ROADMAP.md](ROADMAP.md)).
+With the move to a Wi-Fi-only cyber-deck, steps 1, 4 and 5 stand; step 2 becomes bench work comparing candidate main boards for the cyber-deck (decision D1), and the cellular module waits on decision D2 ([ROADMAP.md](ROADMAP.md)).
 
 ## Terms
 

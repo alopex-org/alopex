@@ -30,7 +30,9 @@ Words about Linux and the cyber-deck's software (kernel, base system, A/B update
 - **Concept render:** a computer-drawn picture of how a device should look, before it is engineered.
 - **Mock-up:** a model of a device's shape, without working electronics, for trying how it feels and fits.
 - **Carrier board:** the board a compute module plugs into, which connects it to everything else in the device.
-- **Compute Module 5 (CM5):** a Raspberry Pi 5 on a small module, made to plug into a carrier board.
+- **Compute Module 5 (CM5):** a Raspberry Pi 5 on a small module, made to plug into a carrier board; one candidate for the cyber-deck's main board.
+- **Single-board computer (SBC):** a whole computer on one board, such as a Raspberry Pi 5, ready to use without a carrier board.
+- **Main board (of the cyber-deck):** the computer inside it, still to choose (roadmap decision D1).
 - **Slide-out keyboard:** a keyboard hidden under the screen until the screen slides aside; the cyber-deck's screen slides sideways.
 - **Rotary encoder:** a knob that turns without end, in clicks, and tells the computer which way and how far.
 - **Moving-coil meter:** a gauge with a real needle, moved by a small coil and magnet.
