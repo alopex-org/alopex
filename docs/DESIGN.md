@@ -10,7 +10,7 @@ The research and sources behind it are in [FEASIBILITY.md](FEASIBILITY.md), and 
 - Whether it stops at a prototype or aims at a product is for the maintainers to decide (decision D5).
 - A LoRa radio for messaging without a mobile network is a core feature.
 - The first steps are the same either way: a list of requirements, then the electronics on the bench and the case as a mock-up.
-- The cyber-deck is built around a Raspberry Pi Compute Module 5 and runs FoxieOS, a Linux system (decision D6).
+- The cyber-deck runs FoxieOS, a Linux system (decision D6); its main board is still to choose, from Raspberry Pi compute modules, other single-board computers and modules, or something else (decision D1).
 - Whoever holds the key written into the chip decides what the device starts; who that is, is still open.
 
 ## Purpose
@@ -31,7 +31,7 @@ The project does **not**:
 
 Every route to a device sold as a product involves the same parties; what changes from route to route is who plays each part.
 A prototype that isn't sold is never "placed on the market", so the chain below matters only if decision D5 chooses a product.
-The chain is drawn for a phone; for the Wi-Fi-only cyber-deck, the chip maker is Raspberry Pi, the module is the Compute Module 5, and there is no mobile network to certify.
+The chain is drawn for a phone; for the Wi-Fi-only cyber-deck, the chip and module come from whichever board decision D1 chooses, and there is no mobile network to certify.
 
 ```
 Chip maker, for example Qualcomm or MediaTek
@@ -122,7 +122,7 @@ Decided 2026-11-21; which network to use is proposed (roadmap decision D4).
 
 Proposed (roadmap decision D1).
 
-- **What:** write the hardware requirements (task T1), wire the cyber-deck's electronics to a Raspberry Pi board on the bench (T7), and build the case and the sliding screen as a mock-up (T8).
+- **What:** write the hardware requirements (task T1), try candidate boards and wire the cyber-deck's electronics to them on the bench (T2, T7), and build the case and the sliding screen as a mock-up (T8).
   Only then design the board and the case of the project's own.
 - **Why:** every route starts from a list of requirements.
   The bench work is cheap, and shows what works before money goes into a custom board and case.
@@ -135,14 +135,15 @@ Proposed (roadmap decision D1).
 Proposed 2026-11-23 (roadmap decisions D1, D2 and D6), for the founding meeting to confirm.
 
 - **What:** the project's device is a cyber-deck: an upright hand-held with a touchscreen that slides over a physical keyboard, a LoRa radio with a telescopic antenna, signal gauges, knobs, hardware switches and two batteries swapped one at a time ([CYBERDECK.md](CYBERDECK.md)).
-  It is built around a Raspberry Pi Compute Module 5, is Wi-Fi only, and runs FoxieOS, a Linux system.
+  It is Wi-Fi only and runs FoxieOS, a Linux system; its main board is open (decision D1).
   It grows out of the Raspberry Pi handheld proposed earlier, and replaces the phone the project set out to build.
 - **Why:**
   - every part can be bought one at a time, and the device needs no cellular module, no modem certification and no mobile-network patent licences;
   - it puts the LoRa radio and the privacy switches in people's hands early;
-  - the software it needs runs on Linux today, where Android on a Raspberry Pi has its security rules off and no encryption ([BOARDS.md](BOARDS.md#raspberry-pi-5-and-compute-module-5));
+  - the software it needs runs on Linux today, on many boards; Android on small boards is often a community or developer build, for example on a Raspberry Pi, where its security rules are off and there is no encryption ([BOARDS.md](BOARDS.md#raspberry-pi-5-and-compute-module-5));
   - hobbyists and small companies already build similar devices, so there is prior work to learn from ([CYBERDECK.md](CYBERDECK.md#cyber-decks-that-already-exist)).
 - **Open points:**
+  - which main board goes inside (decision D1);
   - how the signal gauges and the case are made (decisions D7 and D8);
   - whether the sliding screen and the double battery bay can be built at a hand-held size (task T8);
   - Meshtastic already encrypts LoRa messages, so no encryption of the project's own is added.
@@ -162,10 +163,10 @@ Proposed (task T1 writes it into the requirements).
 - **Turned down:**
   - an operating-system project holding the chip key, which would tie every device to that operating system and make it answer for the device's security;
   - a device that can't be relocked with an owner's key, which leaves every other operating system running with the bootloader unlocked.
-- **Open point for the cyber-deck:** a Raspberry Pi has no separate owner key like a phone's AVB key.
-  The one key whose fingerprint is written into the chip also signs what the board starts, so whoever holds it decides what the device will ever run ([BOARDS.md](BOARDS.md#raspberry-pi-5-and-compute-module-5)).
+- **Open point for the cyber-deck:** many boards have no separate owner key like a phone's AVB key.
+  On a Raspberry Pi, for example, the one key whose fingerprint is written into the chip also signs what the board starts, so whoever holds it decides what the device will ever run ([BOARDS.md](BOARDS.md#raspberry-pi-5-and-compute-module-5)); other chips differ, so the main board's secure-boot design is part of decision D1.
   The proposal is to ship devices without secure boot turned on, so each owner can turn it on with a key of their own; FoxieOS weighs the same question in its decision D9.
-  ⚠ What the key signs, and what an owner can still change on a fused board, needs checking first (check C17).
+  ⚠ What the key signs on the chosen board, and what an owner can still change on a fused board, needs checking first (check C17).
 
 ## Limits the project has to live with
 

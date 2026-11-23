@@ -19,8 +19,8 @@ Unfamiliar words are explained in two glossaries: [hardware, radios and rules](d
   - a LoRa mesh radio with a telescopic antenna, and two gauges that show the signal received;
   - knobs on the sides, and hardware switches that cut the radios and the microphone;
   - two 18650 batteries at the back, swapped one at a time while it runs;
-  - a Raspberry Pi Compute Module 5 inside, Wi-Fi only.
-- **First, cheap bench work:** the electronics wired up on a Raspberry Pi board, and the case and sliding screen as a mock-up.
+  - Wi-Fi only, with the main board still to choose: a Raspberry Pi compute module, another single-board computer or module, or something else (decision D1).
+- **First, cheap bench work:** candidate boards tried side by side, the electronics wired up on the bench, and the case and sliding screen as a mock-up.
 - **Later, if the maintainers decide so,** a few devices built by hand, and possibly a product after it (decision D5).
 
 The cyber-deck runs [FoxieOS](https://github.com/alopex-org/foxieos), a Linux system for it (decision D6).
@@ -28,7 +28,7 @@ The project doesn't follow FoxieOS's plan; [docs/DESIGN.md](docs/DESIGN.md) expl
 
 ## The findings in brief
 
-- A cyber-deck built from a Raspberry Pi compute module, ready-made radio boards and a case of the project's own is within a small team's reach; hobbyists and small companies already make similar devices ([docs/CYBERDECK.md](docs/CYBERDECK.md#cyber-decks-that-already-exist)).
+- A cyber-deck built from a ready-made board or compute module, ready-made radio boards and a case of the project's own is within a small team's reach; hobbyists and small companies already make similar devices ([docs/CYBERDECK.md](docs/CYBERDECK.md#cyber-decks-that-already-exist)).
 - None of the cyber-decks compared has a screen that slides over its keyboard, hardware switches for its radios, or batteries swapped while it runs; with the signal gauges, those would set this one apart.
 - A Wi-Fi-only device needs no cellular module, no approval from mobile networks and no mobile-network patent licences.
 - Whoever sells a device becomes its manufacturer, with radio certification and EU duties for years.
@@ -41,7 +41,7 @@ The project doesn't follow FoxieOS's plan; [docs/DESIGN.md](docs/DESIGN.md) expl
 2. [docs/ROADMAP.md](docs/ROADMAP.md): the open decisions and the next piece of work.
 3. [docs/DESIGN.md](docs/DESIGN.md): the case for a prototype and for a product (decision D5), who holds which keys, and why the project is set up this way.
 4. [docs/LORA.md](docs/LORA.md): the LoRa mesh radio: the Meshtastic, MeshCore and Reticulum networks, how to build the radio in, and its band rules.
-5. [docs/BOARDS.md](docs/BOARDS.md): development boards, including the Raspberry Pi Compute Module 5.
+5. [docs/BOARDS.md](docs/BOARDS.md): the candidate boards for the cyber-deck's main board, Arm and RISC-V, with their Linux and secure-boot support.
 6. [docs/FEASIBILITY.md](docs/FEASIBILITY.md): the research, with sources: the routes to a device, the rules, earlier phone projects and the risks.
 
 ## What's in this repository

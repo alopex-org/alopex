@@ -9,7 +9,8 @@ Never copy anything from them into a commit, pull request or issue.
 
 ## The project in brief
 
-Alopex, the hardware project in this repository (`alopex`), designs a cyber-deck: a hand-held computer with a slide-out keyboard and a LoRa mesh radio, built around a Raspberry Pi Compute Module 5 and running FoxieOS, a Linux system.
+Alopex, the hardware project in this repository (`alopex`), designs a cyber-deck: a hand-held computer with a slide-out keyboard and a LoRa mesh radio, running FoxieOS, a Linux system.
+Its main board is open (roadmap decision D1): a Raspberry Pi compute module is one candidate among other single-board computers and modules, so don't write any board as chosen.
 It set out to build a phone for an Android-based system; the move to a cyber-deck is a proposal for the maintainers to confirm, so don't write it as settled.
 Whether the project builds only a prototype or aims at a product it sells is open (roadmap decision D5): don't write either as decided.
 It is separate from the FoxieOS operating system and doesn't follow its plan.
@@ -41,7 +42,7 @@ Don't add a step that only one agent's own tools can perform.
    Write the procedure; the maintainer handles the keys.
    Bench work uses dev keys that never sign anything published.
 2. **No action on hardware without a go-ahead for that action.**
-   This covers blowing secure-boot fuses (on a Raspberry Pi, writing a key into its one-time-programmable memory), writing an image to a board or device, `fastboot flash`, unlocking and locking a bootloader, and wiping a board or device.
+   This covers blowing secure-boot fuses (for example, on a Raspberry Pi, writing a key into its one-time-programmable memory), writing an image to a board or device, `fastboot flash`, unlocking and locking a bootloader, and wiping a board or device.
    Blown fuses can't be restored, and relocking a device that isn't proven relockable can brick it.
    Never transmit on a LoRa radio without its antenna connected, or outside the band allowed where it is used (868 MHz in Europe), and never pull the last battery from a running board to test the power path.
 3. **Nothing outward-facing without the maintainer.**

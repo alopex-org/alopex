@@ -1,10 +1,10 @@
 # Cyber-deck prototype
 
 **Status: proposal.**
-This page describes the proposed first device: a rugged, hand-held cyber-deck built around a Raspberry Pi, for private messaging with and without a network.
+This page describes the proposed first device: a rugged, hand-held cyber-deck for private messaging with and without a network.
 Nothing on it is decided.
 The design comes from a set of concept renders shared with the members in November 2026; they show the look and the layout, not a finished engineering design.
-The maintainers weigh it in roadmap decisions [D1](ROADMAP.md#d1-route-to-a-prototype) (route to a prototype), [D2](ROADMAP.md#d2-cellular-or-wi-fi-only) (cellular or Wi-Fi only), [D6](ROADMAP.md#d6-operating-system-of-the-first-prototype) (operating system), [D7](ROADMAP.md#d7-signal-gauges) (signal gauges) and [D8](ROADMAP.md#d8-case) (case).
+The maintainers weigh it in roadmap decisions [D1](ROADMAP.md#d1-route-to-a-prototype) (route to a prototype and main board), [D2](ROADMAP.md#d2-cellular-or-wi-fi-only) (cellular or Wi-Fi only), [D6](ROADMAP.md#d6-operating-system-of-the-first-prototype) (operating system), [D7](ROADMAP.md#d7-signal-gauges) (signal gauges) and [D8](ROADMAP.md#d8-case) (case).
 Technical words are explained in the [glossary](GLOSSARY.md).
 
 **How to read it:**
@@ -18,7 +18,7 @@ Technical words are explained in the [glossary](GLOSSARY.md).
 
 - **The device:** an upright hand-held computer with a touchscreen that slides sideways to uncover a physical keyboard, a telescopic LoRa antenna, two signal gauges on top, knobs on the sides, and two 18650 batteries at the back that can be swapped one at a time while it runs.
 - **What it is for:** encrypted messages without any network over a LoRa mesh, with position sharing, and over the internet through Wi-Fi when there is one.
-- **Inside:** a Raspberry Pi Compute Module 5 on a board of the project's own, a LoRa radio, a GNSS receiver, a removable USB Wi-Fi adapter, and hardware switches that cut the radios and the microphone.
+- **Inside:** a main board still to choose (a Raspberry Pi compute module, another single-board computer or module, or something else; decision D1), a LoRa radio, a GNSS receiver, a removable USB Wi-Fi adapter, and hardware switches that cut the radios and the microphone.
 - **Its software** is [FoxieOS](https://github.com/alopex-org/foxieos), a Linux system for this device (decision D6).
 - **It fits the plan's cheapest route:** Wi-Fi only, with no cellular module and no mobile-network patent licences (decisions D1 and D2).
 - **The hard parts** are mechanical: the sliding screen and its cable, the double battery bay, and fitting it all in a case that is still hand-held.
@@ -80,7 +80,7 @@ These are mock-ups of FoxieOS's interface, which FoxieOS designs on its side (it
 
 ## How it fits the plan
 
-- **Decision D1 (route to a prototype):** a Compute Module 5 on a board of the project's own, in a case of the project's own.
+- **Decision D1 (route to a prototype and main board):** a board or module chosen after task T2 compares candidates, in a case of the project's own.
 - **Decision D2 (cellular or Wi-Fi only):** Wi-Fi only, the cheaper first prototype the roadmap recommends.
 - **Decision D4 (LoRa mesh network):** Meshtastic by default.
 - **Decision D6 (operating system):** FoxieOS, a Linux system, instead of Android.
@@ -92,7 +92,7 @@ These are mock-ups of FoxieOS's interface, which FoxieOS designs on its side (it
 
 | Part | Proposed | Details |
 |---|---|---|
-| Main board | Raspberry Pi Compute Module 5 on a carrier board of the project's own | [Main board](#main-board) |
+| Main board | Open: a Raspberry Pi compute module, another board or module, or something else | [Main board](#main-board) |
 | Screen | A portrait touchscreen on a slide | [Screen and slide](#screen-and-slide) |
 | Keyboard | About 35 keys, with a small controller | [Keyboard](#keyboard) |
 | LoRa radio | SX1262, 868 MHz, telescopic antenna | [LoRa radio](#lora-radio) |
@@ -109,14 +109,21 @@ These are mock-ups of FoxieOS's interface, which FoxieOS designs on its side (it
 
 ### Main board
 
-- **Raspberry Pi Compute Module 5 (CM5),** on a carrier board of the project's own; the Raspberry Pi 5 is the ready-made board for bench work.
-  [BOARDS.md](BOARDS.md#raspberry-pi-5-and-compute-module-5) compares them with the other boards.
-- The CM5 is sold with or without wireless; one without wireless leaves the USB adapter as the device's only Wi-Fi.
-  It comes with 2–16 GB of memory and 0–64 GB of built-in storage (eMMC), from $67.50, and stays in production until at least January 2036.
-- Secure boot is documented publicly, and Raspberry Pi's own open tool sets it up; it writes a key's fingerprint into the chip for good ([DESIGN.md](DESIGN.md#each-party-keeps-its-own-keys)).
-- ⚠ The Pi 5's supply needs, and how much current its USB ports may draw, need checking against Raspberry Pi's documentation (check C13).
+The computer inside the cyber-deck is still to choose (decision [D1](ROADMAP.md#d1-route-to-a-prototype)); task T2 compares candidates on the bench.
+The renders don't depend on it: any board that fits the case and drives the parts below will do.
 
-Sources: [Compute Module 5][rpi-cm5], [Raspberry Pi hardware documentation][rpi-hw].
+- **What it needs:** mainline or well-kept Linux support, so FoxieOS can run on it; SPI, I2C or UART and spare pins for the LoRa radio, GNSS receiver, knobs and switches; a display and touch connection; USB for the Wi-Fi adapter and the keyboard controller; a public secure-boot design the owner can control; and a power draw two 18650 cells can carry.
+- **The candidates:**
+  - **a Raspberry Pi compute module,** such as the Compute Module 5 (CM5), on a carrier board of the project's own.
+    The CM5 is sold with or without wireless, with 2–16 GB of memory and 0–64 GB of built-in storage (eMMC), from $67.50, and stays in production until at least January 2036; its secure boot is documented publicly and writes a key's fingerprint into the chip for good ([BOARDS.md](BOARDS.md#raspberry-pi-5-and-compute-module-5)).
+    The uConsole and the HackberryPi CM5 use Raspberry Pi modules ([below](#cyber-decks-that-already-exist)).
+  - **another single-board computer or module,** Arm or RISC-V; [BOARDS.md](BOARDS.md#comparison) compares NXP i.MX, TI AM62x, Rockchip RK3588, MediaTek Genio, Qualcomm QCS6490 and SpacemiT K3 boards on mainline Linux and public secure-boot guides.
+  - **a ready-made single-board computer** fitted into the case as it is, which saves designing a carrier board but constrains the case's shape (unsourced).
+  - **a microcontroller,** such as the ESP32-S3 in the LILYGO T-Deck: it lasts far longer on a battery, but runs no Linux, so not FoxieOS (decision D6).
+- **A board without built-in wireless** leaves the USB adapter as the device's only Wi-Fi, which the hardware switch can cut for certain.
+- ⚠ Each candidate's supply needs, and how much current its USB ports may draw, need checking against its maker's documentation (check C13).
+
+Sources: [Compute Module 5][rpi-cm5], [Raspberry Pi hardware documentation][rpi-hw], [Meshtastic: T-Deck][mt-tdeck].
 
 ### Screen and slide
 
@@ -131,7 +138,7 @@ Sources: [Compute Module 5][rpi-cm5], [Raspberry Pi hardware documentation][rpi-
 - About 35 keys, with Shift, Ctrl and Fn layers for numbers and symbols.
 - **Own keys, or a reused keyboard:**
   - Beepy and the HackberryPi reuse BlackBerry keyboards; Beepy reads its keyboard with an RP2040 microcontroller.
-  - The renders' keys are larger than a BlackBerry's, which suggests keys of the project's own in a grid, read by a small microcontroller that shows up to the CM5 as a USB keyboard (unsourced).
+  - The renders' keys are larger than a BlackBerry's, which suggests keys of the project's own in a grid, read by a small microcontroller that shows up to the main board as a USB keyboard (unsourced).
 - The keys must still be reachable with the screen slid out, and protected when it is in.
 
 Sources: [Hackaday: Beepy review][had-beepy], [HackberryPi CM5][hackberry-cm5].
@@ -140,8 +147,8 @@ Sources: [Hackaday: Beepy review][had-beepy], [HackberryPi CM5][hackberry-cm5].
 
 - **Choose the SX1262.**
   Meshtastic recommends it, and most current Meshtastic hardware uses it.
-- **Straight to the CM5, over SPI:** Meshtastic's Linux service, `meshtasticd`, drives an SX1262 on the Pi's SPI pins.
-  This differs from the plan's earlier design, a small separate processor with its own LoRa chip ([LORA.md](LORA.md#integrating-the-radio)); the CM5 then stays awake for the mesh, which costs battery (unsourced).
+- **Straight to the main board, over SPI:** Meshtastic's Linux service, `meshtasticd`, drives an SX1262 on a Raspberry Pi's SPI pins; ⚠ on another board, its support needs checking (check C10).
+  This differs from the plan's earlier design, a small separate processor with its own LoRa chip ([LORA.md](LORA.md#integrating-the-radio)); the main board then stays awake for the mesh, which costs battery (unsourced).
   Task T6 compares the two on the bench.
 - **Antenna:** a telescopic whip tuned for 868 MHz on an SMA connector.
   A quarter of the wavelength at 868 MHz is about 8.6 cm, a guide to the whip's length (calculation).
@@ -155,7 +162,7 @@ Sources: [Meshtastic Linux hardware][mt-linux], [Meshtastic LoRa configuration][
 The two round gauges show the strength (RSSI) and clarity (SNR) of the last LoRa message received.
 Whether they are real needles or small round screens is decision [D7](ROADMAP.md#d7-signal-gauges).
 
-- **Moving-coil meters:** real needles, driven by the CM5 or a microcontroller; they look like the renders, but are fragile and need their own scale printed (unsourced).
+- **Moving-coil meters:** real needles, driven by the main board or a microcontroller; they look like the renders, but are fragile and need their own scale printed (unsourced).
 - **Small round screens:** draw the needle in software, can show more, and survive drops better, but use more power (unsourced).
 - **Either way,** a reading arrives only with each received message, so the needle jumps and then rests; FoxieOS decides how to show that (unsourced).
 - The band strip above the screen can be a small display or a printed label.
@@ -164,7 +171,7 @@ Whether they are real needles or small round screens is decision [D7](ROADMAP.md
 
 - **Rotary knobs** (rotary encoders, which turn without end and click) for scrolling, volume or choosing a channel (unsourced).
 - **Three buttons under the screen** (back, home, overview), and buttons on the right edge.
-- Each is read by the CM5's pins or the keyboard's microcontroller; what each does is FoxieOS's choice.
+- Each is read by the main board's pins or the keyboard's microcontroller; what each does is FoxieOS's choice.
 
 ### Wi-Fi adapter
 
@@ -198,7 +205,7 @@ Switches on the edge of the case cut the power to the USB Wi-Fi adapter, the LoR
   This replaces the small backup cell of the earlier handheld proposal.
 - **Each bay needs** its own protection, a charger that can charge each cell on its own, and a way to tell the operating system which cells are present and how full they are (unsourced).
 - **A cell put in backwards** must not damage anything, since users swap them by hand (unsourced).
-- **Power budget:** the CM5, the screen and the radios draw more than a microcontroller device; the converter to 5 V and the battery life are the main electrical work (check C13).
+- **Power budget:** a Linux main board, the screen and the radios draw more than a microcontroller device; the converter to 5 V and the battery life are the main electrical work (check C13).
 - **EU rules:** from 2027-02-18, batteries in portable products must be removable and replaceable by the user, which this design meets ([FEASIBILITY.md](FEASIBILITY.md#eu-battery-rules)).
 
 ### Case and size
@@ -269,7 +276,8 @@ Sources: [clockworkPi uConsole][uconsole], [CNX Software on the uConsole][cnx-uc
 The device runs [FoxieOS](https://github.com/alopex-org/foxieos), a Linux system for it (decision [D6](ROADMAP.md#d6-operating-system-of-the-first-prototype)).
 
 - FoxieOS is a separate project, and adapts to this design; this project doesn't follow FoxieOS's plan ([DESIGN.md](DESIGN.md#a-separate-project)).
-- **Android on a CM5:** only a community build exists, with its security rules (SELinux) off, no encryption of user data, and a ban on commercial use ([BOARDS.md](BOARDS.md#raspberry-pi-5-and-compute-module-5)).
+- **Android:** on many small boards only a community or developer build exists; on a Raspberry Pi 5 or CM5, its security rules (SELinux) are off, it doesn't encrypt user data, and it may not be used commercially ([BOARDS.md](BOARDS.md#raspberry-pi-5-and-compute-module-5)).
+- **A microcontroller main board** would run the mesh network's own firmware instead of FoxieOS (decision D1).
 - **What the hardware must allow** for FoxieOS's plans:
   - encrypting the whole storage, which LUKS does on Linux;
   - a new random MAC address on every network;
@@ -288,6 +296,7 @@ Sources: [cryptsetup][cryptsetup], [Session][session], [Briar Desktop][briar-des
 
 ## Open questions
 
+- Which main board goes inside (decision D1).
 - Whether the gauges are needles or small screens (decision D7), and how the case is made (decision D8).
 - The screen's size, and whether its cable survives the slide (task T8, check C15).
 - The double battery bay's power path, and the battery life (checks C13 and C16).
