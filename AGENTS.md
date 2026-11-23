@@ -10,7 +10,9 @@ Never copy anything from them into a commit, pull request or issue.
 ## The project in brief
 
 Alopex, the hardware project in this repository (`alopex`), works toward a cyber-deck: a portable computer of its own.
-The cyber-deck is a proposal for the maintainers, and everything about it is undecided: its purpose, form, main board, radios, power and software.
+The cyber-deck is a proposal for the maintainers.
+The only part decided is a built-in LoRa mesh radio (decided 2026-11-21; which network is decision D4).
+Everything else about it is undecided: its purpose, form, main board, other radios, power and software.
 Don't write any of these as decided, or assume one from earlier documents or drafts; list options instead.
 The project started out researching a phone for an Android-based operating system, and that research stays as background.
 Whether the project builds only a prototype or aims at a product it sells is open (roadmap decision D5): don't write either as decided.

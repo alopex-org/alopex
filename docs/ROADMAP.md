@@ -8,9 +8,9 @@ Technical words are explained in the [glossary](GLOSSARY.md).
 
 - **Done:** task T0, the research and this repository, on 2026-11-20.
 - **Decided:** the project is separate from FoxieOS, and lives in the `alopex-org` GitHub organization ([DESIGN.md](DESIGN.md#key-decisions)).
+  The device has a built-in LoRa mesh radio ([LORA.md](LORA.md)).
 - **Proposed 2026-11-24:** the device is a cyber-deck, a portable computer of the project's own ([CYBERDECK.md](CYBERDECK.md)).
-  Nothing else about it is decided: its purpose, form, parts and software are open.
-  A built-in LoRa radio, recorded as decided on 2026-11-21 for a phone, is open again (decision D4).
+  Apart from its LoRa radio, nothing else about it is decided: its purpose, form, other parts and software are open.
 - **Founding meeting, 2026-11-24:** the members choose the maintainers, who decide the project's foundations together ([governance](https://github.com/alopex-org/.github/blob/main/GOVERNANCE.md#founding-maintainers)).
   One interim maintainer decided everything marked decided here, so the meeting confirms or changes it.
   The meeting also takes decision D5: a prototype only, or a product.
@@ -50,7 +50,7 @@ Technical words are explained in the [glossary](GLOSSARY.md).
 | [D1](#d1-route-to-a-prototype) | How is the cyber-deck built, and around what main board? | Open | A prototype |
 | [D2](#d2-cellular-or-wi-fi-only) | Does the cyber-deck connect to mobile networks, or not? | Open | D1 |
 | [D3](#d3-sharing-prototypes) | Do prototypes stay with the maintainers, or reach other enthusiasts, and how? | Open | D1 |
-| [D4](#d4-lora-mesh-network) | Does the cyber-deck have a LoRa mesh radio, and if so, which network? | Open | T6 |
+| [D4](#d4-lora-mesh-network) | Which LoRa mesh network does the device come with: Meshtastic, MeshCore or both? | Open | T6 |
 | [D5](#d5-prototype-or-product) | Does the project stop at a prototype, or aim at a product it sells? | Open: founding meeting | D1, D3, T4, T5 |
 | [D6](#d6-operating-system-of-the-first-prototype) | What operating system does the cyber-deck run? | Open | D1 |
 
@@ -95,19 +95,15 @@ But whoever puts a device on the market carries the certification, patent and EU
 
 ### D4: LoRa mesh network
 
-Whether the cyber-deck has a LoRa mesh radio, and if so, which network it runs.
+Which mesh network the LoRa radio runs.
 Open; needed by T6.
 
-An earlier version of this roadmap recorded a built-in LoRa radio as decided on 2026-11-21, for a phone; with the move to a cyber-deck, it is open again.
-
 - **Options** ([LORA.md](LORA.md#the-mesh-networks)):
-  - **No LoRa radio.**
   - **Meshtastic:** the largest network, under the GPL-3.0 licence; messages spread to every neighbour, which needs no planning but uses more airtime.
   - **MeshCore:** under the MIT licence; messages travel through fixed repeaters, which works better at scale where repeaters exist.
   - **Both:** hardware that runs either network's software, with one as the default and the other installable by the user.
   - **Reticulum:** the most general, but its licence keeps it out of Debian and F-Droid.
-- **Recommendation:** decide whether after task T1.
-  If the cyber-deck has one, the earlier research suggested both networks, with Meshtastic as the default because more people use it, if check C10 confirms that one LoRa design runs both.
+- **Recommendation:** both, with Meshtastic as the default because more people use it, if check C10 confirms that one LoRa design runs both.
 
 ### D5: prototype or product
 
@@ -159,7 +155,8 @@ The list of what the cyber-deck must offer.
   - what the cyber-deck is for, and who uses it;
   - its form and size, its screen, and how it is typed on and controlled;
   - its main board, and how long its software gets fixes;
-  - its radios: Wi-Fi, mobile networks, Bluetooth, satellite positioning, LoRa;
+  - its other radios: Wi-Fi, mobile networks, Bluetooth, satellite positioning;
+  - how the LoRa radio is built in, and for which bands ([LORA.md](LORA.md));
   - its power: battery, charging and battery life;
   - privacy and security, such as hardware switches and secure boot; if it has secure boot, who holds the key ([DESIGN.md](DESIGN.md#each-party-keeps-its-own-keys));
   - repair, and how the case is made.
@@ -210,8 +207,7 @@ On hold until decision D5: having an ODM build a phone is a route to a product (
 
 ### T6: LoRa bench work
 
-Trying a LoRa radio design on the bench.
-On hold unless decision D4 gives the cyber-deck a LoRa radio.
+Trying the LoRa radio design on the bench.
 **Hands-on.** Needs task T1, decision D4 and checks C10 and C11, and the maintainer to buy a LoRa development board.
 Can run alongside task T2.
 
@@ -244,7 +240,7 @@ Can run alongside task T2; Linux is enough to test the hardware, whatever decisi
 The longest chains of work, where each step waits for the one before:
 
 - T1 → T2, then T3 if decision D2 chooses a cellular device;
-- at the same time, T1 → D4 → T6, if the cyber-deck has a LoRa radio;
+- at the same time, T1 → D4 → T6;
 - if the maintainers want it, T1 → C13 and C14 → T7;
 - check C12 → D3, and D5 → D1 and D3.
 

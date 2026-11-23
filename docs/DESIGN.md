@@ -7,20 +7,23 @@ The research and sources behind it are in [FEASIBILITY.md](FEASIBILITY.md), and 
 ## In short
 
 - The project works toward a cyber-deck, a portable computer of its own, in cheap steps (proposed for the maintainers to confirm).
-- What the cyber-deck is for, what it has, what it is built from and what it runs are all undecided ([CYBERDECK.md](CYBERDECK.md)).
+- A LoRa radio for messaging without a mobile network is a core feature.
+- Apart from that, what the cyber-deck is for, what it has, what it is built from and what it runs are all undecided ([CYBERDECK.md](CYBERDECK.md)).
 - Whether the project stops at a prototype or aims at a product is for the maintainers to decide (decision D5).
 - The first steps are the same either way: a list of requirements, then bench work on development boards.
-- The earlier research into a phone, a LoRa radio and a Raspberry Pi handheld stays as background and options, not as plans.
+- The earlier research into a phone and a Raspberry Pi handheld stays as background and options, not as plans.
 - If the device has secure boot, whoever builds it keeps its permanent chip key, and each operating system keeps its own signing key (proposed).
 
 ## Purpose
 
 The project works toward a cyber-deck: a portable computer of its own ([A cyber-deck as the device](#a-cyber-deck-as-the-device)).
-Everything about the device is still open: what it is for, its form, its parts, and the software it runs (roadmap decision D6).
+Apart from its LoRa radio, everything about the device is still open: what it is for, its form, its other parts, and the software it runs (roadmap decision D6).
+
+A LoRa radio for messaging without a mobile network, over a mesh of other devices, is a core feature of any device the project works toward ([LoRa mesh radio](#lora-mesh-radio-as-a-core-feature)).
 Whether it stays a prototype, built in small numbers and not sold, or leads to a product is open: the maintainers decide it at their founding meeting on 2026-11-24 ([Prototype or product](#prototype-or-product)).
 
 The project started out researching a phone for an operating system based on Android.
-That research, with the work on a LoRa mesh radio and a Raspberry Pi handheld, stays as background for the cyber-deck's decisions.
+That research, with the work on a Raspberry Pi handheld, stays as background for the cyber-deck's decisions.
 
 The project does **not**:
 
@@ -77,7 +80,7 @@ Each decision says what was chosen, why, and what was turned down.
 Proposed 2026-11-24, for the founding meeting to confirm.
 
 - **What:** the device the project works toward is a cyber-deck, a portable computer of the project's own ([CYBERDECK.md](CYBERDECK.md)).
-  Nothing else about it is decided: its purpose, form, main board, radios, power and software are open, through task T1 and decisions D1–D6.
+  Apart from its LoRa radio, decided earlier, nothing else about it is decided: its purpose, form, main board, other radios, power and software are open, through task T1 and decisions D1–D6.
 - **Why:** the direction proposed for the maintainers; the meeting records its reasons when it decides.
 - **Turned down:** a phone as the device, the project's earlier aim; its research stays as background ([FEASIBILITY.md](FEASIBILITY.md)).
 
@@ -120,10 +123,7 @@ Decided 2026-11-20, following FoxieOS's decision D3.
 
 ### LoRa mesh radio as a core feature
 
-Open again (roadmap decision D4).
-An earlier version of this page recorded a built-in LoRa radio as decided on 2026-11-21, for a phone.
-With the move to a cyber-deck, every part of the device is open, so whether it has a LoRa radio goes back to the maintainers.
-What was recorded then, for reference:
+Decided 2026-11-21, and kept for the cyber-deck; which network to use is proposed (roadmap decision D4).
 
 - **What:** the device has a LoRa radio on its own circuit board, for messaging over a mesh network such as Meshtastic or MeshCore, with no mobile network or Wi-Fi.
   The proposed design is a small separate processor (a microcontroller) with its own LoRa chip, connected to the main processor by a cable-like link (UART or USB), running the mesh network's own software ([LORA.md](LORA.md#integrating-the-radio)).
@@ -188,8 +188,8 @@ Proposed (task T1 writes it into the requirements); it applies if the device has
 - **Parts in small numbers are hard to get.**
   Chip makers and ODMs prefer large orders, and memory prices rose sharply in 2026 ([FEASIBILITY.md](FEASIBILITY.md#odm-phone)).
   The prototype is built from modules and boards that can be bought one at a time.
-- **LoRa has its own band rules,** if the device has a LoRa radio.
-  The radio needs its own certification for short-range devices, and in Europe must keep to each sub-band's limit on how long it may transmit ([LORA.md](LORA.md#certification-and-band-rules)).
+- **LoRa has its own band rules.**
+  The LoRa radio needs its own certification for short-range devices, and in Europe must keep to each sub-band's limit on how long it may transmit ([LORA.md](LORA.md#certification-and-band-rules)).
 - **Bench hardware isn't a finished device.**
   The development boards in the research have no mobile-network modem, and none has a finished device's case, battery or certification ([FEASIBILITY.md](FEASIBILITY.md#development-board)).
 

@@ -2,8 +2,8 @@
 
 **Status: proposal.**
 Since 2026-11-24, the project is proposed to work toward a cyber-deck: a portable computer of its own.
-That is the only thing proposed.
-What the cyber-deck is for, its form, its parts and the software it runs are all undecided.
+It keeps the built-in LoRa mesh radio decided for the project's device on 2026-11-21 ([LORA.md](LORA.md)).
+Apart from that, what the cyber-deck is for, its form, its other parts and the software it runs are all undecided.
 This page says what a cyber-deck is, lists what is undecided and where each question is decided, and describes cyber-decks that already exist.
 Technical words are explained in the [glossary](GLOSSARY.md).
 
@@ -17,9 +17,9 @@ Technical words are explained in the [glossary](GLOSSARY.md).
 ## In short
 
 - A cyber-deck is a custom-built, portable computer, often made for one purpose, nominally with a keyboard and a screen.
-- The project proposes to build one; nothing about it is decided yet.
+- The project proposes to build one; apart from its LoRa mesh radio, nothing about it is decided yet.
 - The first step is a list of requirements (roadmap task T1); the open decisions follow from it.
-- The earlier research into a phone, a LoRa radio, development boards and a Raspberry Pi handheld is background for those decisions, not a plan.
+- The earlier research into a phone, development boards and a Raspberry Pi handheld is background for those decisions, not a plan.
 
 ## What a cyber-deck is
 
@@ -31,7 +31,7 @@ Sources: [Wikipedia: Cyberdeck][wiki-cyberdeck], [Hackaday 2022 contest][had-202
 
 ## What is undecided
 
-Everything below is open.
+Everything below is open; the LoRa radio itself is decided, but not which network it runs.
 Task T1 drafts the requirements, and the maintainers decide through the roadmap items named.
 
 | Question | Where it is decided |
@@ -41,7 +41,7 @@ Task T1 drafts the requirements, and the maintainers decide through the roadmap 
 | How it is built, and around what main board | Decision [D1](ROADMAP.md#d1-route-to-a-prototype) |
 | Whether it connects to mobile networks | Decision [D2](ROADMAP.md#d2-cellular-or-wi-fi-only) |
 | Its other radios, such as Wi-Fi, Bluetooth and satellite positioning | Task T1 |
-| Whether it has a LoRa mesh radio, and which network | Decision [D4](ROADMAP.md#d4-lora-mesh-network) |
+| Which mesh network its LoRa radio runs | Decision [D4](ROADMAP.md#d4-lora-mesh-network) |
 | Its power: battery, charging and battery life | Task T1 |
 | Privacy and security, such as hardware switches and secure boot | Task T1 |
 | Its case, and how it is repaired | Task T1 |
@@ -53,7 +53,7 @@ Task T1 drafts the requirements, and the maintainers decide through the roadmap 
 
 - [FEASIBILITY.md](FEASIBILITY.md): the research into a phone: the routes to a device, certification and the EU's rules, which apply to the cyber-deck too if it is sold.
 - [BOARDS.md](BOARDS.md): development boards compared for the earlier phone plan, which can be candidates for the bench.
-- [LORA.md](LORA.md): LoRa mesh networks and how a LoRa radio could be built in, if decision D4 gives the cyber-deck one.
+- [LORA.md](LORA.md): the LoRa mesh networks, how the radio could be built in, and its certification.
 - [HANDHELD.md](HANDHELD.md): a Raspberry Pi handheld proposed on 2026-11-23, one worked-out option.
 
 ## Cyber-decks that already exist
