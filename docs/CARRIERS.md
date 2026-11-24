@@ -21,7 +21,7 @@ Technical words are explained in the [glossary](GLOSSARY.md).
 - It has two pins that switch its Wi-Fi and Bluetooth off in hardware, which a kill switch could drive.
 - Ready-made carriers range from boards the size of the module itself (Waveshare's Nano boards) to Raspberry Pi's own 160 × 90 mm IO board; most run from a 5 V supply and have no battery.
 - A few open designs already run a CM5 from a battery: the Argo carrier, and the main boards of the HackberryPi CM5 and piBrick hand-helds.
-- None of the carriers found has a LoRa radio on the board; the uConsole's add-on board is the one CM5 setup found with LoRa, and users report it needs care to set up.
+- Only one carrier found has a LoRa radio on the board: the first revision of the open CM5 MINIMA, with a RAK3172 LoRaWAN module; the uConsole's add-on board is the other CM5 setup found with LoRa, and users report it needs care to set up.
 - Raspberry Pi publishes its IO board in KiCad, and the Argo and CM5 MINIMA carriers are open under the CERN-OHL-S licence, so a carrier of the project's own need not start from nothing.
 
 ## What matters for the cyber-deck
@@ -70,6 +70,7 @@ Sources: [CM5 datasheet][cm5-ds], [Compute Module 5][rpi-cm5], [Linux: Broadcom 
 | [Waveshare CM5-NANO-B](#waveshare-nano-boards) | 55 × 41 | 5 V, 5 A | RTC header only | None | Not stated | $17.99 |
 | [Waveshare CM5 to Pi 5 Adapter](#waveshare-cm5-to-pi-5-adapter) | 85 × 56 | 5 V, 5 A | RTC header only | None | Not stated | $19.99 |
 | [CM5 MINIMA REV2](#cm5-minima) | ⚠ 54 × 57 or 61 × 61 | USB-C PD | None | None on the board | CERN-OHL-S-2.0 | $65 |
+| [CM5 MINIMA REV1](#cm5-minima) | 54 × 57 | USB-C PD | None | RAK3172, LoRaWAN | CERN-OHL-S-2.0 | Not sold |
 | [Argo](#argo) | ⚠ Not found | USB-C or battery | Charger and 5 V boost | None | CERN-OHL-S-2.0, no commercial copies | ⚠ Not found |
 | [HackberryPi CM5 main board](#hackberrypi-cm5) | Device 143.5 × 91.8 | USB-C or battery | 5000 mAh LiPo | None | MIT | ⚠ Not found |
 | [piBrick Pocket-CM5](#pibrick-pocket-cm5) | ⚠ Not found | Battery | 5000 mAh Li-ion | None | ⚠ GPL 3.0, repository not found | ⚠ About $172 in parts |
@@ -119,9 +120,11 @@ Sources: [Waveshare CM5 to Pi 5 Adapter][ws-cm5-pi5].
 - No microSD slot, so a CM5 with eMMC is advised; no battery charger.
 - $65 at both sellers.
 - ⚠ Its size is 5.4 × 5.7 cm in its repository and at Elecrow, but 61 × 61 × 15 mm at Seeed (check C16).
-- Its repository also holds a LoRaWAN schematic sheet with a RAK3172 LoRa module, which the REV2 board's schematic doesn't include.
+- **REV1,** the first revision, has a RAK3172 LoRaWAN module from RAKwireless on the board, and is also certified by the OSHWA (IT000019); its README says it was tested and works, after the module's serial connection was moved to another UART.
+  REV2 dropped the module, though its repository still holds the unused schematic sheet.
+  ⚠ Whether the RAK3172 can run a mesh network such as Meshtastic or MeshCore, rather than LoRaWAN, wasn't checked (check C16).
 
-Sources: [CM5 MINIMA REV2 repository][minima-repo], [OSHWA certificate][minima-oshwa], [Seeed: CM5 MINIMA][seeed-minima], [Elecrow: CM5 MINIMA R2][elecrow-minima].
+Sources: [CM5 MINIMA REV2 repository][minima-repo], [CM5 MINIMA REV1 repository][minima-rev1-repo], [OSHWA certificate][minima-oshwa], [Seeed: CM5 MINIMA][seeed-minima], [Elecrow: CM5 MINIMA R2][elecrow-minima].
 
 ## Carriers built for a battery
 
@@ -177,7 +180,7 @@ What the sources say about designing one; what it should hold is task T1's to de
   - The Argo and the CM5 MINIMA, open under CERN-OHL-S-2.0: a strongly reciprocal licence, under which a design built on theirs is published under the same licence (unsourced); Argo's author also asks for an agreement before commercial copies.
   - The HackberryPi CM5's schematic, under MIT.
 - **Power:** the CM5 needs only 5 V, so a battery design is a charger and a boost converter to 5 V, as on the Argo (BQ25895 and TPS61022) and the HackberryPi (IP5306 and IP5310).
-- **LoRa:** no carrier found has a LoRa radio on the board; the CM5's SPI pins can take one, as the uConsole AIO V2 does ([LORA.md](LORA.md)).
+- **LoRa:** the CM5 MINIMA REV1 puts a LoRa module on the carrier itself, on a serial port; the uConsole AIO V2 puts an SX1262 on the CM5's SPI pins ([LORA.md](LORA.md)).
 - **Wi-Fi and kill switches:**
   - With a CM5 with wireless, a switch could hold `WL_nDisable` and `BT_nDisable` low.
   - With a CM5 without wireless, Wi-Fi could come from a card or a USB adapter whose power a switch cuts, as the [handheld proposal](HANDHELD.md#main-board) does.
@@ -193,7 +196,7 @@ Observations for task T1 and decision D1, not a choice.
 
 - **Size:** a CM5 carrier can be as small as the module (55 × 40 mm), smaller than any board on the shortlist except the Raspberry Pi Zero 2 W ([SHORTLIST.md](SHORTLIST.md#comparison)).
 - **Battery:** none of the small ready-made carriers runs from a battery; the battery-ready designs found are the Argo, not yet on sale, and the main boards of two hand-helds.
-- **LoRa:** no carrier has it, so LoRa comes from an add-on board or from a carrier of the project's own.
+- **LoRa:** only the MINIMA's first revision has it, and it isn't sold, so LoRa comes from an add-on board or from a carrier of the project's own.
 - **Kill switches:** the CM5's two radio-disable pins are a starting point; whether they are enough is check C16.
 - **Open designs:** enough exist (Raspberry Pi's IO board, the Argo, the MINIMA, the HackberryPi) that a carrier of the project's own can build on them, within their licences.
 
@@ -214,7 +217,7 @@ All checked on 2026-11-24.
 ### Carriers
 
 - [Waveshare CM5-NANO-A][ws-nano-a], [Waveshare CM5-NANO-B][ws-nano-b] and [Waveshare CM5 to Pi 5 Adapter][ws-cm5-pi5]: sizes, power, interfaces and prices.
-- [CM5 MINIMA REV2 repository][minima-repo], [OSHWA certificate][minima-oshwa], [Seeed: CM5 MINIMA][seeed-minima] and [Elecrow: CM5 MINIMA R2][elecrow-minima]: features, size, licence, the LoRaWAN sheet and prices.
+- [CM5 MINIMA REV2 repository][minima-repo], [CM5 MINIMA REV1 repository][minima-rev1-repo], [OSHWA certificate][minima-oshwa], [Seeed: CM5 MINIMA][seeed-minima] and [Elecrow: CM5 MINIMA R2][elecrow-minima]: features, size, licence, the LoRaWAN sheet and prices.
 - [Argo repository][argo-repo]: features, battery charger, licence and the planned campaign.
 - [HackberryPi CM5][hackberry-cm5] and [HackberryPi CM5 hardware][hackberry-hw]: power chips, battery, connectors and licence.
 - [LavX on the piBrick Pocket-CM5][lavx-pibrick]: the hand-held's parts, licence and cost.
@@ -239,6 +242,7 @@ All checked on 2026-11-24.
 [linux-broadcom]: https://github.com/torvalds/linux/tree/master/arch/arm64/boot/dts/broadcom
 [minima-oshwa]: https://certification.oshwa.org/it000020.html
 [minima-repo]: https://github.com/piecol/CM5_MINIMA_REV2
+[minima-rev1-repo]: https://github.com/piecol/CM5_MINIMA_REV1
 [rpi-cm5]: https://www.raspberrypi.com/products/compute-module-5/
 [rpi-cm5io]: https://www.raspberrypi.com/products/compute-module-5-io-board/
 [rpi-design-files]: https://pip.raspberrypi.com/categories/1098-design-files
