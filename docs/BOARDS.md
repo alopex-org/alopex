@@ -22,7 +22,7 @@ Technical words are explained in the [glossary](GLOSSARY.md).
 - Android 17 now runs on two RISC-V boards, but only as an early version for developers.
 - Google itself has stepped back from RISC-V for now, and no RISC-V chip with a mobile-network modem was found, so a RISC-V device would start as Wi-Fi only.
 - Among Arm boards, NXP's are the most up to date and the best documented for security.
-- The proposal: buy a SpacemiT K3 Pico-ITX (RISC-V) to get Android running, and an NXP i.MX 95 board to practise the security steps.
+- The proposal, made for the earlier phone plan: buy a SpacemiT K3 Pico-ITX (RISC-V) to get Android running, and an NXP i.MX 95 board to practise the security steps.
 
 ## Summary
 
@@ -344,8 +344,9 @@ Sources: [LineageOS wiki data for the FP5][lineage-fp5], [LineageOS build target
 
 ## Recommendation for T2
 
-Which boards to buy for task T2.
-Proposed; the maintainer decides when buying the boards.
+Which boards to buy for task T2, as proposed for the earlier phone plan, to get Android running.
+Task T2 now tries candidate boards for the cyber-deck with a Linux distribution, starting from [SHORTLIST.md](SHORTLIST.md); this recommendation stays as background, not a buying plan.
+The maintainer decides when buying the boards.
 Check C9 confirms the details first.
 
 1. **Getting Android running: the SpacemiT K3 Pico-ITX.**

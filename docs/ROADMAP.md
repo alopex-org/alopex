@@ -121,7 +121,7 @@ That was written down before the team had agreed on it, so it is open again ([DE
 - **Options:**
   - a prototype only, for the maintainers and other enthusiasts, with nothing sold;
   - a prototype first, then a product, once the prototype proves the design;
-  - a product from the start, by working with a phone maker or having an ODM build a phone (tasks T4 and T5).
+  - a product from the start, through a partner that already makes devices or an ODM (tasks T4 and T5, researched for a phone).
 - A product means a company of the project's own or a partner, funding, certification, patent licences and the EU's update and spare-part duties ([FEASIBILITY.md](FEASIBILITY.md#certification-patents-and-eu-rules)).
 - **Recommendation:** none; the maintainers decide this together.
   Tasks T1–T3 serve every option, so they go ahead in the meantime.
@@ -190,6 +190,7 @@ Trying candidate boards for the cyber-deck on the bench.
 
 Trying a cellular module on its evaluation kit.
 On hold unless decision D2 chooses a cellular device.
+The steps below, and checks C4 and C5, were written for the earlier phone plan, around an Android BSP; if D2 chooses a cellular device, they are rewritten for the operating system decision D6 settles.
 **Hands-on.** Needs task T2 and checks C4 and C5, and the maintainer to buy the kit and sign up for any supplier website.
 
 - Try one cellular module that comes with an Android BSP, on its evaluation kit.
