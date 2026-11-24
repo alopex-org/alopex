@@ -7,13 +7,12 @@ Technical words are explained in the [glossary](GLOSSARY.md).
 ## Where things stand
 
 - **Done:** task T0, the research and this repository, on 2026-11-20.
-- **Decided:** the project is separate from FoxieOS, and lives in the `alopex-org` GitHub organization ([DESIGN.md](DESIGN.md#key-decisions)).
+- **Decided, and confirmed at the founding meeting on 2026-11-24:** the project is separate from FoxieOS, and lives in the `alopex-org` GitHub organization ([DESIGN.md](DESIGN.md#key-decisions)).
   The device has a built-in LoRa mesh radio ([LORA.md](LORA.md)).
-- **Proposed 2026-11-24:** the device is a cyber-deck whose primary purpose is to be user-serviceable and portable, with LoRa and Wi-Fi, pocket-sized if possible, and running a Linux distribution for now ([CYBERDECK.md](CYBERDECK.md#what-is-proposed)).
+- **Decided at the founding meeting, 2026-11-24:** the device is a cyber-deck whose primary purpose is to be user-serviceable and portable, with LoRa and Wi-Fi, pocket-sized if possible, and running a Linux distribution for now ([CYBERDECK.md](CYBERDECK.md#what-is-decided)).
   Its main board, screen and controls, power, case and other radios are open.
-- **Founding meeting, 2026-11-24:** the members choose the maintainers, who decide the project's foundations together ([governance](https://github.com/alopex-org/.github/blob/main/GOVERNANCE.md#founding-maintainers)).
-  One interim maintainer decided everything marked decided here, so the meeting confirms or changes it.
-  The meeting also takes decision D5: a prototype only, or a product.
+- **Founding meeting, 2026-11-24:** the members chose the maintainer and confirmed the project's foundations ([governance](https://github.com/alopex-org/.github/blob/main/GOVERNANCE.md#the-founding-meeting)).
+  The meeting also took decision D5: a prototype first, then a product.
 - **Shortlist, 2026-11-24:** the boards most in view for the main board, for now: the Raspberry Pi 5, the Orange Pi 5 and 6, the Raspberry Pi Zero 2 W, and LattePanda's x86 boards ([SHORTLIST.md](SHORTLIST.md)).
   None is chosen; the main board is decision D1.
 - **Earlier proposal:** a Raspberry Pi handheld as the first prototype ([HANDHELD.md](HANDHELD.md)); it is now one option for the cyber-deck, not a plan.
@@ -43,7 +42,7 @@ Technical words are explained in the [glossary](GLOSSARY.md).
 1. **Requirements:** what the cyber-deck is for and what it must have (T1).
 2. **Bench work:** trying candidate hardware on development boards (T2), and on a cellular module's evaluation kit if the cyber-deck is to be cellular (T3).
 3. **A prototype:** decisions D1–D3, taken on what the first two phases show, then a prototype built in small numbers.
-   Whether a product follows is decision D5.
+   A product follows once the prototype proves the design (decision D5).
 
 ## Decisions
 
@@ -53,8 +52,8 @@ Technical words are explained in the [glossary](GLOSSARY.md).
 | [D2](#d2-cellular-or-wi-fi-only) | Does the cyber-deck connect to mobile networks, or not? | Open | D1 |
 | [D3](#d3-sharing-prototypes) | Do prototypes stay with the maintainers, or reach other enthusiasts, and how? | Open | D1 |
 | [D4](#d4-lora-mesh-network) | Which LoRa mesh network does the device come with: Meshtastic, MeshCore or both? | Open | T6 |
-| [D5](#d5-prototype-or-product) | Does the project stop at a prototype, or aim at a product it sells? | Open: founding meeting | D1, D3, T4, T5 |
-| [D6](#d6-operating-system-of-the-first-prototype) | What operating system does the cyber-deck run? | Proposed: a Linux distribution, for now | D1 |
+| [D5](#d5-prototype-or-product) | Does the project stop at a prototype, or aim at a product it sells? | Decided 2026-11-24: a prototype first, then a product | D1, D3, T4, T5 |
+| [D6](#d6-operating-system-of-the-first-prototype) | What operating system does the cyber-deck run? | Decided 2026-11-24: a Linux distribution, for now | D1 |
 
 ### D1: route to a prototype
 
@@ -69,7 +68,7 @@ Open; needed before a prototype is built.
   Whatever is chosen has to run a Linux distribution, fit a pocket-sized device if possible, and let the owner service it.
   [SHORTLIST.md](SHORTLIST.md) compares the boards most in view on 2026-11-24: the Raspberry Pi 5 and Zero 2 W, the Orange Pi 5 and 6, and LattePanda's x86 boards.
   [BOARDS.md](BOARDS.md) compares boards researched for the earlier phone plan, and [HANDHELD.md](HANDHELD.md) works out one option, a Raspberry Pi handheld, larger than pocket-sized; task T1's requirements may point to others.
-- Working with a phone maker, and having an ODM build a phone, are routes to a product, and become options only if decision D5 chooses one ([DESIGN.md](DESIGN.md#prototype-or-product)).
+- Working with a phone maker, and having an ODM build a phone, are routes to a product, which decision D5 puts after the prototype ([DESIGN.md](DESIGN.md#prototype-or-product)).
 - **Recommendation:** decide after task T1 and the bench work in task T2.
   Never a device designed directly with a chip maker.
 
@@ -77,7 +76,7 @@ Open; needed before a prototype is built.
 
 Whether the cyber-deck also connects to mobile networks.
 Open; needed by D1.
-Wi-Fi is proposed either way ([CYBERDECK.md](CYBERDECK.md#what-is-proposed)).
+Wi-Fi is decided either way ([CYBERDECK.md](CYBERDECK.md#what-is-decided)).
 
 - A **Wi-Fi-only device**, such as a tablet, needs no cellular module, no approval from mobile networks and no mobile-network patent licences.
 - A **cellular device,** like a mobile phone, works wherever there is a mobile network, and costs more at every step.
@@ -88,7 +87,7 @@ Wi-Fi is proposed either way ([CYBERDECK.md](CYBERDECK.md#what-is-proposed)).
 Who gets the prototypes, and how.
 Open; needed by D1.
 
-Unless decision D5 chooses a product, the project sells nothing.
+Until the project moves from the prototype to a product (decision D5), it sells nothing.
 But whoever puts a device on the market carries the certification, patent and EU duties ([FEASIBILITY.md](FEASIBILITY.md#certification-patents-and-eu-rules)).
 ⚠ Whether handing a prototype to someone counts as putting it on the market is not confirmed (check C12).
 
@@ -113,26 +112,25 @@ Open; needed by T6.
 ### D5: prototype or product
 
 Whether the project stops at a prototype or aims at a product it sells.
-Open; for the maintainers' founding meeting on 2026-11-24, and needed by D1 and D3.
+**Decided at the founding meeting, 2026-11-24: a prototype first, then a product, once the prototype proves the design.**
 
-An earlier version of this roadmap recorded "a prototype, not a product" as decided on 2026-11-21.
-That was written down before the team had agreed on it, so it is open again ([DESIGN.md](DESIGN.md#prototype-or-product)).
+An earlier version of this roadmap recorded "a prototype, not a product" as decided on 2026-11-21, before the team had agreed on it ([DESIGN.md](DESIGN.md#prototype-or-product)).
+How and when the product follows, and with whom, are open.
 
-- **Options:**
+- **Options the meeting weighed:**
   - a prototype only, for the maintainers and other enthusiasts, with nothing sold;
   - a prototype first, then a product, once the prototype proves the design;
   - a product from the start, through a partner that already makes devices or an ODM (tasks T4 and T5, researched for a phone).
 - A product means a company of the project's own or a partner, funding, certification, patent licences and the EU's update and spare-part duties ([FEASIBILITY.md](FEASIBILITY.md#certification-patents-and-eu-rules)).
-- **Recommendation:** none; the maintainers decide this together.
-  Tasks T1–T3 serve every option, so they go ahead in the meantime.
+- Tasks T1–T3 lead to the prototype; tasks T4 and T5 belong to the product that follows it.
 
 ### D6: operating system of the first prototype
 
 What operating system the cyber-deck runs.
-**Proposed 2026-11-24: a Linux distribution, for now,** for the founding meeting to confirm.
+**Decided at the founding meeting, 2026-11-24: a Linux distribution, for now.**
 
 The project was set up to build hardware for an operating system based on Android.
-[FoxieOS](https://github.com/alopex-org/foxieos), the organization's operating-system project, is proposed to be made for the cyber-deck, on a Linux distribution; which distribution is FoxieOS's own decision.
+[FoxieOS](https://github.com/alopex-org/foxieos), the organization's operating-system project, is made for the cyber-deck, on a Linux distribution; which distribution is FoxieOS's own decision.
 "For now" leaves room to revisit this later.
 
 - **What it means for the hardware:** every part the cyber-deck has needs a Linux driver, and the main board needs good Linux support (decision D1).
@@ -152,7 +150,7 @@ The list of what the cyber-deck must offer.
 **Code.** Can start now.
 
 - Write `docs/REQUIREMENTS.md` as a draft for the maintainers: what the cyber-deck must have, each requirement with its reason and source.
-  Start from what is proposed ([CYBERDECK.md](CYBERDECK.md#what-is-proposed)): user-serviceable as the primary purpose, LoRa and Wi-Fi, pocket-sized if possible, a Linux distribution for now.
+  Start from what is decided ([CYBERDECK.md](CYBERDECK.md#what-is-decided)): user-serviceable as the primary purpose, LoRa and Wi-Fi, pocket-sized if possible, a Linux distribution for now.
   Where the members disagree, list the options instead of choosing one.
 - Cover at least the questions in [CYBERDECK.md](CYBERDECK.md#what-is-undecided):
   - what user-serviceable means in practice: which parts the owner can open up and replace (battery, screen, keyboard, radios, storage), with which tools, and whether spare parts and repair guides are published;
@@ -204,11 +202,11 @@ The steps below, and checks C4 and C5, were written for the earlier phone plan, 
 
 ### T4: partner survey
 
-On hold until decision D5: working with a phone maker is a route to a product ([DESIGN.md](DESIGN.md#prototype-or-product)).
+On hold until after the prototype: working with a phone maker is a route to a product, which decision D5 puts after the prototype ([DESIGN.md](DESIGN.md#prototype-or-product)).
 
 ### T5: ODM quotes
 
-On hold until decision D5: having an ODM build a phone is a route to a product ([DESIGN.md](DESIGN.md#prototype-or-product)).
+On hold until after the prototype: having an ODM build a phone is a route to a product, which decision D5 puts after the prototype ([DESIGN.md](DESIGN.md#prototype-or-product)).
 
 ### T6: LoRa bench work
 
