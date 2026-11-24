@@ -9,8 +9,8 @@ Technical words are explained in the [glossary](GLOSSARY.md).
 - **Done:** task T0, the research and this repository, on 2026-11-20.
 - **Decided:** the project is separate from FoxieOS, and lives in the `alopex-org` GitHub organization ([DESIGN.md](DESIGN.md#key-decisions)).
   The device has a built-in LoRa mesh radio ([LORA.md](LORA.md)).
-- **Proposed 2026-11-24:** the device is a cyber-deck, a portable computer of the project's own ([CYBERDECK.md](CYBERDECK.md)).
-  Apart from its LoRa radio, nothing else about it is decided: its purpose, form, other parts and software are open.
+- **Proposed 2026-11-24:** the device is a cyber-deck whose primary purpose is to be user-serviceable and portable, with LoRa and Wi-Fi, pocket-sized if possible, and running a Linux distribution for now ([CYBERDECK.md](CYBERDECK.md#what-is-proposed)).
+  Its main board, screen and controls, power, case and other radios are open.
 - **Founding meeting, 2026-11-24:** the members choose the maintainers, who decide the project's foundations together ([governance](https://github.com/alopex-org/.github/blob/main/GOVERNANCE.md#founding-maintainers)).
   One interim maintainer decided everything marked decided here, so the meeting confirms or changes it.
   The meeting also takes decision D5: a prototype only, or a product.
@@ -52,7 +52,7 @@ Technical words are explained in the [glossary](GLOSSARY.md).
 | [D3](#d3-sharing-prototypes) | Do prototypes stay with the maintainers, or reach other enthusiasts, and how? | Open | D1 |
 | [D4](#d4-lora-mesh-network) | Which LoRa mesh network does the device come with: Meshtastic, MeshCore or both? | Open | T6 |
 | [D5](#d5-prototype-or-product) | Does the project stop at a prototype, or aim at a product it sells? | Open: founding meeting | D1, D3, T4, T5 |
-| [D6](#d6-operating-system-of-the-first-prototype) | What operating system does the cyber-deck run? | Open | D1 |
+| [D6](#d6-operating-system-of-the-first-prototype) | What operating system does the cyber-deck run? | Proposed: a Linux distribution, for now | D1 |
 
 ### D1: route to a prototype
 
@@ -62,17 +62,19 @@ Open; needed before a prototype is built.
 - **Options,** none of them preferred yet:
   - a ready-made board, such as a single-board computer, in a case of the project's own;
   - a computer module on a board of the project's own (a carrier board);
-  - a main board of the project's own around a cellular module, if decision D2 chooses a cellular device ([FEASIBILITY.md](FEASIBILITY.md#routes-to-a-device));
-  - a microcontroller board, for a simpler device.
-  [BOARDS.md](BOARDS.md) compares boards researched for the earlier phone plan, and [HANDHELD.md](HANDHELD.md) works out one option, a Raspberry Pi handheld; task T1's requirements may point to others.
+  - a main board of the project's own around a cellular module, if decision D2 chooses a cellular device ([FEASIBILITY.md](FEASIBILITY.md#routes-to-a-device)).
+
+  Whatever is chosen has to run a Linux distribution, fit a pocket-sized device if possible, and let the owner service it.
+  [BOARDS.md](BOARDS.md) compares boards researched for the earlier phone plan, and [HANDHELD.md](HANDHELD.md) works out one option, a Raspberry Pi handheld, larger than pocket-sized; task T1's requirements may point to others.
 - Working with a phone maker, and having an ODM build a phone, are routes to a product, and become options only if decision D5 chooses one ([DESIGN.md](DESIGN.md#prototype-or-product)).
 - **Recommendation:** decide after task T1 and the bench work in task T2.
   Never a device designed directly with a chip maker.
 
 ### D2: cellular or Wi-Fi only
 
-Whether the cyber-deck connects to mobile networks.
+Whether the cyber-deck also connects to mobile networks.
 Open; needed by D1.
+Wi-Fi is proposed either way ([CYBERDECK.md](CYBERDECK.md#what-is-proposed)).
 
 - A **Wi-Fi-only device**, such as a tablet, needs no cellular module, no approval from mobile networks and no mobile-network patent licences.
 - A **cellular device,** like a mobile phone, works wherever there is a mobile network, and costs more at every step.
@@ -124,17 +126,14 @@ That was written down before the team had agreed on it, so it is open again ([DE
 ### D6: operating system of the first prototype
 
 What operating system the cyber-deck runs.
-Open; needed by D1.
+**Proposed 2026-11-24: a Linux distribution, for now,** for the founding meeting to confirm.
 
 The project was set up to build hardware for an operating system based on Android.
-[FoxieOS](https://github.com/alopex-org/foxieos), the organization's operating-system project, is proposed to be made for the cyber-deck instead; what FoxieOS is built on is its own open decision.
+[FoxieOS](https://github.com/alopex-org/foxieos), the organization's operating-system project, is proposed to be made for the cyber-deck, on a Linux distribution; which distribution is FoxieOS's own decision.
+"For now" leaves room to revisit this later.
 
-- **Options:**
-  - **FoxieOS,** whatever it is built on.
-  - **An existing operating system as it is,** such as a Linux distribution, or Android where the chosen board has a complete build ([BOARDS.md](BOARDS.md#comparison)).
-  - **A microcontroller's firmware,** such as a mesh network's own, if decision D1 chooses a microcontroller board.
-- **Recommendation:** none; it changes what the project is for, so the maintainers decide it together.
-  The bench work in tasks T2 and T7 can use any system that runs, since it tests the hardware.
+- **What it means for the hardware:** every part the cyber-deck has needs a Linux driver, and the main board needs good Linux support (decision D1).
+- The bench work in tasks T2 and T7 can use any Linux distribution that runs, since it tests the hardware.
 
 ## Tasks
 
@@ -149,17 +148,19 @@ Done 2026-11-20: this repository, with the research in [FEASIBILITY.md](FEASIBIL
 The list of what the cyber-deck must offer.
 **Code.** Can start now.
 
-- Write `docs/REQUIREMENTS.md` as a draft for the maintainers: what the cyber-deck is for and what it must have, each requirement with its reason and source.
+- Write `docs/REQUIREMENTS.md` as a draft for the maintainers: what the cyber-deck must have, each requirement with its reason and source.
+  Start from what is proposed ([CYBERDECK.md](CYBERDECK.md#what-is-proposed)): user-serviceable as the primary purpose, LoRa and Wi-Fi, pocket-sized if possible, a Linux distribution for now.
   Where the members disagree, list the options instead of choosing one.
 - Cover at least the questions in [CYBERDECK.md](CYBERDECK.md#what-is-undecided):
-  - what the cyber-deck is for, and who uses it;
-  - its form and size, its screen, and how it is typed on and controlled;
-  - its main board, and how long its software gets fixes;
-  - its other radios: Wi-Fi, mobile networks, Bluetooth, satellite positioning;
-  - how the LoRa radio is built in, and for which bands ([LORA.md](LORA.md));
+  - what user-serviceable means in practice: which parts the owner can open up and replace (battery, screen, keyboard, radios, storage), with which tools, and whether spare parts and repair guides are published;
+  - a size target for "pocket-sized", and what gives way if everything doesn't fit;
+  - its screen, and how it is typed on and controlled;
+  - its main board, its Linux support, and how long its software gets fixes;
+  - how the LoRa radio and Wi-Fi are built in, and for which bands ([LORA.md](LORA.md));
+  - its other radios: mobile networks, Bluetooth, satellite positioning;
   - its power: battery, charging and battery life;
   - privacy and security, such as hardware switches and secure boot; if it has secure boot, who holds the key ([DESIGN.md](DESIGN.md#each-party-keeps-its-own-keys));
-  - repair, and how the case is made.
+  - how the case is made.
 - The earlier research can help: GrapheneOS's published device requirements (check C1), and the parts worked out in [HANDHELD.md](HANDHELD.md) and [LORA.md](LORA.md).
 - Note which of the conditions in FoxieOS's decision D9 each requirement meets.
 
@@ -173,8 +174,8 @@ Trying candidate boards for the cyber-deck on the bench.
 
 - Pick two or three boards that task T1's requirements point to.
   [BOARDS.md](BOARDS.md) compares the boards researched for the earlier phone plan, mainly RISC-V boards; others may fit the cyber-deck better.
-- Start an operating system on each.
-  Decision D6 sets what the cyber-deck runs; for the bench, any system that runs on the board is enough to test it.
+- Start a Linux distribution on each (decision D6); for the bench, any distribution that runs on the board is enough to test it.
+  Note how well the board's parts work with Linux, and how easy the board is to service.
   A build can take hours, so keep the build log.
 - If the board has secure boot, try it with a dev key, never a key that will sign anything published, and practise fusing only on a board bought for that purpose, with the maintainer's go-ahead for each step.
 - Record the work in `docs/bench/<board>.md`: how long it took, the kernel version and software the board's maker provides, and what got in the way.

@@ -2,7 +2,7 @@
 
 **Status: earlier proposal, now one option.**
 This page describes a first prototype proposed on 2026-11-23: a rugged handheld built around a Raspberry Pi, for private messaging with and without a network.
-Since then, the project is proposed to work toward a cyber-deck whose purpose, parts and software, apart from its LoRa radio, are all undecided ([CYBERDECK.md](CYBERDECK.md)); this handheld is one option for it, not a plan.
+Since then, the project is proposed to work toward a user-serviceable cyber-deck with LoRa and Wi-Fi, pocket-sized if possible, running a Linux distribution for now ([CYBERDECK.md](CYBERDECK.md)); this handheld, larger than pocket-sized, is one option to learn from, not a plan.
 Nothing on it is decided.
 The maintainers weigh it in roadmap decisions [D1](ROADMAP.md#d1-route-to-a-prototype) (route to a prototype), [D2](ROADMAP.md#d2-cellular-or-wi-fi-only) (cellular or Wi-Fi only) and [D6](ROADMAP.md#d6-operating-system-of-the-first-prototype) (operating system of the first prototype).
 Technical words are explained in the [glossary](GLOSSARY.md).
