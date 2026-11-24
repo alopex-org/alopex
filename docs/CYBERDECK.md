@@ -71,6 +71,7 @@ Task T1 drafts the requirements, and the maintainers decide through the roadmap 
 - [FEASIBILITY.md](FEASIBILITY.md): the research into a phone: the routes to a device, certification and the EU's rules, which apply to the cyber-deck too if it is sold.
 - [SHORTLIST.md](SHORTLIST.md): the boards most in view for the main board on 2026-11-24, compared; none is chosen.
 - [CARRIERS.md](CARRIERS.md): carrier boards for Raspberry Pi's Compute Module 5, and what a carrier of the project's own would take; none is chosen.
+- [MU-CARRIERS.md](MU-CARRIERS.md): the same for the LattePanda Mu, the x86 compute module on the shortlist.
 - [BOARDS.md](BOARDS.md): development boards compared for the earlier phone plan, which can be candidates for the bench.
 - [LORA.md](LORA.md): the LoRa mesh networks, how the radio could be built in, and its certification.
 - [HANDHELD.md](HANDHELD.md): a Raspberry Pi handheld proposed on 2026-11-23, one worked-out option.
