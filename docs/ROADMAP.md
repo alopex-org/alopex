@@ -25,7 +25,7 @@ Technical words are explained in the [glossary](GLOSSARY.md).
   Each one lists the options and a recommendation.
 - **Tasks (T0–T7)** are the pieces of work, in order.
   Each one says what it needs first, what to do, when it is finished, and what to share afterwards.
-- **Checks (C1–C15)** are facts to confirm before the task that relies on them.
+- **Checks (C1–C16)** are facts to confirm before the task that relies on them.
   A ⚠ in the other docs usually points to one of them.
 - **On GitHub,** each decision, task and check also has an issue, and each phase below is a [milestone](https://github.com/alopex-org/alopex/milestones).
   This page is the plan; the issues track progress and discussion ([CONTRIBUTING.md](../CONTRIBUTING.md#issues-and-labels)).
@@ -67,6 +67,7 @@ Open; needed before a prototype is built.
 
   Whatever is chosen has to run a Linux distribution, fit a pocket-sized device if possible, and let the owner service it.
   [SHORTLIST.md](SHORTLIST.md) compares the boards most in view on 2026-11-24: the Raspberry Pi 5 and Zero 2 W, the Orange Pi 5 and 6, and LattePanda's x86 boards.
+  [CARRIERS.md](CARRIERS.md) looks at carrier boards for Raspberry Pi's Compute Module 5, and at what a carrier of the project's own would take.
   [BOARDS.md](BOARDS.md) compares boards researched for the earlier phone plan, and [HANDHELD.md](HANDHELD.md) works out one option, a Raspberry Pi handheld, larger than pocket-sized; task T1's requirements may point to others.
 - Working with a phone maker, and having an ODM build a phone, are routes to a product, which decision D5 puts after the prototype ([DESIGN.md](DESIGN.md#prototype-or-product)).
 - **Recommendation:** decide after task T1 and the bench work in task T2.
@@ -309,3 +310,11 @@ Do it before the task that relies on it (shown by →), then update the docs tha
     - the sizes of the Orange Pi 5B, 5 Plus, 5 Max and 5 Ultra;
     - the Orange Pi 6 boards' power use from a second source, the details of the 6 Plus's battery connector, and whether their GPU works with an open driver;
     - the LattePanda boards' prices, how their secure boot is set up, and how long they stay on sale.
+16. **C16, Compute Module 5 carriers** (→ D1).
+    Before relying on [CARRIERS.md](CARRIERS.md), confirm:
+    - whether holding the CM5's `WL_nDisable` and `BT_nDisable` pins low is enough for a hardware kill switch, or whether the radio's power has to be cut as well;
+    - whether Raspberry Pi's licensing terms cover the CM5 IO board's KiCad files;
+    - the Argo's size, price and campaign, and the CM5 MINIMA's size;
+    - the piBrick Pocket-CM5's figures and repository, from a second source;
+    - the Waveshare CM5 to Pi 5 Adapter's HDMI ports;
+    - how the uConsole AIO V2's SX1262 is set up for `meshtasticd` on a CM5.
