@@ -60,7 +60,7 @@ Manufacturer: a partner, or a company of the project's own (decision D5)
         ▼
 The device
         ▲
-        │  operating-system updates, signed with the OS project's own key (AVB)
+        │  operating-system updates, signed with the OS project's own key
 Operating-system project, such as FoxieOS
 ```
 
@@ -175,13 +175,16 @@ Proposed 2026-11-23 as the first prototype; with the move to a cyber-deck, it is
 Proposed (task T1 writes it into the requirements); it applies if the device has secure boot.
 
 - **What:** whoever builds the device holds the secure-boot key, whose fingerprint is burned into each chip; for the prototype, that is the project.
-  Each operating-system project signs its own updates and relocks the bootloader with its own verified-boot (AVB) key, as Pixels allow with `avb_custom_key`.
+  Each operating-system project signs its own updates with its own key.
   Neither holds the other's keys.
+  How an owner or an operating system can add a key of its own depends on the main board (decision D1).
+  The earlier phone plan relied on Android's verified boot (AVB), where Pixels let the owner install a key with `avb_custom_key`.
 - **Why:** a key burned into the chip can never be replaced, so it belongs with the party that answers for the device for its whole life: the builder, and for a product sold in the EU, the manufacturer.
-  An owner-installed AVB key lets more than one operating system run with the bootloader locked, and FoxieOS's decision D9 assumes it.
+  A key the owner can add lets more than one operating system run with secure boot on.
+  Who holds the secure-boot key is also part of FoxieOS's decision D9.
 - **Turned down:**
   - an operating-system project holding the chip key, which would tie every device to that operating system and make it answer for the device's security;
-  - a device that can't be relocked with an owner's key, which leaves every other operating system running with the bootloader unlocked.
+  - a device that accepts no key from its owner, which leaves every other operating system running without secure boot.
 
 ## Limits the project has to live with
 
