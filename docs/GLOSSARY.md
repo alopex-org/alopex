@@ -35,6 +35,7 @@ Words about operating systems are explained in more depth in [FoxieOS's glossary
 - **SoC (system on a chip):** the main chip of a phone or board, with the processor, graphics and more in one part.
 - **Arm and RISC-V:** two families of processor designs.
   Almost all phones use Arm, whose designs chip makers license from the company Arm; **RISC-V** is an open design that any chip maker may use.
+- **x86:** the family of processor designs in most PCs, from Intel and AMD; an x86 board starts and runs like a PC.
 - **RVA23:** the set of RISC-V features that Android expects.
 - **Development board:** a small computer board sold for developers to try a chip on, such as a Raspberry Pi.
   None of the boards in this research has a mobile-network modem.

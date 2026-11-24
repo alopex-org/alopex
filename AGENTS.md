@@ -25,6 +25,7 @@ The student organization is also called Alopex, so write "the Alopex student org
 It is in the research phase: no hardware is designed, bought or ordered, and the repository holds documents only.
 
 - What the research found, with sources: [docs/FEASIBILITY.md](docs/FEASIBILITY.md)
+- The boards most in view for the cyber-deck's main board, none chosen: [docs/SHORTLIST.md](docs/SHORTLIST.md)
 - Development boards for the bench work, focused on RISC-V: [docs/BOARDS.md](docs/BOARDS.md)
 - How a device would come about, and why: [docs/DESIGN.md](docs/DESIGN.md)
 - The cyber-deck, the ones that already exist, and what is undecided: [docs/CYBERDECK.md](docs/CYBERDECK.md)

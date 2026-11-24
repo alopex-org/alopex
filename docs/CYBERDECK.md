@@ -66,6 +66,7 @@ Task T1 drafts the requirements, and the maintainers decide through the roadmap 
 ## Earlier work that bears on it
 
 - [FEASIBILITY.md](FEASIBILITY.md): the research into a phone: the routes to a device, certification and the EU's rules, which apply to the cyber-deck too if it is sold.
+- [SHORTLIST.md](SHORTLIST.md): the boards most in view for the main board on 2026-11-24, compared; none is chosen.
 - [BOARDS.md](BOARDS.md): development boards compared for the earlier phone plan, which can be candidates for the bench.
 - [LORA.md](LORA.md): the LoRa mesh networks, how the radio could be built in, and its certification.
 - [HANDHELD.md](HANDHELD.md): a Raspberry Pi handheld proposed on 2026-11-23, one worked-out option.

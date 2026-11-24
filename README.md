@@ -46,9 +46,10 @@ From the research into a phone; they apply to the cyber-deck wherever it would s
 2. [docs/FEASIBILITY.md](docs/FEASIBILITY.md): the earlier research, with sources: the routes to a device, the software work, the rules, earlier phone projects and the risks.
 3. [docs/ROADMAP.md](docs/ROADMAP.md): the open decisions and the next piece of work.
 4. [docs/DESIGN.md](docs/DESIGN.md): the case for a prototype and for a product (decision D5), how a device would come about, who holds which keys, and why the project is set up this way.
-5. [docs/BOARDS.md](docs/BOARDS.md): the development boards for the bench work, mainly RISC-V boards compared with Arm boards, with a proposed choice.
-6. [docs/LORA.md](docs/LORA.md): the LoRa mesh radio: the Meshtastic, MeshCore and Reticulum networks, how to build the radio in, and its certification.
-7. [docs/HANDHELD.md](docs/HANDHELD.md): an earlier proposal for a Raspberry Pi handheld, now one option among others.
+5. [docs/SHORTLIST.md](docs/SHORTLIST.md): the boards most in view for the cyber-deck's main board (Raspberry Pi 5 and Zero 2 W, Orange Pi 5 and 6, LattePanda's x86 boards), compared; none is chosen.
+6. [docs/BOARDS.md](docs/BOARDS.md): the development boards for the bench work, mainly RISC-V boards compared with Arm boards, with a proposed choice.
+7. [docs/LORA.md](docs/LORA.md): the LoRa mesh radio: the Meshtastic, MeshCore and Reticulum networks, how to build the radio in, and its certification.
+8. [docs/HANDHELD.md](docs/HANDHELD.md): an earlier proposal for a Raspberry Pi handheld, now one option among others.
 
 ## What's in this repository
 
