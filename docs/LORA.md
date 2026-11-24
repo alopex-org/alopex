@@ -24,8 +24,8 @@ Technical words are explained in the [glossary](GLOSSARY.md).
 - **No phone was found with a LoRa radio built into its own circuit board.**
   The phones and handhelds sold with LoRa so far attach a separate radio that talks to the phone over Bluetooth.
   A device with the radio built in would be new, and a reason to choose it.
-- **The proposed design is a small separate processor (a microcontroller) with its own LoRa chip,** connected to the phone's main processor by UART or USB.
-  It runs the mesh network's software itself, keeps the mesh working while the phone sleeps, and can run Meshtastic's or MeshCore's software ([Integrating the radio](#integrating-the-radio)).
+- **The proposed design is a small separate processor (a microcontroller) with its own LoRa chip,** connected to the device's main processor by UART or USB.
+  It runs the mesh network's software itself, keeps the mesh working while the main processor sleeps, and can run Meshtastic's or MeshCore's software ([Integrating the radio](#integrating-the-radio)).
 - **The LoRa radio needs its own certification for short-range devices:** ETSI EN 300 220 under the Radio Equipment Directive in Europe, and FCC Part 15 in the United States.
   In Europe it may also transmit only for a limited share of the time, the duty cycle ([Certification](#certification-and-band-rules)).
 - **It costs little on its own,** and doesn't depend on decision D2 (mobile phone or Wi-Fi only): a Wi-Fi-only device with LoRa can still send messages without a network.
@@ -79,12 +79,12 @@ Two designs were considered.
 
 A small, low-power processor (a microcontroller such as an nRF52840 or ESP32-S3) with an SX1262 LoRa chip, on the device's board and connected to the main processor by UART or USB (unsourced).
 
-- **The mesh keeps working while the phone sleeps.**
-  The small processor passes messages on and receives them using a few milliamps, and wakes the phone only for messages meant for its user (unsourced).
+- **The mesh keeps working while the main processor sleeps.**
+  The small processor passes messages on and receives them using a few milliamps, and wakes the main processor only for messages meant for its user (unsourced).
 - **It runs the networks' own software unchanged.**
   Both Meshtastic and MeshCore support nRF52840 and ESP32 boards with an SX1262, so the device could come with one and let users install the other (unsourced; check C10).
-- **Android sees it as a companion device** on a serial port, which the existing Meshtastic and MeshCore apps already talk to over a USB cable ⚠ (check C11).
-- **It keeps the radio's software apart** from the main processor: a fault in the mesh software can't reach Android, and the small processor can be updated on its own.
+- **On Android, it shows up as a companion device** on a serial port, which the existing Meshtastic and MeshCore apps already talk to over a USB cable ⚠ (check C11).
+- **It keeps the radio's software apart** from the main processor: a fault in the mesh software can't reach the main operating system, and the small processor can be updated on its own.
 - **Cost:** a second processor and its software, which the project would also have to keep updated.
 
 ### The LoRa chip on the main processor's SPI bus
@@ -92,14 +92,14 @@ A small, low-power processor (a microcontroller such as an nRF52840 or ESP32-S3)
 The SX1262 connects straight to the main processor, and a background program such as `meshtasticd` runs it.
 
 - Simpler hardware, with one processor fewer.
-- The mesh stops whenever Android puts the processor to sleep, unless it is kept awake, which costs battery (unsourced).
-- `meshtasticd` is made for Linux, not Android, so it would need adapting; nothing similar was found for MeshCore.
+- The mesh stops whenever the operating system puts the main processor to sleep, unless it is kept awake, which costs battery (unsourced).
+- `meshtasticd` is made for Linux, so it suits a Linux main board; on Android it would need adapting, and nothing similar was found for MeshCore.
 
 ### What both need
 
 - Its own antenna for the LoRa band, separate from the mobile-network antennas, tuned for each band the device is used in: 868 MHz and 915 MHz need different tuning (unsourced).
 - A hardware switch or a software setting that turns the LoRa transmitter off, like the privacy switches in task T1.
-- An Android app and permissions for the radio; for FoxieOS this would fall under its decision D9.
+- Software and permissions for the radio on the main operating system; for FoxieOS this would fall under its decision D9.
 
 Sources: [Meshtastic Linux hardware][mt-linux], [Meshtastic Android API][mt-android-api], [lupyuen's Linux SX1262 driver][lupyuen-sx1262].
 
@@ -121,7 +121,7 @@ Sources: [TTN EU868 parameters][ttn-eu868], [TTN duty cycle][ttn-duty], [CEPT ER
 
 - Which network to ship by default, or whether to ship both (decision D4).
 - Whether the companion apps work over a cable as well as Bluetooth (check C11).
-- Which certified LoRa modules fit a phone's board and battery (check C10).
+- Which certified LoRa modules fit the device's main board and battery (check C10).
 
 ## Sources
 

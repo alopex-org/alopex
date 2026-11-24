@@ -290,7 +290,7 @@ Do it before the task that relies on it (shown by →), then update the docs tha
    - whether BeaglePlay's AM625 chip is a GP or an HS-FS version, and how TI provides its key-writing tool;
    - which Android version BayLibre's AOSP kit for the MediaTek Genio boards is on.
 10. **C10, LoRa hardware and band rules** (→ D4, T6).
-    Confirm that Meshtastic and MeshCore both support the same nRF52840 or ESP32-S3 boards with an SX1262, and which certified LoRa modules would fit a phone's board.
+    Confirm that Meshtastic and MeshCore both support the same nRF52840 or ESP32-S3 boards with an SX1262, and which certified LoRa modules would fit the device's main board.
     Read the current ETSI EN 300 220 for the 868 MHz sub-band edges, power and duty-cycle limits, and FCC Part 15 for 915 MHz.
 11. **C11, mesh apps and licences** (→ D4, T6).
     Whether the Meshtastic and MeshCore Android apps connect over a USB cable as well as Bluetooth, the licences of the MeshCore apps, whether MeshCore has closed parts, and the exact terms of the Reticulum licence.

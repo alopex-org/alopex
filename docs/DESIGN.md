@@ -136,10 +136,10 @@ Decided 2026-11-21, and kept for the cyber-deck; which network to use is propose
 - **What:** the device has a LoRa radio on its own circuit board, for messaging over a mesh network such as Meshtastic or MeshCore, with no mobile network or Wi-Fi.
   The proposed design is a small separate processor (a microcontroller) with its own LoRa chip, connected to the main processor by a cable-like link (UART or USB), running the mesh network's own software ([LORA.md](LORA.md#integrating-the-radio)).
 - **Why:** messaging without a network is the device's main reason to exist next to existing phones, and none of them has the radio built in.
-  A separate small processor keeps the mesh running while the phone sleeps, and can run more than one network's software.
+  A separate small processor keeps the mesh running while the main processor sleeps, and can run more than one network's software.
 - **Turned down:**
   - a separate LoRa radio connected over Bluetooth, which products already on sale offer;
-  - the LoRa chip run directly by the main processor, which stops the mesh whenever Android goes to sleep.
+  - the LoRa chip run directly by the main processor, which stops the mesh whenever the main processor sleeps.
 
 ### Requirements first, then bench work, then a route
 
