@@ -52,6 +52,7 @@ From the research into a phone; they apply to the cyber-deck wherever it would s
 8. [docs/BOARDS.md](docs/BOARDS.md): the development boards for the bench work, mainly RISC-V boards compared with Arm boards, with a proposed choice.
 9. [docs/LORA.md](docs/LORA.md): the LoRa mesh radio: the Meshtastic, MeshCore and Reticulum networks, how to build the radio in, and its certification.
 10. [docs/HANDHELD.md](docs/HANDHELD.md): an earlier proposal for a Raspberry Pi handheld, now one option among others.
+11. [docs/CARRIER-DOCS.md](docs/CARRIER-DOCS.md): the makers' documents for designing a carrier board for the CM5 or the LattePanda Mu, with links to download them.
 
 ## What's in this repository
 

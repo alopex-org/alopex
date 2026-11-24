@@ -174,6 +174,7 @@ Sources: [clockworkPi adapter list][cpi-adapters], [clockworkPi uConsole][uconso
 ## A carrier of the project's own
 
 What the sources say about designing one; what it should hold is task T1's to decide.
+The makers' documents for designing one, with download links, are in [CARRIER-DOCS.md](CARRIER-DOCS.md#compute-module-5).
 
 - **Starting points:**
   - Raspberry Pi's IO board in KiCad, which its datasheet offers for one's own designs.
