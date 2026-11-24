@@ -318,3 +318,4 @@ Do it before the task that relies on it (shown by →), then update the docs tha
     - the piBrick Pocket-CM5's figures and repository, from a second source;
     - the Waveshare CM5 to Pi 5 Adapter's HDMI ports;
     - how the uConsole AIO V2's SX1262 is set up for `meshtasticd` on a CM5.
+    - whether the CM5 MINIMA REV1's RAK3172 module can run a mesh network such as Meshtastic or MeshCore.
