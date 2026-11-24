@@ -14,6 +14,8 @@ Technical words are explained in the [glossary](GLOSSARY.md).
 - **Founding meeting, 2026-11-24:** the members choose the maintainers, who decide the project's foundations together ([governance](https://github.com/alopex-org/.github/blob/main/GOVERNANCE.md#founding-maintainers)).
   One interim maintainer decided everything marked decided here, so the meeting confirms or changes it.
   The meeting also takes decision D5: a prototype only, or a product.
+- **Shortlist, 2026-11-24:** the boards most in view for the main board, for now: the Raspberry Pi 5, the Orange Pi 5 and 6, the Raspberry Pi Zero 2 W, and LattePanda's x86 boards ([SHORTLIST.md](SHORTLIST.md)).
+  None is chosen; the main board is decision D1.
 - **Earlier proposal:** a Raspberry Pi handheld as the first prototype ([HANDHELD.md](HANDHELD.md)); it is now one option for the cyber-deck, not a plan.
 - **Next:** task T1, the cyber-deck's requirements.
   It needs no decision and no money.
@@ -24,7 +26,7 @@ Technical words are explained in the [glossary](GLOSSARY.md).
   Each one lists the options and a recommendation.
 - **Tasks (T0–T7)** are the pieces of work, in order.
   Each one says what it needs first, what to do, when it is finished, and what to share afterwards.
-- **Checks (C1–C14)** are facts to confirm before the task that relies on them.
+- **Checks (C1–C15)** are facts to confirm before the task that relies on them.
   A ⚠ in the other docs usually points to one of them.
 - **On GitHub,** each decision, task and check also has an issue, and each phase below is a [milestone](https://github.com/alopex-org/alopex/milestones).
   This page is the plan; the issues track progress and discussion ([CONTRIBUTING.md](../CONTRIBUTING.md#issues-and-labels)).
@@ -65,6 +67,7 @@ Open; needed before a prototype is built.
   - a main board of the project's own around a cellular module, if decision D2 chooses a cellular device ([FEASIBILITY.md](FEASIBILITY.md#routes-to-a-device)).
 
   Whatever is chosen has to run a Linux distribution, fit a pocket-sized device if possible, and let the owner service it.
+  [SHORTLIST.md](SHORTLIST.md) compares the boards most in view on 2026-11-24: the Raspberry Pi 5 and Zero 2 W, the Orange Pi 5 and 6, and LattePanda's x86 boards.
   [BOARDS.md](BOARDS.md) compares boards researched for the earlier phone plan, and [HANDHELD.md](HANDHELD.md) works out one option, a Raspberry Pi handheld, larger than pocket-sized; task T1's requirements may point to others.
 - Working with a phone maker, and having an ODM build a phone, are routes to a product, and become options only if decision D5 chooses one ([DESIGN.md](DESIGN.md#prototype-or-product)).
 - **Recommendation:** decide after task T1 and the bench work in task T2.
@@ -170,10 +173,10 @@ The list of what the cyber-deck must offer.
 ### T2: development board bring-up
 
 Trying candidate boards for the cyber-deck on the bench.
-**Hands-on.** Needs task T1 and check C9, and the maintainer to buy the boards.
+**Hands-on.** Needs task T1 and checks C9 and C15, and the maintainer to buy the boards.
 
 - Pick two or three boards that task T1's requirements point to.
-  [BOARDS.md](BOARDS.md) compares the boards researched for the earlier phone plan, mainly RISC-V boards; others may fit the cyber-deck better.
+  [SHORTLIST.md](SHORTLIST.md) compares the boards most in view for the cyber-deck; [BOARDS.md](BOARDS.md) compares the boards researched for the earlier phone plan, mainly RISC-V boards.
 - Start a Linux distribution on each (decision D6); for the bench, any distribution that runs on the board is enough to test it.
   Note how well the board's parts work with Linux, and how easy the board is to service.
   A build can take hours, so keep the build log.
@@ -240,7 +243,7 @@ Can run alongside task T2; Linux is enough to test the hardware, whatever decisi
 
 The longest chains of work, where each step waits for the one before:
 
-- T1 → T2, then T3 if decision D2 chooses a cellular device;
+- T1 → C9 and C15 → T2, then T3 if decision D2 chooses a cellular device;
 - at the same time, T1 → D4 → T6;
 - if the maintainers want it, T1 → C13 and C14 → T7;
 - check C12 → D3, and D5 → D1 and D3.
@@ -300,3 +303,10 @@ Do it before the task that relies on it (shown by →), then update the docs tha
 14. **C14, handheld switches and position** (→ T7).
     How to cut a part fully, including its data lines, so it isn't powered through them, for the SPI LoRa radio, a USB adapter, a GNSS receiver and a microphone.
     Whether `meshtasticd` on Linux can read a GNSS receiver and share its position.
+15. **C15, shortlisted boards** (→ T2).
+    Before buying a board, confirm for the boards in [SHORTLIST.md](SHORTLIST.md):
+    - their current prices and availability, since memory prices rose sharply in 2026, and the Raspberry Pi Zero 2 W's current price;
+    - the Raspberry Pi Zero 2 W's supply needs, and the Orange Pi 5's power input;
+    - the sizes of the Orange Pi 5B, 5 Plus, 5 Max and 5 Ultra;
+    - the Orange Pi 6 boards' power use from a second source, the details of the 6 Plus's battery connector, and whether their GPU works with an open driver;
+    - the LattePanda boards' prices, how their secure boot is set up, and how long they stay on sale.
