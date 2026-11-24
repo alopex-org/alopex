@@ -1,8 +1,8 @@
 # Main-board shortlist
 
 **Status: research.**
-On 2026-11-24 the interim maintainer named the boards most in view for the cyber-deck's main board, for now: the Raspberry Pi 5, the Orange Pi 5 and 6, the Raspberry Pi Zero 2 W, and LattePanda's x86 boards.
-This page sets out what each one offers against what is proposed for the cyber-deck: user-serviceable and portable, with LoRa and Wi-Fi, pocket-sized if possible, and running a Linux distribution for now ([CYBERDECK.md](CYBERDECK.md#what-is-proposed)).
+On 2026-11-24 the maintainer named the boards most in view for the cyber-deck's main board, for now: the Raspberry Pi 5, the Orange Pi 5 and 6, the Raspberry Pi Zero 2 W, and LattePanda's x86 boards.
+This page sets out what each one offers against what is decided for the cyber-deck: user-serviceable and portable, with LoRa and Wi-Fi, pocket-sized if possible, and running a Linux distribution for now ([CYBERDECK.md](CYBERDECK.md#what-is-decided)).
 It is a shortlist, not a choice: the main board is roadmap decision [D1](ROADMAP.md#d1-route-to-a-prototype), still open, and task [T1](ROADMAP.md#t1-hardware-requirements)'s requirements may add boards or rule some out.
 Technical words are explained in the [glossary](GLOSSARY.md).
 
@@ -25,7 +25,7 @@ Technical words are explained in the [glossary](GLOSSARY.md).
 
 ## What matters for the cyber-deck
 
-The points the comparison looks at, taken from what is proposed.
+The points the comparison looks at, taken from what is decided.
 Task T1 turns them into requirements; until then they are questions, not thresholds.
 
 1. **Linux support:** whether the mainline Linux kernel supports the board, so any distribution runs on it and it can outlive its maker's software ([decision D6](ROADMAP.md#d6-operating-system-of-the-first-prototype)).

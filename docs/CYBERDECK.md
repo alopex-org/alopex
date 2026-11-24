@@ -1,10 +1,10 @@
 # Cyber-deck
 
-**Status: proposal.**
-Since 2026-11-24, the project is proposed to work toward a cyber-deck: a portable computer of its own.
-Its primary purpose is to be user-serviceable; it has LoRa and Wi-Fi, is meant to be pocket-sized if possible, and runs a Linux distribution for now ([What is proposed](#what-is-proposed)).
+**Status: decided, details open.**
+Since 2026-11-24, the project works toward a cyber-deck: a portable computer of its own, confirmed at the members' founding meeting.
+Its primary purpose is to be user-serviceable; it has LoRa and Wi-Fi, is meant to be pocket-sized if possible, and runs a Linux distribution for now ([What is decided](#what-is-decided)).
 Its main board, screen and controls, power, case and other radios are undecided.
-This page says what a cyber-deck is, what is proposed for this one, what is undecided and where each question is decided, and describes cyber-decks that already exist.
+This page says what a cyber-deck is, what is decided for this one, what is undecided and where each question is decided, and describes cyber-decks that already exist.
 Technical words are explained in the [glossary](GLOSSARY.md).
 
 **How to read it:**
@@ -17,7 +17,7 @@ Technical words are explained in the [glossary](GLOSSARY.md).
 ## In short
 
 - A cyber-deck is a custom-built, portable computer, often made for one purpose, nominally with a keyboard and a screen.
-- The project proposes to build one: user-serviceable and portable, with LoRa and Wi-Fi, pocket-sized if possible, running a Linux distribution for now.
+- The project builds one: user-serviceable and portable, with LoRa and Wi-Fi, pocket-sized if possible, running a Linux distribution for now.
 - Its main board, screen and controls, power, case and other radios are undecided.
 - The first step is a list of requirements (roadmap task T1); the open decisions follow from it.
 - The earlier research into a phone, development boards and a Raspberry Pi handheld is background for those decisions, not a plan.
@@ -30,9 +30,12 @@ Technical words are explained in the [glossary](GLOSSARY.md).
 
 Sources: [Wikipedia: Cyberdeck][wiki-cyberdeck], [Hackaday 2022 contest][had-2022], [Hackaday 2023 contest][had-2023].
 
-## What is proposed
+## What is decided
 
-Proposed 2026-11-24, for the founding meeting to confirm ([DESIGN.md](DESIGN.md#a-cyber-deck-as-the-device)):
+<!-- Keeps links to this section's earlier title, "What is proposed", working. -->
+<a id="what-is-proposed"></a>
+
+Decided at the founding meeting on 2026-11-24 ([DESIGN.md](DESIGN.md#a-cyber-deck-as-the-device)):
 
 - **Primary purpose: user-serviceable.**
   A portable cyber-deck its owner can open, repair and change: parts that can be replaced, and a design that doesn't stop the owner working on it.
@@ -61,7 +64,7 @@ Task T1 drafts the requirements, and the maintainers decide through the roadmap 
 | Its case | Task T1 |
 | Which Linux distribution it runs | [FoxieOS](https://github.com/alopex-org/foxieos), with decision [D6](ROADMAP.md#d6-operating-system-of-the-first-prototype) here |
 | Who gets the prototypes | Decision [D3](ROADMAP.md#d3-sharing-prototypes) |
-| Whether it stays a prototype or becomes a product | Decision [D5](ROADMAP.md#d5-prototype-or-product) |
+| How and when a product follows the prototype | Open; decision [D5](ROADMAP.md#d5-prototype-or-product) puts it after the prototype |
 
 ## Earlier work that bears on it
 

@@ -10,7 +10,7 @@ Words about operating systems are explained in more depth in [FoxieOS's glossary
 
 - **Prototype:** a device built in small numbers to try out a design, not sold.
 - **Product:** a device sold to the public, which brings legal duties.
-  Whether this project aims at a product is roadmap decision D5.
+  The project builds a prototype first, then a product (roadmap decision D5).
 - **Manufacturer:** in EU law, whoever puts a device on the market under their own name.
   They certify it, pay patent licences and supply updates and spare parts for years.
 - **Placing on the market:** making a product available for others to use, whether sold or given away.
