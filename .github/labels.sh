@@ -4,7 +4,7 @@
 # Labels that aren't listed here, such as GitHub's defaults, are left alone.
 set -euo pipefail
 
-repo=alopex-org/foxieos-hardware
+repo=alopex-org/alopex
 
 while IFS='|' read -r name color description; do
   [[ -z $name || $name == '#'* ]] && continue
