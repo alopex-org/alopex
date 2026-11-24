@@ -7,8 +7,9 @@ The research and sources behind it are in [FEASIBILITY.md](FEASIBILITY.md), and 
 ## In short
 
 - The project works toward a cyber-deck, a portable computer of its own, in cheap steps (proposed for the maintainers to confirm).
+- Its primary purpose is to be user-serviceable; it has LoRa and Wi-Fi, is meant to be pocket-sized if possible, and runs a Linux distribution for now.
 - A LoRa radio for messaging without a mobile network is a core feature.
-- Apart from that, what the cyber-deck is for, what it has, what it is built from and what it runs are all undecided ([CYBERDECK.md](CYBERDECK.md)).
+- Its main board, screen and controls, power, case and other radios are undecided ([CYBERDECK.md](CYBERDECK.md)).
 - Whether the project stops at a prototype or aims at a product is for the maintainers to decide (decision D5).
 - The first steps are the same either way: a list of requirements, then bench work on development boards.
 - The earlier research into a phone and a Raspberry Pi handheld stays as background and options, not as plans.
@@ -17,7 +18,9 @@ The research and sources behind it are in [FEASIBILITY.md](FEASIBILITY.md), and 
 ## Purpose
 
 The project works toward a cyber-deck: a portable computer of its own ([A cyber-deck as the device](#a-cyber-deck-as-the-device)).
-Apart from its LoRa radio, everything about the device is still open: what it is for, its form, its other parts, and the software it runs (roadmap decision D6).
+Its primary purpose is to be **user-serviceable**: a portable computer its owner can open, repair and change.
+It has LoRa and Wi-Fi, is meant to be pocket-sized if possible, and runs a Linux distribution for now (roadmap decision D6).
+Its main board, screen and controls, power, case and other radios are still open.
 
 A LoRa radio for messaging without a mobile network, over a mesh of other devices, is a core feature of any device the project works toward ([LoRa mesh radio](#lora-mesh-radio-as-a-core-feature)).
 Whether it stays a prototype, built in small numbers and not sold, or leads to a product is open: the maintainers decide it at their founding meeting on 2026-11-24 ([Prototype or product](#prototype-or-product)).
@@ -79,8 +82,13 @@ Each decision says what was chosen, why, and what was turned down.
 
 Proposed 2026-11-24, for the founding meeting to confirm.
 
-- **What:** the device the project works toward is a cyber-deck, a portable computer of the project's own ([CYBERDECK.md](CYBERDECK.md)).
-  Apart from its LoRa radio, decided earlier, nothing else about it is decided: its purpose, form, main board, other radios, power and software are open, through task T1 and decisions D1–D6.
+- **What:** the device the project works toward is a cyber-deck, a portable computer of the project's own ([CYBERDECK.md](CYBERDECK.md)):
+  - **primary purpose:** user-serviceable, so its owner can open it, repair it and replace its parts;
+  - **radios:** LoRa, decided earlier ([LoRa mesh radio](#lora-mesh-radio-as-a-core-feature)), and Wi-Fi;
+  - **size:** pocket-sized if possible;
+  - **software:** a Linux distribution for now (decision D6); which one is FoxieOS's decision.
+
+  Its main board, screen and controls, power, case and other radios are open, through task T1 and decisions D1–D4.
 - **Why:** the direction proposed for the maintainers; the meeting records its reasons when it decides.
 - **Turned down:** a phone as the device, the project's earlier aim; its research stays as background ([FEASIBILITY.md](FEASIBILITY.md)).
 
@@ -157,7 +165,7 @@ Proposed 2026-11-23 as the first prototype; with the move to a cyber-deck, it is
   It is proposed to run a small Linux system built for privacy, such as Alpine Linux.
 - **Why:** every part can be bought one at a time, it needs no cellular module, certification of a modem or mobile-network patent licences, and it puts the LoRa radio and the privacy switches in people's hands early.
 - **Open points:**
-  - a Linux system differs from the Android-based operating system the project was set up for (decision D6);
+  - it is larger than the pocket size now aimed for;
   - the LoRa chip on the Pi's own pins differs from the separate small processor proposed above, which saves battery on a device carried every day;
   - Meshtastic already encrypts LoRa messages, so the proposal's own encryption script is left out ([HANDHELD.md](HANDHELD.md#the-proposed-software)).
 - **Turned down:** nothing yet; the alternative is the module-based route after tasks T2 and T3.

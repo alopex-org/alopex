@@ -26,6 +26,7 @@ Words about operating systems are explained in more depth in [FoxieOS's glossary
 - **Bench work:** trying things out on boards and kits on a workbench, before building a device.
 - **Cyber-deck (cyberdeck):** a custom-built, portable computer, often made for one purpose, nominally with a keyboard and a screen; the device this project works toward ([CYBERDECK.md](CYBERDECK.md)).
   The word comes from William Gibson's 1984 novel *Neuromancer*.
+- **User-serviceable:** built so its owner can open it, repair it and replace parts themselves; the cyber-deck's primary purpose.
 - **Handheld:** a portable computer held in the hands, such as one built by hobbyists from a development board, a screen and a battery in a case of their own.
 
 ## Chips and boards

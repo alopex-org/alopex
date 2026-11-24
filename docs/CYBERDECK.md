@@ -2,9 +2,9 @@
 
 **Status: proposal.**
 Since 2026-11-24, the project is proposed to work toward a cyber-deck: a portable computer of its own.
-It keeps the built-in LoRa mesh radio decided for the project's device on 2026-11-21 ([LORA.md](LORA.md)).
-Apart from that, what the cyber-deck is for, its form, its other parts and the software it runs are all undecided.
-This page says what a cyber-deck is, lists what is undecided and where each question is decided, and describes cyber-decks that already exist.
+Its primary purpose is to be user-serviceable; it has LoRa and Wi-Fi, is meant to be pocket-sized if possible, and runs a Linux distribution for now ([What is proposed](#what-is-proposed)).
+Its main board, screen and controls, power, case and other radios are undecided.
+This page says what a cyber-deck is, what is proposed for this one, what is undecided and where each question is decided, and describes cyber-decks that already exist.
 Technical words are explained in the [glossary](GLOSSARY.md).
 
 **How to read it:**
@@ -17,7 +17,8 @@ Technical words are explained in the [glossary](GLOSSARY.md).
 ## In short
 
 - A cyber-deck is a custom-built, portable computer, often made for one purpose, nominally with a keyboard and a screen.
-- The project proposes to build one; apart from its LoRa mesh radio, nothing about it is decided yet.
+- The project proposes to build one: user-serviceable and portable, with LoRa and Wi-Fi, pocket-sized if possible, running a Linux distribution for now.
+- Its main board, screen and controls, power, case and other radios are undecided.
 - The first step is a list of requirements (roadmap task T1); the open decisions follow from it.
 - The earlier research into a phone, development boards and a Raspberry Pi handheld is background for those decisions, not a plan.
 
@@ -29,23 +30,36 @@ Technical words are explained in the [glossary](GLOSSARY.md).
 
 Sources: [Wikipedia: Cyberdeck][wiki-cyberdeck], [Hackaday 2022 contest][had-2022], [Hackaday 2023 contest][had-2023].
 
+## What is proposed
+
+Proposed 2026-11-24, for the founding meeting to confirm ([DESIGN.md](DESIGN.md#a-cyber-deck-as-the-device)):
+
+- **Primary purpose: user-serviceable.**
+  A portable cyber-deck its owner can open, repair and change: parts that can be replaced, and a design that doesn't stop the owner working on it.
+  What exactly that requires is task T1.
+- **LoRa and Wi-Fi.**
+  The LoRa mesh radio was decided on 2026-11-21 ([LORA.md](LORA.md)); which network it runs is decision D4.
+- **Pocket-sized if possible.**
+  Size is a target, weighed against being user-serviceable and against battery life in task T1.
+- **A Linux distribution, for now.**
+  Which one is FoxieOS's decision; "for now" leaves room to revisit it (decision D6).
+
 ## What is undecided
 
-Everything below is open; the LoRa radio itself is decided, but not which network it runs.
 Task T1 drafts the requirements, and the maintainers decide through the roadmap items named.
 
 | Question | Where it is decided |
 |---|---|
-| What is the cyber-deck for, and who uses it? | Task [T1](ROADMAP.md#t1-hardware-requirements) |
-| Its form and size, its screen, and how it is typed on and controlled | Task T1 |
+| What user-serviceable means in practice: which parts the owner can replace, with what tools | Task [T1](ROADMAP.md#t1-hardware-requirements) |
+| Its exact size, its screen, and how it is typed on and controlled | Task T1 |
 | How it is built, and around what main board | Decision [D1](ROADMAP.md#d1-route-to-a-prototype) |
-| Whether it connects to mobile networks | Decision [D2](ROADMAP.md#d2-cellular-or-wi-fi-only) |
-| Its other radios, such as Wi-Fi, Bluetooth and satellite positioning | Task T1 |
+| Whether it also connects to mobile networks | Decision [D2](ROADMAP.md#d2-cellular-or-wi-fi-only) |
+| Its other radios, such as Bluetooth and satellite positioning | Task T1 |
 | Which mesh network its LoRa radio runs | Decision [D4](ROADMAP.md#d4-lora-mesh-network) |
 | Its power: battery, charging and battery life | Task T1 |
 | Privacy and security, such as hardware switches and secure boot | Task T1 |
-| Its case, and how it is repaired | Task T1 |
-| What operating system it runs | Decision [D6](ROADMAP.md#d6-operating-system-of-the-first-prototype), with [FoxieOS](https://github.com/alopex-org/foxieos) |
+| Its case | Task T1 |
+| Which Linux distribution it runs | [FoxieOS](https://github.com/alopex-org/foxieos), with decision [D6](ROADMAP.md#d6-operating-system-of-the-first-prototype) here |
 | Who gets the prototypes | Decision [D3](ROADMAP.md#d3-sharing-prototypes) |
 | Whether it stays a prototype or becomes a product | Decision [D5](ROADMAP.md#d5-prototype-or-product) |
 
@@ -102,7 +116,8 @@ None of them is a model the project has chosen.
 ### What they show
 
 - Cyber-decks range from microcontroller devices such as the T-Deck, which run a mesh network's firmware, to full computers on a single-board computer or a compute module, such as the uConsole and the Pocket Reform.
-- Several publish their designs under open licences (the uConsole under the GPL v3, the HackberryPi CM5 under MIT, Beepy under the CERN OHL), which the project can learn from within those licences' terms.
+- Several publish their designs under open licences (the uConsole under the GPL v3, the HackberryPi CM5 under MIT, Beepy under the CERN OHL), which helps owners repair them and which the project can learn from within those licences' terms.
+- On size, the HackberryPi CM5 shows what a Linux hand-held with a keyboard can reach: 143.5 × 91.8 × 17.6 mm and 306 g, against 1100 g for the Pocket Reform.
 
 Sources: [clockworkPi uConsole][uconsole], [CNX Software on the uConsole][cnx-uconsole], [RTL-SDR.com on the add-on board][rtlsdr-aio], [HackberryPi CM5][hackberry-cm5], [Meshtastic: T-Deck][mt-tdeck], [Hackaday: Beepy review][had-beepy], [MNT Pocket Reform][mnt-pocket].
 
