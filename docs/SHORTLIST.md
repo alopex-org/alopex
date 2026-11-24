@@ -163,7 +163,7 @@ Each has a small microcontroller on the board for electronics projects.
   - Windows, and Ubuntu 22.04 and 24.04.
   - ⚠ Price not found (check C15).
 - **LattePanda Mu:**
-  - A compute module, 69.6 × 60 mm, with a 260-pin SO-DIMM edge connector; it needs a carrier board, LattePanda's or the project's own.
+  - A compute module, 69.6 × 60 mm, with a 260-pin SO-DIMM edge connector; it needs a carrier board, LattePanda's or the project's own ([MU-CARRIERS.md](MU-CARRIERS.md)).
   - Intel N100 (four cores, 6 W) or Core i3-N305 (eight cores, 15 W); up to 16 GB of memory and 64 GB of storage.
   - No Wi-Fi on the module.
   - Windows and Linux.
