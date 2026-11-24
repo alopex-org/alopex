@@ -15,7 +15,7 @@ If you use an AI coding agent, you are responsible for its work as for your own;
 
 1. Read [README.md](README.md) and [docs/FEASIBILITY.md](docs/FEASIBILITY.md).
 2. Pick something from [docs/ROADMAP.md](docs/ROADMAP.md) or its issues, or open an issue about what you want to change.
-3. Fork the repository (until the founding meeting, members work from forks), then make a new branch for your change.
+3. Fork the repository (members work from forks), then make a new branch for your change.
 4. Make the change, with a source for every fact, and commit it with a sign-off (`git commit -s`).
 5. Open a pull request and say what you changed, why, which sources you checked, and what you ran.
 6. Someone else reviews it; answer their comments.
@@ -43,7 +43,7 @@ The sections below explain each rule.
 
 ## Branches
 
-Until the founding meeting on 2026-11-24 ([governance][governance]), members can read this repository but not change it directly, like everyone else.
+Members can read this repository but not change it directly, like everyone else, as the founding meeting decided ([governance][governance]).
 Put your branch in your own fork and open the pull request from there.
 
 Use a new branch for each change, named after what it changes:
@@ -85,8 +85,8 @@ If an AI coding agent writes a commit for you, you sign it off with your own nam
 
 Someone other than the author reviews every change.
 
-- **Until the founding meeting** on 2026-11-24 ([governance][governance]), only the interim maintainer's approval lets a pull request merge.
-  `.github/CODEOWNERS` names them as the owner of every file.
+- **One maintainer's approval** lets a pull request merge, as the founding meeting decided ([governance][governance]).
+  `.github/CODEOWNERS` names the maintainers as owners of every file.
 - **Members still review** each other's changes and the maintainer's own, and their comments are answered before merging.
   A member's approval doesn't count toward merging while members only have read access, but GitHub still records it on the pull request.
 - **Research and docs** may be reviewed by the reviewer with the help of a coding agent; the reviewer answers for that review as for their own.
@@ -102,7 +102,7 @@ A person must read every change to:
 These rules, called a ruleset, protect `main`:
 
 - every change arrives through a pull request; nobody pushes to `main` directly;
-- someone with write access, other than the author, approves the pull request (until the founding meeting, only the interim maintainer has write access);
+- someone with write access, other than the author, approves the pull request (only the maintainers have write access);
 - pushing new commits cancels earlier approvals;
 - every review comment thread is resolved before merging;
 - the DCO check passes;
@@ -128,7 +128,7 @@ A change here can need a matching change in FoxieOS, but a change in FoxieOS nev
 - **Issue types** say what an issue is: Decision, Task, Check, Bug or Feature.
 - **Labels** say who does the work (`who:`), what it touches (`area:`) and what it is waiting for.
   The list lives in `.github/labels.sh`; change it there, not by hand on GitHub.
-- Until the founding meeting, only the maintainer sets labels, types and milestones.
+- Only the maintainers set labels, types and milestones.
   Suggest them in a comment.
 
 ## Keys, secrets and personal details

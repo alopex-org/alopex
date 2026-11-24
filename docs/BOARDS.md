@@ -6,7 +6,7 @@ This page compares boards for the bench work in roadmap task [T2](ROADMAP.md#t2-
 The focus is on RISC-V boards: boards whose processor uses the open RISC-V design, which any chip maker may use.
 Arm boards, the kind almost all phones use, are covered for comparison, because their Android support is older and more complete.
 This expands the [Development board](FEASIBILITY.md#development-board) section of the feasibility study.
-It was written for the earlier phone plan; the cyber-deck's main board is open (roadmap decision [D1](ROADMAP.md#d1-route-to-a-prototype)) and is proposed to run a Linux distribution ([D6](ROADMAP.md#d6-operating-system-of-the-first-prototype)), so these boards are candidates for the bench, judged on their Linux support, not a choice.
+It was written for the earlier phone plan; the cyber-deck's main board is open (roadmap decision [D1](ROADMAP.md#d1-route-to-a-prototype)) and runs a Linux distribution ([D6](ROADMAP.md#d6-operating-system-of-the-first-prototype)), so these boards are candidates for the bench, judged on their Linux support, not a choice.
 Technical words are explained in the [glossary](GLOSSARY.md).
 
 **How to read it:**

@@ -6,11 +6,11 @@ The research and sources behind it are in [FEASIBILITY.md](FEASIBILITY.md), and 
 
 ## In short
 
-- The project works toward a cyber-deck, a portable computer of its own, in cheap steps (proposed for the maintainers to confirm).
+- The project works toward a cyber-deck, a portable computer of its own, in cheap steps (decided at the founding meeting on 2026-11-24).
 - Its primary purpose is to be user-serviceable; it has LoRa and Wi-Fi, is meant to be pocket-sized if possible, and runs a Linux distribution for now.
 - A LoRa radio for messaging without a mobile network is a core feature.
 - Its main board, screen and controls, power, case and other radios are undecided ([CYBERDECK.md](CYBERDECK.md)).
-- Whether the project stops at a prototype or aims at a product is for the maintainers to decide (decision D5).
+- It builds a prototype first, then a product (decision D5, decided 2026-11-24).
 - The first steps are the same either way: a list of requirements, then bench work on development boards.
 - The earlier research into a phone and a Raspberry Pi handheld stays as background and options, not as plans.
 - If the device has secure boot, whoever builds it keeps its permanent chip key, and each operating system keeps its own signing key (proposed).
@@ -23,7 +23,7 @@ It has LoRa and Wi-Fi, is meant to be pocket-sized if possible, and runs a Linux
 Its main board, screen and controls, power, case and other radios are still open.
 
 A LoRa radio for messaging without a mobile network, over a mesh of other devices, is a core feature of any device the project works toward ([LoRa mesh radio](#lora-mesh-radio-as-a-core-feature)).
-Whether it stays a prototype, built in small numbers and not sold, or leads to a product is open: the maintainers decide it at their founding meeting on 2026-11-24 ([Prototype or product](#prototype-or-product)).
+The project builds a prototype first, in small numbers and not sold, then a product once the prototype proves the design, as the founding meeting decided on 2026-11-24 ([Prototype or product](#prototype-or-product)).
 
 The project started out researching a phone for an operating system based on Android.
 That research, with the work on a Raspberry Pi handheld, stays as background for the cyber-deck's decisions.
@@ -32,12 +32,12 @@ The project does **not**:
 
 - follow the plan of FoxieOS, the operating-system project ([Related repositories](#related-repositories));
 - design a device from the chip up together with a chip maker;
-- take on a manufacturer's legal duties before decision D5 says it aims at a product; how prototypes are shared is roadmap decision D3.
+- take on a manufacturer's legal duties before it moves from the prototype to a product (decision D5); how prototypes are shared is roadmap decision D3.
 
 ## How a device comes about
 
 Every route to a device sold as a product involves the same parties; what changes from route to route is who plays each part.
-A prototype that isn't sold is never "placed on the market", so the chain below matters only if decision D5 chooses a product.
+A prototype that isn't sold is never "placed on the market", so the chain below matters once the project moves to a product (decision D5).
 It was written for a phone; for the cyber-deck, the parts about modules and mobile networks apply only if decision D2 chooses a cellular device.
 
 ```
@@ -74,13 +74,13 @@ The routes are compared in [FEASIBILITY.md](FEASIBILITY.md#routes-to-a-device).
 
 Decided items carry their date.
 The others are proposals: they are the plan's recommendation until the maintainers decide them through the roadmap item they name.
-Everything decided before the founding meeting on 2026-11-24 was decided by one interim maintainer, and the meeting confirms or changes it ([governance](https://github.com/alopex-org/.github/blob/main/GOVERNANCE.md#founding-maintainers)).
+The founding meeting on 2026-11-24 confirmed the items marked decided below; the others were written by one maintainer before it and stay proposals ([governance](https://github.com/alopex-org/.github/blob/main/GOVERNANCE.md#the-founding-meeting)).
 
 Each decision says what was chosen, why, and what was turned down.
 
 ### A cyber-deck as the device
 
-Proposed 2026-11-24, for the founding meeting to confirm.
+Decided at the founding meeting, 2026-11-24.
 
 - **What:** the device the project works toward is a cyber-deck, a portable computer of the project's own ([CYBERDECK.md](CYBERDECK.md)):
   - **primary purpose:** user-serviceable, so its owner can open it, repair it and replace its parts;
@@ -89,12 +89,12 @@ Proposed 2026-11-24, for the founding meeting to confirm.
   - **software:** a Linux distribution for now (decision D6); which one is FoxieOS's decision.
 
   Its main board, screen and controls, power, case and other radios are open, through task T1 and decisions D1–D4.
-- **Why:** the direction proposed for the maintainers; the meeting records its reasons when it decides.
+- **Why:** the members confirmed it at the founding meeting; its reasons aren't written down here yet.
 - **Turned down:** a phone as the device, the project's earlier aim; its research stays as background ([FEASIBILITY.md](FEASIBILITY.md)).
 
 ### A separate project
 
-Decided 2026-11-20.
+Decided 2026-11-20, and confirmed at the founding meeting on 2026-11-24.
 
 - **What:** this project doesn't follow the FoxieOS plan or its rules for choosing phones.
   FoxieOS decides on its side whether, and on what terms, it would support a device from here (FoxieOS roadmap decision D9).
@@ -107,23 +107,21 @@ Decided 2026-11-20.
 <!-- Keeps links to this section's earlier title, "A prototype, not a product", working. -->
 <a id="a-prototype-not-a-product"></a>
 
-Open (roadmap decision D5), for the maintainers' founding meeting on 2026-11-24.
-An earlier version of this page recorded "a prototype, not a product" as decided on 2026-11-21.
-That was written down before the team had agreed on it, so it goes back to the maintainers.
+Decided at the founding meeting, 2026-11-24 (roadmap decision D5): **a prototype first, then a product.**
+An earlier version of this page recorded "a prototype, not a product" as decided on 2026-11-21, before the team had agreed on it; the meeting took the decision instead.
+How and when the product follows, and with whom, are open.
 
-The options:
+The options the meeting weighed:
 
 - **A prototype only:** the project builds devices for its maintainers and other enthusiasts, in small numbers, and sells nothing.
   It avoids certification, patent licences and years of EU update and spare-part duties ([FEASIBILITY.md](FEASIBILITY.md#certification-patents-and-eu-rules)), and keeps the work to what the team can learn and build.
 - **A product:** the project, through a company of its own or a partner, sells devices.
   It reaches people beyond the team and can pay for the work, but needs a company, funding, certification, and the manufacturer's duties for years after the last sale ([FEASIBILITY.md](FEASIBILITY.md#routes-to-a-device)).
-- **A prototype first, then a product:** bench work and a prototype prove the design before the team commits to the costs of a product.
-
-Tasks T1–T3 are the same under every option, so they go ahead in the meantime.
+- **A prototype first, then a product (chosen):** bench work and a prototype prove the design before the team commits to the costs of a product.
 
 ### Hosting on GitHub
 
-Decided 2026-11-20, following FoxieOS's decision D3.
+Decided 2026-11-20, following FoxieOS's decision D3, and confirmed at the founding meeting on 2026-11-24.
 
 - **What:** the repository is `alopex-org/alopex` (named `foxieos-hardware` until 2026-11-23), in the same GitHub organization as FoxieOS.
 - **Why:** it keeps the organization's repositories together, with the same owners.
@@ -131,7 +129,7 @@ Decided 2026-11-20, following FoxieOS's decision D3.
 
 ### LoRa mesh radio as a core feature
 
-Decided 2026-11-21, and kept for the cyber-deck; which network to use is proposed (roadmap decision D4).
+Decided 2026-11-21, kept for the cyber-deck and confirmed at the founding meeting on 2026-11-24; which network to use is open (roadmap decision D4).
 
 - **What:** the device has a LoRa radio on its own circuit board, for messaging over a mesh network such as Meshtastic or MeshCore, with no mobile network or Wi-Fi.
   The proposed design is a small separate processor (a microcontroller) with its own LoRa chip, connected to the main processor by a cable-like link (UART or USB), running the mesh network's own software ([LORA.md](LORA.md#integrating-the-radio)).

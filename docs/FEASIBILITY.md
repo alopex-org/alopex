@@ -2,11 +2,11 @@
 
 This is the research behind the plan.
 It asks whether a small team can build a prototype phone, or a similar device, for an operating system based on Android, which way it could go about it, and what that takes.
-Whether the project builds only a prototype or aims at a product is open ([DESIGN.md](DESIGN.md#prototype-or-product), roadmap decision D5), so this page covers the routes to both.
+The project builds a prototype first, then a product ([DESIGN.md](DESIGN.md#prototype-or-product), roadmap decision D5), so this page covers the routes to both.
 The plan that follows from it is in [ROADMAP.md](ROADMAP.md) and [DESIGN.md](DESIGN.md).
 Technical words are explained in the [glossary](GLOSSARY.md).
 
-**Since 2026-11-24** the project is proposed to work toward a cyber-deck, proposed to be user-serviceable, with LoRa and Wi-Fi, pocket-sized if possible, and running a Linux distribution for now; its main board and other parts are undecided ([CYBERDECK.md](CYBERDECK.md)).
+**Since 2026-11-24** the project works toward a cyber-deck, confirmed at the founding meeting: user-serviceable, with LoRa and Wi-Fi, pocket-sized if possible, and running a Linux distribution for now; its main board and other parts are undecided ([CYBERDECK.md](CYBERDECK.md)).
 This research was done for a phone; it applies to the cyber-deck wherever the cyber-deck would share a part, a route or a rule with a phone.
 
 **How to read it:**
@@ -49,7 +49,7 @@ The recommendation:
 2. Learn to get Android running cheaply: on a development board, then on a cellular module's evaluation kit (tasks T2 and T3).
 3. Only then choose how the prototype is built (decisions D1–D3).
 4. Don't design a phone directly with a chip maker.
-5. Decide whether to aim at a product before taking on a manufacturer's duties (decision D5).
+5. Take on a manufacturer's duties only when the project moves from the prototype to a product (decision D5).
 
 ## Terms
 
@@ -113,7 +113,7 @@ What partners seem to look for, judging from these cases:
 
 **Cost:** mostly engineering time; possibly a share of revenue or of support costs, depending on the deal (unsourced).
 
-**Verdict:** the best and least risky route to a product; whether the project pursues a product is decision D5.
+**Verdict:** the best and least risky route to a product; decision D5 puts a product after the prototype.
 
 Sources: [iFixit on the Fairphone 6][ifixit-fp6], [Fairphone support][fp-support], [Fairphone /e/OS][fp-eos], [Android Central][ac-murena-fp6], [Murena][murena-shift], [Privacy Guides][pg-shift], [9to5Google on Motorola][9to5-moto], [The Register on Motorola][reg-moto], [Notebookcheck][nbc-moto], [Android Authority on GrapheneOS's plans][aa-moto-plans], [Android Authority on the Signature 27][aa-sig27], [Gigaset blog][gigaset-volla], [Sailfish OS forum][sfos-quintus].
 
@@ -174,7 +174,7 @@ Memory prices rose sharply in 2026 because of demand from AI data centres, so th
 
 **Verdict:** possible only with a company, money for a minimum order, and buyers.
 Even then, the ODM's update process decides the real support period.
-It leads to a product, so the project pursues it only if decision D5 chooses one.
+It leads to a product, so it belongs after the prototype (decision D5).
 
 Sources: [Alibaba smartphone ODM guide][alibaba-odm], [Alibaba guide to launching a phone brand][alibaba-brand], [IDC][idc-memory], [The Register on memory prices][reg-memory].
 
@@ -198,7 +198,7 @@ A few hand-built prototypes cost far less, since they skip the certification and
 
 **Verdict:** the route for the prototype.
 Start with the module's evaluation kit (task T3), then a main board of the project's own, built in small numbers.
-Selling it as a product would need money for certification and the EU duties; decision D5 settles whether the project takes them on.
+Selling it as a product would need money for certification and the EU duties; under decision D5, the project takes them on only when it moves to a product.
 A Wi-Fi-only device, such as a tablet, needs no cellular module or mobile-network patent licences.
 
 Sources: [Quectel SG560D][quectel-sg560d], [CNX Software on the SG560D][cnx-sg560d], [TrustedReviews][tr-fp5], [CNX Software on the Fairphone 5][cnx-fp5].

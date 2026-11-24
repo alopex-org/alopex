@@ -5,13 +5,13 @@ It works toward a cyber-deck: a portable computer of the project's own ([docs/CY
 Its primary purpose is to be **user-serviceable**: its owner can open it, repair it and replace its parts.
 It has LoRa, for messaging without a mobile network ([docs/LORA.md](docs/LORA.md)), and Wi-Fi; it is meant to be pocket-sized if possible, and runs a Linux distribution for now.
 Its main board, screen and controls, power, case and other radios are undecided.
-The move to a cyber-deck is a proposal for the maintainers to confirm; the project started out researching a phone for an operating system based on Android, and that research stays as background.
-Whether the project stops at a prototype or aims at a product it sells is open: the maintainers decide it at their founding meeting on 2026-11-24 (roadmap decision D5).
+The members confirmed the move to a cyber-deck at their founding meeting on 2026-11-24; the project started out researching a phone for an operating system based on Android, and that research stays as background.
+The meeting also decided that the project builds a prototype first, then a product it sells (roadmap decision D5).
 
 **Status: research.**
 No hardware is designed, bought or ordered.
 This repository holds the research and the plan.
-Its decisions belong to the maintainers, who are chosen at the founding meeting ([governance](https://github.com/alopex-org/.github/blob/main/GOVERNANCE.md#founding-maintainers)).
+Its decisions belong to the maintainers, whom the members chose at the founding meeting ([governance](https://github.com/alopex-org/.github/blob/main/GOVERNANCE.md#the-founding-meeting)).
 
 Unfamiliar words are explained in two glossaries: [hardware, radios and rules](docs/GLOSSARY.md), and [GitHub and how we work](https://github.com/alopex-org/.github/blob/main/GLOSSARY.md).
 
@@ -19,7 +19,7 @@ Unfamiliar words are explained in two glossaries: [hardware, radios and rules](d
 
 - **First, the requirements:** what being user-serviceable and pocket-sized means in practice, and what else the cyber-deck must have (roadmap task T1).
 - **Then cheap bench work:** trying candidate hardware on development boards.
-- **Later, if the maintainers decide so,** a prototype built in small numbers, and possibly a product after it (decision D5).
+- **Then a prototype** built in small numbers, and a product after it, once the prototype proves the design (decision D5).
 
 A LoRa radio, for sending messages without a mobile network over Meshtastic, MeshCore or a similar mesh network, is a core part of the device (decided 2026-11-21; [docs/LORA.md](docs/LORA.md)).
 
@@ -35,7 +35,7 @@ From the research into a phone; they apply to the cyber-deck wherever it would s
 - A phone designed from the chip up is out of reach for a small team.
 - Whoever sells a device becomes its manufacturer, with radio certification, patent licences and the EU's duty to supply updates and spare parts for years.
   A prototype that isn't sold stays clear of most of that ⚠ (roadmap check C12).
-- Working with an existing phone maker, or having a factory build a phone, are routes to a product; decision D5 settles whether the project pursues one.
+- Working with an existing phone maker, or having a factory build a phone, are routes to a product; decision D5 puts a product after the prototype.
   For a prototype, the route that fits is a design around a cellular module, after bench work on a development board.
 - No phone has a LoRa mesh radio on its own circuit board yet; the ones on sale attach a separate radio over Bluetooth, so a built-in one would set the device apart.
 - The first steps cost little: a list of hardware requirements, then bench work on a development board and a module kit.

@@ -10,7 +10,7 @@ Never copy anything from them into a commit, pull request or issue.
 ## The project in brief
 
 Alopex, the hardware project in this repository (`alopex`), works toward a cyber-deck: a portable computer of its own.
-The cyber-deck is a proposal for the maintainers, with these aims:
+The cyber-deck was confirmed at the founding meeting on 2026-11-24, with these aims:
 - primary purpose: a user-serviceable, portable cyber-deck, which its owner can open, repair and change;
 - LoRa (a built-in mesh radio, decided 2026-11-21; which network is decision D4) and Wi-Fi;
 - pocket-sized if possible;
@@ -19,7 +19,7 @@ The cyber-deck is a proposal for the maintainers, with these aims:
 Everything else about it is undecided: its main board, screen and controls, power, case and other radios.
 Don't write any of these as decided, or assume one from earlier documents or drafts; list options instead.
 The project started out researching a phone for an Android-based operating system, and that research stays as background.
-Whether the project builds only a prototype or aims at a product it sells is open (roadmap decision D5): don't write either as decided.
+The project builds a prototype first, then a product it sells (roadmap decision D5, decided 2026-11-24); how and when the product comes, and with whom, are open, so don't write them as decided.
 It is separate from the FoxieOS operating system and doesn't follow its plan.
 The student organization is also called Alopex, so write "the Alopex student organization" when you mean it.
 It is in the research phase: no hardware is designed, bought or ordered, and the repository holds documents only.
