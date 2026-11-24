@@ -146,6 +146,7 @@ Sources: [MuBook repository][mubook], [hackbook motherboard repository][hackbook
 ## A carrier of the project's own
 
 What the sources say about designing one; what it should hold is task T1's to decide.
+The makers' documents for designing one, with download links, are in [CARRIER-DOCS.md](CARRIER-DOCS.md#lattepanda-mu).
 
 - **Starting points:**
   - LattePanda's carrier design guide, pin descriptions, symbols and footprints, and its Lite Carrier in KiCad, under MIT.

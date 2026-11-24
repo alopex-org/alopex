@@ -50,6 +50,12 @@ Words about operating systems are explained in more depth in [FoxieOS's glossary
 - **Single-board computer (SBC):** a whole computer on one board, ready to use.
 - **Compute module:** a computer made as a small plug-in board, for a carrier board designed by someone else; Raspberry Pi's is called the Compute Module.
 - **Carrier board:** the board a compute module plugs into, which connects it to everything else in the device.
+- **Datasheet:** a maker's technical description of a part: its pins, power, size and limits.
+- **KiCad:** a free program for drawing circuit diagrams (schematics) and laying out circuit boards; a design shared as KiCad files can be opened and changed.
+- **STEP model:** a 3D model of a part, used to check that boards and parts fit in a case.
+- **SODIMM socket:** the socket that holds a laptop's memory stick; the LattePanda Mu plugs into the 260-pin DDR4 kind.
+- **Stacking height:** how far above the carrier board a module sits, set by the connector chosen.
+- **Product change notice:** a maker's notice that a product is changing, such as a part inside it coming from another supplier.
 - **GNSS (global navigation satellite system):** satellite positioning, such as GPS and Galileo; a GNSS receiver tells the device where it is.
 - **Wi-Fi adapter (USB):** a small plug-in Wi-Fi radio that can be removed from the device.
 - **SMA connector:** a screw-on connector for an external antenna.
@@ -99,6 +105,7 @@ Words about operating systems are explained in more depth in [FoxieOS's glossary
 ## Radios and certification
 
 - **Certification:** official testing that a device meets the rules before it can be sold.
+- **Declaration of Conformity:** a maker's signed statement that a product meets the EU rules that apply to it, which comes with CE marking.
 - **FCC:** the US authority for radio equipment.
   **Part 15** is its rule for low-power radios that need no licence.
 - **CE marking and RED (Radio Equipment Directive):** the EU's mark and law for radio equipment.
