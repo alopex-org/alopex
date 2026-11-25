@@ -9,6 +9,7 @@ This repository holds the research and the plan, and later the notes from bench 
 It is separate from the FoxieOS operating system, which has its own repository and rules.
 
 Everyone in the `alopex-org` organization follows its [code of conduct][coc], and its [governance][governance] says who decides what.
+Members and maintainers have their own how-to guides: the [member guide][members] and the [maintainer guide][maintaining].
 If you use an AI coding agent, you are responsible for its work as for your own; the agent's own rules are in [AGENTS.md](AGENTS.md).
 
 ## In short
@@ -151,6 +152,8 @@ A change here can need a matching change in FoxieOS, but a change in FoxieOS nev
 [gitleaks]: https://github.com/gitleaks/gitleaks
 [coc]: https://github.com/alopex-org/.github/blob/main/CODE_OF_CONDUCT.md
 [governance]: https://github.com/alopex-org/.github/blob/main/GOVERNANCE.md
+[members]: https://github.com/alopex-org/.github/blob/main/MEMBERS.md
+[maintaining]: https://github.com/alopex-org/.github/blob/main/MAINTAINING.md
 [glossary]: https://github.com/alopex-org/.github/blob/main/GLOSSARY.md
 [dco]: https://developercertificate.org/
 
