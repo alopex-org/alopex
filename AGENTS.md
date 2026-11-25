@@ -42,20 +42,20 @@ Don't add a step that only one agent's own tools can perform.
   The bench tasks T2 and T3 add the commands for starting an operating system on a board.
 - Checks: the pre-commit hooks in `.pre-commit-config.yaml` (gitleaks, blocks on key files and `*.local.md` notes, and a DCO sign-off on the commit message) run on every commit once `pre-commit install` has been run in the clone ([CONTRIBUTING.md](CONTRIBUTING.md#keys-secrets-and-personal-details)).
   On pull requests, the DCO workflow checks the sign-off again.
-  If pre-commit isn't installed or set up in the clone, tell the maintainer rather than committing without the hooks.
+  If pre-commit isn't installed or set up in the clone, tell a maintainer rather than committing without the hooks.
 
 ## Hard rules
 
 1. **Keys are off-limits.**
    Never generate, read, print, copy, hash, upload or move secure-boot or verified-boot keys.
-   Write the procedure; the maintainer handles the keys.
+   Write the procedure; the maintainers handle the keys.
    Bench work uses dev keys that never sign anything published.
 2. **No action on hardware without a go-ahead for that action.**
    This covers blowing secure-boot fuses, `fastboot flash`, unlocking and locking a bootloader, erasing or flashing `avb_custom_key`, and wiping a board or device.
    Blown fuses can't be restored, and relocking a device that isn't proven relockable can brick it.
-3. **Nothing outward-facing without the maintainer.**
+3. **Nothing outward-facing without a maintainer.**
    That includes contacting a company, asking for a quote, signing up for a vendor portal, accepting terms, buying hardware, pushing to any remote and posting anything.
-   You may draft messages for the maintainer to send.
+   You may draft messages for a maintainer to send.
 4. **Run long jobs in the background.**
    A build of an operating system for a board can take hours.
    Log its output to `logs/<date>-<job>.log`, don't wait on it in the foreground, and report what ran and its exit status.

@@ -193,7 +193,7 @@ Proposed (task T1 writes it into the requirements); it applies if the device has
 - **The chip maker decides how long the device gets fixes.**
   Closed firmware for the modem, the secure area (TEE) and the graphics chip gets fixes only while the chip maker ships them ([FEASIBILITY.md](FEASIBILITY.md#the-bsp-sets-the-support-period)).
 - **Fusing is permanent.**
-  Once the secure-boot fuses in a chip are set, they can't be reset, so each fusing step needs the maintainer's go-ahead ([FEASIBILITY.md](FEASIBILITY.md#root-of-trust)).
+  Once the secure-boot fuses in a chip are set, they can't be reset, so each fusing step needs a maintainer's go-ahead ([FEASIBILITY.md](FEASIBILITY.md#root-of-trust)).
 - **Parts in small numbers are hard to get.**
   Chip makers and ODMs prefer large orders, and memory prices rose sharply in 2026 ([FEASIBILITY.md](FEASIBILITY.md#odm-phone)).
   The prototype is built from modules and boards that can be bought one at a time.
@@ -216,8 +216,8 @@ Because the dependency runs one way, a change here can call for a change in Foxi
 ## Running the project (planned)
 
 - **Research:** sources are checked again, and their dates updated, before each decision that rests on them.
-- **Bench hardware:** the maintainer buys boards and kits; fusing is practised only on a board bought for that purpose.
-- **Keys:** before any device is fused, the maintainer sets up an offline, backed-up home for the secure-boot key.
+- **Bench hardware:** the maintainers buy boards and kits; fusing is practised only on a board bought for that purpose.
+- **Keys:** before any device is fused, the maintainers set up an offline, backed-up home for the secure-boot key.
 
 ## Open questions
 

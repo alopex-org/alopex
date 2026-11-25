@@ -13,6 +13,7 @@ Technical words are explained in the [glossary](GLOSSARY.md).
   Its main board, screen and controls, power, case and other radios are open.
 - **Founding meeting, 2026-11-24:** the members chose the maintainer and confirmed the project's foundations ([governance](https://github.com/alopex-org/.github/blob/main/GOVERNANCE.md#the-founding-meeting)).
   The meeting also took decision D5: a prototype first, then a product.
+- **Maintainers, 2026-11-26:** the maintainer chosen at the meeting appointed two more, @evansyrsiris and @Leandros64, as the meeting foresaw ([governance](https://github.com/alopex-org/.github/blob/main/GOVERNANCE.md#maintainers)).
 - **Shortlist, 2026-11-24:** the boards most in view for the main board, for now: the Raspberry Pi 5, the Orange Pi 5 and 6, the Raspberry Pi Zero 2 W, and LattePanda's x86 boards ([SHORTLIST.md](SHORTLIST.md)).
   None is chosen; the main board is decision D1.
 - **Earlier proposal:** a Raspberry Pi handheld as the first prototype ([HANDHELD.md](HANDHELD.md)); it is now one option for the cyber-deck, not a plan.
@@ -33,9 +34,9 @@ Technical words are explained in the [glossary](GLOSSARY.md).
   - **Code:** a change to files, made in a pull request.
     Anyone can do it.
   - **Hands-on:** work on a board, a module or a device.
-    The maintainer does it, or approves each step.
+    A maintainer does it, or approves each step.
   - **Maintainer only:** contacting companies, agreements, purchases, money and keys.
-    Others may draft the documents for these steps, but only the maintainer sends or signs them.
+    Others may draft the documents for these steps, but only a maintainer sends or signs them.
 
 ## Phases
 
@@ -172,14 +173,14 @@ The list of what the cyber-deck must offer.
 ### T2: development board bring-up
 
 Trying candidate boards for the cyber-deck on the bench.
-**Hands-on.** Needs task T1 and checks C9 and C15, and the maintainer to buy the boards.
+**Hands-on.** Needs task T1 and checks C9 and C15, and the maintainers to buy the boards.
 
 - Pick two or three boards that task T1's requirements point to.
   [SHORTLIST.md](SHORTLIST.md) compares the boards most in view for the cyber-deck; [BOARDS.md](BOARDS.md) compares the boards researched for the earlier phone plan, mainly RISC-V boards.
 - Start a Linux distribution on each (decision D6); for the bench, any distribution that runs on the board is enough to test it.
   Note how well the board's parts work with Linux, and how easy the board is to service.
   A build can take hours, so keep the build log.
-- If the board has secure boot, try it with a dev key, never a key that will sign anything published, and practise fusing only on a board bought for that purpose, with the maintainer's go-ahead for each step.
+- If the board has secure boot, try it with a dev key, never a key that will sign anything published, and practise fusing only on a board bought for that purpose, with a maintainer's go-ahead for each step.
 - Record the work in `docs/bench/<board>.md`: how long it took, the kernel version and software the board's maker provides, and what got in the way.
 
 **Finished when** each board starts a system and its record is committed.
@@ -190,7 +191,7 @@ Trying candidate boards for the cyber-deck on the bench.
 Trying a cellular module on its evaluation kit.
 On hold unless decision D2 chooses a cellular device.
 The steps below, and checks C4 and C5, were written for the earlier phone plan, around an Android BSP; if D2 chooses a cellular device, they are rewritten for the operating system decision D6 settles.
-**Hands-on.** Needs task T2 and checks C4 and C5, and the maintainer to buy the kit and sign up for any supplier website.
+**Hands-on.** Needs task T2 and checks C4 and C5, and the maintainers to buy the kit and sign up for any supplier website.
 
 - Try one cellular module that comes with an Android BSP, on its evaluation kit.
 - Record in `docs/bench/<module>.md`:
@@ -212,7 +213,7 @@ On hold until after the prototype: having an ODM build a phone is a route to a p
 ### T6: LoRa bench work
 
 Trying the LoRa radio design on the bench.
-**Hands-on.** Needs task T1, decision D4 and checks C10 and C11, and the maintainer to buy a LoRa development board.
+**Hands-on.** Needs task T1, decision D4 and checks C10 and C11, and the maintainers to buy a LoRa development board.
 Can run alongside task T2.
 
 - Connect a small board with an SX1262 LoRa chip, such as an nRF52840 or ESP32-S3 board that Meshtastic and MeshCore support, to the task T2 board by UART or USB.
@@ -227,7 +228,7 @@ Can run alongside task T2.
 
 Building the earlier [handheld](HANDHELD.md) proposal on the bench, to see whether its parts work together before decision D1.
 Optional: only if the maintainers want to try that option.
-**Hands-on.** Needs task T1 and checks C13 and C14, and the maintainer to buy the parts.
+**Hands-on.** Needs task T1 and checks C13 and C14, and the maintainers to buy the parts.
 Can run alongside task T2; Linux is enough to test the hardware, whatever decision D6 chooses.
 
 - Connect an SX1262 LoRa board to a Raspberry Pi 5 over SPI, run `meshtasticd`, and send messages to another Meshtastic device on 868 MHz, with the antenna always connected.
