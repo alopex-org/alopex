@@ -346,7 +346,7 @@ Sources: [LineageOS wiki data for the FP5][lineage-fp5], [LineageOS build target
 
 Which boards to buy for task T2, as proposed for the earlier phone plan, to get Android running.
 Task T2 now tries candidate boards for the cyber-deck with a Linux distribution, starting from [SHORTLIST.md](SHORTLIST.md); this recommendation stays as background, not a buying plan.
-The maintainer decides when buying the boards.
+The maintainers decide when buying the boards.
 Check C9 confirms the details first.
 
 1. **Getting Android running: the SpacemiT K3 Pico-ITX.**
@@ -359,7 +359,7 @@ Check C9 confirms the details first.
    - It shows what a finished chip maker's software package looks like, as a reference for the RISC-V work.
    - BeaglePlay is a cheaper Arm alternative, one release behind, if check C9 shows its chip can be fused.
 3. **Fusing practice:** a second i.MX 95 board, or a Raspberry Pi 5, which Raspberry Pi's own tool fuses over USB without extra hardware.
-   As task T2 says, fuse only a board bought for that purpose, with the maintainer's go-ahead for each step.
+   As task T2 says, fuse only a board bought for that purpose, with a maintainer's go-ahead for each step.
 4. **Before task T3:** a QCS6490 board only if check C5 shows that Qualcomm's signing tools and Android BSP are within reach of a small buyer.
 
 ## Sources

@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Creates or updates this repository's issue labels with the GitHub CLI.
-# The maintainer runs it after changing the list: `.github/labels.sh`.
+# A maintainer runs it after changing the list: `.github/labels.sh`.
 # Labels that aren't listed here, such as GitHub's defaults, are left alone.
 set -euo pipefail
 
@@ -12,8 +12,8 @@ while IFS='|' read -r name color description; do
 done <<'EOF'
 # Who does the work (docs/ROADMAP.md, "How to read this file").
 who: code|0e8a16|A change in a pull request; anyone can do it, including a coding agent
-who: hands-on|fbca04|Work on a board, a module or a device; the maintainer runs or approves each step
-who: maintainer|d93f0b|Contacting companies, agreements, purchases, money and keys; the maintainer only
+who: hands-on|fbca04|Work on a board, a module or a device; a maintainer runs or approves each step
+who: maintainer|d93f0b|Contacting companies, agreements, purchases, money and keys; the maintainers only
 # What the work touches.
 area: requirements|1d76db|What a device must offer
 area: boards|1d76db|Development boards and their bring-up

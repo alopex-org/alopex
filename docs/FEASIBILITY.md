@@ -282,7 +282,7 @@ What this means for the project:
   It can't be replaced.
   Losing it breaks the firmware updates of every device fused with it; leaking it lets anyone sign firmware for them.
   It needs a safe home before the first device is fused: offline, backed up, and with access controlled.
-- **Fusing can't be undone,** so each fusing step needs the maintainer's go-ahead.
+- **Fusing can't be undone,** so each fusing step needs a maintainer's go-ahead.
 - **Signing tools:** Qualcomm signs firmware with SecTools V2.
   ⚠ Its guides are available only to licensed users; what the licence involves is check C5.
 
@@ -462,7 +462,7 @@ Sources: [IDC][idc-memory], [The Register on memory prices][reg-memory].
 | Risk | Impact | What reduces it |
 |---|---|---|
 | The chip maker stops support before the EU's update period ends | High | Choose chips with long published support; put the period in the contract |
-| The chip key is lost or leaked | Critical | An offline, backed-up key that only the maintainer handles; a go-ahead for each fusing step |
+| The chip key is lost or leaked | Critical | An offline, backed-up key that only the maintainers handle; a go-ahead for each fusing step |
 | Shortages of memory or chips | High | Keep stock of key parts, as Purism did; avoid parts that only one company makes |
 | Certification costs more than estimated | Medium to high | Lab quotes before committing (check C6) |
 | Handing out prototypes makes the project a manufacturer | High | Sell nothing; check C12 before any device leaves the maintainers (decision D3) |
