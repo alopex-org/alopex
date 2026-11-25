@@ -85,7 +85,7 @@ Add your own `Co-Authored-By:` trailer naming yourself as well.
 ## Review
 
 - You may review a change to the research or the docs when a member asks you to, as a second reader for them.
-  The member approves the pull request and answers for the review; you never approve on your own behalf.
+  The person who asked answers for the review, and only a maintainer other than the author approves the pull request; you never approve on your own behalf.
 - The areas in [CONTRIBUTING.md](CONTRIBUTING.md#review) that a person must read (the recommendation, the roadmap, the design, and procedures for fusing, flashing, unlocking, relocking or handling keys) need a person's review.
   Say so in the pull request when your change touches one.
 
